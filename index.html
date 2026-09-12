@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>For Tanmay</title>
+
 
     <style>
 
@@ -41,10 +47,9 @@
 
         .film-background {
             position: fixed;
-
             inset: 0;
 
-            z-index: -5;
+            z-index: -10;
 
             background:
                 radial-gradient(
@@ -55,10 +60,6 @@
                 );
         }
 
-
-        /* ==================================================
-           SOFT MOVING LIGHT
-        ================================================== */
 
         .light {
             position: fixed;
@@ -97,12 +98,18 @@
             0%,
             100% {
                 opacity: 0.6;
-                transform: translate(-50%, -50%) scale(0.96);
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.96);
             }
 
             50% {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(1.07);
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.07);
             }
         }
 
@@ -193,9 +200,10 @@
 
             opacity: 0;
 
-            animation: starTwinkle 5s ease-in-out infinite;
-
             pointer-events: none;
+
+            animation:
+                starTwinkle 5s ease-in-out infinite;
         }
 
 
@@ -229,6 +237,7 @@
         .star1 {
             left: 16%;
             top: 25%;
+
             animation-delay: 0.5s;
         }
 
@@ -236,7 +245,9 @@
         .star2 {
             right: 19%;
             top: 31%;
+
             transform: scale(0.75);
+
             animation-delay: 2.2s;
         }
 
@@ -244,7 +255,9 @@
         .star3 {
             left: 26%;
             bottom: 23%;
+
             transform: scale(0.65);
+
             animation-delay: 1.5s;
         }
 
@@ -252,7 +265,9 @@
         .star4 {
             right: 27%;
             bottom: 20%;
+
             transform: scale(0.8);
+
             animation-delay: 3.5s;
         }
 
@@ -288,15 +303,17 @@
 
             z-index: 5;
 
-            animation: dustFloat 9s ease-in-out infinite;
-
             pointer-events: none;
+
+            animation:
+                dustFloat 9s ease-in-out infinite;
         }
 
 
         .dust1 {
             left: 34%;
             top: 23%;
+
             animation-delay: 1s;
         }
 
@@ -304,6 +321,7 @@
         .dust2 {
             left: 70%;
             top: 25%;
+
             animation-delay: 4s;
         }
 
@@ -311,6 +329,7 @@
         .dust3 {
             left: 20%;
             top: 62%;
+
             animation-delay: 2s;
         }
 
@@ -318,6 +337,7 @@
         .dust4 {
             left: 76%;
             top: 66%;
+
             animation-delay: 5s;
         }
 
@@ -325,6 +345,7 @@
         .dust5 {
             left: 43%;
             top: 76%;
+
             animation-delay: 3s;
         }
 
@@ -334,7 +355,9 @@
             0%,
             100% {
                 opacity: 0;
-                transform: translate(0, 8px);
+
+                transform:
+                    translate(0, 8px);
             }
 
             40% {
@@ -343,13 +366,15 @@
 
             60% {
                 opacity: 0.20;
-                transform: translate(8px, -12px);
+
+                transform:
+                    translate(8px, -12px);
             }
         }
 
 
         /* ==================================================
-           CRESCENT MOON
+           CRESCENT
         ================================================== */
 
         .moon {
@@ -365,11 +390,11 @@
 
             opacity: 0;
 
+            pointer-events: none;
+
             animation:
                 moonAppear 3s ease 1.5s forwards,
                 moonFloat 8s ease-in-out 4.5s infinite;
-
-            pointer-events: none;
         }
 
 
@@ -392,12 +417,16 @@
 
             from {
                 opacity: 0;
-                transform: translateY(5px);
+
+                transform:
+                    translateY(5px);
             }
 
             to {
                 opacity: 0.55;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
@@ -406,11 +435,15 @@
 
             0%,
             100% {
-                transform: translateY(0) rotate(-8deg);
+                transform:
+                    translateY(0)
+                    rotate(-8deg);
             }
 
             50% {
-                transform: translateY(-8px) rotate(2deg);
+                transform:
+                    translateY(-8px)
+                    rotate(2deg);
             }
         }
 
@@ -488,11 +521,11 @@
 
 
         .opening-content {
+            width: 90%;
+
             position: relative;
 
             z-index: 10;
-
-            width: 90%;
         }
 
 
@@ -503,7 +536,8 @@
         .hello {
             font-family: 'Great Vibes', cursive;
 
-            font-size: clamp(2.2rem, 4.8vw, 4rem);
+            font-size:
+                clamp(2.2rem, 4.8vw, 4rem);
 
             font-weight: 400;
 
@@ -512,8 +546,17 @@
             opacity: 0;
 
             animation:
-                helloAppear 2.8s cubic-bezier(.22,.61,.36,1) 0.8s forwards,
-                gentleFloat 8s ease-in-out 3.6s infinite;
+                helloAppear
+                2.8s
+                cubic-bezier(.22,.61,.36,1)
+                0.8s
+                forwards,
+
+                gentleFloat
+                8s
+                ease-in-out
+                3.6s
+                infinite;
         }
 
 
@@ -521,13 +564,19 @@
 
             from {
                 opacity: 0;
-                transform: translateY(18px);
+
+                transform:
+                    translateY(18px);
+
                 filter: blur(5px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
+
                 filter: blur(0);
             }
         }
@@ -553,7 +602,8 @@
         .date {
             margin-top: 30px;
 
-            font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+            font-size:
+                clamp(0.8rem, 1.4vw, 1.05rem);
 
             font-weight: 300;
 
@@ -565,7 +615,12 @@
 
             opacity: 0;
 
-            animation: dateAppear 2s ease 2.4s forwards;
+            animation:
+                dateAppear
+                2s
+                ease
+                2.4s
+                forwards;
         }
 
 
@@ -573,11 +628,13 @@
 
             from {
                 opacity: 0;
+
                 letter-spacing: 0.7em;
             }
 
             to {
                 opacity: 0.88;
+
                 letter-spacing: 0.45em;
             }
         }
@@ -594,11 +651,17 @@
 
             margin: 25px auto 0;
 
-            background: rgba(200, 186, 170, 0.35);
+            background:
+                rgba(200,186,170,0.35);
 
             transform: scaleX(0);
 
-            animation: dividerAppear 1.5s ease 3.4s forwards;
+            animation:
+                dividerAppear
+                1.5s
+                ease
+                3.4s
+                forwards;
         }
 
 
@@ -611,13 +674,14 @@
 
 
         /* ==================================================
-           HAPPY BIRTHDAY
+           BIRTHDAY
         ================================================== */
 
         .birthday {
             margin-top: 24px;
 
-            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-size:
+                clamp(1.4rem, 2.5vw, 2rem);
 
             font-weight: 300;
 
@@ -627,7 +691,12 @@
 
             opacity: 0;
 
-            animation: birthdayAppear 2.2s ease 3.7s forwards;
+            animation:
+                birthdayAppear
+                2.2s
+                ease
+                3.7s
+                forwards;
         }
 
 
@@ -635,12 +704,16 @@
 
             from {
                 opacity: 0;
-                transform: translateY(8px);
+
+                transform:
+                    translateY(8px);
             }
 
             to {
                 opacity: 0.94;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
@@ -652,24 +725,33 @@
         .scroll-indicator {
             position: absolute;
 
-            bottom: 38px;
-
             left: 50%;
-
-            transform: translateX(-50%);
-
-            z-index: 12;
+            bottom: 34px;
 
             width: 28px;
             height: 42px;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 12;
 
             cursor: pointer;
 
             opacity: 0;
 
             animation:
-                indicatorAppear 2s ease 5s forwards,
-                indicatorFloat 2.8s ease-in-out 7s infinite;
+                indicatorAppear
+                2s
+                ease
+                5s
+                forwards,
+
+                indicatorFloat
+                2.8s
+                ease-in-out
+                7s
+                infinite;
         }
 
 
@@ -682,9 +764,11 @@
             width: 1px;
             height: 26px;
 
-            background: rgba(200, 186, 170, 0.55);
+            background:
+                rgba(200,186,170,0.55);
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
         }
 
 
@@ -697,8 +781,11 @@
             width: 8px;
             height: 8px;
 
-            border-right: 1px solid rgba(200, 186, 170, 0.65);
-            border-bottom: 1px solid rgba(200, 186, 170, 0.65);
+            border-right:
+                1px solid rgba(200,186,170,0.65);
+
+            border-bottom:
+                1px solid rgba(200,186,170,0.65);
 
             transform:
                 translateX(-50%)
@@ -722,11 +809,15 @@
 
             0%,
             100% {
-                transform: translateX(-50%) translateY(0);
+                transform:
+                    translateX(-50%)
+                    translateY(0);
             }
 
             50% {
-                transform: translateX(-50%) translateY(7px);
+                transform:
+                    translateX(-50%)
+                    translateY(7px);
             }
         }
 
@@ -742,7 +833,10 @@
 
             min-height: 100vh;
 
-            padding: 130px 25px 180px;
+            padding:
+                150px
+                25px
+                180px;
 
             display: flex;
 
@@ -762,17 +856,18 @@
 
 
         /* ==================================================
-           FIRST LINE
+           FIRST THOUGHT
         ================================================== */
 
         .memory-intro {
-            max-width: 700px;
+            max-width: 720px;
 
             margin: 0 auto;
 
-            font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+            font-size:
+                clamp(1.55rem, 2.8vw, 2.3rem);
 
-            line-height: 1.55;
+            line-height: 1.6;
 
             font-weight: 300;
 
@@ -780,9 +875,34 @@
 
             opacity: 0;
 
-            transform: translateY(20px);
+            animation:
+                memoryReveal
+                2.2s
+                ease
+                0.3s
+                forwards;
+        }
 
-            animation: memoryReveal 2s ease forwards;
+
+        .memory-date {
+            margin-top: 28px;
+
+            font-size: 0.82rem;
+
+            letter-spacing: 0.42em;
+
+            margin-left: 0.42em;
+
+            color: #a99b8d;
+
+            opacity: 0;
+
+            animation:
+                memoryReveal
+                1.8s
+                ease
+                0.9s
+                forwards;
         }
 
 
@@ -790,68 +910,61 @@
 
             from {
                 opacity: 0;
-                transform: translateY(20px);
+
+                transform:
+                    translateY(20px);
+
                 filter: blur(3px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
+
                 filter: blur(0);
             }
         }
 
 
         /* ==================================================
-           DATE
+           HOW WE MET
         ================================================== */
 
-        .memory-date {
-            margin-top: 30px;
-
-            font-size: 0.85rem;
-
-            letter-spacing: 0.4em;
-
-            color: #a99b8d;
-
-            opacity: 0;
-
-            animation: memoryReveal 1.8s ease 0.7s forwards;
-        }
-
-
-        /* ==================================================
-           FIRST CALL STORY
-        ================================================== */
-
-        .call-story {
+        .first-call {
             max-width: 650px;
 
-            margin: 80px auto 0;
+            margin: 85px auto 0;
 
-            font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+            font-size:
+                clamp(1.3rem, 2.25vw, 1.8rem);
 
-            line-height: 1.75;
+            line-height: 1.8;
 
             font-weight: 300;
 
-            color: #cfc4b9;
+            color: #d0c5ba;
 
             opacity: 0;
 
-            animation: memoryReveal 2s ease 1.5s forwards;
+            animation:
+                memoryReveal
+                2.2s
+                ease
+                1.7s
+                forwards;
         }
 
 
-        .call-story .emphasis {
+        .first-call .quiet {
             display: block;
 
-            margin-top: 30px;
+            margin-top: 35px;
 
             color: #e2d5c9;
 
-            font-size: 1.12em;
+            font-size: 1.08em;
 
             font-style: italic;
         }
@@ -864,17 +977,28 @@
         .screenshot-intro {
             max-width: 620px;
 
-            margin: 100px auto 38px;
+            margin:
+                105px
+                auto
+                38px;
 
-            font-size: clamp(1.15rem, 2vw, 1.55rem);
+            font-size:
+                clamp(1.2rem, 2.1vw, 1.6rem);
 
             line-height: 1.65;
+
+            font-weight: 300;
 
             color: #d6cabf;
 
             opacity: 0;
 
-            animation: memoryReveal 2s ease 2.5s forwards;
+            animation:
+                memoryReveal
+                2s
+                ease
+                2.8s
+                forwards;
         }
 
 
@@ -885,9 +1009,10 @@
         .screenshot-frame {
             position: relative;
 
-            width: min(390px, 88vw);
+            width:
+                min(390px, 88vw);
 
-            height: 330px;
+            height: 400px;
 
             margin: 0 auto;
 
@@ -897,14 +1022,43 @@
 
             opacity: 0;
 
-            transform: translateY(25px) scale(0.98);
+            transform:
+                translateY(25px)
+                scale(0.98);
 
             box-shadow:
-                0 30px 80px rgba(0,0,0,0.7),
-                0 0 0 1px rgba(190,165,140,0.12);
+                0 30px 80px rgba(0,0,0,0.72),
+
+                0 0 0 1px
+                rgba(190,165,140,0.12);
 
             animation:
-                screenshotReveal 2.4s cubic-bezier(.22,.61,.36,1) 3s forwards;
+                screenshotReveal
+                2.5s
+                cubic-bezier(.22,.61,.36,1)
+                3.3s
+                forwards;
+        }
+
+
+        .screenshot-frame img {
+            position: absolute;
+
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            left: 0;
+            top: 0;
+
+            /*
+               This crop removes the phone header
+               and focuses on the conversation itself.
+            */
+
+            transform:
+                translateY(-34%);
         }
 
 
@@ -920,28 +1074,11 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.05),
-                    transparent 20%,
-                    transparent 80%,
-                    rgba(0,0,0,0.08)
+                    rgba(0,0,0,0.03),
+                    transparent 18%,
+                    transparent 82%,
+                    rgba(0,0,0,0.10)
                 );
-        }
-
-
-        .screenshot-frame img {
-            position: absolute;
-
-            display: block;
-
-            width: 100%;
-
-            height: auto;
-
-            left: 0;
-
-            top: 0;
-
-            transform: translateY(-46%);
         }
 
 
@@ -949,12 +1086,18 @@
 
             from {
                 opacity: 0;
-                transform: translateY(25px) scale(0.98);
+
+                transform:
+                    translateY(25px)
+                    scale(0.98);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
@@ -964,15 +1107,19 @@
         ================================================== */
 
         .after-screenshot {
-            max-width: 680px;
+            max-width: 700px;
 
-            margin: 80px auto 0;
+            margin:
+                85px
+                auto
+                0;
 
-            padding-bottom: 100px;
+            padding-bottom: 120px;
 
-            font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+            font-size:
+                clamp(1.3rem, 2.3vw, 1.85rem);
 
-            line-height: 1.7;
+            line-height: 1.75;
 
             font-weight: 300;
 
@@ -980,14 +1127,19 @@
 
             opacity: 0;
 
-            animation: memoryReveal 2s ease 4s forwards;
+            animation:
+                memoryReveal
+                2.2s
+                ease
+                4.3s
+                forwards;
         }
 
 
         .so-i-did {
             display: block;
 
-            margin-bottom: 30px;
+            margin-bottom: 32px;
 
             font-size: 1.2em;
 
@@ -998,13 +1150,550 @@
 
 
         /* ==================================================
+           CALL MEMORY
+        ================================================== */
+
+        .call-memory {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding:
+                140px
+                25px
+                170px;
+
+            display: flex;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        .call-memory-inner {
+            width: min(900px, 92vw);
+
+            margin: auto;
+        }
+
+
+        .call-title {
+            max-width: 650px;
+
+            margin: 0 auto 75px;
+
+            font-size:
+                clamp(1.4rem, 2.6vw, 2.15rem);
+
+            line-height: 1.6;
+
+            font-weight: 300;
+
+            color: #e0d5ca;
+
+            opacity: 0;
+
+            animation:
+                memoryReveal
+                2s
+                ease
+                0.2s
+                forwards;
+        }
+
+
+        /* ==================================================
+           STYLIZED CALL LOG
+        ================================================== */
+
+        .calls {
+            position: relative;
+
+            width: min(520px, 90vw);
+
+            height: 430px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .call-card {
+            position: absolute;
+
+            width: min(330px, 72vw);
+
+            padding: 22px 28px;
+
+            border:
+                1px solid
+                rgba(190,165,140,0.16);
+
+            background:
+                rgba(30,23,19,0.58);
+
+            backdrop-filter: blur(5px);
+
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,0.35);
+
+            opacity: 0;
+
+            animation:
+                callAppear
+                1.4s
+                ease
+                forwards;
+        }
+
+
+        .call-card:nth-child(1) {
+            top: 15px;
+            left: 12%;
+
+            transform: rotate(-4deg);
+
+            animation-delay: 0.5s;
+        }
+
+
+        .call-card:nth-child(2) {
+            top: 90px;
+            right: 7%;
+
+            transform: rotate(3deg);
+
+            animation-delay: 0.9s;
+        }
+
+
+        .call-card:nth-child(3) {
+            top: 170px;
+            left: 8%;
+
+            transform: rotate(2deg);
+
+            animation-delay: 1.3s;
+        }
+
+
+        .call-card:nth-child(4) {
+            top: 250px;
+            right: 10%;
+
+            transform: rotate(-3deg);
+
+            animation-delay: 1.7s;
+        }
+
+
+        .call-card:nth-child(5) {
+            top: 330px;
+            left: 20%;
+
+            transform: rotate(4deg);
+
+            animation-delay: 2.1s;
+        }
+
+
+        .call-name {
+            font-size: 1.35rem;
+
+            color: #e2d6ca;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .call-status {
+            margin-top: 5px;
+
+            font-size: 0.9rem;
+
+            color: #a99b8d;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        .call-wave {
+            width: 90px;
+
+            height: 18px;
+
+            margin:
+                12px
+                auto
+                0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 3px;
+        }
+
+
+        .call-wave span {
+            display: block;
+
+            width: 1px;
+
+            background: #b99d80;
+
+            animation:
+                wave 1.2s ease-in-out infinite;
+        }
+
+
+        .call-wave span:nth-child(1) {
+            height: 5px;
+            animation-delay: 0s;
+        }
+
+
+        .call-wave span:nth-child(2) {
+            height: 10px;
+            animation-delay: 0.1s;
+        }
+
+
+        .call-wave span:nth-child(3) {
+            height: 15px;
+            animation-delay: 0.2s;
+        }
+
+
+        .call-wave span:nth-child(4) {
+            height: 8px;
+            animation-delay: 0.3s;
+        }
+
+
+        .call-wave span:nth-child(5) {
+            height: 13px;
+            animation-delay: 0.4s;
+        }
+
+
+        .call-wave span:nth-child(6) {
+            height: 6px;
+            animation-delay: 0.5s;
+        }
+
+
+        .call-wave span:nth-child(7) {
+            height: 11px;
+            animation-delay: 0.6s;
+        }
+
+
+        @keyframes callAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(0.5);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
+
+        /* ==================================================
+           CALL CLOSING
+        ================================================== */
+
+        .call-closing {
+            max-width: 680px;
+
+            margin:
+                80px
+                auto
+                0;
+
+            font-size:
+                clamp(1.25rem, 2.3vw, 1.8rem);
+
+            line-height: 1.75;
+
+            color: #d7cbc0;
+
+            opacity: 0;
+
+            animation:
+                memoryReveal
+                2s
+                ease
+                3.4s
+                forwards;
+        }
+
+
+        .call-closing strong {
+            display: block;
+
+            margin-top: 32px;
+
+            font-weight: 400;
+
+            color: #e4d7ca;
+        }
+
+
+        /* ==================================================
+           TALKING TO YOU SCREENSHOT
+        ================================================== */
+
+        .routine-note {
+            max-width: 650px;
+
+            margin:
+                130px
+                auto
+                0;
+
+            padding-bottom: 150px;
+
+            font-size:
+                clamp(1.25rem, 2.2vw, 1.75rem);
+
+            line-height: 1.7;
+
+            color: #d5c9be;
+        }
+
+
+        .routine-note span {
+            display: block;
+
+            margin-top: 25px;
+
+            color: #a99b8d;
+
+            font-size: 0.85em;
+
+            font-style: italic;
+        }
+
+
+        /* ==================================================
+           TRANSITION INTO YOU
+        ================================================== */
+
+        .you-section {
+            position: relative;
+
+            min-height: 100vh;
+
+            padding:
+                170px
+                25px
+                180px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        .you-inner {
+            width: min(850px, 92vw);
+
+            margin: auto;
+        }
+
+
+        .you-transition {
+            max-width: 720px;
+
+            margin: 0 auto;
+
+            font-size:
+                clamp(1.4rem, 2.7vw, 2.15rem);
+
+            line-height: 1.7;
+
+            font-weight: 300;
+
+            color: #ded3c8;
+        }
+
+
+        .you-transition .small {
+            display: block;
+
+            margin-top: 45px;
+
+            color: #aaa093;
+
+            font-size: 0.78em;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        /* ==================================================
+           YOU TITLE
+        ================================================== */
+
+        .you-title {
+            margin-top: 115px;
+
+            font-size:
+                clamp(3.2rem, 8vw, 7rem);
+
+            font-weight: 300;
+
+            letter-spacing: 0.08em;
+
+            color: #e7ddd3;
+        }
+
+
+        .you-line {
+            width: 90px;
+
+            height: 1px;
+
+            margin:
+                32px
+                auto
+                0;
+
+            background:
+                rgba(190,165,140,0.4);
+        }
+
+
+        .you-intro {
+            max-width: 700px;
+
+            margin:
+                55px
+                auto
+                0;
+
+            font-size:
+                clamp(1.25rem, 2.3vw, 1.8rem);
+
+            line-height: 1.8;
+
+            color: #cfc3b8;
+        }
+
+
+        /* ==================================================
+           YOU - TRAVEL
+        ================================================== */
+
+        .you-detail {
+            max-width: 700px;
+
+            margin:
+                120px
+                auto
+                0;
+
+            text-align: left;
+
+            padding-left: 30px;
+
+            border-left:
+                1px solid
+                rgba(190,165,140,0.25);
+        }
+
+
+        .detail-label {
+            font-size: 0.75rem;
+
+            letter-spacing: 0.3em;
+
+            text-transform: uppercase;
+
+            color: #a8998b;
+
+            margin-bottom: 20px;
+        }
+
+
+        .detail-text {
+            font-size:
+                clamp(1.25rem, 2.2vw, 1.75rem);
+
+            line-height: 1.75;
+
+            color: #d6cbc0;
+        }
+
+
+        /* ==================================================
+           FINAL YOU THOUGHT
+        ================================================== */
+
+        .you-ending {
+            max-width: 720px;
+
+            margin:
+                140px
+                auto
+                0;
+
+            padding-bottom: 120px;
+
+            font-size:
+                clamp(1.3rem, 2.4vw, 1.9rem);
+
+            line-height: 1.8;
+
+            color: #ded3c8;
+        }
+
+
+        /* ==================================================
            MOBILE
         ================================================== */
 
         @media (max-width: 600px) {
 
             .opening {
-                min-height: 600px;
+                min-height: 620px;
             }
 
 
@@ -1014,7 +1703,7 @@
 
 
             .date {
-                font-size: 0.75rem;
+                font-size: 0.74rem;
 
                 letter-spacing: 0.3em;
 
@@ -1059,7 +1748,10 @@
 
 
             .memory {
-                padding: 100px 20px 140px;
+                padding:
+                    110px
+                    20px
+                    150px;
             }
 
 
@@ -1068,15 +1760,15 @@
             }
 
 
-            .call-story {
-                margin-top: 60px;
+            .first-call {
+                margin-top: 65px;
 
                 font-size: 1.25rem;
             }
 
 
             .screenshot-intro {
-                margin-top: 75px;
+                margin-top: 80px;
 
                 font-size: 1.2rem;
             }
@@ -1085,18 +1777,132 @@
             .screenshot-frame {
                 width: min(370px, 90vw);
 
-                height: 310px;
+                height: 380px;
             }
 
 
             .after-screenshot {
-                margin-top: 60px;
+                margin-top: 65px;
 
                 font-size: 1.25rem;
             }
+
+
+            .call-memory {
+                padding:
+                    120px
+                    20px
+                    150px;
+            }
+
+
+            .call-title {
+                font-size: 1.4rem;
+
+                margin-bottom: 45px;
+            }
+
+
+            .calls {
+                height: 390px;
+            }
+
+
+            .call-card {
+                width: min(290px, 72vw);
+
+                padding:
+                    18px
+                    22px;
+            }
+
+
+            .call-card:nth-child(1) {
+                left: 2%;
+            }
+
+
+            .call-card:nth-child(2) {
+                right: 0;
+            }
+
+
+            .call-card:nth-child(3) {
+                left: 0;
+            }
+
+
+            .call-card:nth-child(4) {
+                right: 0;
+            }
+
+
+            .call-card:nth-child(5) {
+                left: 10%;
+            }
+
+
+            .call-closing {
+                margin-top: 65px;
+
+                font-size: 1.25rem;
+            }
+
+
+            .routine-note {
+                margin-top: 100px;
+
+                font-size: 1.25rem;
+            }
+
+
+            .you-section {
+                padding:
+                    120px
+                    20px
+                    150px;
+            }
+
+
+            .you-transition {
+                font-size: 1.35rem;
+            }
+
+
+            .you-title {
+                margin-top: 85px;
+
+                font-size: 3.7rem;
+            }
+
+
+            .you-intro {
+                font-size: 1.25rem;
+            }
+
+
+            .you-detail {
+                margin-top: 90px;
+
+                padding-left: 20px;
+            }
+
+
+            .detail-text {
+                font-size: 1.25rem;
+            }
+
+
+            .you-ending {
+                margin-top: 100px;
+
+                font-size: 1.25rem;
+            }
+
         }
 
     </style>
+
 </head>
 
 
@@ -1104,7 +1910,7 @@
 
 
     <!-- ==================================================
-         BACKGROUND
+         SHARED CINEMATIC ATMOSPHERE
     ================================================== -->
 
     <div class="film-background"></div>
@@ -1112,7 +1918,7 @@
     <div class="light"></div>
 
 
-    <!-- Stars -->
+    <!-- STARS -->
 
     <div class="star star1"></div>
     <div class="star star2"></div>
@@ -1120,7 +1926,7 @@
     <div class="star star4"></div>
 
 
-    <!-- Dust -->
+    <!-- DUST -->
 
     <div class="dust dust1"></div>
     <div class="dust dust2"></div>
@@ -1129,7 +1935,7 @@
     <div class="dust dust5"></div>
 
 
-    <!-- Moon -->
+    <!-- MOON -->
 
     <div class="moon">
 
@@ -1141,14 +1947,14 @@
                 C14 31, 20 35, 28 34
                 C22 32, 18 27, 18 21
                 C18 14, 22 9, 29 6
-            "/>
+            " />
 
         </svg>
 
     </div>
 
 
-    <!-- Curved lines -->
+    <!-- CURVED LINES -->
 
     <div class="curve curve1">
 
@@ -1157,7 +1963,7 @@
             <path d="
                 M0 110
                 C70 35, 160 25, 300 70
-            "/>
+            " />
 
         </svg>
 
@@ -1171,7 +1977,7 @@
             <path d="
                 M0 75
                 C100 20, 200 35, 300 120
-            "/>
+            " />
 
         </svg>
 
@@ -1187,8 +1993,9 @@
 
         <div class="opening-content">
 
+
             <div class="hello">
-                Hiii babyyyyyy
+                Hi babyyyyyy
             </div>
 
 
@@ -1201,17 +2008,24 @@
 
 
             <div class="birthday">
-                Happy birthday love.
+                Happy birthday, my love.
             </div>
+
 
         </div>
 
 
-        <!-- Scroll / continue indicator -->
+        <!-- Clickable visual scroll cue -->
 
         <div
             class="scroll-indicator"
-            onclick="document.getElementById('memory').scrollIntoView({ behavior: 'smooth' });"
+            onclick="
+                document
+                .getElementById('memory')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
+            "
         >
 
             <div class="scroll-line"></div>
@@ -1225,15 +2039,13 @@
 
 
     <!-- ==================================================
-         FIRST MEMORY
+         A LITTLE BEGINNING
     ================================================== -->
 
     <section class="memory" id="memory">
 
         <div class="memory-inner">
 
-
-            <!-- Opening thought -->
 
             <div class="memory-intro">
 
@@ -1251,7 +2063,7 @@
 
             <!-- First call -->
 
-            <div class="call-story">
+            <div class="first-call">
 
                 It started with a video call.
 
@@ -1264,19 +2076,13 @@
                 And I had absolutely no idea
                 what that call was going to become.
 
-                <span class="emphasis">
+                <span class="quiet">
 
-                    At the time, you were just a decent guy
-                    I'd met through Nisha.
-
-                    <br><br>
-
-                    Nothing more.
+                    I barely knew you then.
 
                     <br><br>
 
-                    You, however, had already decided
-                    I was cute.
+                    You told me you thought I was cute.
 
                 </span>
 
@@ -1284,7 +2090,7 @@
 
 
 
-            <!-- Screenshot introduction -->
+            <!-- Screenshot -->
 
             <div class="screenshot-intro">
 
@@ -1294,14 +2100,11 @@
             </div>
 
 
-
-            <!-- Actual cropped screenshot -->
-
             <div class="screenshot-frame">
 
                 <img
                     src="mere-saath-nahi.png"
-                    alt="An early conversation"
+                    alt="An early conversation between Tanmay and Kirti"
                 >
 
             </div>
@@ -1316,7 +2119,7 @@
                     So I did.
                 </span>
 
-                And I don't think either of us knew
+                I don't think either of us knew
                 how small that moment was.
 
                 <br><br>
@@ -1352,7 +2155,455 @@
 
 
     <!-- ==================================================
-         GRAIN + VIGNETTE
+         THE CALLS
+    ================================================== -->
+
+    <section class="call-memory">
+
+        <div class="call-memory-inner">
+
+
+            <div class="call-title">
+
+                I don't remember what we talked about
+                on most of those calls.
+
+                <br><br>
+
+                Funny how that works.
+
+            </div>
+
+
+
+            <!-- Stylized visual memory of calls -->
+
+            <div class="calls">
+
+
+                <div class="call-card">
+
+                    <div class="call-name">
+                        Tanmay
+                    </div>
+
+                    <div class="call-status">
+                        Incoming call
+                    </div>
+
+                    <div class="call-wave">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="call-card">
+
+                    <div class="call-name">
+                        Tanmay
+                    </div>
+
+                    <div class="call-status">
+                        Incoming call
+                    </div>
+
+                    <div class="call-wave">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="call-card">
+
+                    <div class="call-name">
+                        Tanmay
+                    </div>
+
+                    <div class="call-status">
+                        Incoming call
+                    </div>
+
+                    <div class="call-wave">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="call-card">
+
+                    <div class="call-name">
+                        Tanmay
+                    </div>
+
+                    <div class="call-status">
+                        Incoming call
+                    </div>
+
+                    <div class="call-wave">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="call-card">
+
+                    <div class="call-name">
+                        Tanmay
+                    </div>
+
+                    <div class="call-status">
+                        Incoming call
+                    </div>
+
+                    <div class="call-wave">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="call-closing">
+
+                You forget the conversations.
+
+                <br>
+
+                But somehow you remember
+                the person who made you want
+                to keep having them.
+
+                <strong>
+                    And somewhere along the way,
+                    talking to you just became part
+                    of my day.
+                </strong>
+
+            </div>
+
+
+
+            <div class="routine-note">
+
+                There was something strangely easy
+                about talking to you.
+
+                <br><br>
+
+                Nothing spectacular.
+
+                <br>
+
+                Nothing that needed to be remembered.
+
+                <br><br>
+
+                Just you.
+
+                <br>
+
+                Me.
+
+                <br>
+
+                And somehow, enough.
+
+                <span>
+                    Some things become important
+                    without announcing themselves.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         YOU
+    ================================================== -->
+
+    <section class="you-section" id="you">
+
+        <div class="you-inner">
+
+
+            <div class="you-transition">
+
+                But this isn't really a story
+                about how we met.
+
+                <br><br>
+
+                Because there is so much more
+                to you than the way you first
+                entered my life.
+
+                <span class="small">
+
+                    And I've spent the last few months
+                    noticing little things about you.
+
+                </span>
+
+            </div>
+
+
+
+            <div class="you-title">
+                YOU
+            </div>
+
+
+            <div class="you-line"></div>
+
+
+            <div class="you-intro">
+
+                The person behind all the conversations.
+                The person I keep discovering in
+                little pieces.
+
+                <br><br>
+
+                The parts of you that you probably
+                don't even realise people notice.
+
+            </div>
+
+
+
+            <!-- Travel -->
+
+            <div class="you-detail">
+
+                <div class="detail-label">
+                    the traveller
+                </div>
+
+
+                <div class="detail-text">
+
+                    You have always seemed like
+                    a traveller at heart.
+
+                    <br><br>
+
+                    You want to see places.
+                    Try things.
+                    Go somewhere new and
+                    find out what is there.
+
+                    <br><br>
+
+                    I think there is something
+                    beautiful about that part of you —
+                    the part that doesn't want
+                    life to be small.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Carefree -->
+
+            <div class="you-detail">
+
+                <div class="detail-label">
+                    the one who acts like nothing matters
+                </div>
+
+
+                <div class="detail-text">
+
+                    You have this way of making
+                    everything look easy.
+
+                    <br><br>
+
+                    Like nothing really gets to you.
+
+                    <br><br>
+
+                    But I know that's not quite true.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- What lies underneath -->
+
+            <div class="you-detail">
+
+                <div class="detail-label">
+                    underneath
+                </div>
+
+
+                <div class="detail-text">
+
+                    You care.
+
+                    <br><br>
+
+                    Probably more than you let
+                    most people see.
+
+                    <br><br>
+
+                    You carry a lot for the people
+                    you love.
+
+                    You worry about them.
+                    You think about them.
+                    You want things to be okay
+                    for them.
+
+                    <br><br>
+
+                    And sometimes I think you
+                    forget that carrying so much
+                    doesn't mean you have to
+                    carry it quietly.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Ambition -->
+
+            <div class="you-detail">
+
+                <div class="detail-label">
+                    the part of you that wants more
+                </div>
+
+
+                <div class="detail-text">
+
+                    I know you want a lot from life.
+
+                    <br><br>
+
+                    And maybe that's also where
+                    some of your fear comes from.
+
+                    <br><br>
+
+                    What if you don't make it?
+
+                    <br>
+
+                    What if you don't become
+                    the person you imagined
+                    you would be?
+
+                    <br><br>
+
+                    I don't know if that's your
+                    biggest fear.
+
+                    <br><br>
+
+                    But I know it's one you carry.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="you-ending">
+
+                And sometimes I wish you could
+                see yourself from where I'm standing.
+
+                <br><br>
+
+                Because you are already becoming.
+
+                <br><br>
+
+                You don't have to wait until you've
+                achieved everything you want
+                before you get to be proud of yourself.
+
+                <br><br>
+
+                You're already someone worth
+                being proud of.
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ATMOSPHERE LAYERS
     ================================================== -->
 
     <div class="grain"></div>
