@@ -7,7 +7,13 @@
     <title>For Tanmay</title>
 
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+
+        /* ==================================================
+           RESET
+        ================================================== */
 
         * {
             margin: 0;
@@ -15,27 +21,30 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
+
+        html {
+            scroll-behavior: smooth;
         }
+
 
         body {
             background: #070605;
             color: #eee7de;
             font-family: 'Cormorant Garamond', Georgia, serif;
+            overflow-x: hidden;
         }
 
 
         /* ==================================================
-           SHARED BACKGROUND
+           SHARED CINEMATIC BACKGROUND
         ================================================== */
 
         .film-background {
             position: fixed;
+
             inset: 0;
-            z-index: 0;
+
+            z-index: -5;
 
             background:
                 radial-gradient(
@@ -45,6 +54,11 @@
                     #070605 75%
                 );
         }
+
+
+        /* ==================================================
+           SOFT MOVING LIGHT
+        ================================================== */
 
         .light {
             position: fixed;
@@ -77,7 +91,9 @@
             pointer-events: none;
         }
 
+
         @keyframes breathe {
+
             0%,
             100% {
                 opacity: 0.6;
@@ -92,7 +108,7 @@
 
 
         /* ==================================================
-           GRAIN
+           FILM GRAIN
         ================================================== */
 
         .grain {
@@ -115,7 +131,9 @@
             animation: grainMove 0.25s steps(2) infinite;
         }
 
+
         @keyframes grainMove {
+
             0% {
                 transform: translate(0, 0);
             }
@@ -162,7 +180,7 @@
 
 
         /* ==================================================
-           DECORATIVE STARS
+           STARS
         ================================================== */
 
         .star {
@@ -180,6 +198,7 @@
             pointer-events: none;
         }
 
+
         .star::before,
         .star::after {
             content: "";
@@ -194,21 +213,25 @@
             transform: translate(-50%, -50%);
         }
 
+
         .star::before {
             width: 1px;
             height: 14px;
         }
+
 
         .star::after {
             width: 14px;
             height: 1px;
         }
 
+
         .star1 {
             left: 16%;
             top: 25%;
             animation-delay: 0.5s;
         }
+
 
         .star2 {
             right: 19%;
@@ -217,12 +240,14 @@
             animation-delay: 2.2s;
         }
 
+
         .star3 {
             left: 26%;
             bottom: 23%;
             transform: scale(0.65);
             animation-delay: 1.5s;
         }
+
 
         .star4 {
             right: 27%;
@@ -231,7 +256,9 @@
             animation-delay: 3.5s;
         }
 
+
         @keyframes starTwinkle {
+
             0%,
             100% {
                 opacity: 0.10;
@@ -266,11 +293,13 @@
             pointer-events: none;
         }
 
+
         .dust1 {
             left: 34%;
             top: 23%;
             animation-delay: 1s;
         }
+
 
         .dust2 {
             left: 70%;
@@ -278,11 +307,13 @@
             animation-delay: 4s;
         }
 
+
         .dust3 {
             left: 20%;
             top: 62%;
             animation-delay: 2s;
         }
+
 
         .dust4 {
             left: 76%;
@@ -290,13 +321,16 @@
             animation-delay: 5s;
         }
 
+
         .dust5 {
             left: 43%;
             top: 76%;
             animation-delay: 3s;
         }
 
+
         @keyframes dustFloat {
+
             0%,
             100% {
                 opacity: 0;
@@ -315,7 +349,7 @@
 
 
         /* ==================================================
-           MOON
+           CRESCENT MOON
         ================================================== */
 
         .moon {
@@ -338,18 +372,24 @@
             pointer-events: none;
         }
 
+
         .moon svg {
             width: 100%;
             height: 100%;
         }
 
+
         .moon path {
             fill: none;
+
             stroke: #c0a486;
+
             stroke-width: 1;
         }
 
+
         @keyframes moonAppear {
+
             from {
                 opacity: 0;
                 transform: translateY(5px);
@@ -361,7 +401,9 @@
             }
         }
 
+
         @keyframes moonFloat {
+
             0%,
             100% {
                 transform: translateY(0) rotate(-8deg);
@@ -390,26 +432,34 @@
             z-index: 3;
         }
 
+
         .curve svg {
             width: 100%;
             height: 100%;
         }
 
+
         .curve path {
             fill: none;
+
             stroke: #a88b6f;
+
             stroke-width: 0.8;
         }
+
 
         .curve1 {
             top: -30px;
             left: -50px;
+
             transform: rotate(-8deg);
         }
+
 
         .curve2 {
             bottom: -40px;
             right: -50px;
+
             transform: rotate(8deg);
         }
 
@@ -434,20 +484,8 @@
             text-align: center;
 
             z-index: 10;
-
-            animation: openingFade 1.8s ease 9.8s forwards;
         }
 
-        @keyframes openingFade {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
 
         .opening-content {
             position: relative;
@@ -456,6 +494,11 @@
 
             width: 90%;
         }
+
+
+        /* ==================================================
+           HI BABYYYYYY
+        ================================================== */
 
         .hello {
             font-family: 'Great Vibes', cursive;
@@ -473,7 +516,9 @@
                 gentleFloat 8s ease-in-out 3.6s infinite;
         }
 
+
         @keyframes helloAppear {
+
             from {
                 opacity: 0;
                 transform: translateY(18px);
@@ -487,7 +532,9 @@
             }
         }
 
+
         @keyframes gentleFloat {
+
             0%,
             100% {
                 transform: translateY(0);
@@ -497,6 +544,11 @@
                 transform: translateY(-3px);
             }
         }
+
+
+        /* ==================================================
+           DATE
+        ================================================== */
 
         .date {
             margin-top: 30px;
@@ -516,7 +568,9 @@
             animation: dateAppear 2s ease 2.4s forwards;
         }
 
+
         @keyframes dateAppear {
+
             from {
                 opacity: 0;
                 letter-spacing: 0.7em;
@@ -527,6 +581,11 @@
                 letter-spacing: 0.45em;
             }
         }
+
+
+        /* ==================================================
+           DIVIDER
+        ================================================== */
 
         .divider {
             width: 90px;
@@ -542,11 +601,18 @@
             animation: dividerAppear 1.5s ease 3.4s forwards;
         }
 
+
         @keyframes dividerAppear {
+
             to {
                 transform: scaleX(1);
             }
         }
+
+
+        /* ==================================================
+           HAPPY BIRTHDAY
+        ================================================== */
 
         .birthday {
             margin-top: 24px;
@@ -564,7 +630,9 @@
             animation: birthdayAppear 2.2s ease 3.7s forwards;
         }
 
+
         @keyframes birthdayAppear {
+
             from {
                 opacity: 0;
                 transform: translateY(8px);
@@ -578,15 +646,103 @@
 
 
         /* ==================================================
-           FIRST MEMORY
+           SCROLL INDICATOR
+        ================================================== */
+
+        .scroll-indicator {
+            position: absolute;
+
+            bottom: 38px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            z-index: 12;
+
+            width: 28px;
+            height: 42px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                indicatorAppear 2s ease 5s forwards,
+                indicatorFloat 2.8s ease-in-out 7s infinite;
+        }
+
+
+        .scroll-line {
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+
+            width: 1px;
+            height: 26px;
+
+            background: rgba(200, 186, 170, 0.55);
+
+            transform: translateX(-50%);
+        }
+
+
+        .scroll-arrow {
+            position: absolute;
+
+            left: 50%;
+            bottom: 2px;
+
+            width: 8px;
+            height: 8px;
+
+            border-right: 1px solid rgba(200, 186, 170, 0.65);
+            border-bottom: 1px solid rgba(200, 186, 170, 0.65);
+
+            transform:
+                translateX(-50%)
+                rotate(45deg);
+        }
+
+
+        @keyframes indicatorAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes indicatorFloat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(7px);
+            }
+        }
+
+
+        /* ==================================================
+           MEMORY SECTION
         ================================================== */
 
         .memory {
             position: relative;
 
+            width: 100%;
+
             min-height: 100vh;
 
-            padding: 120px 25px 150px;
+            padding: 130px 25px 180px;
 
             display: flex;
 
@@ -597,6 +753,7 @@
             z-index: 5;
         }
 
+
         .memory-inner {
             width: min(850px, 92vw);
 
@@ -605,7 +762,7 @@
 
 
         /* ==================================================
-           MEMORY INTRO
+           FIRST LINE
         ================================================== */
 
         .memory-intro {
@@ -623,27 +780,17 @@
 
             opacity: 0;
 
-            animation: memoryTextAppear 2.2s ease 10.5s forwards;
+            transform: translateY(20px);
+
+            animation: memoryReveal 2s ease forwards;
         }
 
-        .memory-date {
-            margin-top: 28px;
 
-            font-size: 0.85rem;
+        @keyframes memoryReveal {
 
-            letter-spacing: 0.4em;
-
-            color: #a99b8d;
-
-            opacity: 0;
-
-            animation: memoryTextAppear 1.8s ease 11.5s forwards;
-        }
-
-        @keyframes memoryTextAppear {
             from {
                 opacity: 0;
-                transform: translateY(18px);
+                transform: translateY(20px);
                 filter: blur(3px);
             }
 
@@ -656,17 +803,36 @@
 
 
         /* ==================================================
-           FIRST CALL TEXT
+           DATE
+        ================================================== */
+
+        .memory-date {
+            margin-top: 30px;
+
+            font-size: 0.85rem;
+
+            letter-spacing: 0.4em;
+
+            color: #a99b8d;
+
+            opacity: 0;
+
+            animation: memoryReveal 1.8s ease 0.7s forwards;
+        }
+
+
+        /* ==================================================
+           FIRST CALL STORY
         ================================================== */
 
         .call-story {
             max-width: 650px;
 
-            margin: 75px auto 0;
+            margin: 80px auto 0;
 
             font-size: clamp(1.25rem, 2.2vw, 1.75rem);
 
-            line-height: 1.7;
+            line-height: 1.75;
 
             font-weight: 300;
 
@@ -674,13 +840,14 @@
 
             opacity: 0;
 
-            animation: memoryTextAppear 2s ease 12.2s forwards;
+            animation: memoryReveal 2s ease 1.5s forwards;
         }
+
 
         .call-story .emphasis {
             display: block;
 
-            margin-top: 28px;
+            margin-top: 30px;
 
             color: #e2d5c9;
 
@@ -695,19 +862,19 @@
         ================================================== */
 
         .screenshot-intro {
-            max-width: 600px;
+            max-width: 620px;
 
-            margin: 95px auto 35px;
+            margin: 100px auto 38px;
 
             font-size: clamp(1.15rem, 2vw, 1.55rem);
 
-            line-height: 1.6;
+            line-height: 1.65;
 
             color: #d6cabf;
 
             opacity: 0;
 
-            animation: memoryTextAppear 2s ease 14s forwards;
+            animation: memoryReveal 2s ease 2.5s forwards;
         }
 
 
@@ -737,8 +904,29 @@
                 0 0 0 1px rgba(190,165,140,0.12);
 
             animation:
-                screenshotAppear 2.5s cubic-bezier(.22,.61,.36,1) 14.5s forwards;
+                screenshotReveal 2.4s cubic-bezier(.22,.61,.36,1) 3s forwards;
         }
+
+
+        .screenshot-frame::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.05),
+                    transparent 20%,
+                    transparent 80%,
+                    rgba(0,0,0,0.08)
+                );
+        }
+
 
         .screenshot-frame img {
             position: absolute;
@@ -756,7 +944,9 @@
             transform: translateY(-46%);
         }
 
-        @keyframes screenshotAppear {
+
+        @keyframes screenshotReveal {
+
             from {
                 opacity: 0;
                 transform: translateY(25px) scale(0.98);
@@ -774,13 +964,15 @@
         ================================================== */
 
         .after-screenshot {
-            max-width: 650px;
+            max-width: 680px;
 
-            margin: 75px auto 0;
+            margin: 80px auto 0;
+
+            padding-bottom: 100px;
 
             font-size: clamp(1.3rem, 2.3vw, 1.8rem);
 
-            line-height: 1.65;
+            line-height: 1.7;
 
             font-weight: 300;
 
@@ -788,8 +980,9 @@
 
             opacity: 0;
 
-            animation: memoryTextAppear 2s ease 17s forwards;
+            animation: memoryReveal 2s ease 4s forwards;
         }
+
 
         .so-i-did {
             display: block;
@@ -799,6 +992,8 @@
             font-size: 1.2em;
 
             color: #e5d8cc;
+
+            font-style: italic;
         }
 
 
@@ -812,9 +1007,11 @@
                 min-height: 600px;
             }
 
+
             .hello {
                 font-size: 2.7rem;
             }
+
 
             .date {
                 font-size: 0.75rem;
@@ -824,38 +1021,52 @@
                 margin-left: 0.3em;
             }
 
+
             .birthday {
                 font-size: 1.35rem;
             }
+
 
             .moon {
                 right: 8%;
                 top: 13%;
             }
 
+
             .star1 {
                 left: 10%;
             }
+
 
             .star2 {
                 right: 10%;
             }
 
+
             .curve1 {
                 left: -130px;
             }
+
 
             .curve2 {
                 right: -130px;
             }
 
-            .memory {
-                padding: 100px 20px 130px;
+
+            .scroll-indicator {
+                bottom: 28px;
             }
+
+
+            .memory {
+                padding: 100px 20px 140px;
+            }
+
 
             .memory-intro {
                 font-size: 1.45rem;
             }
+
 
             .call-story {
                 margin-top: 60px;
@@ -863,11 +1074,13 @@
                 font-size: 1.25rem;
             }
 
+
             .screenshot-intro {
                 margin-top: 75px;
 
                 font-size: 1.2rem;
             }
+
 
             .screenshot-frame {
                 width: min(370px, 90vw);
@@ -875,20 +1088,23 @@
                 height: 310px;
             }
 
+
             .after-screenshot {
                 margin-top: 60px;
 
                 font-size: 1.25rem;
             }
         }
+
     </style>
 </head>
 
 
 <body>
 
+
     <!-- ==================================================
-         SHARED CINEMATIC BACKGROUND
+         BACKGROUND
     ================================================== -->
 
     <div class="film-background"></div>
@@ -967,23 +1183,40 @@
          OPENING
     ================================================== -->
 
-    <section class="opening">
+    <section class="opening" id="opening">
 
         <div class="opening-content">
 
             <div class="hello">
-                Hi babyyyyyy
+                Hiii babyyyyyy
             </div>
+
 
             <div class="date">
                 27 . 09 . 2026
             </div>
 
+
             <div class="divider"></div>
+
 
             <div class="birthday">
                 Happy birthday love.
             </div>
+
+        </div>
+
+
+        <!-- Scroll / continue indicator -->
+
+        <div
+            class="scroll-indicator"
+            onclick="document.getElementById('memory').scrollIntoView({ behavior: 'smooth' });"
+        >
+
+            <div class="scroll-line"></div>
+
+            <div class="scroll-arrow"></div>
 
         </div>
 
@@ -995,12 +1228,12 @@
          FIRST MEMORY
     ================================================== -->
 
-    <section class="memory">
+    <section class="memory" id="memory">
 
         <div class="memory-inner">
 
 
-            <!-- First thought -->
+            <!-- Opening thought -->
 
             <div class="memory-intro">
 
@@ -1020,15 +1253,31 @@
 
             <div class="call-story">
 
-                A video call.
-                You. Me. Nisha
+                It started with a video call.
+
+                <br>
+
+                You. Me. Nisha.
 
                 <br><br>
 
-                I barely knew you then.
+                And I had absolutely no idea
+                what that call was going to become.
 
                 <span class="emphasis">
-                    You told me you thought I was cute.
+
+                    At the time, you were just a decent guy
+                    I'd met through Nisha.
+
+                    <br><br>
+
+                    Nothing more.
+
+                    <br><br>
+
+                    You, however, had already decided
+                    I was cute.
+
                 </span>
 
             </div>
@@ -1046,13 +1295,13 @@
 
 
 
-            <!-- Cropped real conversation -->
+            <!-- Actual cropped screenshot -->
 
             <div class="screenshot-frame">
 
                 <img
                     src="mere-saath-nahi.png"
-                    alt="An early conversation between Tanmay and Kirti"
+                    alt="An early conversation"
                 >
 
             </div>
@@ -1067,7 +1316,31 @@
                     So I did.
                 </span>
 
-                And somehow, that one call became many.
+                And I don't think either of us knew
+                how small that moment was.
+
+                <br><br>
+
+                Or how much it would lead to.
+
+                <br><br>
+
+                I called you again.
+
+                <br>
+
+                And again.
+
+                <br><br>
+
+                And somewhere between all those
+                ordinary calls, you stopped being
+                someone I was getting to know...
+
+                <br><br>
+
+                and became someone I started
+                looking for in my day.
 
             </div>
 
@@ -1078,12 +1351,11 @@
 
 
 
-    <!-- Grain -->
+    <!-- ==================================================
+         GRAIN + VIGNETTE
+    ================================================== -->
 
     <div class="grain"></div>
-
-
-    <!-- Vignette -->
 
     <div class="vignette"></div>
 
