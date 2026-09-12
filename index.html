@@ -41,8 +41,8 @@
             background:
                 radial-gradient(
                     ellipse at 50% 48%,
-                    rgba(94, 67, 47, 0.17) 0%,
-                    rgba(42, 30, 22, 0.08) 30%,
+                    rgba(94, 67, 47, 0.20) 0%,
+                    rgba(42, 30, 22, 0.10) 30%,
                     rgba(7, 6, 5, 1) 72%
                 );
 
@@ -68,6 +68,7 @@
             inset: -50%;
             width: 200%;
             height: 200%;
+
             pointer-events: none;
             z-index: 20;
 
@@ -102,13 +103,15 @@
         }
 
         /* =========================
-           SOFT LIGHT
+           SOFT CINEMATIC LIGHT
         ========================= */
 
         .light {
             position: absolute;
+
             width: 55vw;
             height: 55vw;
+
             max-width: 700px;
             max-height: 700px;
 
@@ -122,7 +125,7 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(125, 91, 64, 0.09) 0%,
+                    rgba(125, 91, 64, 0.10) 0%,
                     rgba(125, 91, 64, 0.025) 42%,
                     transparent 70%
                 );
@@ -151,6 +154,7 @@
 
         .content {
             position: absolute;
+
             z-index: 10;
 
             left: 50%;
@@ -159,12 +163,15 @@
             transform: translate(-50%, -50%);
 
             width: 90%;
+
             text-align: center;
         }
 
         .hello {
             font-size: clamp(2.7rem, 6vw, 5.2rem);
+
             font-weight: 400;
+
             letter-spacing: 0.025em;
 
             opacity: 0;
@@ -207,12 +214,14 @@
             margin-top: 32px;
 
             font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+
             font-weight: 300;
 
             letter-spacing: 0.45em;
+
             margin-left: 0.45em;
 
-            color: #a99e93;
+            color: #b5a99c;
 
             opacity: 0;
 
@@ -226,7 +235,7 @@
             }
 
             to {
-                opacity: 0.85;
+                opacity: 0.88;
                 letter-spacing: 0.45em;
             }
         }
@@ -237,15 +246,29 @@
 
         .divider {
             width: 90px;
+
             height: 1px;
 
             margin: 25px auto 0;
 
-            background: rgba(200, 186, 170, 0.3);
+            background: rgba(200, 186, 170, 0.35);
 
             transform: scaleX(0);
 
             animation: dividerAppear 1.5s ease 3.4s forwards;
+        }
+
+        .divider::after {
+            content: "";
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #c4a98c;
         }
 
         @keyframes dividerAppear {
@@ -262,6 +285,7 @@
             margin-top: 24px;
 
             font-size: clamp(1.15rem, 2vw, 1.65rem);
+
             font-weight: 300;
 
             letter-spacing: 0.035em;
@@ -280,106 +304,186 @@
             }
 
             to {
-                opacity: 0.92;
+                opacity: 0.94;
                 transform: translateY(0);
             }
         }
 
         /* =========================
-           TINY CINEMATIC STARS
+           CINEMATIC STARS
         ========================= */
 
         .star {
             position: absolute;
+
             z-index: 4;
 
-            width: 10px;
-            height: 10px;
+            width: 14px;
+            height: 14px;
 
             opacity: 0;
 
-            animation: starAppear 5s ease-in-out infinite;
+            animation: starTwinkle 5s ease-in-out infinite;
         }
 
         .star::before,
         .star::after {
             content: "";
+
             position: absolute;
+
             left: 50%;
             top: 50%;
 
-            background: #b69a7c;
+            background: #c4aa8e;
+
             transform: translate(-50%, -50%);
         }
 
         .star::before {
             width: 1px;
-            height: 10px;
+            height: 14px;
         }
 
         .star::after {
-            width: 10px;
+            width: 14px;
             height: 1px;
         }
 
         .star1 {
-            left: 17%;
+            left: 16%;
             top: 25%;
-            animation-delay: 1s;
+            animation-delay: 0.5s;
         }
 
         .star2 {
             right: 19%;
-            top: 32%;
-            transform: scale(0.65);
-            animation-delay: 3s;
+            top: 31%;
+
+            transform: scale(0.75);
+
+            animation-delay: 2.2s;
         }
 
         .star3 {
-            left: 27%;
-            bottom: 24%;
-            transform: scale(0.5);
-            animation-delay: 2s;
+            left: 26%;
+            bottom: 23%;
+
+            transform: scale(0.65);
+
+            animation-delay: 1.5s;
         }
 
         .star4 {
-            right: 28%;
+            right: 27%;
             bottom: 20%;
-            transform: scale(0.7);
-            animation-delay: 4s;
+
+            transform: scale(0.8);
+
+            animation-delay: 3.5s;
         }
 
-        @keyframes starAppear {
+        @keyframes starTwinkle {
             0%,
             100% {
-                opacity: 0.05;
+                opacity: 0.10;
+                transform: scale(0.75) rotate(0deg);
             }
 
             50% {
-                opacity: 0.4;
+                opacity: 0.65;
+                transform: scale(1.15) rotate(45deg);
             }
         }
 
         /* =========================
-           CRESCENT
+           FLOATING DUST
+        ========================= */
+
+        .dust {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: #c2a789;
+
+            opacity: 0;
+
+            z-index: 4;
+
+            animation: dustFloat 9s ease-in-out infinite;
+        }
+
+        .dust1 {
+            left: 34%;
+            top: 23%;
+            animation-delay: 1s;
+        }
+
+        .dust2 {
+            left: 70%;
+            top: 25%;
+            animation-delay: 4s;
+        }
+
+        .dust3 {
+            left: 20%;
+            top: 62%;
+            animation-delay: 2s;
+        }
+
+        .dust4 {
+            left: 76%;
+            top: 66%;
+            animation-delay: 5s;
+        }
+
+        .dust5 {
+            left: 43%;
+            top: 76%;
+            animation-delay: 3s;
+        }
+
+        @keyframes dustFloat {
+            0%,
+            100% {
+                opacity: 0;
+                transform: translate(0, 8px);
+            }
+
+            40% {
+                opacity: 0.4;
+            }
+
+            60% {
+                opacity: 0.22;
+                transform: translate(8px, -12px);
+            }
+        }
+
+        /* =========================
+           CRESCENT MOON
         ========================= */
 
         .moon {
             position: absolute;
 
-            width: 34px;
-            height: 34px;
+            width: 42px;
+            height: 42px;
 
             right: 13%;
-            top: 17%;
+            top: 16%;
 
             z-index: 4;
 
             opacity: 0;
 
             animation:
-                moonAppear 3s ease 2s forwards,
-                moonFloat 9s ease-in-out 5s infinite;
+                moonAppear 3s ease 1.5s forwards,
+                moonFloat 8s ease-in-out 4.5s infinite;
         }
 
         .moon svg {
@@ -389,17 +493,21 @@
 
         .moon path {
             fill: none;
-            stroke: #aa9278;
-            stroke-width: 0.8;
+
+            stroke: #c0a486;
+
+            stroke-width: 1;
         }
 
         @keyframes moonAppear {
             from {
                 opacity: 0;
+                transform: translateY(5px);
             }
 
             to {
-                opacity: 0.35;
+                opacity: 0.55;
+                transform: translateY(0);
             }
         }
 
@@ -410,12 +518,12 @@
             }
 
             50% {
-                transform: translateY(-6px) rotate(0deg);
+                transform: translateY(-8px) rotate(2deg);
             }
         }
 
         /* =========================
-           CURVED FILM-LIKE LINES
+           CURVED LINES
         ========================= */
 
         .curve {
@@ -424,9 +532,11 @@
             width: 300px;
             height: 150px;
 
-            opacity: 0.12;
+            opacity: 0.18;
 
             pointer-events: none;
+
+            z-index: 2;
         }
 
         .curve svg {
@@ -436,19 +546,23 @@
 
         .curve path {
             fill: none;
-            stroke: #9c8167;
-            stroke-width: 0.7;
+
+            stroke: #a88b6f;
+
+            stroke-width: 0.8;
         }
 
         .curve1 {
             top: -30px;
             left: -50px;
+
             transform: rotate(-8deg);
         }
 
         .curve2 {
             bottom: -40px;
             right: -50px;
+
             transform: rotate(8deg);
         }
 
@@ -458,15 +572,18 @@
 
         .vignette {
             position: absolute;
+
             inset: 0;
+
             z-index: 15;
+
             pointer-events: none;
 
             background:
                 radial-gradient(
                     ellipse at center,
-                    transparent 42%,
-                    rgba(0,0,0,0.25) 75%,
+                    transparent 40%,
+                    rgba(0,0,0,0.22) 72%,
                     rgba(0,0,0,0.65) 100%
                 );
         }
@@ -483,7 +600,9 @@
 
             .date {
                 font-size: 0.75rem;
+
                 letter-spacing: 0.3em;
+
                 margin-left: 0.3em;
             }
 
@@ -522,15 +641,36 @@
         <!-- Soft cinematic light -->
         <div class="light"></div>
 
-        <!-- Tiny stars -->
+
+        <!-- =====================
+             STARS
+        ====================== -->
+
         <div class="star star1"></div>
         <div class="star star2"></div>
         <div class="star star3"></div>
         <div class="star star4"></div>
 
-        <!-- Crescent moon -->
+
+        <!-- =====================
+             FLOATING DUST
+        ====================== -->
+
+        <div class="dust dust1"></div>
+        <div class="dust dust2"></div>
+        <div class="dust dust3"></div>
+        <div class="dust dust4"></div>
+        <div class="dust dust5"></div>
+
+
+        <!-- =====================
+             CRESCENT MOON
+        ====================== -->
+
         <div class="moon">
+
             <svg viewBox="0 0 40 40">
+
                 <path d="
                     M29 6
                     C20 8, 14 15, 14 23
@@ -538,23 +678,48 @@
                     C22 32, 18 27, 18 21
                     C18 14, 22 9, 29 6
                 "/>
+
             </svg>
+
         </div>
 
-        <!-- Curved lines -->
+
+        <!-- =====================
+             CURVED LINES
+        ====================== -->
+
         <div class="curve curve1">
+
             <svg viewBox="0 0 300 150">
-                <path d="M0 110 C70 35, 160 25, 300 70"/>
+
+                <path d="
+                    M0 110
+                    C70 35, 160 25, 300 70
+                "/>
+
             </svg>
+
         </div>
+
 
         <div class="curve curve2">
+
             <svg viewBox="0 0 300 150">
-                <path d="M0 75 C100 20, 200 35, 300 120"/>
+
+                <path d="
+                    M0 75
+                    C100 20, 200 35, 300 120
+                "/>
+
             </svg>
+
         </div>
 
-        <!-- Main text -->
+
+        <!-- =====================
+             MAIN TEXT
+        ====================== -->
+
         <div class="content">
 
             <div class="hello">
@@ -573,8 +738,10 @@
 
         </div>
 
+
         <!-- Film grain -->
         <div class="grain"></div>
+
 
         <!-- Vignette -->
         <div class="vignette"></div>
