@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Tanmay</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #090807;
+            color: #eee8df;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .opening {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(72, 52, 39, 0.18) 0%,
+                    rgba(9, 8, 7, 1) 65%
+                );
+        }
+
+        /* Very subtle film-grain effect */
+        .opening::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            animation: appear 2.5s ease forwards;
+        }
+
+        .hello {
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            margin-bottom: 30px;
+        }
+
+        .date {
+            font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+            letter-spacing: 0.38em;
+            margin-left: 0.38em;
+            color: #b9aea2;
+            margin-bottom: 28px;
+        }
+
+        .birthday {
+            font-size: clamp(1.2rem, 2vw, 1.7rem);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: #e5ddd4;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hello {
+                font-size: 3rem;
+            }
+
+            .date {
+                font-size: 0.8rem;
+            }
+
+            .birthday {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="opening">
+        <div class="content">
+
+            <div class="hello">
+                hiii babyyyyyy
+            </div>
+
+            <div class="date">
+                27.09.2026
+            </div>
+
+            <div class="birthday">
+                Happy birthday, my love.
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
