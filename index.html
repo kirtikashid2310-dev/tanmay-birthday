@@ -15,7 +15,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -27,65 +28,80 @@
             font-family: 'Cormorant Garamond', Georgia, serif;
         }
 
+        /* --------------------------------
+           MAIN OPENING
+        -------------------------------- */
+
         .opening {
             width: 100vw;
             height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
+            overflow: hidden;
+
             background:
                 radial-gradient(
-                    circle at center,
-                    rgba(72, 52, 39, 0.18) 0%,
-                    rgba(9, 8, 7, 1) 65%
+                    circle at 50% 48%,
+                    rgba(86, 61, 43, 0.20) 0%,
+                    rgba(30, 22, 17, 0.10) 32%,
+                    #090807 72%
                 );
         }
 
-        /* Very subtle film-grain effect */
+        /* --------------------------------
+           SUBTLE FILM GRAIN
+        -------------------------------- */
+
         .opening::after {
             content: "";
             position: absolute;
             inset: 0;
             pointer-events: none;
             opacity: 0.035;
+
             background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
         }
+
+        /* --------------------------------
+           CENTRAL TEXT
+        -------------------------------- */
 
         .content {
             position: relative;
-            z-index: 2;
-            animation: appear 2.5s ease forwards;
+            z-index: 10;
+            animation: contentAppear 2.4s ease forwards;
         }
 
         .hello {
-            font-size: clamp(2.4rem, 6vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 400;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.025em;
             margin-bottom: 30px;
         }
 
         .date {
-            font-size: clamp(0.9rem, 1.5vw, 1.15rem);
-            letter-spacing: 0.38em;
-            margin-left: 0.38em;
+            font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+            letter-spacing: 0.42em;
+            margin-left: 0.42em;
             color: #b9aea2;
             margin-bottom: 28px;
         }
 
         .birthday {
-            font-size: clamp(1.2rem, 2vw, 1.7rem);
+            font-size: clamp(1.15rem, 2vw, 1.65rem);
             font-weight: 300;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.035em;
             color: #e5ddd4;
         }
 
-        @keyframes appear {
+        @keyframes contentAppear {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(14px);
             }
 
             to {
@@ -94,17 +110,224 @@
             }
         }
 
+        /* --------------------------------
+           TINY DOODLES
+        -------------------------------- */
+
+        .doodle {
+            position: absolute;
+            z-index: 3;
+            pointer-events: none;
+            fill: none;
+            stroke: #b99b7c;
+            stroke-width: 1.1;
+            opacity: 0;
+        }
+
+        /* Stars */
+
+        .star-one {
+            width: 16px;
+            height: 16px;
+            top: 22%;
+            left: 18%;
+            animation: twinkle 4.5s ease-in-out infinite;
+        }
+
+        .star-two {
+            width: 11px;
+            height: 11px;
+            top: 31%;
+            right: 20%;
+            animation: twinkle 5.5s ease-in-out 1.4s infinite;
+        }
+
+        .star-three {
+            width: 9px;
+            height: 9px;
+            bottom: 25%;
+            left: 27%;
+            animation: twinkle 6s ease-in-out 2.2s infinite;
+        }
+
+        .star-four {
+            width: 13px;
+            height: 13px;
+            bottom: 20%;
+            right: 27%;
+            animation: twinkle 5s ease-in-out 0.8s infinite;
+        }
+
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0.08;
+                transform: scale(0.7);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+        }
+
+        /* Crescent */
+
+        .moon {
+            width: 32px;
+            height: 32px;
+            top: 18%;
+            right: 12%;
+            stroke-width: 1;
+            animation: moonFloat 7s ease-in-out infinite;
+        }
+
+        @keyframes moonFloat {
+            0%,
+            100% {
+                opacity: 0.28;
+                transform: translateY(0) rotate(-8deg);
+            }
+
+            50% {
+                opacity: 0.55;
+                transform: translateY(-7px) rotate(0deg);
+            }
+        }
+
+        /* Tiny floating dots */
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #b99b7c;
+            opacity: 0;
+        }
+
+        .dot-one {
+            top: 28%;
+            left: 31%;
+            animation: floatDot 7s ease-in-out 1s infinite;
+        }
+
+        .dot-two {
+            bottom: 31%;
+            right: 18%;
+            animation: floatDot 8s ease-in-out 2s infinite;
+        }
+
+        .dot-three {
+            bottom: 18%;
+            left: 13%;
+            animation: floatDot 6s ease-in-out 0.5s infinite;
+        }
+
+        @keyframes floatDot {
+            0%,
+            100% {
+                opacity: 0.05;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: translateY(-12px);
+            }
+        }
+
+        /* --------------------------------
+           THIN CURVED LINES
+        -------------------------------- */
+
+        .curve {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+            fill: none;
+            stroke: #8f765e;
+            stroke-width: 0.8;
+            opacity: 0.18;
+        }
+
+        .curve-top {
+            width: 260px;
+            height: 120px;
+            top: -20px;
+            left: -35px;
+            transform: rotate(-8deg);
+        }
+
+        .curve-bottom {
+            width: 300px;
+            height: 140px;
+            bottom: -35px;
+            right: -45px;
+            transform: rotate(5deg);
+        }
+
+        /* --------------------------------
+           SMALL CENTER DIVIDER
+        -------------------------------- */
+
+        .divider {
+            width: 110px;
+            height: 1px;
+            margin: 0 auto 25px;
+            position: relative;
+            background: rgba(185, 174, 162, 0.35);
+        }
+
+        .divider::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #b99b7c;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --------------------------------
+           MOBILE
+        -------------------------------- */
+
         @media (max-width: 600px) {
+
             .hello {
                 font-size: 3rem;
             }
 
             .date {
-                font-size: 0.8rem;
+                font-size: 0.78rem;
+                letter-spacing: 0.3em;
             }
 
             .birthday {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
+            }
+
+            .star-one {
+                left: 10%;
+            }
+
+            .star-two {
+                right: 10%;
+            }
+
+            .moon {
+                right: 8%;
+                top: 13%;
+            }
+
+            .curve-top {
+                left: -100px;
+            }
+
+            .curve-bottom {
+                right: -120px;
             }
         }
     </style>
@@ -113,21 +336,71 @@
 <body>
 
     <main class="opening">
+
+        <!-- Tiny star doodles -->
+
+        <svg class="doodle star-one" viewBox="0 0 20 20">
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z"/>
+        </svg>
+
+        <svg class="doodle star-two" viewBox="0 0 20 20">
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z"/>
+        </svg>
+
+        <svg class="doodle star-three" viewBox="0 0 20 20">
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z"/>
+        </svg>
+
+        <svg class="doodle star-four" viewBox="0 0 20 20">
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z"/>
+        </svg>
+
+        <!-- Crescent moon -->
+
+        <svg class="doodle moon" viewBox="0 0 40 40">
+            <path d="M28 5
+                     C17 7, 10 16, 12 26
+                     C14 34, 22 38, 30 34
+                     C23 33, 18 28, 18 21
+                     C18 14, 22 8, 28 5 Z"/>
+        </svg>
+
+        <!-- Floating dots -->
+
+        <span class="doodle dot dot-one"></span>
+        <span class="doodle dot dot-two"></span>
+        <span class="doodle dot dot-three"></span>
+
+        <!-- Curved lines -->
+
+        <svg class="curve curve-top" viewBox="0 0 300 140">
+            <path d="M0 100 C70 30, 140 20, 300 70"/>
+        </svg>
+
+        <svg class="curve curve-bottom" viewBox="0 0 300 140">
+            <path d="M0 70 C100 20, 190 30, 300 110"/>
+        </svg>
+
+        <!-- Main text -->
+
         <div class="content">
 
             <div class="hello">
-                hiii babyyyyyy
+                Hi babyyyyyy
             </div>
 
             <div class="date">
-                27.09.2026
+                27 . 09 . 2026
             </div>
+
+            <div class="divider"></div>
 
             <div class="birthday">
                 Happy birthday, my love.
             </div>
 
         </div>
+
     </main>
 
 </body>
