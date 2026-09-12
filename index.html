@@ -7,7 +7,7 @@
     <title>For Tanmay</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap');
 
         * {
             margin: 0;
@@ -66,6 +66,7 @@
         .grain {
             position: absolute;
             inset: -50%;
+
             width: 200%;
             height: 200%;
 
@@ -167,12 +168,18 @@
             text-align: center;
         }
 
+        /* =========================
+           HI BABYYYYYY
+        ========================= */
+
         .hello {
-            font-size: clamp(2.7rem, 6vw, 5.2rem);
+            font-family: 'Great Vibes', cursive;
+
+            font-size: clamp(2.2rem, 4.8vw, 4rem);
 
             font-weight: 400;
 
-            letter-spacing: 0.025em;
+            letter-spacing: 0.02em;
 
             opacity: 0;
 
@@ -211,7 +218,7 @@
         ========================= */
 
         .date {
-            margin-top: 32px;
+            margin-top: 30px;
 
             font-size: clamp(0.8rem, 1.4vw, 1.05rem);
 
@@ -258,19 +265,6 @@
             animation: dividerAppear 1.5s ease 3.4s forwards;
         }
 
-        .divider::after {
-            content: "";
-
-            position: absolute;
-
-            width: 4px;
-            height: 4px;
-
-            border-radius: 50%;
-
-            background: #c4a98c;
-        }
-
         @keyframes dividerAppear {
             to {
                 transform: scaleX(1);
@@ -278,13 +272,13 @@
         }
 
         /* =========================
-           BIRTHDAY LINE
+           HAPPY BIRTHDAY
         ========================= */
 
         .birthday {
             margin-top: 24px;
 
-            font-size: clamp(1.15rem, 2vw, 1.65rem);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
 
             font-weight: 300;
 
@@ -595,7 +589,7 @@
         @media (max-width: 600px) {
 
             .hello {
-                font-size: 3rem;
+                font-size: 2.7rem;
             }
 
             .date {
@@ -607,7 +601,7 @@
             }
 
             .birthday {
-                font-size: 1.2rem;
+                font-size: 1.35rem;
             }
 
             .moon {
