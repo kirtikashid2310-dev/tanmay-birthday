@@ -21,32 +21,45 @@
 ========================================================= */
 
 :root {
-    --black: #0c0a09;
-    --brown-black: #15100d;
-    --warm-brown: #211713;
+
+    --black: #0c0908;
+    --dark-brown: #17110e;
+    --brown: #241a15;
 
     --cream: #eee2d0;
     --soft-cream: #cbbba5;
-    --muted: #9c8871;
+    --muted: #9d8872;
 
-    --burgundy: #4a2929;
+    --paper: #eee6d7;
+    --paper-deep: #e4d7c4;
+    --ink: #332a23;
+    --ink-soft: #51453a;
 }
 
+
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
 }
 
+
 html {
+
     scroll-behavior: smooth;
 }
 
+
 body {
 
-    background: var(--black);
+    background:
+        var(--black);
 
-    color: var(--cream);
+    color:
+        var(--cream);
 
     font-family:
         "Cormorant Garamond",
@@ -56,7 +69,7 @@ body {
 }
 
 
-/* film grain */
+/* subtle grain */
 
 body::before {
 
@@ -66,14 +79,14 @@ body::before {
 
     inset: 0;
 
-    z-index: 100;
+    z-index: 1000;
 
     pointer-events: none;
 
-    opacity: .055;
+    opacity: .045;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 
@@ -90,7 +103,7 @@ section {
 
 
 /* =========================================================
-   SCROLL REVEAL
+   REVEAL
 ========================================================= */
 
 .reveal {
@@ -98,12 +111,13 @@ section {
     opacity: 0;
 
     transform:
-        translateY(25px);
+        translateY(24px);
 
     transition:
         opacity 1.15s ease,
-        transform 1.15s ease;
+        transform 1.15s cubic-bezier(.2,.7,.2,1);
 }
+
 
 .reveal.visible {
 
@@ -113,24 +127,25 @@ section {
         translateY(0);
 }
 
+
 .delay-1 {
-    transition-delay: .15s;
+    transition-delay: .12s;
 }
 
 .delay-2 {
-    transition-delay: .3s;
+    transition-delay: .24s;
 }
 
 .delay-3 {
-    transition-delay: .45s;
+    transition-delay: .36s;
 }
 
 .delay-4 {
-    transition-delay: .6s;
+    transition-delay: .48s;
 }
 
 .delay-5 {
-    transition-delay: .75s;
+    transition-delay: .60s;
 }
 
 
@@ -139,6 +154,8 @@ section {
 ========================================================= */
 
 #opening {
+
+    min-height: 100vh;
 
     display: flex;
 
@@ -152,19 +169,19 @@ section {
 
         radial-gradient(
             circle at 50% 40%,
-            rgba(119,80,55,.25),
-            transparent 45%
+            rgba(133,91,62,.22),
+            transparent 43%
         ),
 
         linear-gradient(
             180deg,
-            #0b0908,
-            #17110e
+            #090807,
+            #17100d
         );
 }
 
 
-/* tiny stars */
+/* stars */
 
 .stars {
 
@@ -175,111 +192,137 @@ section {
     pointer-events: none;
 }
 
+
 .star {
 
     position: absolute;
 
     width: 2px;
+
     height: 2px;
 
     border-radius: 50%;
 
     background:
-        #eadbc5;
+        #eadbc6;
 
     opacity: .65;
 
     animation:
-        twinkle 3.5s infinite ease-in-out;
+        twinkle 4s infinite ease-in-out;
 }
 
+
 .star:nth-child(1) {
-    left: 14%;
-    top: 22%;
+    left: 13%;
+    top: 23%;
 }
 
 .star:nth-child(2) {
-    left: 79%;
-    top: 17%;
+    left: 80%;
+    top: 18%;
     animation-delay: .8s;
 }
 
 .star:nth-child(3) {
-    left: 67%;
+    left: 68%;
     top: 68%;
     animation-delay: 1.6s;
 }
 
 .star:nth-child(4) {
-    left: 24%;
+    left: 22%;
     top: 74%;
-    animation-delay: .5s;
+    animation-delay: .4s;
 }
 
 .star:nth-child(5) {
     left: 89%;
-    top: 44%;
-    animation-delay: 1.3s;
+    top: 45%;
+    animation-delay: 1.2s;
 }
 
 .star:nth-child(6) {
     left: 8%;
-    top: 51%;
+    top: 52%;
     animation-delay: 2s;
 }
+
 
 @keyframes twinkle {
 
     0%,100% {
-        opacity: .15;
-        transform: scale(.7);
+
+        opacity: .18;
+
+        transform:
+            scale(.7);
     }
 
     50% {
-        opacity: .9;
-        transform: scale(1.5);
+
+        opacity: .95;
+
+        transform:
+            scale(1.55);
     }
 }
 
 
-/* crescent */
+/* simple semicircle */
 
-.moon {
+.opening-arc {
 
     position: absolute;
 
-    width: 58px;
-    height: 58px;
+    width: 300px;
 
-    right: 13%;
-    top: 22%;
+    height: 150px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-52%);
 
     border:
         1px solid
-        rgba(238,227,209,.3);
+        rgba(238,226,208,.17);
 
-    border-radius: 50%;
-}
+    border-bottom: 0;
 
-.moon::after {
+    border-radius:
+        300px 300px 0 0;
 
-    content: "";
-
-    position: absolute;
-
-    width: 54px;
-    height: 54px;
-
-    left: 12px;
-    top: -7px;
-
-    border-radius: 50%;
-
-    background: #0f0d0c;
+    animation:
+        arcPulse 7s infinite ease-in-out;
 }
 
 
-/* opening content */
+@keyframes arcPulse {
+
+    0%,100% {
+
+        opacity: .35;
+
+        transform:
+            translate(-50%,-52%)
+            scale(1);
+    }
+
+    50% {
+
+        opacity: .7;
+
+        transform:
+            translate(-50%,-52%)
+            scale(1.04);
+    }
+}
+
+
+/* opening */
 
 .opening-inner {
 
@@ -295,14 +338,6 @@ section {
 }
 
 
-/*
-   ORIGINAL-STYLE OPENING
-
-   The three elements appear separately,
-   with a thin line between the greeting
-   and the date.
-*/
-
 .opening-title {
 
     font-family:
@@ -313,7 +348,7 @@ section {
         clamp(
             58px,
             9vw,
-            105px
+            104px
         );
 
     line-height: .9;
@@ -326,8 +361,10 @@ section {
     animation:
         openingTitle 1.6s ease forwards;
 
-    animation-delay: .25s;
+    animation-delay:
+        .25s;
 }
+
 
 .opening-rule {
 
@@ -338,7 +375,7 @@ section {
     margin-top: 30px;
 
     background:
-        rgba(238,227,209,.55);
+        rgba(238,226,208,.65);
 
     opacity: 0;
 
@@ -348,8 +385,10 @@ section {
     animation:
         openingRule 1s ease forwards;
 
-    animation-delay: 1.15s;
+    animation-delay:
+        1.15s;
 }
+
 
 .opening-date {
 
@@ -359,7 +398,7 @@ section {
 
     font-size: 10px;
 
-    letter-spacing: 6px;
+    letter-spacing: 5px;
 
     color:
         var(--soft-cream);
@@ -374,8 +413,10 @@ section {
     animation:
         openingDate 1.2s ease forwards;
 
-    animation-delay: 1.45s;
+    animation-delay:
+        1.45s;
 }
+
 
 .opening-subtitle {
 
@@ -396,45 +437,62 @@ section {
         translateY(12px);
 
     animation:
-        openingSubtitle 1.4s ease forwards;
+        openingSubtitle 1.35s ease forwards;
 
-    animation-delay: 2.05s;
+    animation-delay:
+        2.05s;
 }
+
 
 @keyframes openingTitle {
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
+
 
 @keyframes openingRule {
 
     to {
+
         opacity: 1;
-        transform: scaleX(1);
+
+        transform:
+            scaleX(1);
     }
 }
+
 
 @keyframes openingDate {
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
+
 
 @keyframes openingSubtitle {
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
-/* scroll arrow */
+/* scroll indicator */
 
 .scroll-cue {
 
@@ -453,8 +511,9 @@ section {
 
     cursor: pointer;
 
-    opacity: .95;
+    opacity: .9;
 }
+
 
 .scroll-cue::before {
 
@@ -463,6 +522,7 @@ section {
     position: absolute;
 
     left: 16px;
+
     top: 0;
 
     width: 1px;
@@ -470,8 +530,9 @@ section {
     height: 43px;
 
     background:
-        rgba(238,227,209,.8);
+        rgba(238,226,208,.8);
 }
+
 
 .scroll-cue::after {
 
@@ -480,18 +541,20 @@ section {
     position: absolute;
 
     left: 10px;
+
     top: 36px;
 
     width: 12px;
+
     height: 12px;
 
     border-right:
         1.5px solid
-        rgba(238,227,209,.9);
+        rgba(238,226,208,.9);
 
     border-bottom:
         1.5px solid
-        rgba(238,227,209,.9);
+        rgba(238,226,208,.9);
 
     transform:
         rotate(45deg);
@@ -500,15 +563,18 @@ section {
         arrowFloat 2s infinite ease-in-out;
 }
 
+
 @keyframes arrowFloat {
 
     0%,100% {
+
         transform:
             rotate(45deg)
             translate(0,0);
     }
 
     50% {
+
         transform:
             rotate(45deg)
             translate(4px,4px);
@@ -531,26 +597,97 @@ section {
     background:
 
         radial-gradient(
-            ellipse at 15% 30%,
-            rgba(137,96,65,.2),
+            ellipse at 12% 28%,
+            rgba(143,99,67,.23),
             transparent 38%
         ),
 
         radial-gradient(
-            ellipse at 85% 75%,
-            rgba(89,54,39,.22),
+            ellipse at 88% 72%,
+            rgba(92,57,42,.22),
             transparent 40%
         ),
 
         linear-gradient(
             180deg,
-            #17120f,
-            #1b1410
+            #17110e,
+            #201611
         );
 }
 
 
-/* floating particles */
+.memory-scene {
+
+    width:
+        min(
+            1120px,
+            89%
+        );
+
+    margin:
+        auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.memory-date {
+
+    font-family:
+        Inter,
+        sans-serif;
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            49px
+        );
+
+    font-weight: 300;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 75px;
+
+    color:
+        rgba(238,226,208,.9);
+}
+
+
+.memory-line {
+
+    font-size:
+        clamp(
+            21px,
+            2.65vw,
+            30px
+        );
+
+    line-height: 1.5;
+
+    max-width: 940px;
+
+    margin-bottom: 27px;
+}
+
+
+.memory-line.first {
+
+    font-size:
+        clamp(
+            23px,
+            3.1vw,
+            35px
+        );
+
+    max-width: 1000px;
+}
+
+
+/* floating dust */
 
 .memory-dust {
 
@@ -561,25 +698,28 @@ section {
     pointer-events: none;
 }
 
+
 .memory-dust span {
 
     position: absolute;
 
     width: 3px;
+
     height: 3px;
 
     border-radius: 50%;
 
     background:
-        rgba(238,227,209,.65);
+        rgba(238,226,208,.75);
 
     box-shadow:
-        0 0 8px
-        rgba(238,227,209,.25);
+        0 0 9px
+        rgba(238,226,208,.3);
 
     animation:
-        dustFloat 9s infinite ease-in-out;
+        dustMove 8s infinite ease-in-out;
 }
+
 
 .memory-dust span:nth-child(1) {
     left: 12%;
@@ -587,20 +727,20 @@ section {
 }
 
 .memory-dust span:nth-child(2) {
-    left: 73%;
+    left: 74%;
     top: 20%;
-    animation-delay: 1.8s;
+    animation-delay: 1.5s;
 }
 
 .memory-dust span:nth-child(3) {
-    left: 84%;
-    top: 65%;
+    left: 85%;
+    top: 67%;
     animation-delay: 3s;
 }
 
 .memory-dust span:nth-child(4) {
     left: 27%;
-    top: 78%;
+    top: 80%;
     animation-delay: 1s;
 }
 
@@ -610,45 +750,51 @@ section {
     animation-delay: 4s;
 }
 
-@keyframes dustFloat {
+
+@keyframes dustMove {
 
     0%,100% {
+
+        opacity: .18;
+
         transform:
             translate(0,0);
-
-        opacity: .2;
     }
 
     50% {
-        transform:
-            translate(25px,-35px);
 
         opacity: .8;
+
+        transform:
+            translate(25px,-32px);
     }
 }
 
 
-/* rotating curve */
+/* curved animation */
 
 .memory-curve {
 
     position: absolute;
 
-    width: 440px;
-    height: 440px;
+    width: 460px;
 
-    right: -190px;
-    bottom: -160px;
+    height: 460px;
+
+    right: -220px;
+
+    bottom: -170px;
 
     border:
         1px solid
-        rgba(218,190,160,.18);
+        rgba(221,194,165,.19);
 
     border-radius: 50%;
 
     animation:
-        slowRotate 28s linear infinite;
+        slowRotate 30s linear infinite;
 }
+
 
 .memory-curve::after {
 
@@ -656,91 +802,23 @@ section {
 
     position: absolute;
 
-    inset: 40px;
+    inset: 45px;
 
     border:
         1px solid
-        rgba(218,190,160,.08);
+        rgba(221,194,165,.08);
 
     border-radius: 50%;
 }
 
+
 @keyframes slowRotate {
 
-    from {
-        transform: rotate(0deg);
-    }
-
     to {
-        transform: rotate(360deg);
+
+        transform:
+            rotate(360deg);
     }
-}
-
-
-.memory-scene {
-
-    width:
-        min(
-            1100px,
-            88%
-        );
-
-    margin: auto;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.memory-date {
-
-    font-family:
-        Inter,
-        sans-serif;
-
-    font-size:
-        clamp(
-            30px,
-            4.5vw,
-            53px
-        );
-
-    font-weight: 300;
-
-    letter-spacing: 6px;
-
-    color:
-        rgba(238,227,209,.9);
-
-    margin-bottom: 85px;
-}
-
-.memory-line {
-
-    font-size:
-        clamp(
-            21px,
-            2.7vw,
-            31px
-        );
-
-    line-height: 1.5;
-
-    max-width: 900px;
-
-    margin-bottom: 29px;
-}
-
-.memory-line.first {
-
-    font-size:
-        clamp(
-            24px,
-            3.2vw,
-            36px
-        );
-
-    max-width: 1000px;
 }
 
 
@@ -748,11 +826,12 @@ section {
 
 .video-call {
 
-    margin:
-        68px 0 78px;
-
     text-align: center;
+
+    margin:
+        62px 0 72px;
 }
+
 
 .call-title {
 
@@ -762,19 +841,18 @@ section {
 
     font-size:
         clamp(
-            39px,
-            5.5vw,
-            61px
+            40px,
+            5.4vw,
+            60px
         );
 
     font-style: italic;
-
-    font-weight: 400;
 }
+
 
 .call-people {
 
-    margin-top: 20px;
+    margin-top: 18px;
 
     font-family:
         Inter,
@@ -784,7 +862,7 @@ section {
         clamp(
             15px,
             1.8vw,
-            20px
+            19px
         );
 
     letter-spacing: 7px;
@@ -809,17 +887,18 @@ section {
     background:
 
         radial-gradient(
-            circle at 70% 40%,
-            rgba(124,87,59,.16),
+            circle at 72% 40%,
+            rgba(127,88,60,.16),
             transparent 40%
         ),
 
         linear-gradient(
             180deg,
-            #1b1410,
-            #130f0d
+            #201611,
+            #17110f
         );
 }
+
 
 .chat-layout {
 
@@ -829,36 +908,41 @@ section {
             90%
         );
 
-    margin: auto;
+    margin:
+        auto;
 
     position: relative;
 }
 
+
 .chat-text {
 
-    padding-left: 5%;
+    padding-left:
+        5%;
 
-    margin-bottom: 60px;
+    margin-bottom:
+        58px;
 }
+
 
 .chat-text p {
 
     font-size:
         clamp(
-            25px,
-            3.3vw,
-            38px
+            24px,
+            3.2vw,
+            37px
         );
 
-    line-height: 1.35;
+    line-height:
+        1.4;
 
-    max-width: 950px;
+    max-width:
+        1000px;
 }
 
 
-/*
-   The line about calling appears ONLY HERE.
-*/
+/* screenshot */
 
 .chat-image-wrap {
 
@@ -869,15 +953,14 @@ section {
         );
 
     /*
-       Slightly taller than before.
-       This reveals that extra tiny strip
-       at the bottom of the screenshot.
+       Slightly taller than the previous version
+       so a tiny extra strip at the bottom shows.
     */
 
     height:
         min(
-            625px,
-            108vw
+            635px,
+            110vw
         );
 
     margin-left:
@@ -887,12 +970,14 @@ section {
             25%
         );
 
-    overflow: hidden;
+    padding:
+        12px;
 
-    padding: 12px;
+    overflow:
+        hidden;
 
     background:
-        #1b1613;
+        #1d1713;
 
     box-shadow:
         0 35px 90px
@@ -901,38 +986,49 @@ section {
     transform:
         rotate(-1.4deg);
 
-    position: relative;
+    position:
+        relative;
 
     transition:
-        transform .8s ease;
+        transform .7s ease;
 }
+
 
 .chat-image-wrap:hover {
 
     transform:
-        rotate(-.7deg)
+        rotate(-.6deg)
         translateY(-4px);
 }
 
+
 .chat-image-wrap img {
 
-    display: block;
+    display:
+        block;
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 100%;
+    height:
+        100%;
 
-    object-fit: cover;
+    object-fit:
+        cover;
+
+    /*
+       A little lower than before.
+    */
 
     object-position:
-        center 32%;
+        center 37%;
 
     transform:
-        scale(1.025);
+        scale(1.02);
 }
 
 
-/* tiny light passing across photo */
+/* moving reflection */
 
 .chat-image-wrap::after {
 
@@ -940,17 +1036,19 @@ section {
 
     position: absolute;
 
-    top: -30%;
-    left: -80%;
+    top: -40%;
 
-    width: 45%;
-    height: 160%;
+    left: -90%;
+
+    width: 42%;
+
+    height: 180%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,239,216,.08),
+            rgba(255,240,218,.09),
             transparent
         );
 
@@ -958,42 +1056,49 @@ section {
         rotate(12deg);
 
     animation:
-        photoLight 7s infinite ease-in-out;
+        photoSweep 8s infinite ease-in-out;
 }
 
-@keyframes photoLight {
 
-    0%,70%,100% {
-        left: -80%;
+@keyframes photoSweep {
+
+    0%,72%,100% {
+        left: -90%;
     }
 
-    82% {
-        left: 140%;
+    84% {
+        left: 145%;
     }
 }
 
 
 .after-chat {
 
-    margin-top: 80px;
+    margin-top:
+        75px;
 
-    padding-left: 15%;
+    padding-left:
+        15%;
 
-    max-width: 950px;
+    max-width:
+        960px;
 }
+
 
 .after-chat p {
 
     font-size:
         clamp(
-            22px,
-            2.8vw,
-            32px
+            21px,
+            2.75vw,
+            31px
         );
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
-    margin-top: 22px;
+    margin-top:
+        22px;
 }
 
 
@@ -1003,129 +1108,134 @@ section {
 
 .calls-section {
 
-    min-height: 135vh;
+    min-height:
+        135vh;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
     background:
 
         linear-gradient(
             180deg,
-            #130f0d,
-            #100f0e
+            #17110f,
+            #110e0d
         );
 }
 
 
-/* waveform */
-
 .waveform {
 
-    position: absolute;
+    position:
+        absolute;
 
     inset:
         50% 0 auto 0;
 
-    height: 120px;
+    height:
+        120px;
 
     transform:
         translateY(-50%);
 
-    opacity: .14;
+    opacity:
+        .13;
 
-    pointer-events: none;
+    pointer-events:
+        none;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
 }
+
 
 .waveform span {
 
-    position: absolute;
+    width:
+        2px;
 
-    bottom: 50%;
-
-    width: 1px;
+    height:
+        30px;
 
     background:
-        var(--soft-cream);
+        rgba(231,215,192,.7);
 
     box-shadow:
-        0 0 5px
-        rgba(238,227,209,.2);
+        0 0 7px
+        rgba(231,215,192,.25);
 
     animation:
-        wave 2.4s infinite ease-in-out;
+        audioWave 1.8s infinite ease-in-out;
 }
 
-.waveform span:nth-child(1) {
-    left: 5%;
-    height: 25px;
-}
 
 .waveform span:nth-child(2) {
-    left: 12%;
-    height: 55px;
-    animation-delay: .2s;
-}
-
-.waveform span:nth-child(3) {
-    left: 20%;
-    height: 35px;
-    animation-delay: .4s;
-}
-
-.waveform span:nth-child(4) {
-    left: 29%;
-    height: 70px;
-    animation-delay: .1s;
-}
-
-.waveform span:nth-child(5) {
-    left: 39%;
-    height: 40px;
-    animation-delay: .3s;
-}
-
-.waveform span:nth-child(6) {
-    left: 51%;
-    height: 62px;
-    animation-delay: .5s;
-}
-
-.waveform span:nth-child(7) {
-    left: 63%;
-    height: 30px;
     animation-delay: .15s;
 }
 
+.waveform span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.waveform span:nth-child(4) {
+    animation-delay: .45s;
+}
+
+.waveform span:nth-child(5) {
+    animation-delay: .6s;
+}
+
+.waveform span:nth-child(6) {
+    animation-delay: .75s;
+}
+
+.waveform span:nth-child(7) {
+    animation-delay: .9s;
+}
+
 .waveform span:nth-child(8) {
-    left: 73%;
-    height: 70px;
-    animation-delay: .35s;
+    animation-delay: 1.05s;
 }
 
 .waveform span:nth-child(9) {
-    left: 84%;
-    height: 42px;
-    animation-delay: .55s;
+    animation-delay: 1.2s;
 }
 
 .waveform span:nth-child(10) {
-    left: 94%;
-    height: 60px;
-    animation-delay: .25s;
+    animation-delay: 1.35s;
 }
 
-@keyframes wave {
+
+@keyframes audioWave {
 
     0%,100% {
+
         transform:
-            scaleY(.4);
+            scaleY(.35);
+
+        opacity:
+            .35;
     }
 
     50% {
+
         transform:
-            scaleY(1);
+            scaleY(1.7);
+
+        opacity:
+            .9;
     }
 }
 
@@ -1138,34 +1248,40 @@ section {
             88%
         );
 
-    margin: auto;
+    margin:
+        auto;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        2;
 }
+
 
 .calls-heading {
 
-    max-width: 1000px;
+    max-width:
+        1000px;
 
-    margin-bottom: 65px;
+    margin-bottom:
+        62px;
 }
+
 
 .calls-heading p {
 
     font-size:
         clamp(
-            24px,
-            3.2vw,
-            36px
+            23px,
+            3.1vw,
+            35px
         );
 
-    line-height: 1.45;
+    line-height:
+        1.45;
 }
 
-
-/* call cards */
 
 .call-list {
 
@@ -1183,36 +1299,39 @@ section {
         );
 }
 
+
 .call-card {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 18px;
+    gap:
+        18px;
 
     padding:
         17px 21px;
 
-    margin: 12px 0;
+    margin:
+        12px 0;
 
     border:
         1px solid
-        rgba(238,227,209,.13);
+        rgba(238,226,208,.14);
 
     background:
-        rgba(255,255,255,.04);
+        rgba(255,255,255,.035);
 
-    border-radius: 5px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.2);
+    border-radius:
+        5px;
 
     transition:
         transform .5s ease,
         background .5s ease;
 }
+
 
 .call-card:nth-child(2) {
     margin-left: 45px;
@@ -1226,6 +1345,7 @@ section {
     margin-left: 55px;
 }
 
+
 .call-card:hover {
 
     transform:
@@ -1235,34 +1355,49 @@ section {
         rgba(255,255,255,.07);
 }
 
+
 .call-icon {
 
-    width: 40px;
-    height: 40px;
+    width:
+        40px;
 
-    flex-shrink: 0;
+    height:
+        40px;
+
+    flex-shrink:
+        0;
 
     border:
         1px solid
-        rgba(238,227,209,.3);
+        rgba(238,226,208,.3);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     font-family:
         Inter,
         sans-serif;
 
-    font-size: 15px;
+    font-size:
+        15px;
 }
 
+
 .call-details {
-    flex: 1;
+
+    flex:
+        1;
 }
+
 
 .call-name {
 
@@ -1270,10 +1405,13 @@ section {
         Inter,
         sans-serif;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    margin-bottom: 4px;
+    margin-bottom:
+        4px;
 }
+
 
 .call-meta {
 
@@ -1281,17 +1419,22 @@ section {
         Inter,
         sans-serif;
 
-    font-size: 8px;
+    font-size:
+        8px;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
     color:
         var(--soft-cream);
 
-    opacity: .65;
+    opacity:
+        .65;
 }
+
 
 .call-duration {
 
@@ -1299,37 +1442,47 @@ section {
         Inter,
         sans-serif;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
     color:
         #c0b09b;
 }
 
+
 .calls-bottom {
 
-    width: 100%;
+    width:
+        100%;
 
-    margin-top: 90px;
+    margin-top:
+        85px;
 
-    padding-left: 8%;
+    padding-left:
+        8%;
 }
+
 
 .calls-bottom p {
 
     font-size:
         clamp(
-            23px,
-            3vw,
-            34px
+            22px,
+            2.8vw,
+            32px
         );
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
-    max-width: 900px;
+    max-width:
+        900px;
 
-    margin-top: 24px;
+    margin-top:
+        23px;
 }
 
 
@@ -1339,61 +1492,71 @@ section {
 
 .routine-section {
 
-    min-height: 130vh;
+    min-height:
+        130vh;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
     background:
 
         radial-gradient(
-            circle at 50% 40%,
-            rgba(143,101,69,.22),
-            transparent 42%
+            circle at 50% 42%,
+            rgba(145,102,70,.23),
+            transparent 43%
         ),
 
         linear-gradient(
             180deg,
-            #17110e,
-            #1d1510
+            #110e0d,
+            #211711
         );
 }
 
 
-/* glowing moving orb */
-
 .routine-glow {
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 520px;
-    height: 520px;
+    width:
+        500px;
 
-    border-radius: 50%;
+    height:
+        500px;
+
+    border-radius:
+        50%;
 
     background:
-        rgba(154,109,75,.08);
+        rgba(165,117,77,.09);
 
     filter:
         blur(75px);
 
     animation:
-        glowMove 8s infinite ease-in-out;
+        routineGlow 9s infinite ease-in-out;
 }
 
-@keyframes glowMove {
+
+@keyframes routineGlow {
 
     0%,100% {
+
         transform:
-            translate(-50px,-20px);
+            translate(-100px,-20px);
     }
 
     50% {
+
         transform:
-            translate(50px,25px);
+            translate(110px,35px);
     }
 }
+
 
 .routine-content {
 
@@ -1403,31 +1566,40 @@ section {
             90%
         );
 
-    margin: auto;
+    margin:
+        auto;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        2;
 }
+
 
 .routine-intro {
 
-    max-width: 900px;
+    max-width:
+        900px;
 
-    margin-bottom: 65px;
+    margin-bottom:
+        60px;
 }
+
 
 .routine-intro p {
 
     font-size:
         clamp(
-            24px,
-            3.2vw,
-            36px
+            23px,
+            3.1vw,
+            35px
         );
 
-    line-height: 1.45;
+    line-height:
+        1.45;
 }
+
 
 .routine-image-wrap {
 
@@ -1439,12 +1611,13 @@ section {
 
     margin-left:
         clamp(
-            10%,
-            20vw,
+            5%,
+            18vw,
             30%
         );
 
-    padding: 12px;
+    padding:
+        12px;
 
     background:
         #1d1713;
@@ -1457,91 +1630,108 @@ section {
         rotate(1deg);
 
     transition:
-        transform .8s ease;
+        transform .7s ease;
 }
+
 
 .routine-image-wrap:hover {
 
     transform:
         rotate(.5deg)
-        translateY(-4px);
+        translateY(-5px);
 }
+
 
 .routine-image-wrap img {
 
-    display: block;
+    display:
+        block;
 
-    width: 100%;
+    width:
+        100%;
 
-    height: auto;
+    height:
+        auto;
 }
+
 
 .routine-after {
 
-    max-width: 850px;
+    max-width:
+        850px;
 
-    margin-top: 70px;
+    margin-top:
+        70px;
 
     margin-left:
         clamp(
-            5%,
+            0%,
             12vw,
             20%
         );
 }
 
+
 .routine-after p {
 
     font-size:
         clamp(
-            22px,
-            2.8vw,
-            32px
+            21px,
+            2.75vw,
+            31px
         );
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
-    margin-top: 24px;
+    margin-top:
+        24px;
 }
 
 
 /* =========================================================
-   BRIDGE
+   SOMEWHERE ALONG THE WAY
 ========================================================= */
 
 .bridge-section {
 
-    min-height: 120vh;
+    min-height:
+        125vh;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    text-align: center;
+    text-align:
+        center;
 
     background:
 
         radial-gradient(
-            circle at 25% 35%,
-            rgba(99,61,49,.18),
+            circle at 25% 30%,
+            rgba(105,66,50,.18),
             transparent 35%
         ),
 
         radial-gradient(
-            circle at 75% 70%,
-            rgba(83,45,45,.17),
+            circle at 78% 72%,
+            rgba(82,46,45,.18),
             transparent 38%
         ),
 
         linear-gradient(
             180deg,
-            #1d1510,
-            #17100f 55%,
-            #17100f
+            #211711,
+            #261b18 55%,
+            #332421 100%
         );
 }
+
 
 .bridge-content {
 
@@ -1551,8 +1741,10 @@ section {
             90%
         );
 
-    margin: auto;
+    margin:
+        auto;
 }
+
 
 .bridge-small {
 
@@ -1560,61 +1752,68 @@ section {
         Inter,
         sans-serif;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    letter-spacing: 5px;
+    letter-spacing:
+        5px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
     color:
-        var(--muted);
+        #ad977f;
 
-    margin-bottom: 45px;
+    margin-bottom:
+        45px;
 }
+
 
 .bridge-line {
 
     font-size:
         clamp(
-            29px,
-            4.3vw,
-            49px
+            28px,
+            4.1vw,
+            48px
         );
 
-    line-height: 1.38;
+    line-height:
+        1.38;
 
-    font-weight: 300;
+    font-weight:
+        300;
 
-    max-width: 1000px;
+    max-width:
+        1000px;
 
     margin:
-        62px auto 0;
+        60px auto 0;
 }
+
 
 .bridge-detail {
 
     font-size:
         clamp(
-            21px,
-            2.7vw,
-            31px
+            20px,
+            2.6vw,
+            30px
         );
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
     color:
         var(--soft-cream);
 
-    max-width: 850px;
+    max-width:
+        850px;
 
     margin:
-        48px auto 0;
+        45px auto 0;
 }
 
-
-/*
-   This is deliberately larger now.
-*/
 
 .bridge-final {
 
@@ -1625,192 +1824,216 @@ section {
     font-size:
         clamp(
             38px,
-            5.5vw,
-            64px
+            5.4vw,
+            63px
         );
 
-    font-style: italic;
+    font-style:
+        italic;
 
-    margin-top: 90px;
+    margin-top:
+        90px;
 
     color:
         var(--cream);
 
     text-shadow:
         0 0 30px
-        rgba(238,227,209,.08);
+        rgba(238,226,208,.08);
 }
 
 
 /* =========================================================
    MORE THAN YOU KNOW
-   SCRAPBOOK / POLAROID SECTION
+   GRADUAL TRANSITION + PAPER
 ========================================================= */
 
 .more-section {
 
-    min-height: 175vh;
+    min-height:
+        185vh;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    color:
+        var(--ink);
+
+    /*
+       The top is deliberately still dark,
+       then slowly becomes parchment.
+    */
 
     background:
-
-        radial-gradient(
-            ellipse at 75% 15%,
-            rgba(89,48,43,.24),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            ellipse at 15% 80%,
-            rgba(73,43,36,.18),
-            transparent 35%
-        ),
 
         linear-gradient(
             180deg,
-            #211613,
-            #160f0d 45%,
-            #120d0c
+
+            #332421 0%,
+
+            #544238 4%,
+
+            #897561 8%,
+
+            #b9a793 13%,
+
+            #d8ccba 18%,
+
+            #e9dfcf 25%,
+
+            #eee6d7 35%,
+
+            #eee6d7 100%
         );
-
-    position: relative;
 }
 
 
-/* warm ambient particles */
+/* paper texture */
 
-.more-particles {
+.more-section::before {
 
-    position: absolute;
+    content:
+        "";
 
-    inset: 0;
+    position:
+        absolute;
 
-    pointer-events: none;
-}
+    inset:
+        10% 0 0 0;
 
-.more-particles span {
-
-    position: absolute;
-
-    width: 2px;
-    height: 2px;
-
-    border-radius: 50%;
+    pointer-events:
+        none;
 
     background:
-        rgba(238,227,209,.65);
 
-    box-shadow:
-        0 0 9px
-        rgba(238,227,209,.25);
+        radial-gradient(
+            ellipse at 20% 25%,
+            rgba(255,252,241,.7),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            ellipse at 82% 58%,
+            rgba(207,189,160,.2),
+            transparent 42%
+        );
+
+    z-index:
+        0;
+}
+
+
+.more-section::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .18;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.16'/%3E%3C/svg%3E");
+
+    mix-blend-mode:
+        multiply;
+
+    z-index:
+        1;
+}
+
+
+/* =========================================================
+   PAPER LIGHT
+========================================================= */
+
+.more-light {
+
+    position:
+        absolute;
+
+    width:
+        600px;
+
+    height:
+        600px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,250,237,.3);
+
+    filter:
+        blur(100px);
+
+    left:
+        -250px;
+
+    top:
+        17%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        2;
 
     animation:
-        moreFloat
-        8s infinite ease-in-out;
+        paperLight 14s infinite ease-in-out;
 }
 
-.more-particles span:nth-child(1) {
-    left: 12%;
-    top: 18%;
-}
 
-.more-particles span:nth-child(2) {
-    left: 81%;
-    top: 25%;
-    animation-delay: 2s;
-}
-
-.more-particles span:nth-child(3) {
-    left: 68%;
-    top: 72%;
-    animation-delay: 4s;
-}
-
-.more-particles span:nth-child(4) {
-    left: 20%;
-    top: 66%;
-    animation-delay: 1s;
-}
-
-.more-particles span:nth-child(5) {
-    left: 48%;
-    top: 40%;
-    animation-delay: 3s;
-}
-
-@keyframes moreFloat {
+@keyframes paperLight {
 
     0%,100% {
+
         transform:
             translate(0,0);
-        opacity: .15;
     }
 
     50% {
+
         transform:
-            translate(15px,-22px);
-        opacity: .7;
+            translate(650px,90px);
     }
 }
 
 
-/* little decorative line */
-
-.more-orbit {
-
-    position: absolute;
-
-    width: 600px;
-    height: 300px;
-
-    right: -250px;
-    top: 22%;
-
-    border:
-        1px solid
-        rgba(210,181,151,.1);
-
-    border-radius: 50%;
-
-    transform:
-        rotate(-20deg);
-
-    animation:
-        orbitDrift 16s infinite ease-in-out;
-}
-
-@keyframes orbitDrift {
-
-    0%,100% {
-        transform:
-            rotate(-20deg)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            rotate(-16deg)
-            translateY(18px);
-    }
-}
-
-
-/* main content */
+/* =========================================================
+   MAIN MORE CONTENT
+========================================================= */
 
 .more-content {
 
     width:
         min(
             1250px,
-            92%
+            91%
         );
 
-    margin: auto;
+    margin:
+        auto;
 
-    padding-top: 13vh;
+    padding-top:
+        10vh;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        5;
 }
 
 
@@ -1822,17 +2045,22 @@ section {
         Inter,
         sans-serif;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    letter-spacing: 5px;
+    letter-spacing:
+        5px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
     color:
-        #b59f87;
+        #756555;
 
-    margin-bottom: 25px;
+    margin-bottom:
+        21px;
 }
+
 
 .more-title {
 
@@ -1843,330 +2071,140 @@ section {
     font-size:
         clamp(
             58px,
-            9vw,
-            105px
+            8vw,
+            94px
         );
 
-    font-weight: 400;
+    line-height:
+        .91;
 
-    line-height: .91;
+    font-weight:
+        400;
 
-    letter-spacing: -1px;
-
-    margin-bottom: 75px;
+    letter-spacing:
+        -1px;
 
     color:
-        #eadbc8;
+        #302821;
 
-    text-shadow:
-        0 0 40px
-        rgba(238,227,209,.05);
+    margin-bottom:
+        24px;
 }
 
 
-/* intro */
-
-.more-intro {
-
-    width:
-        min(
-            650px,
-            90%
-        );
-
-    margin-left: 7%;
-
-    margin-bottom: 75px;
-}
-
-.more-intro p {
-
-    font-size:
-        clamp(
-            23px,
-            3vw,
-            34px
-        );
-
-    line-height: 1.5;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================================
-   POLAROIDS
-========================================================= */
-
-.polaroid {
-
-    position: absolute;
-
-    background:
-        #e8dcc9;
-
-    padding:
-        11px 11px 37px;
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.55);
-
-    z-index: 5;
-
-    transition:
-        transform .9s cubic-bezier(.2,.7,.2,1),
-        box-shadow .8s ease;
-
-    animation:
-        polaroidFloat
-        7s infinite ease-in-out;
-}
-
-.polaroid:hover {
-
-    box-shadow:
-        0 35px 80px
-        rgba(0,0,0,.7);
-
-    z-index: 10;
-}
-
-.polaroid img {
-
-    display: block;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    filter:
-        saturate(.88)
-        contrast(.97);
-}
-
-
-/* translucent tape */
-
-.polaroid::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 75px;
-    height: 20px;
-
-    top: -10px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-
-    background:
-        rgba(214,194,162,.62);
-
-    z-index: 4;
-
-    box-shadow:
-        0 1px 3px
-        rgba(0,0,0,.12);
-}
-
-
-/* handwriting */
-
-.polaroid-note {
-
-    position: absolute;
-
-    bottom: 8px;
-
-    left: 0;
-
-    width: 100%;
-
-    text-align: center;
+.more-handwritten {
 
     font-family:
         "Great Vibes",
         cursive;
 
-    font-size: 18px;
+    font-size:
+        clamp(
+            23px,
+            3vw,
+            31px
+        );
+
+    line-height:
+        1.2;
 
     color:
-        #574b3f;
+        #665749;
 
-    opacity: .82;
-}
-
-
-/* child */
-
-.polaroid-child {
-
-    width: 245px;
-    height: 325px;
-
-    right: 15%;
-
-    top: 10%;
+    margin-left:
+        5px;
 
     transform:
-        rotate(4deg);
+        rotate(-2deg);
 
-    animation-delay:
-        .4s;
-}
-
-.polaroid-child:hover {
-
-    transform:
-        rotate(1deg)
-        translateY(-8px)
-        scale(1.02);
+    margin-bottom:
+        65px;
 }
 
 
-/* sea */
+/* intro text */
 
-.polaroid-sea {
+.more-intro {
 
-    width: 270px;
-    height: 335px;
+    width:
+        min(
+            570px,
+            100%
+        );
 
-    right: 4%;
+    margin-left:
+        3%;
 
-    top: 39%;
-
-    transform:
-        rotate(-5deg);
-
-    animation-delay:
-        1.2s;
-}
-
-.polaroid-sea:hover {
-
-    transform:
-        rotate(-2deg)
-        translateY(-8px)
-        scale(1.02);
+    margin-bottom:
+        70px;
 }
 
 
-/* camel */
+.more-intro p {
 
-.polaroid-camel {
+    font-size:
+        clamp(
+            21px,
+            2.6vw,
+            29px
+        );
 
-    width: 255px;
-    height: 340px;
+    line-height:
+        1.5;
 
-    left: 2%;
+    color:
+        #40352c;
 
-    top: 59%;
-
-    transform:
-        rotate(-4deg);
-
-    animation-delay:
-        2s;
-}
-
-.polaroid-camel:hover {
-
-    transform:
-        rotate(-1deg)
-        translateY(-8px)
-        scale(1.02);
-}
-
-
-/* flowers */
-
-.polaroid-flowers {
-
-    width: 300px;
-    height: 385px;
-
-    right: 17%;
-
-    top: 72%;
-
-    transform:
-        rotate(3deg);
-
-    animation-delay:
-        2.8s;
-}
-
-.polaroid-flowers:hover {
-
-    transform:
-        rotate(1deg)
-        translateY(-10px)
-        scale(1.02);
-}
-
-
-@keyframes polaroidFloat {
-
-    0%,100% {
-        translate:
-            0 0;
-    }
-
-    50% {
-        translate:
-            0 -5px;
-    }
+    margin-bottom:
+        28px;
 }
 
 
 /* =========================================================
-   MORE THAN YOU KNOW TEXT
+   MORE WRITING
 ========================================================= */
 
 .more-writing {
 
-    position: relative;
+    position:
+        relative;
 
     width:
         min(
-            850px,
+            1080px,
             100%
         );
 
-    margin-left: 8%;
+    margin-left:
+        3%;
 
-    padding-bottom: 18vh;
+    padding-bottom:
+        15vh;
 }
+
 
 .more-writing p {
 
     font-size:
         clamp(
-            21px,
-            2.65vw,
-            30px
+            20px,
+            2.4vw,
+            28px
         );
 
-    line-height: 1.55;
+    line-height:
+        1.55;
 
-    font-weight: 300;
-
-    margin-bottom: 36px;
+    font-weight:
+        400;
 
     color:
-        #e5d8c6;
+        #3d332b;
+
+    margin-bottom:
+        34px;
 }
 
-
-/* stronger phrases */
 
 .more-writing .large {
 
@@ -2176,41 +2214,139 @@ section {
 
     font-size:
         clamp(
-            29px,
-            4vw,
-            44px
+            27px,
+            3.5vw,
+            41px
         );
 
-    line-height: 1.35;
+    line-height:
+        1.38;
+
+    color:
+        #30271f;
 
     margin:
-        75px 0;
-
-    color:
-        #eadbc8;
+        65px 0 30px;
 }
 
 
-/* areas around photographs */
+/* childhood area */
 
-.more-writing .photo-gap {
+.childhood-text {
+
+    width:
+        min(
+            540px,
+            100%
+        );
+
+    margin-left:
+        3%;
 
     margin-bottom:
-        110px;
-}
-
-.more-writing .soft {
-
-    color:
-        #c5b39d;
+        80px;
 }
 
 
-/* final line */
+/* explorer */
+
+.explorer-text {
+
+    width:
+        min(
+            530px,
+            100%
+        );
+
+    margin-left:
+        54%;
+
+    margin-top:
+        30px;
+
+    margin-bottom:
+        90px;
+}
+
+
+/* camel */
+
+.camel-text {
+
+    width:
+        min(
+            510px,
+            100%
+        );
+
+    margin-left:
+        3%;
+
+    margin-top:
+        70px;
+
+    margin-bottom:
+        90px;
+}
+
+
+/* care */
+
+.care-text {
+
+    width:
+        min(
+            550px,
+            100%
+        );
+
+    margin-left:
+        46%;
+
+    margin-top:
+        80px;
+
+    margin-bottom:
+        85px;
+}
+
+
+/* ambition */
+
+.ambition-text {
+
+    width:
+        min(
+            620px,
+            100%
+        );
+
+    margin-left:
+        3%;
+
+    margin-top:
+        75px;
+
+    margin-bottom:
+        70px;
+}
+
+
+/* ending */
 
 .more-ending {
 
-    margin-top: 95px;
+    width:
+        min(
+            650px,
+            100%
+        );
+
+    margin-left:
+        45%;
+
+    margin-top:
+        95px;
 
     font-family:
         "Bodoni Moda",
@@ -2218,23 +2354,582 @@ section {
 
     font-size:
         clamp(
-            31px,
-            4.5vw,
-            51px
+            29px,
+            4vw,
+            45px
         );
 
-    line-height: 1.4;
+    line-height:
+        1.4;
 
-    font-style: italic;
-
-    max-width: 750px;
+    font-style:
+        italic;
 
     color:
-        #eadbc8;
+        #30271f;
+}
 
-    text-shadow:
-        0 0 30px
-        rgba(238,227,209,.08);
+
+/* =========================================================
+   POLAROIDS
+========================================================= */
+
+.more-polaroid {
+
+    position:
+        absolute;
+
+    background:
+        #eee5d5;
+
+    padding:
+        12px 12px 43px;
+
+    box-shadow:
+        0 17px 36px
+        rgba(68,52,38,.25);
+
+    z-index:
+        7;
+
+    transition:
+        transform .8s cubic-bezier(.2,.75,.2,1),
+        box-shadow .8s ease;
+
+    animation:
+        polaroidFloat 8s infinite ease-in-out;
+}
+
+
+.more-polaroid img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    filter:
+        saturate(.9)
+        contrast(.97);
+}
+
+
+/* tape */
+
+.more-polaroid::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        -11px;
+
+    left:
+        50%;
+
+    width:
+        80px;
+
+    height:
+        22px;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(205,187,157,.72);
+
+    z-index:
+        10;
+}
+
+
+/* handwritten note */
+
+.polaroid-note {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        9px;
+
+    text-align:
+        center;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        18px;
+
+    color:
+        #5d4e3f;
+
+    opacity:
+        .9;
+}
+
+
+/* childhood */
+
+.polaroid-child {
+
+    width:
+        250px;
+
+    height:
+        330px;
+
+    top:
+        7.5%;
+
+    right:
+        17%;
+
+    transform:
+        rotate(3.5deg);
+
+    animation-delay:
+        .2s;
+}
+
+
+.polaroid-child:hover {
+
+    transform:
+        rotate(1deg)
+        translateY(-8px)
+        scale(1.025);
+
+    box-shadow:
+        0 30px 55px
+        rgba(68,52,38,.3);
+}
+
+
+/* sea */
+
+.polaroid-sea {
+
+    width:
+        275px;
+
+    height:
+        350px;
+
+    top:
+        31%;
+
+    right:
+        4.5%;
+
+    transform:
+        rotate(-4deg);
+
+    animation-delay:
+        1s;
+}
+
+
+.polaroid-sea:hover {
+
+    transform:
+        rotate(-1deg)
+        translateY(-8px)
+        scale(1.025);
+}
+
+
+/* camel */
+
+.polaroid-camel {
+
+    width:
+        260px;
+
+    height:
+        350px;
+
+    top:
+        52%;
+
+    left:
+        2.5%;
+
+    transform:
+        rotate(-4deg);
+
+    animation-delay:
+        1.8s;
+}
+
+
+.polaroid-camel:hover {
+
+    transform:
+        rotate(-1deg)
+        translateY(-8px)
+        scale(1.025);
+}
+
+
+/* flowers */
+
+.polaroid-flowers {
+
+    width:
+        305px;
+
+    height:
+        395px;
+
+    top:
+        70%;
+
+    right:
+        14%;
+
+    transform:
+        rotate(3deg);
+
+    animation-delay:
+        2.7s;
+}
+
+
+.polaroid-flowers:hover {
+
+    transform:
+        rotate(1deg)
+        translateY(-10px)
+        scale(1.025);
+}
+
+
+@keyframes polaroidFloat {
+
+    0%,100% {
+
+        translate:
+            0 0;
+    }
+
+    50% {
+
+        translate:
+            0 -5px;
+    }
+}
+
+
+/* =========================================================
+   SCRAPBOOK DOODLES
+========================================================= */
+
+.scrap-star {
+
+    position:
+        absolute;
+
+    color:
+        #776452;
+
+    font-size:
+        22px;
+
+    z-index:
+        4;
+
+    animation:
+        doodleFloat 5s infinite ease-in-out;
+}
+
+
+.scrap-star.one {
+
+    top:
+        16%;
+
+    right:
+        8%;
+}
+
+
+.scrap-star.two {
+
+    top:
+        55%;
+
+    left:
+        2%;
+
+    animation-delay:
+        1.5s;
+}
+
+
+.scrap-star.three {
+
+    top:
+        81%;
+
+    right:
+        5%;
+
+    animation-delay:
+        3s;
+}
+
+
+@keyframes doodleFloat {
+
+    0%,100% {
+
+        opacity:
+            .45;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50% {
+
+        opacity:
+            .9;
+
+        transform:
+            translateY(-7px)
+            rotate(8deg);
+    }
+}
+
+
+/* mountain */
+
+.mountain-doodle {
+
+    position:
+        absolute;
+
+    top:
+        26%;
+
+    right:
+        9%;
+
+    width:
+        170px;
+
+    height:
+        90px;
+
+    opacity:
+        .6;
+
+    z-index:
+        4;
+
+    transform:
+        rotate(-3deg);
+}
+
+
+.mountain-doodle svg {
+
+    width:
+        100%;
+
+    height:
+        100%;
+}
+
+
+.mountain-doodle path {
+
+    fill:
+        none;
+
+    stroke:
+        #766250;
+
+    stroke-width:
+        1.3;
+
+    stroke-linecap:
+        round;
+}
+
+
+/* dried flower */
+
+.dried-flower {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        7%;
+
+    width:
+        145px;
+
+    height:
+        230px;
+
+    opacity:
+        .55;
+
+    transform:
+        rotate(-7deg);
+
+    z-index:
+        4;
+}
+
+
+.dried-flower::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        1px;
+
+    height:
+        215px;
+
+    background:
+        #806d57;
+
+    left:
+        55%;
+
+    top:
+        18px;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.dried-flower::after {
+
+    content:
+        "✿  ✿  ✿";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        17px;
+
+    font-size:
+        21px;
+
+    letter-spacing:
+        5px;
+
+    color:
+        #806d57;
+
+    transform:
+        rotate(-10deg);
+}
+
+
+/* little torn paper */
+
+.paper-note {
+
+    position:
+        absolute;
+
+    z-index:
+        4;
+
+    background:
+        rgba(224,211,191,.72);
+
+    color:
+        #645445;
+
+    padding:
+        20px 28px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        22px;
+
+    line-height:
+        1.35;
+
+    box-shadow:
+        0 12px 25px
+        rgba(67,50,36,.08);
+
+    transform:
+        rotate(-4deg);
+}
+
+
+.paper-note.left {
+
+    left:
+        -20px;
+
+    bottom:
+        12%;
+
+    width:
+        230px;
+}
+
+
+.paper-note.right {
+
+    right:
+        -10px;
+
+    bottom:
+        6%;
+
+    width:
+        250px;
+
+    transform:
+        rotate(4deg);
 }
 
 
@@ -2246,86 +2941,104 @@ section {
 
 
     .opening-title {
-        font-size: 68px;
+
+        font-size:
+            67px;
     }
+
+
+    .opening-arc {
+
+        width:
+            220px;
+
+        height:
+            110px;
+    }
+
 
     .opening-date {
-        letter-spacing: 4px;
-    }
 
-    .moon {
-
-        width: 44px;
-        height: 44px;
-
-        right: 8%;
-        top: 16%;
-    }
-
-    .moon::after {
-
-        width: 41px;
-        height: 41px;
+        letter-spacing:
+            4px;
     }
 
 
     .memory-date {
 
-        letter-spacing: 4px;
-
-        margin-bottom: 60px;
+        letter-spacing:
+            4px;
     }
 
+
     .call-people {
-        letter-spacing: 4px;
+
+        letter-spacing:
+            4px;
     }
 
 
     .chat-text {
-        padding-left: 0;
+
+        padding-left:
+            0;
     }
+
 
     .chat-image-wrap {
 
-        width: 78vw;
+        width:
+            78vw;
 
-        height: 108vw;
+        height:
+            110vw;
 
-        margin-left: 5%;
+        margin-left:
+            4%;
     }
+
 
     .after-chat {
 
-        padding-left: 3%;
+        padding-left:
+            2%;
     }
 
 
     .call-list {
 
-        margin-left: 0;
+        margin-left:
+            0;
     }
+
 
     .call-card:nth-child(2),
     .call-card:nth-child(4),
     .call-card:nth-child(6) {
 
-        margin-left: 0;
+        margin-left:
+            0;
     }
+
 
     .calls-bottom {
 
-        padding-left: 0;
+        padding-left:
+            0;
     }
 
 
     .routine-image-wrap {
 
-        margin-left: 5%;
+        margin-left:
+            4%;
     }
+
 
     .routine-after {
 
-        margin-left: 0;
+        margin-left:
+            0;
     }
 
 
@@ -2340,82 +3053,239 @@ section {
     }
 
 
-    /* Mobile scrapbook */
+    /* MORE THAN YOU KNOW */
+
+    .more-section {
+
+        min-height:
+            240vh;
+
+        background:
+
+            linear-gradient(
+                180deg,
+                #332421 0%,
+                #6e594b 5%,
+                #bba994 11%,
+                #e3d8c7 18%,
+                #eee6d7 26%,
+                #eee6d7 100%
+            );
+    }
+
 
     .more-content {
 
-        width: 90%;
+        width:
+            90%;
 
-        padding-top: 10vh;
+        padding-top:
+            9vh;
     }
+
 
     .more-title {
 
-        font-size: 61px;
+        font-size:
+            59px;
 
-        margin-bottom: 55px;
+        margin-bottom:
+            22px;
     }
+
+
+    .more-handwritten {
+
+        font-size:
+            24px;
+
+        margin-bottom:
+            45px;
+    }
+
 
     .more-intro {
 
-        width: 100%;
+        width:
+            100%;
 
-        margin-left: 0;
+        margin-left:
+            0;
+
+        padding-top:
+            320px;
     }
+
 
     .more-writing {
 
-        width: 100%;
+        width:
+            100%;
 
-        margin-left: 0;
+        margin-left:
+            0;
+    }
 
-        padding-top: 390px;
+
+    .childhood-text,
+    .explorer-text,
+    .camel-text,
+    .care-text,
+    .ambition-text,
+    .more-ending {
+
+        width:
+            100%;
+
+        margin-left:
+            0;
+    }
+
+
+    .childhood-text {
+
+        padding-top:
+            230px;
+    }
+
+
+    .explorer-text {
+
+        padding-top:
+            245px;
+    }
+
+
+    .camel-text {
+
+        padding-top:
+            230px;
+    }
+
+
+    .care-text {
+
+        padding-top:
+            235px;
+    }
+
+
+    .ambition-text {
+
+        padding-top:
+            230px;
+    }
+
+
+    .more-ending {
+
+        padding-top:
+            235px;
     }
 
 
     .polaroid-child {
 
-        width: 190px;
-        height: 250px;
+        width:
+            185px;
 
-        right: 3%;
+        height:
+            245px;
 
-        top: 24%;
+        top:
+            16%;
+
+        right:
+            4%;
     }
+
 
     .polaroid-sea {
 
-        width: 195px;
-        height: 250px;
+        width:
+            195px;
 
-        right: 3%;
+        height:
+            250px;
 
-        top: 47%;
+        top:
+            37%;
+
+        right:
+            3%;
     }
+
 
     .polaroid-camel {
 
-        width: 185px;
-        height: 245px;
+        width:
+            185px;
 
-        left: 1%;
+        height:
+            250px;
 
-        top: 67%;
+        top:
+            57%;
+
+        left:
+            2%;
     }
+
 
     .polaroid-flowers {
 
-        width: 205px;
-        height: 270px;
+        width:
+            205px;
 
-        right: 4%;
+        height:
+            270px;
 
-        top: 84%;
+        top:
+            78%;
+
+        right:
+            4%;
     }
+
 
     .polaroid-note {
 
-        font-size: 15px;
+        font-size:
+            15px;
+    }
+
+
+    .mountain-doodle {
+
+        top:
+            29%;
+
+        right:
+            1%;
+
+        width:
+            120px;
+    }
+
+
+    .dried-flower {
+
+        transform:
+            scale(.7)
+            rotate(-7deg);
+
+        left:
+            -20px;
+
+        bottom:
+            4%;
+    }
+
+
+    .paper-note {
+
+        display:
+            none;
     }
 
 }
@@ -2431,13 +3301,17 @@ section {
     *::before,
     *::after {
 
-        animation-duration: .01ms !important;
+        animation-duration:
+            .01ms !important;
 
-        animation-iteration-count: 1 !important;
+        animation-iteration-count:
+            1 !important;
 
-        scroll-behavior: auto !important;
+        transition-duration:
+            .01ms !important;
 
-        transition-duration: .01ms !important;
+        scroll-behavior:
+            auto !important;
     }
 
 }
@@ -2469,7 +3343,7 @@ section {
     </div>
 
 
-    <div class="moon"></div>
+    <div class="opening-arc"></div>
 
 
     <div class="opening-inner">
@@ -2535,61 +3409,57 @@ section {
         </div>
 
 
-        <div class="memory-story">
+        <p class="memory-line first reveal">
+            Thank god Nisha posted a story that day.
+        </p>
 
 
-            <p class="memory-line first reveal">
-                Thank god Nisha posted a story that day.
-            </p>
+        <p class="memory-line reveal delay-1">
+            Because that somehow turned into
+        </p>
 
 
-            <p class="memory-line reveal delay-1">
-                Because that somehow turned into
-            </p>
+        <div class="video-call reveal delay-2">
 
-
-            <div class="video-call reveal delay-2">
-
-                <div class="call-title">
-                    a video call.
-                </div>
-
-                <div class="call-people">
-                    you . me . nisha
-                </div>
-
+            <div class="call-title">
+                a video call.
             </div>
 
-
-            <p class="memory-line reveal delay-3">
-                You were so shy.
-            </p>
-
-
-            <p class="memory-line reveal delay-4">
-                And I remember finding it funny that you'd actually
-                asked her to add me just because you thought I was cute.
-            </p>
-
-
-            <p class="memory-line reveal delay-5">
-                I think neither of us really knew what to do
-                with that first conversation.
-            </p>
-
-
-            <p class="memory-line reveal delay-1">
-                It was just a new person, a new voice,
-                a little bit of awkwardness.
-            </p>
-
-
-            <p class="memory-line reveal delay-2">
-                But somehow, it didn't end there.
-            </p>
-
+            <div class="call-people">
+                you . me . nisha
+            </div>
 
         </div>
+
+
+        <p class="memory-line reveal delay-3">
+            You were so shy.
+        </p>
+
+
+        <p class="memory-line reveal delay-4">
+            And I remember finding it funny that you'd
+            actually asked her to add me just because
+            you thought I was cute.
+        </p>
+
+
+        <p class="memory-line reveal delay-5">
+            I think neither of us really knew what to do
+            with that first conversation.
+        </p>
+
+
+        <p class="memory-line reveal delay-1">
+            It was just a new person, a new voice,
+            a little bit of awkwardness.
+        </p>
+
+
+        <p class="memory-line reveal delay-2">
+            But somehow, it didn't end there.
+        </p>
+
 
     </div>
 
@@ -3015,42 +3885,120 @@ section {
 <section class="more-section">
 
 
-    <div class="more-particles">
+    <div class="more-light"></div>
 
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+
+    <!-- decorative stars -->
+
+    <div class="scrap-star one">
+        ✧
+    </div>
+
+    <div class="scrap-star two">
+        ☆
+    </div>
+
+    <div class="scrap-star three">
+        ✧
+    </div>
+
+
+
+    <!-- mountain doodle -->
+
+    <div class="mountain-doodle">
+
+        <svg viewBox="0 0 200 100">
+
+            <path d="
+                M5 86
+                L42 48
+                L60 67
+                L93 25
+                L121 60
+                L145 34
+                L190 86
+            "/>
+
+            <path d="
+                M42 48
+                L54 37
+                L67 52
+            "/>
+
+            <path d="
+                M93 25
+                L102 39
+                L113 30
+            "/>
+
+        </svg>
 
     </div>
 
 
-    <div class="more-orbit"></div>
+
+    <!-- dried flower -->
+
+    <div class="dried-flower"></div>
 
 
-    <!-- CHILDHOOD PHOTO -->
 
-    <div class="polaroid polaroid-child">
+    <!-- torn paper notes -->
+
+    <div class="paper-note left">
+        a little kinder<br>
+        a little braver<br>
+        a little funnier<br>
+        you, always
+    </div>
+
+
+    <div class="paper-note right">
+        the world is a little brighter
+        with you in it ♡
+    </div>
+
+
+
+    <!-- =================================================
+         CHILDHOOD POLAROID
+    ================================================= -->
+
+    <div class="
+        more-polaroid
+        polaroid-child
+        reveal
+    ">
 
         <img
             src="tanmay-childhood.jpg"
-            alt="Tanmay as a child">
+            alt="Tanmay as a child"
+        >
 
         <div class="polaroid-note">
-            you've been you for a long time
+            you've always been becoming
         </div>
 
     </div>
 
 
-    <!-- SEA PHOTO -->
 
-    <div class="polaroid polaroid-sea">
+    <!-- =================================================
+         SEA POLAROID
+    ================================================= -->
+
+    <div class="
+        more-polaroid
+        polaroid-sea
+        reveal
+        delay-2
+    ">
 
         <img
             src="tanmay-sea.jpg"
-            alt="Tanmay by the sea">
+            alt="Tanmay by the sea"
+        >
 
         <div class="polaroid-note">
             always looking somewhere new
@@ -3059,13 +4007,22 @@ section {
     </div>
 
 
-    <!-- CAMEL PHOTO -->
 
-    <div class="polaroid polaroid-camel">
+    <!-- =================================================
+         CAMEL POLAROID
+    ================================================= -->
+
+    <div class="
+        more-polaroid
+        polaroid-camel
+        reveal
+        delay-2
+    ">
 
         <img
             src="tanmay-camel.jpg"
-            alt="Tanmay with a camel">
+            alt="Tanmay with a camel"
+        >
 
         <div class="polaroid-note">
             completely unserious
@@ -3074,13 +4031,22 @@ section {
     </div>
 
 
-    <!-- FLOWERS PHOTO -->
 
-    <div class="polaroid polaroid-flowers">
+    <!-- =================================================
+         FLOWERS POLAROID
+    ================================================= -->
+
+    <div class="
+        more-polaroid
+        polaroid-flowers
+        reveal
+        delay-3
+    ">
 
         <img
             src="tanmay-flowers.jpg"
-            alt="Tanmay holding flowers">
+            alt="Tanmay holding flowers"
+        >
 
         <div class="polaroid-note">
             so much more
@@ -3088,6 +4054,11 @@ section {
 
     </div>
 
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================= -->
 
     <div class="more-content">
 
@@ -3105,10 +4076,21 @@ section {
         </h1>
 
 
+        <div class="more-handwritten reveal delay-2">
+
+            there's so much about you<br>
+            that i admire...
+
+        </div>
+
+
+
+        <!-- INTRO -->
+
         <div class="more-intro">
 
 
-            <p class="reveal delay-2">
+            <p class="reveal">
 
                 Because there is so much more to you
                 than the way you first entered my life.
@@ -3116,7 +4098,7 @@ section {
             </p>
 
 
-            <p class="reveal delay-3">
+            <p class="reveal delay-1">
 
                 The more I got to know you,
                 the more I realised how many different
@@ -3128,139 +4110,239 @@ section {
         </div>
 
 
+
         <div class="more-writing">
 
 
-            <p class="large reveal">
 
-                You have always seemed like
-                a traveller at heart.
+            <!-- CHILDHOOD -->
 
-            </p>
+            <div class="childhood-text">
 
 
-            <p class="reveal">
+                <p class="large reveal">
 
-                You want to see places.
-                Try things.
-                Go somewhere new and find out what is there.
+                    There are parts of you I only know
+                    because you've told me about them.
 
-            </p>
-
-
-            <p class="reveal">
-
-                I think there is something beautiful
-                about that part of you —
-                the part that doesn't want life to be small.
-
-            </p>
+                </p>
 
 
-            <p class="photo-gap soft reveal">
+                <p class="reveal">
 
-                And then there's the version of you
-                that can make absolutely no sense
-                and somehow make everything more fun.
+                    And then there are parts I get to discover
+                    in little pieces — in old photographs,
+                    stories, and the things you've carried
+                    with you.
 
-            </p>
-
-
-            <p class="reveal">
-
-                You have this way of making
-                ordinary things feel lighter.
-
-            </p>
+                </p>
 
 
-            <p class="reveal">
+                <p class="reveal">
 
-                You can be completely unserious,
-                completely random,
-                and then suddenly say something
-                that makes me realise how deeply you think.
+                    I think that's what I like about getting
+                    to know you.
 
-            </p>
+                </p>
 
 
-            <p class="large reveal">
+                <p class="reveal">
 
-                You care.
-                <br>
-                Probably more than you let most people see.
+                    There's always another little piece of you
+                    I hadn't seen before.
 
-            </p>
-
-
-            <p class="reveal">
-
-                You notice things.
-                You check in.
-                You show up.
-
-            </p>
+                </p>
 
 
-            <p class="reveal">
-
-                You think about the people you love,
-                you worry about them,
-                and you carry more for them
-                than you probably realise.
-
-            </p>
+            </div>
 
 
-            <p class="reveal">
 
-                And I think sometimes you forget
-                that you don't have to have everything
-                figured out just because you care
-                about where you're going.
+            <!-- EXPLORER -->
 
-            </p>
+            <div class="explorer-text">
 
 
-            <p class="large reveal">
+                <p class="large reveal">
 
-                I know you want a lot from life.
+                    You have always seemed like
+                    an explorer at heart.
 
-            </p>
-
-
-            <p class="reveal">
-
-                And maybe that's also where
-                some of the fear comes from.
-
-            </p>
+                </p>
 
 
-            <p class="reveal">
+                <p class="reveal">
 
-                What if you don't make it?
-                <br>
-                What if you don't become the person
-                you imagined you would be?
+                    You want to see places.
+                    Try things.
+                    Go somewhere new and find out what is there.
 
-            </p>
-
-
-            <p class="reveal">
-
-                I don't know if that's your biggest fear.
-                But I know it's one you carry.
-
-            </p>
+                </p>
 
 
-            <p class="more-ending reveal">
+                <p class="reveal">
+
+                    I love that you don't seem to want
+                    life to stay too small —
+                    not in where you go,
+                    and not in what you imagine for yourself.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    There's a curiosity in you that makes
+                    everything more interesting.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- CAMEL -->
+
+            <div class="camel-text">
+
+
+                <p class="large reveal">
+
+                    And then there is this version of you.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    The completely unserious one.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    The one who can make absolutely no sense
+                    and somehow make everything more fun.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    You can be completely random,
+                    completely ridiculous,
+                    and then suddenly say something
+                    that reminds me how deeply you think.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- CARE -->
+
+            <div class="care-text">
+
+
+                <p class="large reveal">
+
+                    You care deeply.
+                    <br>
+                    Probably more than you let most people see.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    You notice things.
+                    You check in.
+                    You show up.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    You think about the people you love,
+                    even when nobody asks you to.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    And I think sometimes you forget
+                    that you don't have to have everything
+                    figured out just because you care
+                    about where you're going.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- AMBITION -->
+
+            <div class="ambition-text">
+
+
+                <p class="large reveal">
+
+                    I know you want a lot from life.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    And maybe that's also where
+                    some of the fear comes from.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    What if you don't make it?
+
+                    <br><br>
+
+                    What if you don't become the person
+                    you imagined you would be?
+
+                </p>
+
+
+                <p class="reveal">
+
+                    I don't know if that's your biggest fear.
+
+                    <br>
+
+                    But I know it's one you carry.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- FINAL -->
+
+            <div class="more-ending reveal">
 
                 And sometimes I wish you could see yourself
                 from where I'm standing.
 
-            </p>
+            </div>
 
 
             <p class="reveal">
@@ -3292,6 +4374,7 @@ section {
 
     </div>
 
+
 </section>
 
 
@@ -3311,9 +4394,7 @@ const observer =
 
                 if (entry.isIntersecting) {
 
-                    entry.target
-                        .classList
-                        .add("visible");
+                    entry.target.classList.add("visible");
 
                 }
 
@@ -3322,7 +4403,7 @@ const observer =
         },
 
         {
-            threshold: 0.16
+            threshold: 0.14
         }
 
     );
