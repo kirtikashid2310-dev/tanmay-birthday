@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,20 +13,23 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* =========================================================
    GLOBAL
-   ========================================================= */
+========================================================= */
 
 :root {
-    --black: #0d0b0a;
-    --brown-black: #15110e;
-    --warm-brown: #211914;
-    --cream: #eee3d1;
-    --soft-cream: #c9b9a3;
-    --muted: #9d8973;
-    --burgundy: #4b2929;
+    --black: #0c0a09;
+    --brown-black: #15100d;
+    --warm-brown: #211713;
+
+    --cream: #eee2d0;
+    --soft-cream: #cbbba5;
+    --muted: #9c8871;
+
+    --burgundy: #4a2929;
 }
 
 * {
@@ -38,41 +43,62 @@ html {
 }
 
 body {
+
     background: var(--black);
+
     color: var(--cream);
-    font-family: "Cormorant Garamond", serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     overflow-x: hidden;
 }
 
-/* subtle film grain */
+
+/* film grain */
 
 body::before {
+
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     z-index: 100;
+
     pointer-events: none;
-    opacity: .045;
+
+    opacity: .055;
 
     background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
+
 section {
+
     position: relative;
+
     width: 100%;
+
     min-height: 100vh;
+
     overflow: hidden;
 }
 
 
 /* =========================================================
-   REUSABLE SCROLL REVEAL
-   ========================================================= */
+   SCROLL REVEAL
+========================================================= */
 
 .reveal {
+
     opacity: 0;
-    transform: translateY(24px);
+
+    transform:
+        translateY(25px);
 
     transition:
         opacity 1.15s ease,
@@ -80,49 +106,56 @@ section {
 }
 
 .reveal.visible {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 .delay-1 {
-    transition-delay: .18s;
+    transition-delay: .15s;
 }
 
 .delay-2 {
-    transition-delay: .32s;
+    transition-delay: .3s;
 }
 
 .delay-3 {
-    transition-delay: .46s;
+    transition-delay: .45s;
 }
 
 .delay-4 {
-    transition-delay: .60s;
+    transition-delay: .6s;
 }
 
 .delay-5 {
-    transition-delay: .74s;
+    transition-delay: .75s;
 }
 
 
 /* =========================================================
    OPENING
-   ========================================================= */
+========================================================= */
 
 #opening {
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
     background:
+
         radial-gradient(
             circle at 50% 40%,
-            rgba(113, 76, 53, .24),
+            rgba(119,80,55,.25),
             transparent 45%
         ),
+
         linear-gradient(
             180deg,
             #0b0908,
@@ -130,75 +163,15 @@ section {
         );
 }
 
-.opening-inner {
 
-    position: relative;
-    z-index: 2;
-
-    opacity: 0;
-    transform: translateY(18px);
-
-    animation:
-        openingFade 2.2s ease forwards;
-}
-
-@keyframes openingFade {
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.opening-title {
-
-    font-family: "Great Vibes", cursive;
-
-    font-size:
-        clamp(
-            58px,
-            9vw,
-            110px
-        );
-
-    font-weight: 400;
-
-    line-height: .9;
-}
-
-.opening-date {
-
-    font-family: Inter, sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 6px;
-
-    margin-top: 34px;
-
-    color: var(--soft-cream);
-}
-
-.opening-subtitle {
-
-    margin-top: 25px;
-
-    font-size:
-        clamp(
-            22px,
-            2.8vw,
-            32px
-        );
-
-    font-weight: 300;
-}
-
-
-/* stars */
+/* tiny stars */
 
 .stars {
+
     position: absolute;
+
     inset: 0;
+
     pointer-events: none;
 }
 
@@ -211,12 +184,13 @@ section {
 
     border-radius: 50%;
 
-    background: #e8d9c2;
+    background:
+        #eadbc5;
 
-    opacity: .5;
+    opacity: .65;
 
     animation:
-        twinkle 4s infinite ease-in-out;
+        twinkle 3.5s infinite ease-in-out;
 }
 
 .star:nth-child(1) {
@@ -227,13 +201,13 @@ section {
 .star:nth-child(2) {
     left: 79%;
     top: 17%;
-    animation-delay: 1s;
+    animation-delay: .8s;
 }
 
 .star:nth-child(3) {
     left: 67%;
     top: 68%;
-    animation-delay: 2s;
+    animation-delay: 1.6s;
 }
 
 .star:nth-child(4) {
@@ -245,24 +219,24 @@ section {
 .star:nth-child(5) {
     left: 89%;
     top: 44%;
-    animation-delay: 1.5s;
+    animation-delay: 1.3s;
 }
 
 .star:nth-child(6) {
     left: 8%;
     top: 51%;
-    animation-delay: 2.5s;
+    animation-delay: 2s;
 }
 
 @keyframes twinkle {
 
-    0%, 100% {
-        opacity: .12;
+    0%,100% {
+        opacity: .15;
         transform: scale(.7);
     }
 
     50% {
-        opacity: .8;
+        opacity: .9;
         transform: scale(1.5);
     }
 }
@@ -274,17 +248,17 @@ section {
 
     position: absolute;
 
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
+
+    right: 13%;
+    top: 22%;
 
     border:
         1px solid
-        rgba(238,227,209,.2);
+        rgba(238,227,209,.3);
 
     border-radius: 50%;
-
-    right: 13%;
-    top: 23%;
 }
 
 .moon::after {
@@ -293,19 +267,174 @@ section {
 
     position: absolute;
 
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
+
+    left: 12px;
+    top: -7px;
 
     border-radius: 50%;
 
-    background: #100e0d;
-
-    left: 13px;
-    top: -7px;
+    background: #0f0d0c;
 }
 
 
-/* arrow */
+/* opening content */
+
+.opening-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/*
+   ORIGINAL-STYLE OPENING
+
+   The three elements appear separately,
+   with a thin line between the greeting
+   and the date.
+*/
+
+.opening-title {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(
+            58px,
+            9vw,
+            105px
+        );
+
+    line-height: .9;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        openingTitle 1.6s ease forwards;
+
+    animation-delay: .25s;
+}
+
+.opening-rule {
+
+    width: 70px;
+
+    height: 1px;
+
+    margin-top: 30px;
+
+    background:
+        rgba(238,227,209,.55);
+
+    opacity: 0;
+
+    transform:
+        scaleX(0);
+
+    animation:
+        openingRule 1s ease forwards;
+
+    animation-delay: 1.15s;
+}
+
+.opening-date {
+
+    font-family:
+        Inter,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    color:
+        var(--soft-cream);
+
+    margin-top: 22px;
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+    animation:
+        openingDate 1.2s ease forwards;
+
+    animation-delay: 1.45s;
+}
+
+.opening-subtitle {
+
+    margin-top: 25px;
+
+    font-size:
+        clamp(
+            22px,
+            2.8vw,
+            31px
+        );
+
+    font-weight: 300;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    animation:
+        openingSubtitle 1.4s ease forwards;
+
+    animation-delay: 2.05s;
+}
+
+@keyframes openingTitle {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes openingRule {
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes openingDate {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes openingSubtitle {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* scroll arrow */
 
 .scroll-cue {
 
@@ -319,11 +448,12 @@ section {
         translateX(-50%);
 
     width: 34px;
+
     height: 62px;
 
     cursor: pointer;
 
-    opacity: .9;
+    opacity: .95;
 }
 
 .scroll-cue::before {
@@ -335,8 +465,9 @@ section {
     left: 16px;
     top: 0;
 
-    height: 43px;
     width: 1px;
+
+    height: 43px;
 
     background:
         rgba(238,227,209,.8);
@@ -362,10 +493,11 @@ section {
         1.5px solid
         rgba(238,227,209,.9);
 
-    transform: rotate(45deg);
+    transform:
+        rotate(45deg);
 
     animation:
-        arrowFloat 2.2s infinite ease-in-out;
+        arrowFloat 2s infinite ease-in-out;
 }
 
 @keyframes arrowFloat {
@@ -385,8 +517,8 @@ section {
 
 
 /* =========================================================
-   APRIL 16 — MEMORY
-   ========================================================= */
+   APRIL 16
+========================================================= */
 
 #beginning {
 
@@ -396,27 +528,29 @@ section {
 
     align-items: center;
 
-    justify-content: center;
-
     background:
 
         radial-gradient(
-            ellipse at 20% 30%,
-            rgba(126,88,61,.15),
-            transparent 35%
+            ellipse at 15% 30%,
+            rgba(137,96,65,.2),
+            transparent 38%
         ),
 
         radial-gradient(
-            ellipse at 80% 70%,
-            rgba(78,47,34,.18),
+            ellipse at 85% 75%,
+            rgba(89,54,39,.22),
             transparent 40%
         ),
 
-        #17120f;
+        linear-gradient(
+            180deg,
+            #17120f,
+            #1b1410
+        );
 }
 
 
-/* floating dust */
+/* floating particles */
 
 .memory-dust {
 
@@ -437,12 +571,14 @@ section {
     border-radius: 50%;
 
     background:
-        rgba(238,227,209,.4);
+        rgba(238,227,209,.65);
+
+    box-shadow:
+        0 0 8px
+        rgba(238,227,209,.25);
 
     animation:
-        floatDust
-        12s infinite
-        ease-in-out;
+        dustFloat 9s infinite ease-in-out;
 }
 
 .memory-dust span:nth-child(1) {
@@ -453,13 +589,13 @@ section {
 .memory-dust span:nth-child(2) {
     left: 73%;
     top: 20%;
-    animation-delay: 2s;
+    animation-delay: 1.8s;
 }
 
 .memory-dust span:nth-child(3) {
     left: 84%;
     top: 65%;
-    animation-delay: 4s;
+    animation-delay: 3s;
 }
 
 .memory-dust span:nth-child(4) {
@@ -471,48 +607,62 @@ section {
 .memory-dust span:nth-child(5) {
     left: 55%;
     top: 15%;
-    animation-delay: 5s;
+    animation-delay: 4s;
 }
 
-@keyframes floatDust {
+@keyframes dustFloat {
 
     0%,100% {
         transform:
             translate(0,0);
 
-        opacity: .15;
+        opacity: .2;
     }
 
     50% {
         transform:
-            translate(20px,-35px);
+            translate(25px,-35px);
 
-        opacity: .5;
+        opacity: .8;
     }
 }
 
 
-/* curved background detail */
+/* rotating curve */
 
 .memory-curve {
 
     position: absolute;
 
-    width: 420px;
-    height: 420px;
+    width: 440px;
+    height: 440px;
+
+    right: -190px;
+    bottom: -160px;
 
     border:
         1px solid
-        rgba(202,177,149,.12);
+        rgba(218,190,160,.18);
 
     border-radius: 50%;
 
-    right: -180px;
-    bottom: -130px;
-
     animation:
-        slowRotate
-        25s linear infinite;
+        slowRotate 28s linear infinite;
+}
+
+.memory-curve::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 40px;
+
+    border:
+        1px solid
+        rgba(218,190,160,.08);
+
+    border-radius: 50%;
 }
 
 @keyframes slowRotate {
@@ -544,28 +694,25 @@ section {
 
 .memory-date {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size:
         clamp(
-            34px,
-            5vw,
-            58px
+            30px,
+            4.5vw,
+            53px
         );
 
     font-weight: 300;
 
-    letter-spacing: 7px;
+    letter-spacing: 6px;
 
     color:
-        rgba(238,227,209,.85);
+        rgba(238,227,209,.9);
 
-    margin-bottom: 95px;
-}
-
-.memory-story {
-
-    width: 100%;
+    margin-bottom: 85px;
 }
 
 .memory-line {
@@ -579,20 +726,18 @@ section {
 
     line-height: 1.5;
 
-    font-weight: 300;
-
     max-width: 900px;
 
-    margin-bottom: 30px;
+    margin-bottom: 29px;
 }
 
 .memory-line.first {
 
     font-size:
         clamp(
-            25px,
-            3.3vw,
-            37px
+            24px,
+            3.2vw,
+            36px
         );
 
     max-width: 1000px;
@@ -604,8 +749,7 @@ section {
 .video-call {
 
     margin:
-        70px 0
-        85px;
+        68px 0 78px;
 
     text-align: center;
 }
@@ -623,24 +767,24 @@ section {
             61px
         );
 
-    font-weight: 400;
-
     font-style: italic;
 
-    line-height: 1;
+    font-weight: 400;
 }
 
 .call-people {
 
     margin-top: 20px;
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size:
         clamp(
-            14px,
+            15px,
             1.8vw,
-            19px
+            20px
         );
 
     letter-spacing: 7px;
@@ -651,8 +795,8 @@ section {
 
 
 /* =========================================================
-   FIRST SCREENSHOT
-   ========================================================= */
+   FIRST CHAT
+========================================================= */
 
 .chat-section {
 
@@ -662,17 +806,19 @@ section {
 
     align-items: center;
 
-    justify-content: center;
-
     background:
 
         radial-gradient(
-            circle at 50% 50%,
-            rgba(128,91,61,.13),
-            transparent 48%
+            circle at 70% 40%,
+            rgba(124,87,59,.16),
+            transparent 40%
         ),
 
-        #130f0d;
+        linear-gradient(
+            180deg,
+            #1b1410,
+            #130f0d
+        );
 }
 
 .chat-layout {
@@ -688,18 +834,11 @@ section {
     position: relative;
 }
 
-
-/* text */
-
 .chat-text {
-
-    width: 100%;
-
-    margin-bottom: 65px;
 
     padding-left: 5%;
 
-    text-align: left;
+    margin-bottom: 60px;
 }
 
 .chat-text p {
@@ -713,11 +852,13 @@ section {
 
     line-height: 1.35;
 
-    max-width: 900px;
+    max-width: 950px;
 }
 
 
-/* cropped screenshot */
+/*
+   The line about calling appears ONLY HERE.
+*/
 
 .chat-image-wrap {
 
@@ -727,10 +868,16 @@ section {
             76vw
         );
 
+    /*
+       Slightly taller than before.
+       This reveals that extra tiny strip
+       at the bottom of the screenshot.
+    */
+
     height:
         min(
-            610px,
-            105vw
+            625px,
+            108vw
         );
 
     margin-left:
@@ -755,6 +902,16 @@ section {
         rotate(-1.4deg);
 
     position: relative;
+
+    transition:
+        transform .8s ease;
+}
+
+.chat-image-wrap:hover {
+
+    transform:
+        rotate(-.7deg)
+        translateY(-4px);
 }
 
 .chat-image-wrap img {
@@ -767,21 +924,58 @@ section {
 
     object-fit: cover;
 
-    /*
-    Adjust this percentage later if we need
-    to move the crop slightly up/down.
-    */
     object-position:
-        center 33%;
+        center 32%;
 
     transform:
-        scale(1.03);
+        scale(1.025);
+}
+
+
+/* tiny light passing across photo */
+
+.chat-image-wrap::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -30%;
+    left: -80%;
+
+    width: 45%;
+    height: 160%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,239,216,.08),
+            transparent
+        );
+
+    transform:
+        rotate(12deg);
+
+    animation:
+        photoLight 7s infinite ease-in-out;
+}
+
+@keyframes photoLight {
+
+    0%,70%,100% {
+        left: -80%;
+    }
+
+    82% {
+        left: 140%;
+    }
 }
 
 
 .after-chat {
 
-    margin-top: 85px;
+    margin-top: 80px;
 
     padding-left: 15%;
 
@@ -804,8 +998,8 @@ section {
 
 
 /* =========================================================
-   CALLS
-   ========================================================= */
+   CALL LOGS
+========================================================= */
 
 .calls-section {
 
@@ -815,10 +1009,13 @@ section {
 
     align-items: center;
 
-    justify-content: center;
-
     background:
-        #0f0e0d;
+
+        linear-gradient(
+            180deg,
+            #130f0d,
+            #100f0e
+        );
 }
 
 
@@ -828,17 +1025,15 @@ section {
 
     position: absolute;
 
-    left: 0;
-    right: 0;
-
-    top: 50%;
+    inset:
+        50% 0 auto 0;
 
     height: 120px;
 
     transform:
         translateY(-50%);
 
-    opacity: .09;
+    opacity: .14;
 
     pointer-events: none;
 }
@@ -853,6 +1048,10 @@ section {
 
     background:
         var(--soft-cream);
+
+    box-shadow:
+        0 0 5px
+        rgba(238,227,209,.2);
 
     animation:
         wave 2.4s infinite ease-in-out;
@@ -921,7 +1120,7 @@ section {
 
     0%,100% {
         transform:
-            scaleY(.45);
+            scaleY(.4);
     }
 
     50% {
@@ -963,12 +1162,10 @@ section {
         );
 
     line-height: 1.45;
-
-    margin-bottom: 20px;
 }
 
 
-/* call history */
+/* call cards */
 
 .call-list {
 
@@ -1001,10 +1198,10 @@ section {
 
     border:
         1px solid
-        rgba(238,227,209,.11);
+        rgba(238,227,209,.13);
 
     background:
-        rgba(255,255,255,.035);
+        rgba(255,255,255,.04);
 
     border-radius: 5px;
 
@@ -1032,10 +1229,10 @@ section {
 .call-card:hover {
 
     transform:
-        translateX(8px);
+        translateX(9px);
 
     background:
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.07);
 }
 
 .call-icon {
@@ -1047,7 +1244,7 @@ section {
 
     border:
         1px solid
-        rgba(238,227,209,.27);
+        rgba(238,227,209,.3);
 
     border-radius: 50%;
 
@@ -1056,7 +1253,9 @@ section {
     align-items: center;
     justify-content: center;
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size: 15px;
 }
@@ -1067,18 +1266,20 @@ section {
 
 .call-name {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size: 12px;
-
-    letter-spacing: .4px;
 
     margin-bottom: 4px;
 }
 
 .call-meta {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size: 8px;
 
@@ -1089,21 +1290,22 @@ section {
     color:
         var(--soft-cream);
 
-    opacity: .6;
+    opacity: .65;
 }
 
 .call-duration {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
     font-size: 10px;
 
     letter-spacing: 1px;
 
     color:
-        #bcae9c;
+        #c0b09b;
 }
-
 
 .calls-bottom {
 
@@ -1132,8 +1334,8 @@ section {
 
 
 /* =========================================================
-   ROUTINE SCREENSHOT
-   ========================================================= */
+   ROUTINE
+========================================================= */
 
 .routine-section {
 
@@ -1143,53 +1345,53 @@ section {
 
     align-items: center;
 
-    justify-content: center;
-
     background:
 
         radial-gradient(
-            circle at 50% 45%,
-            rgba(139,101,69,.2),
+            circle at 50% 40%,
+            rgba(143,101,69,.22),
             transparent 42%
         ),
 
-        #19130f;
+        linear-gradient(
+            180deg,
+            #17110e,
+            #1d1510
+        );
 }
 
 
-/* soft moving glow */
+/* glowing moving orb */
 
 .routine-glow {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 520px;
+    height: 520px;
 
     border-radius: 50%;
 
     background:
-        rgba(137,96,65,.06);
+        rgba(154,109,75,.08);
 
     filter:
-        blur(70px);
+        blur(75px);
 
     animation:
-        glowMove
-        9s infinite
-        ease-in-out;
+        glowMove 8s infinite ease-in-out;
 }
 
 @keyframes glowMove {
 
     0%,100% {
         transform:
-            translate(-40px,-20px);
+            translate(-50px,-20px);
     }
 
     50% {
         transform:
-            translate(40px,20px);
+            translate(50px,25px);
     }
 }
 
@@ -1253,6 +1455,16 @@ section {
 
     transform:
         rotate(1deg);
+
+    transition:
+        transform .8s ease;
+}
+
+.routine-image-wrap:hover {
+
+    transform:
+        rotate(.5deg)
+        translateY(-4px);
 }
 
 .routine-image-wrap img {
@@ -1294,12 +1506,12 @@ section {
 
 
 /* =========================================================
-   NARRATIVE BUFFER
-   ========================================================= */
+   BRIDGE
+========================================================= */
 
 .bridge-section {
 
-    min-height: 115vh;
+    min-height: 120vh;
 
     display: flex;
 
@@ -1312,26 +1524,31 @@ section {
     background:
 
         radial-gradient(
-            circle at 30% 40%,
-            rgba(79,49,40,.14),
+            circle at 25% 35%,
+            rgba(99,61,49,.18),
             transparent 35%
         ),
 
         radial-gradient(
-            circle at 75% 65%,
-            rgba(71,39,39,.13),
-            transparent 40%
+            circle at 75% 70%,
+            rgba(83,45,45,.17),
+            transparent 38%
         ),
 
-        #120f0e;
+        linear-gradient(
+            180deg,
+            #1d1510,
+            #17100f 55%,
+            #17100f
+        );
 }
 
 .bridge-content {
 
     width:
         min(
-            1050px,
-            88%
+            1100px,
+            90%
         );
 
     margin: auto;
@@ -1339,46 +1556,48 @@ section {
 
 .bridge-small {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
-    font-size: 9px;
+    font-size: 10px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
     text-transform: uppercase;
 
     color:
         var(--muted);
 
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 .bridge-line {
 
     font-size:
         clamp(
-            27px,
-            3.8vw,
-            43px
+            29px,
+            4.3vw,
+            49px
         );
 
-    line-height: 1.4;
+    line-height: 1.38;
 
     font-weight: 300;
 
-    max-width: 900px;
+    max-width: 1000px;
 
     margin:
-        65px auto 0;
+        62px auto 0;
 }
 
 .bridge-detail {
 
     font-size:
         clamp(
-            20px,
-            2.5vw,
-            29px
+            21px,
+            2.7vw,
+            31px
         );
 
     line-height: 1.5;
@@ -1386,63 +1605,233 @@ section {
     color:
         var(--soft-cream);
 
-    max-width: 820px;
+    max-width: 850px;
 
     margin:
         48px auto 0;
 }
 
 
+/*
+   This is deliberately larger now.
+*/
+
+.bridge-final {
+
+    font-family:
+        "Bodoni Moda",
+        serif;
+
+    font-size:
+        clamp(
+            38px,
+            5.5vw,
+            64px
+        );
+
+    font-style: italic;
+
+    margin-top: 90px;
+
+    color:
+        var(--cream);
+
+    text-shadow:
+        0 0 30px
+        rgba(238,227,209,.08);
+}
+
+
 /* =========================================================
    MORE THAN YOU KNOW
-   ========================================================= */
+   SCRAPBOOK / POLAROID SECTION
+========================================================= */
 
 .more-section {
 
-    min-height: 150vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+    min-height: 175vh;
 
     background:
 
         radial-gradient(
-            ellipse at 70% 30%,
-            rgba(79,42,42,.18),
-            transparent 40%
+            ellipse at 75% 15%,
+            rgba(89,48,43,.24),
+            transparent 35%
         ),
 
-        #15100f;
+        radial-gradient(
+            ellipse at 15% 80%,
+            rgba(73,43,36,.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #211613,
+            #160f0d 45%,
+            #120d0c
+        );
+
+    position: relative;
 }
+
+
+/* warm ambient particles */
+
+.more-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.more-particles span {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(238,227,209,.65);
+
+    box-shadow:
+        0 0 9px
+        rgba(238,227,209,.25);
+
+    animation:
+        moreFloat
+        8s infinite ease-in-out;
+}
+
+.more-particles span:nth-child(1) {
+    left: 12%;
+    top: 18%;
+}
+
+.more-particles span:nth-child(2) {
+    left: 81%;
+    top: 25%;
+    animation-delay: 2s;
+}
+
+.more-particles span:nth-child(3) {
+    left: 68%;
+    top: 72%;
+    animation-delay: 4s;
+}
+
+.more-particles span:nth-child(4) {
+    left: 20%;
+    top: 66%;
+    animation-delay: 1s;
+}
+
+.more-particles span:nth-child(5) {
+    left: 48%;
+    top: 40%;
+    animation-delay: 3s;
+}
+
+@keyframes moreFloat {
+
+    0%,100% {
+        transform:
+            translate(0,0);
+        opacity: .15;
+    }
+
+    50% {
+        transform:
+            translate(15px,-22px);
+        opacity: .7;
+    }
+}
+
+
+/* little decorative line */
+
+.more-orbit {
+
+    position: absolute;
+
+    width: 600px;
+    height: 300px;
+
+    right: -250px;
+    top: 22%;
+
+    border:
+        1px solid
+        rgba(210,181,151,.1);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-20deg);
+
+    animation:
+        orbitDrift 16s infinite ease-in-out;
+}
+
+@keyframes orbitDrift {
+
+    0%,100% {
+        transform:
+            rotate(-20deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(-16deg)
+            translateY(18px);
+    }
+}
+
+
+/* main content */
 
 .more-content {
 
     width:
         min(
-            1150px,
-            90%
+            1250px,
+            92%
         );
 
     margin: auto;
+
+    padding-top: 13vh;
+
+    position: relative;
+
+    z-index: 2;
 }
+
+
+/* title */
 
 .more-eyebrow {
 
-    font-family: Inter, sans-serif;
+    font-family:
+        Inter,
+        sans-serif;
 
-    font-size: 9px;
+    font-size: 10px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
     text-transform: uppercase;
 
     color:
-        var(--muted);
+        #b59f87;
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .more-title {
@@ -1453,83 +1842,408 @@ section {
 
     font-size:
         clamp(
-            50px,
-            8vw,
-            90px
+            58px,
+            9vw,
+            105px
         );
 
     font-weight: 400;
 
-    line-height: .95;
+    line-height: .91;
 
     letter-spacing: -1px;
 
-    margin-bottom: 90px;
+    margin-bottom: 75px;
+
+    color:
+        #eadbc8;
+
+    text-shadow:
+        0 0 40px
+        rgba(238,227,209,.05);
 }
 
-.more-text {
+
+/* intro */
+
+.more-intro {
 
     width:
         min(
-            900px,
+            650px,
+            90%
+        );
+
+    margin-left: 7%;
+
+    margin-bottom: 75px;
+}
+
+.more-intro p {
+
+    font-size:
+        clamp(
+            23px,
+            3vw,
+            34px
+        );
+
+    line-height: 1.5;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   POLAROIDS
+========================================================= */
+
+.polaroid {
+
+    position: absolute;
+
+    background:
+        #e8dcc9;
+
+    padding:
+        11px 11px 37px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.55);
+
+    z-index: 5;
+
+    transition:
+        transform .9s cubic-bezier(.2,.7,.2,1),
+        box-shadow .8s ease;
+
+    animation:
+        polaroidFloat
+        7s infinite ease-in-out;
+}
+
+.polaroid:hover {
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,.7);
+
+    z-index: 10;
+}
+
+.polaroid img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        saturate(.88)
+        contrast(.97);
+}
+
+
+/* translucent tape */
+
+.polaroid::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 20px;
+
+    top: -10px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(214,194,162,.62);
+
+    z-index: 4;
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,.12);
+}
+
+
+/* handwriting */
+
+.polaroid-note {
+
+    position: absolute;
+
+    bottom: 8px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 18px;
+
+    color:
+        #574b3f;
+
+    opacity: .82;
+}
+
+
+/* child */
+
+.polaroid-child {
+
+    width: 245px;
+    height: 325px;
+
+    right: 15%;
+
+    top: 10%;
+
+    transform:
+        rotate(4deg);
+
+    animation-delay:
+        .4s;
+}
+
+.polaroid-child:hover {
+
+    transform:
+        rotate(1deg)
+        translateY(-8px)
+        scale(1.02);
+}
+
+
+/* sea */
+
+.polaroid-sea {
+
+    width: 270px;
+    height: 335px;
+
+    right: 4%;
+
+    top: 39%;
+
+    transform:
+        rotate(-5deg);
+
+    animation-delay:
+        1.2s;
+}
+
+.polaroid-sea:hover {
+
+    transform:
+        rotate(-2deg)
+        translateY(-8px)
+        scale(1.02);
+}
+
+
+/* camel */
+
+.polaroid-camel {
+
+    width: 255px;
+    height: 340px;
+
+    left: 2%;
+
+    top: 59%;
+
+    transform:
+        rotate(-4deg);
+
+    animation-delay:
+        2s;
+}
+
+.polaroid-camel:hover {
+
+    transform:
+        rotate(-1deg)
+        translateY(-8px)
+        scale(1.02);
+}
+
+
+/* flowers */
+
+.polaroid-flowers {
+
+    width: 300px;
+    height: 385px;
+
+    right: 17%;
+
+    top: 72%;
+
+    transform:
+        rotate(3deg);
+
+    animation-delay:
+        2.8s;
+}
+
+.polaroid-flowers:hover {
+
+    transform:
+        rotate(1deg)
+        translateY(-10px)
+        scale(1.02);
+}
+
+
+@keyframes polaroidFloat {
+
+    0%,100% {
+        translate:
+            0 0;
+    }
+
+    50% {
+        translate:
+            0 -5px;
+    }
+}
+
+
+/* =========================================================
+   MORE THAN YOU KNOW TEXT
+========================================================= */
+
+.more-writing {
+
+    position: relative;
+
+    width:
+        min(
+            850px,
             100%
         );
 
-    margin-left:
-        clamp(
-            0%,
-            8vw,
-            15%
-        );
+    margin-left: 8%;
+
+    padding-bottom: 18vh;
 }
 
-.more-content p {
+.more-writing p {
 
     font-size:
         clamp(
             21px,
-            2.8vw,
-            31px
+            2.65vw,
+            30px
         );
 
-    line-height: 1.52;
+    line-height: 1.55;
 
     font-weight: 300;
 
-    margin-bottom: 35px;
+    margin-bottom: 36px;
+
+    color:
+        #e5d8c6;
 }
 
-.more-content .emphasis {
+
+/* stronger phrases */
+
+.more-writing .large {
+
+    font-family:
+        "Bodoni Moda",
+        serif;
 
     font-size:
         clamp(
-            26px,
-            3.5vw,
-            40px
+            29px,
+            4vw,
+            44px
         );
+
+    line-height: 1.35;
 
     margin:
-        70px 0;
+        75px 0;
+
+    color:
+        #eadbc8;
 }
 
-.more-content .final-thought {
 
-    margin-top: 90px;
+/* areas around photographs */
+
+.more-writing .photo-gap {
+
+    margin-bottom:
+        110px;
+}
+
+.more-writing .soft {
+
+    color:
+        #c5b39d;
+}
+
+
+/* final line */
+
+.more-ending {
+
+    margin-top: 95px;
+
+    font-family:
+        "Bodoni Moda",
+        serif;
 
     font-size:
         clamp(
-            27px,
-            3.7vw,
-            42px
+            31px,
+            4.5vw,
+            51px
         );
+
+    line-height: 1.4;
+
+    font-style: italic;
+
+    max-width: 750px;
+
+    color:
+        #eadbc8;
+
+    text-shadow:
+        0 0 30px
+        rgba(238,227,209,.08);
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
 
     .opening-title {
         font-size: 68px;
@@ -1540,26 +2254,32 @@ section {
     }
 
     .moon {
+
         width: 44px;
         height: 44px;
 
         right: 8%;
-        top: 17%;
+        top: 16%;
     }
 
     .moon::after {
+
         width: 41px;
         height: 41px;
     }
 
+
     .memory-date {
+
         letter-spacing: 4px;
-        margin-bottom: 65px;
+
+        margin-bottom: 60px;
     }
 
     .call-people {
         letter-spacing: 4px;
     }
+
 
     .chat-text {
         padding-left: 0;
@@ -1568,47 +2288,162 @@ section {
     .chat-image-wrap {
 
         width: 78vw;
-        height: 105vw;
+
+        height: 108vw;
 
         margin-left: 5%;
     }
 
     .after-chat {
+
         padding-left: 3%;
     }
 
+
     .call-list {
+
         margin-left: 0;
     }
 
     .call-card:nth-child(2),
     .call-card:nth-child(4),
     .call-card:nth-child(6) {
+
         margin-left: 0;
     }
 
     .calls-bottom {
+
         padding-left: 0;
     }
 
+
     .routine-image-wrap {
+
         margin-left: 5%;
     }
 
     .routine-after {
+
         margin-left: 0;
     }
 
-    .more-text {
-        margin-left: 0;
+
+    .bridge-line {
+
+        font-size:
+            clamp(
+                28px,
+                8vw,
+                40px
+            );
+    }
+
+
+    /* Mobile scrapbook */
+
+    .more-content {
+
+        width: 90%;
+
+        padding-top: 10vh;
     }
 
     .more-title {
-        margin-bottom: 65px;
+
+        font-size: 61px;
+
+        margin-bottom: 55px;
+    }
+
+    .more-intro {
+
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+    .more-writing {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        padding-top: 390px;
+    }
+
+
+    .polaroid-child {
+
+        width: 190px;
+        height: 250px;
+
+        right: 3%;
+
+        top: 24%;
+    }
+
+    .polaroid-sea {
+
+        width: 195px;
+        height: 250px;
+
+        right: 3%;
+
+        top: 47%;
+    }
+
+    .polaroid-camel {
+
+        width: 185px;
+        height: 245px;
+
+        left: 1%;
+
+        top: 67%;
+    }
+
+    .polaroid-flowers {
+
+        width: 205px;
+        height: 270px;
+
+        right: 4%;
+
+        top: 84%;
+    }
+
+    .polaroid-note {
+
+        font-size: 15px;
     }
 
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+
+}
+
 </style>
+
 </head>
 
 
@@ -1617,9 +2452,10 @@ section {
 
 <!-- =====================================================
      OPENING
-     ===================================================== -->
+===================================================== -->
 
 <section id="opening">
+
 
     <div class="stars">
 
@@ -1632,22 +2468,30 @@ section {
 
     </div>
 
+
     <div class="moon"></div>
 
 
     <div class="opening-inner">
 
+
         <div class="opening-title">
             hiiiii babyyyy
         </div>
+
+
+        <div class="opening-rule"></div>
+
 
         <div class="opening-date">
             27 . 09 . 2026
         </div>
 
+
         <div class="opening-subtitle">
             Happy birthday, love.
         </div>
+
 
     </div>
 
@@ -1657,13 +2501,14 @@ section {
         onclick="document.getElementById('beginning').scrollIntoView({behavior:'smooth'})">
     </div>
 
+
 </section>
 
 
 
 <!-- =====================================================
-     APRIL 16 / FIRST CALL
-     ===================================================== -->
+     APRIL 16
+===================================================== -->
 
 <section id="beginning">
 
@@ -1744,11 +2589,6 @@ section {
             </p>
 
 
-            <p class="memory-line ending reveal delay-3">
-                You wanted me to call you too.
-            </p>
-
-
         </div>
 
     </div>
@@ -1758,8 +2598,8 @@ section {
 
 
 <!-- =====================================================
-     FIRST SCREENSHOT
-     ===================================================== -->
+     FIRST CHAT
+===================================================== -->
 
 <section class="chat-section">
 
@@ -1770,8 +2610,7 @@ section {
         <div class="chat-text reveal">
 
             <p>
-                And apparently,
-                you wanted me to call you too.
+                Apparently, you wanted me to call you too.
             </p>
 
         </div>
@@ -1821,7 +2660,7 @@ section {
 
 <!-- =====================================================
      CALL LOGS
-     ===================================================== -->
+===================================================== -->
 
 <section class="calls-section">
 
@@ -2012,13 +2851,16 @@ section {
 
         <div class="calls-bottom">
 
+
             <p class="reveal">
                 I don't remember what we talked about on most of them.
             </p>
 
+
             <p class="reveal delay-1">
                 But I remember how easily they became a part of my day.
             </p>
+
 
         </div>
 
@@ -2030,8 +2872,8 @@ section {
 
 
 <!-- =====================================================
-     BEST PART OF MY ROUTINE
-     ===================================================== -->
+     ROUTINE
+===================================================== -->
 
 <section class="routine-section">
 
@@ -2056,7 +2898,7 @@ section {
 
             <img
                 src="talking-to-you.png"
-                alt="A conversation about talking to each other being the best part of the routine">
+                alt="A conversation about talking to each other">
 
         </div>
 
@@ -2095,8 +2937,8 @@ section {
 
 
 <!-- =====================================================
-     NARRATIVE BUFFER
-     ===================================================== -->
+     SOMEWHERE ALONG THE WAY
+===================================================== -->
 
 <section class="bridge-section">
 
@@ -2153,7 +2995,7 @@ section {
         </div>
 
 
-        <div class="bridge-line reveal delay-2">
+        <div class="bridge-final reveal delay-2">
 
             I was getting to know you.
 
@@ -2168,9 +3010,83 @@ section {
 
 <!-- =====================================================
      MORE THAN YOU KNOW
-     ===================================================== -->
+===================================================== -->
 
 <section class="more-section">
+
+
+    <div class="more-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="more-orbit"></div>
+
+
+    <!-- CHILDHOOD PHOTO -->
+
+    <div class="polaroid polaroid-child">
+
+        <img
+            src="tanmay-childhood.jpg"
+            alt="Tanmay as a child">
+
+        <div class="polaroid-note">
+            you've been you for a long time
+        </div>
+
+    </div>
+
+
+    <!-- SEA PHOTO -->
+
+    <div class="polaroid polaroid-sea">
+
+        <img
+            src="tanmay-sea.jpg"
+            alt="Tanmay by the sea">
+
+        <div class="polaroid-note">
+            always looking somewhere new
+        </div>
+
+    </div>
+
+
+    <!-- CAMEL PHOTO -->
+
+    <div class="polaroid polaroid-camel">
+
+        <img
+            src="tanmay-camel.jpg"
+            alt="Tanmay with a camel">
+
+        <div class="polaroid-note">
+            completely unserious
+        </div>
+
+    </div>
+
+
+    <!-- FLOWERS PHOTO -->
+
+    <div class="polaroid polaroid-flowers">
+
+        <img
+            src="tanmay-flowers.jpg"
+            alt="Tanmay holding flowers">
+
+        <div class="polaroid-note">
+            so much more
+        </div>
+
+    </div>
 
 
     <div class="more-content">
@@ -2189,125 +3105,190 @@ section {
         </h1>
 
 
-        <div class="more-text">
+        <div class="more-intro">
 
 
             <p class="reveal delay-2">
+
                 Because there is so much more to you
                 than the way you first entered my life.
+
             </p>
 
 
-            <p class="emphasis reveal">
+            <p class="reveal delay-3">
+
                 The more I got to know you,
                 the more I realised how many different
                 versions of you there were.
-            </p>
 
-
-            <p class="reveal">
-                You have always seemed like an explorer at heart.
-            </p>
-
-
-            <p class="reveal">
-                You want to see places.
-                Try things.
-                Go somewhere new.
-            </p>
-
-
-            <p class="reveal">
-                I think there is something beautiful
-                about that part of you —
-                the part that doesn't want life to be small.
-            </p>
-
-
-            <p class="reveal">
-                You also have this way of making
-                everything look easy.
-                Like nothing really gets to you.
-            </p>
-
-
-            <p class="reveal">
-                But I know that's not quite true.
-            </p>
-
-
-            <p class="emphasis reveal">
-                You care.
-                <br>
-                Probably more than you let most people see.
-            </p>
-
-
-            <p class="reveal">
-                You carry a lot for the people you love.
-                You worry about them.
-                You think about them.
-                You want things to be okay for them.
-            </p>
-
-
-            <p class="reveal">
-                And sometimes I think you forget
-                that carrying so much doesn't mean
-                you have to carry it quietly.
-            </p>
-
-
-            <p class="reveal">
-                I know you want a lot from life.
-            </p>
-
-
-            <p class="reveal">
-                And maybe that's also where some
-                of your fear comes from.
-            </p>
-
-
-            <p class="reveal">
-                What if you don't make it?
-                <br>
-                What if you don't become the person
-                you imagined you would be?
-            </p>
-
-
-            <p class="reveal">
-                I don't know if that's your biggest fear.
-                <br>
-                But I know it's one you carry.
-            </p>
-
-
-            <p class="final-thought reveal">
-                And sometimes I wish you could see yourself
-                from where I'm standing.
-            </p>
-
-
-            <p class="reveal">
-                Because you are already becoming.
-            </p>
-
-
-            <p class="reveal">
-                You don't have to wait until you've achieved
-                everything you want before you get to be proud
-                of yourself.
-            </p>
-
-
-            <p class="emphasis reveal">
-                You're already someone worth being proud of.
             </p>
 
 
         </div>
+
+
+        <div class="more-writing">
+
+
+            <p class="large reveal">
+
+                You have always seemed like
+                a traveller at heart.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You want to see places.
+                Try things.
+                Go somewhere new and find out what is there.
+
+            </p>
+
+
+            <p class="reveal">
+
+                I think there is something beautiful
+                about that part of you —
+                the part that doesn't want life to be small.
+
+            </p>
+
+
+            <p class="photo-gap soft reveal">
+
+                And then there's the version of you
+                that can make absolutely no sense
+                and somehow make everything more fun.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You have this way of making
+                ordinary things feel lighter.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You can be completely unserious,
+                completely random,
+                and then suddenly say something
+                that makes me realise how deeply you think.
+
+            </p>
+
+
+            <p class="large reveal">
+
+                You care.
+                <br>
+                Probably more than you let most people see.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You notice things.
+                You check in.
+                You show up.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You think about the people you love,
+                you worry about them,
+                and you carry more for them
+                than you probably realise.
+
+            </p>
+
+
+            <p class="reveal">
+
+                And I think sometimes you forget
+                that you don't have to have everything
+                figured out just because you care
+                about where you're going.
+
+            </p>
+
+
+            <p class="large reveal">
+
+                I know you want a lot from life.
+
+            </p>
+
+
+            <p class="reveal">
+
+                And maybe that's also where
+                some of the fear comes from.
+
+            </p>
+
+
+            <p class="reveal">
+
+                What if you don't make it?
+                <br>
+                What if you don't become the person
+                you imagined you would be?
+
+            </p>
+
+
+            <p class="reveal">
+
+                I don't know if that's your biggest fear.
+                But I know it's one you carry.
+
+            </p>
+
+
+            <p class="more-ending reveal">
+
+                And sometimes I wish you could see yourself
+                from where I'm standing.
+
+            </p>
+
+
+            <p class="reveal">
+
+                Because you are already becoming.
+
+            </p>
+
+
+            <p class="reveal">
+
+                You don't have to wait until you've achieved
+                everything you want before you get to be proud
+                of yourself.
+
+            </p>
+
+
+            <p class="large reveal">
+
+                You're already someone worth
+                being proud of.
+
+            </p>
+
+
+        </div>
+
 
     </div>
 
@@ -2316,8 +3297,8 @@ section {
 
 
 <!-- =====================================================
-     SCROLL REVEAL SCRIPT
-     ===================================================== -->
+     SCROLL REVEAL
+===================================================== -->
 
 <script>
 
@@ -2341,7 +3322,7 @@ const observer =
         },
 
         {
-            threshold: 0.18
+            threshold: 0.16
         }
 
     );
@@ -2359,4 +3340,5 @@ document
 
 
 </body>
+
 </html>
