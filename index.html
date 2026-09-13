@@ -1,2615 +1,1072 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>For Tanmay</title>
-
-
-    <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap');
-
-
-        /* ==================================================
-           RESET
-        ================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            background: #070605;
-            color: #eee7de;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            overflow-x: hidden;
-        }
-
-
-        /* ==================================================
-           SHARED CINEMATIC BACKGROUND
-        ================================================== */
-
-        .film-background {
-            position: fixed;
-            inset: 0;
-
-            z-index: -10;
-
-            background:
-                radial-gradient(
-                    ellipse at 50% 45%,
-                    rgba(94, 67, 47, 0.18) 0%,
-                    rgba(42, 30, 22, 0.08) 32%,
-                    #070605 75%
-                );
-        }
-
-
-        .light {
-            position: fixed;
-
-            width: 60vw;
-            height: 60vw;
-
-            max-width: 750px;
-            max-height: 750px;
-
-            left: 50%;
-            top: 45%;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(125, 91, 64, 0.09) 0%,
-                    rgba(125, 91, 64, 0.025) 45%,
-                    transparent 70%
-                );
-
-            filter: blur(25px);
-
-            animation: breathe 9s ease-in-out infinite;
-
-            pointer-events: none;
-        }
-
-
-        @keyframes breathe {
-
-            0%,
-            100% {
-                opacity: 0.6;
-
-                transform:
-                    translate(-50%, -50%)
-                    scale(0.96);
-            }
-
-            50% {
-                opacity: 1;
-
-                transform:
-                    translate(-50%, -50%)
-                    scale(1.07);
-            }
-        }
-
-
-        /* ==================================================
-           FILM GRAIN
-        ================================================== */
-
-        .grain {
-            position: fixed;
-
-            inset: -50%;
-
-            width: 200%;
-            height: 200%;
-
-            z-index: 50;
-
-            pointer-events: none;
-
-            opacity: 0.045;
-
-            background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-
-            animation: grainMove 0.25s steps(2) infinite;
-        }
-
-
-        @keyframes grainMove {
-
-            0% {
-                transform: translate(0, 0);
-            }
-
-            25% {
-                transform: translate(-1%, 1%);
-            }
-
-            50% {
-                transform: translate(1%, -1%);
-            }
-
-            75% {
-                transform: translate(1%, 1%);
-            }
-
-            100% {
-                transform: translate(-1%, -1%);
-            }
-        }
-
-
-        /* ==================================================
-           VIGNETTE
-        ================================================== */
-
-        .vignette {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 40;
-
-            pointer-events: none;
-
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    transparent 40%,
-                    rgba(0,0,0,0.22) 72%,
-                    rgba(0,0,0,0.68) 100%
-                );
-        }
-
-
-        /* ==================================================
-           STARS
-        ================================================== */
-
-        .star {
-            position: fixed;
-
-            z-index: 5;
-
-            width: 14px;
-            height: 14px;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            animation:
-                starTwinkle 5s ease-in-out infinite;
-        }
-
-
-        .star::before,
-        .star::after {
-            content: "";
-
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-
-            background: #c4aa8e;
-
-            transform: translate(-50%, -50%);
-        }
-
-
-        .star::before {
-            width: 1px;
-            height: 14px;
-        }
-
-
-        .star::after {
-            width: 14px;
-            height: 1px;
-        }
-
-
-        .star1 {
-            left: 16%;
-            top: 25%;
-
-            animation-delay: 0.5s;
-        }
-
-
-        .star2 {
-            right: 19%;
-            top: 31%;
-
-            transform: scale(0.75);
-
-            animation-delay: 2.2s;
-        }
-
-
-        .star3 {
-            left: 26%;
-            bottom: 23%;
-
-            transform: scale(0.65);
-
-            animation-delay: 1.5s;
-        }
-
-
-        .star4 {
-            right: 27%;
-            bottom: 20%;
-
-            transform: scale(0.8);
-
-            animation-delay: 3.5s;
-        }
-
-
-        @keyframes starTwinkle {
-
-            0%,
-            100% {
-                opacity: 0.10;
-            }
-
-            50% {
-                opacity: 0.60;
-            }
-        }
-
-
-        /* ==================================================
-           FLOATING DUST
-        ================================================== */
-
-        .dust {
-            position: fixed;
-
-            width: 3px;
-            height: 3px;
-
-            border-radius: 50%;
-
-            background: #c2a789;
-
-            opacity: 0;
-
-            z-index: 5;
-
-            pointer-events: none;
-
-            animation:
-                dustFloat 9s ease-in-out infinite;
-        }
-
-
-        .dust1 {
-            left: 34%;
-            top: 23%;
-
-            animation-delay: 1s;
-        }
-
-
-        .dust2 {
-            left: 70%;
-            top: 25%;
-
-            animation-delay: 4s;
-        }
-
-
-        .dust3 {
-            left: 20%;
-            top: 62%;
-
-            animation-delay: 2s;
-        }
-
-
-        .dust4 {
-            left: 76%;
-            top: 66%;
-
-            animation-delay: 5s;
-        }
-
-
-        .dust5 {
-            left: 43%;
-            top: 76%;
-
-            animation-delay: 3s;
-        }
-
-
-        @keyframes dustFloat {
-
-            0%,
-            100% {
-                opacity: 0;
-
-                transform:
-                    translate(0, 8px);
-            }
-
-            40% {
-                opacity: 0.38;
-            }
-
-            60% {
-                opacity: 0.20;
-
-                transform:
-                    translate(8px, -12px);
-            }
-        }
-
-
-        /* ==================================================
-           CRESCENT
-        ================================================== */
-
-        .moon {
-            position: fixed;
-
-            width: 42px;
-            height: 42px;
-
-            right: 13%;
-            top: 16%;
-
-            z-index: 5;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            animation:
-                moonAppear 3s ease 1.5s forwards,
-                moonFloat 8s ease-in-out 4.5s infinite;
-        }
-
-
-        .moon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-
-        .moon path {
-            fill: none;
-
-            stroke: #c0a486;
-
-            stroke-width: 1;
-        }
-
-
-        @keyframes moonAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(5px);
-            }
-
-            to {
-                opacity: 0.55;
-
-                transform:
-                    translateY(0);
-            }
-        }
-
-
-        @keyframes moonFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(-8deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-8px)
-                    rotate(2deg);
-            }
-        }
-
-
-        /* ==================================================
-           CURVED LINES
-        ================================================== */
-
-        .curve {
-            position: fixed;
-
-            width: 300px;
-            height: 150px;
-
-            opacity: 0.18;
-
-            pointer-events: none;
-
-            z-index: 3;
-        }
-
-
-        .curve svg {
-            width: 100%;
-            height: 100%;
-        }
-
-
-        .curve path {
-            fill: none;
-
-            stroke: #a88b6f;
-
-            stroke-width: 0.8;
-        }
-
-
-        .curve1 {
-            top: -30px;
-            left: -50px;
-
-            transform: rotate(-8deg);
-        }
-
-
-        .curve2 {
-            bottom: -40px;
-            right: -50px;
-
-            transform: rotate(8deg);
-        }
-
-
-        /* ==================================================
-           OPENING
-        ================================================== */
-
-        .opening {
-            position: relative;
-
-            width: 100%;
-            height: 100vh;
-
-            min-height: 650px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            z-index: 10;
-        }
-
-
-        .opening-content {
-            width: 90%;
-
-            position: relative;
-
-            z-index: 10;
-        }
-
-
-        /* ==================================================
-           HI BABYYYYYY
-        ================================================== */
-
-        .hello {
-            font-family: 'Great Vibes', cursive;
-
-            font-size:
-                clamp(2.2rem, 4.8vw, 4rem);
-
-            font-weight: 400;
-
-            letter-spacing: 0.02em;
-
-            opacity: 0;
-
-            animation:
-                helloAppear
-                2.8s
-                cubic-bezier(.22,.61,.36,1)
-                0.8s
-                forwards,
-
-                gentleFloat
-                8s
-                ease-in-out
-                3.6s
-                infinite;
-        }
-
-
-        @keyframes helloAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(18px);
-
-                filter: blur(5px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-
-                filter: blur(0);
-            }
-        }
-
-
-        @keyframes gentleFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-3px);
-            }
-        }
-
-
-        /* ==================================================
-           DATE
-        ================================================== */
-
-        .date {
-            margin-top: 30px;
-
-            font-size:
-                clamp(0.8rem, 1.4vw, 1.05rem);
-
-            font-weight: 300;
-
-            letter-spacing: 0.45em;
-
-            margin-left: 0.45em;
-
-            color: #b5a99c;
-
-            opacity: 0;
-
-            animation:
-                dateAppear
-                2s
-                ease
-                2.4s
-                forwards;
-        }
-
-
-        @keyframes dateAppear {
-
-            from {
-                opacity: 0;
-
-                letter-spacing: 0.7em;
-            }
-
-            to {
-                opacity: 0.88;
-
-                letter-spacing: 0.45em;
-            }
-        }
-
-
-        /* ==================================================
-           DIVIDER
-        ================================================== */
-
-        .divider {
-            width: 90px;
-
-            height: 1px;
-
-            margin: 25px auto 0;
-
-            background:
-                rgba(200,186,170,0.35);
-
-            transform: scaleX(0);
-
-            animation:
-                dividerAppear
-                1.5s
-                ease
-                3.4s
-                forwards;
-        }
-
-
-        @keyframes dividerAppear {
-
-            to {
-                transform: scaleX(1);
-            }
-        }
-
-
-        /* ==================================================
-           BIRTHDAY
-        ================================================== */
-
-        .birthday {
-            margin-top: 24px;
-
-            font-size:
-                clamp(1.4rem, 2.5vw, 2rem);
-
-            font-weight: 300;
-
-            letter-spacing: 0.035em;
-
-            color: #ddd3c9;
-
-            opacity: 0;
-
-            animation:
-                birthdayAppear
-                2.2s
-                ease
-                3.7s
-                forwards;
-        }
-
-
-        @keyframes birthdayAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(8px);
-            }
-
-            to {
-                opacity: 0.94;
-
-                transform:
-                    translateY(0);
-            }
-        }
-
-
-        /* ==================================================
-           SCROLL INDICATOR
-        ================================================== */
-
-        .scroll-indicator {
-            position: absolute;
-
-            left: 50%;
-            bottom: 34px;
-
-            width: 28px;
-            height: 42px;
-
-            transform:
-                translateX(-50%);
-
-            z-index: 12;
-
-            cursor: pointer;
-
-            opacity: 0;
-
-            animation:
-                indicatorAppear
-                2s
-                ease
-                5s
-                forwards,
-
-                indicatorFloat
-                2.8s
-                ease-in-out
-                7s
-                infinite;
-        }
-
-
-        .scroll-line {
-            position: absolute;
-
-            left: 50%;
-            top: 0;
-
-            width: 1px;
-            height: 26px;
-
-            background:
-                rgba(200,186,170,0.55);
-
-            transform:
-                translateX(-50%);
-        }
-
-
-        .scroll-arrow {
-            position: absolute;
-
-            left: 50%;
-            bottom: 2px;
-
-            width: 8px;
-            height: 8px;
-
-            border-right:
-                1px solid rgba(200,186,170,0.65);
-
-            border-bottom:
-                1px solid rgba(200,186,170,0.65);
-
-            transform:
-                translateX(-50%)
-                rotate(45deg);
-        }
-
-
-        @keyframes indicatorAppear {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        @keyframes indicatorFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateX(-50%)
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateX(-50%)
-                    translateY(7px);
-            }
-        }
-
-
-        /* ==================================================
-           MEMORY SECTION
-        ================================================== */
-
-        .memory {
-            position: relative;
-
-            width: 100%;
-
-            min-height: 100vh;
-
-            padding:
-                150px
-                25px
-                180px;
-
-            display: flex;
-
-            justify-content: center;
-
-            text-align: center;
-
-            z-index: 5;
-        }
-
-
-        .memory-inner {
-            width: min(850px, 92vw);
-
-            margin: auto;
-        }
-
-
-        /* ==================================================
-           FIRST THOUGHT
-        ================================================== */
-
-        .memory-intro {
-            max-width: 720px;
-
-            margin: 0 auto;
-
-            font-size:
-                clamp(1.55rem, 2.8vw, 2.3rem);
-
-            line-height: 1.6;
-
-            font-weight: 300;
-
-            color: #e1d7cd;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2.2s
-                ease
-                0.3s
-                forwards;
-        }
-
-
-        .memory-date {
-            margin-top: 28px;
-
-            font-size: 0.82rem;
-
-            letter-spacing: 0.42em;
-
-            margin-left: 0.42em;
-
-            color: #a99b8d;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                1.8s
-                ease
-                0.9s
-                forwards;
-        }
-
-
-        @keyframes memoryReveal {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(20px);
-
-                filter: blur(3px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-
-                filter: blur(0);
-            }
-        }
-
-
-        /* ==================================================
-           HOW WE MET
-        ================================================== */
-
-        .first-call {
-            max-width: 650px;
-
-            margin: 85px auto 0;
-
-            font-size:
-                clamp(1.3rem, 2.25vw, 1.8rem);
-
-            line-height: 1.8;
-
-            font-weight: 300;
-
-            color: #d0c5ba;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2.2s
-                ease
-                1.7s
-                forwards;
-        }
-
-
-        .first-call .quiet {
-            display: block;
-
-            margin-top: 35px;
-
-            color: #e2d5c9;
-
-            font-size: 1.08em;
-
-            font-style: italic;
-        }
-
-
-        /* ==================================================
-           SCREENSHOT INTRO
-        ================================================== */
-
-        .screenshot-intro {
-            max-width: 620px;
-
-            margin:
-                105px
-                auto
-                38px;
-
-            font-size:
-                clamp(1.2rem, 2.1vw, 1.6rem);
-
-            line-height: 1.65;
-
-            font-weight: 300;
-
-            color: #d6cabf;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2s
-                ease
-                2.8s
-                forwards;
-        }
-
-
-        /* ==================================================
-           CROPPED SCREENSHOT
-        ================================================== */
-
-        .screenshot-frame {
-            position: relative;
-
-            width:
-                min(390px, 88vw);
-
-            height: 400px;
-
-            margin: 0 auto;
-
-            overflow: hidden;
-
-            border-radius: 3px;
-
-            opacity: 0;
-
-            transform:
-                translateY(25px)
-                scale(0.98);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.72),
-
-                0 0 0 1px
-                rgba(190,165,140,0.12);
-
-            animation:
-                screenshotReveal
-                2.5s
-                cubic-bezier(.22,.61,.36,1)
-                3.3s
-                forwards;
-        }
-
-
-        .screenshot-frame img {
-            position: absolute;
-
-            display: block;
-
-            width: 100%;
-            height: auto;
-
-            left: 0;
-            top: 0;
-
-            /*
-               This crop removes the phone header
-               and focuses on the conversation itself.
-            */
-
-            transform:
-                translateY(-34%);
-        }
-
-
-        .screenshot-frame::after {
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            pointer-events: none;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.03),
-                    transparent 18%,
-                    transparent 82%,
-                    rgba(0,0,0,0.10)
-                );
-        }
-
-
-        @keyframes screenshotReveal {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(25px)
-                    scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-
-        /* ==================================================
-           AFTER SCREENSHOT
-        ================================================== */
-
-        .after-screenshot {
-            max-width: 700px;
-
-            margin:
-                85px
-                auto
-                0;
-
-            padding-bottom: 120px;
-
-            font-size:
-                clamp(1.3rem, 2.3vw, 1.85rem);
-
-            line-height: 1.75;
-
-            font-weight: 300;
-
-            color: #d8cdc2;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2.2s
-                ease
-                4.3s
-                forwards;
-        }
-
-
-        .so-i-did {
-            display: block;
-
-            margin-bottom: 32px;
-
-            font-size: 1.2em;
-
-            color: #e5d8cc;
-
-            font-style: italic;
-        }
-
-
-        /* ==================================================
-           CALL MEMORY
-        ================================================== */
-
-        .call-memory {
-            position: relative;
-
-            width: 100%;
-
-            min-height: 100vh;
-
-            padding:
-                140px
-                25px
-                170px;
-
-            display: flex;
-
-            justify-content: center;
-
-            text-align: center;
-        }
-
-
-        .call-memory-inner {
-            width: min(900px, 92vw);
-
-            margin: auto;
-        }
-
-
-        .call-title {
-            max-width: 650px;
-
-            margin: 0 auto 75px;
-
-            font-size:
-                clamp(1.4rem, 2.6vw, 2.15rem);
-
-            line-height: 1.6;
-
-            font-weight: 300;
-
-            color: #e0d5ca;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2s
-                ease
-                0.2s
-                forwards;
-        }
-
-
-        /* ==================================================
-           STYLIZED CALL LOG
-        ================================================== */
-
-        .calls {
-            position: relative;
-
-            width: min(520px, 90vw);
-
-            height: 430px;
-
-            margin: 0 auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-
-        .call-card {
-            position: absolute;
-
-            width: min(330px, 72vw);
-
-            padding: 22px 28px;
-
-            border:
-                1px solid
-                rgba(190,165,140,0.16);
-
-            background:
-                rgba(30,23,19,0.58);
-
-            backdrop-filter: blur(5px);
-
-            box-shadow:
-                0 25px 60px
-                rgba(0,0,0,0.35);
-
-            opacity: 0;
-
-            animation:
-                callAppear
-                1.4s
-                ease
-                forwards;
-        }
-
-
-        .call-card:nth-child(1) {
-            top: 15px;
-            left: 12%;
-
-            transform: rotate(-4deg);
-
-            animation-delay: 0.5s;
-        }
-
-
-        .call-card:nth-child(2) {
-            top: 90px;
-            right: 7%;
-
-            transform: rotate(3deg);
-
-            animation-delay: 0.9s;
-        }
-
-
-        .call-card:nth-child(3) {
-            top: 170px;
-            left: 8%;
-
-            transform: rotate(2deg);
-
-            animation-delay: 1.3s;
-        }
-
-
-        .call-card:nth-child(4) {
-            top: 250px;
-            right: 10%;
-
-            transform: rotate(-3deg);
-
-            animation-delay: 1.7s;
-        }
-
-
-        .call-card:nth-child(5) {
-            top: 330px;
-            left: 20%;
-
-            transform: rotate(4deg);
-
-            animation-delay: 2.1s;
-        }
-
-
-        .call-name {
-            font-size: 1.35rem;
-
-            color: #e2d6ca;
-
-            letter-spacing: 0.04em;
-        }
-
-
-        .call-status {
-            margin-top: 5px;
-
-            font-size: 0.9rem;
-
-            color: #a99b8d;
-
-            letter-spacing: 0.12em;
-
-            text-transform: uppercase;
-        }
-
-
-        .call-wave {
-            width: 90px;
-
-            height: 18px;
-
-            margin:
-                12px
-                auto
-                0;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 3px;
-        }
-
-
-        .call-wave span {
-            display: block;
-
-            width: 1px;
-
-            background: #b99d80;
-
-            animation:
-                wave 1.2s ease-in-out infinite;
-        }
-
-
-        .call-wave span:nth-child(1) {
-            height: 5px;
-            animation-delay: 0s;
-        }
-
-
-        .call-wave span:nth-child(2) {
-            height: 10px;
-            animation-delay: 0.1s;
-        }
-
-
-        .call-wave span:nth-child(3) {
-            height: 15px;
-            animation-delay: 0.2s;
-        }
-
-
-        .call-wave span:nth-child(4) {
-            height: 8px;
-            animation-delay: 0.3s;
-        }
-
-
-        .call-wave span:nth-child(5) {
-            height: 13px;
-            animation-delay: 0.4s;
-        }
-
-
-        .call-wave span:nth-child(6) {
-            height: 6px;
-            animation-delay: 0.5s;
-        }
-
-
-        .call-wave span:nth-child(7) {
-            height: 11px;
-            animation-delay: 0.6s;
-        }
-
-
-        @keyframes callAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(20px)
-                    scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        @keyframes wave {
-
-            0%,
-            100% {
-                transform: scaleY(0.5);
-            }
-
-            50% {
-                transform: scaleY(1);
-            }
-        }
-
-
-        /* ==================================================
-           CALL CLOSING
-        ================================================== */
-
-        .call-closing {
-            max-width: 680px;
-
-            margin:
-                80px
-                auto
-                0;
-
-            font-size:
-                clamp(1.25rem, 2.3vw, 1.8rem);
-
-            line-height: 1.75;
-
-            color: #d7cbc0;
-
-            opacity: 0;
-
-            animation:
-                memoryReveal
-                2s
-                ease
-                3.4s
-                forwards;
-        }
-
-
-        .call-closing strong {
-            display: block;
-
-            margin-top: 32px;
-
-            font-weight: 400;
-
-            color: #e4d7ca;
-        }
-
-
-        /* ==================================================
-           TALKING TO YOU SCREENSHOT
-        ================================================== */
-
-        .routine-note {
-            max-width: 650px;
-
-            margin:
-                130px
-                auto
-                0;
-
-            padding-bottom: 150px;
-
-            font-size:
-                clamp(1.25rem, 2.2vw, 1.75rem);
-
-            line-height: 1.7;
-
-            color: #d5c9be;
-        }
-
-
-        .routine-note span {
-            display: block;
-
-            margin-top: 25px;
-
-            color: #a99b8d;
-
-            font-size: 0.85em;
-
-            font-style: italic;
-        }
-
-
-        /* ==================================================
-           TRANSITION INTO YOU
-        ================================================== */
-
-        .you-section {
-            position: relative;
-
-            min-height: 100vh;
-
-            padding:
-                170px
-                25px
-                180px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-        }
-
-
-        .you-inner {
-            width: min(850px, 92vw);
-
-            margin: auto;
-        }
-
-
-        .you-transition {
-            max-width: 720px;
-
-            margin: 0 auto;
-
-            font-size:
-                clamp(1.4rem, 2.7vw, 2.15rem);
-
-            line-height: 1.7;
-
-            font-weight: 300;
-
-            color: #ded3c8;
-        }
-
-
-        .you-transition .small {
-            display: block;
-
-            margin-top: 45px;
-
-            color: #aaa093;
-
-            font-size: 0.78em;
-
-            letter-spacing: 0.04em;
-        }
-
-
-        /* ==================================================
-           YOU TITLE
-        ================================================== */
-
-        .you-title {
-            margin-top: 115px;
-
-            font-size:
-                clamp(3.2rem, 8vw, 7rem);
-
-            font-weight: 300;
-
-            letter-spacing: 0.08em;
-
-            color: #e7ddd3;
-        }
-
-
-        .you-line {
-            width: 90px;
-
-            height: 1px;
-
-            margin:
-                32px
-                auto
-                0;
-
-            background:
-                rgba(190,165,140,0.4);
-        }
-
-
-        .you-intro {
-            max-width: 700px;
-
-            margin:
-                55px
-                auto
-                0;
-
-            font-size:
-                clamp(1.25rem, 2.3vw, 1.8rem);
-
-            line-height: 1.8;
-
-            color: #cfc3b8;
-        }
-
-
-        /* ==================================================
-           YOU - TRAVEL
-        ================================================== */
-
-        .you-detail {
-            max-width: 700px;
-
-            margin:
-                120px
-                auto
-                0;
-
-            text-align: left;
-
-            padding-left: 30px;
-
-            border-left:
-                1px solid
-                rgba(190,165,140,0.25);
-        }
-
-
-        .detail-label {
-            font-size: 0.75rem;
-
-            letter-spacing: 0.3em;
-
-            text-transform: uppercase;
-
-            color: #a8998b;
-
-            margin-bottom: 20px;
-        }
-
-
-        .detail-text {
-            font-size:
-                clamp(1.25rem, 2.2vw, 1.75rem);
-
-            line-height: 1.75;
-
-            color: #d6cbc0;
-        }
-
-
-        /* ==================================================
-           FINAL YOU THOUGHT
-        ================================================== */
-
-        .you-ending {
-            max-width: 720px;
-
-            margin:
-                140px
-                auto
-                0;
-
-            padding-bottom: 120px;
-
-            font-size:
-                clamp(1.3rem, 2.4vw, 1.9rem);
-
-            line-height: 1.8;
-
-            color: #ded3c8;
-        }
-
-
-        /* ==================================================
-           MOBILE
-        ================================================== */
-
-        @media (max-width: 600px) {
-
-            .opening {
-                min-height: 620px;
-            }
-
-
-            .hello {
-                font-size: 2.7rem;
-            }
-
-
-            .date {
-                font-size: 0.74rem;
-
-                letter-spacing: 0.3em;
-
-                margin-left: 0.3em;
-            }
-
-
-            .birthday {
-                font-size: 1.35rem;
-            }
-
-
-            .moon {
-                right: 8%;
-                top: 13%;
-            }
-
-
-            .star1 {
-                left: 10%;
-            }
-
-
-            .star2 {
-                right: 10%;
-            }
-
-
-            .curve1 {
-                left: -130px;
-            }
-
-
-            .curve2 {
-                right: -130px;
-            }
-
-
-            .scroll-indicator {
-                bottom: 28px;
-            }
-
-
-            .memory {
-                padding:
-                    110px
-                    20px
-                    150px;
-            }
-
-
-            .memory-intro {
-                font-size: 1.45rem;
-            }
-
-
-            .first-call {
-                margin-top: 65px;
-
-                font-size: 1.25rem;
-            }
-
-
-            .screenshot-intro {
-                margin-top: 80px;
-
-                font-size: 1.2rem;
-            }
-
-
-            .screenshot-frame {
-                width: min(370px, 90vw);
-
-                height: 380px;
-            }
-
-
-            .after-screenshot {
-                margin-top: 65px;
-
-                font-size: 1.25rem;
-            }
-
-
-            .call-memory {
-                padding:
-                    120px
-                    20px
-                    150px;
-            }
-
-
-            .call-title {
-                font-size: 1.4rem;
-
-                margin-bottom: 45px;
-            }
-
-
-            .calls {
-                height: 390px;
-            }
-
-
-            .call-card {
-                width: min(290px, 72vw);
-
-                padding:
-                    18px
-                    22px;
-            }
-
-
-            .call-card:nth-child(1) {
-                left: 2%;
-            }
-
-
-            .call-card:nth-child(2) {
-                right: 0;
-            }
-
-
-            .call-card:nth-child(3) {
-                left: 0;
-            }
-
-
-            .call-card:nth-child(4) {
-                right: 0;
-            }
-
-
-            .call-card:nth-child(5) {
-                left: 10%;
-            }
-
-
-            .call-closing {
-                margin-top: 65px;
-
-                font-size: 1.25rem;
-            }
-
-
-            .routine-note {
-                margin-top: 100px;
-
-                font-size: 1.25rem;
-            }
-
-
-            .you-section {
-                padding:
-                    120px
-                    20px
-                    150px;
-            }
-
-
-            .you-transition {
-                font-size: 1.35rem;
-            }
-
-
-            .you-title {
-                margin-top: 85px;
-
-                font-size: 3.7rem;
-            }
-
-
-            .you-intro {
-                font-size: 1.25rem;
-            }
-
-
-            .you-detail {
-                margin-top: 90px;
-
-                padding-left: 20px;
-            }
-
-
-            .detail-text {
-                font-size: 1.25rem;
-            }
-
-
-            .you-ending {
-                margin-top: 100px;
-
-                font-size: 1.25rem;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tanmay — 27.09.2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #100e0d;
+    --warm: #15110f;
+    --cream: #eee3d1;
+    --cream-soft: #cfc0aa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Cormorant Garamond", serif;
+    overflow-x: hidden;
+}
+
+/* Film grain */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: .055;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* =====================================================
+   OPENING
+   ===================================================== */
+
+#opening {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 40%, rgba(112,72,47,.25), transparent 45%),
+        linear-gradient(180deg, #0e0c0b, #17110e);
+}
+
+.opening-inner {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 55px;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    animation: openingFade 2s ease forwards;
+}
+
+@keyframes openingFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.opening-title {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 400;
+    line-height: .9;
+}
+
+.opening-date {
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    letter-spacing: 7px;
+    margin-top: 34px;
+    color: #bcae9c;
+}
+
+.opening-subtitle {
+    margin-top: 28px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 300;
+}
+
+/* Stars */
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #e8d9c2;
+    opacity: .55;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.star:nth-child(1) { left: 14%; top: 22%; }
+.star:nth-child(2) { left: 79%; top: 17%; animation-delay: 1s; }
+.star:nth-child(3) { left: 67%; top: 68%; animation-delay: 2s; }
+.star:nth-child(4) { left: 24%; top: 74%; animation-delay: .5s; }
+.star:nth-child(5) { left: 89%; top: 44%; animation-delay: 1.5s; }
+.star:nth-child(6) { left: 8%; top: 51%; animation-delay: 2.5s; }
+
+@keyframes twinkle {
+    0%,100% {
+        opacity: .15;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: .8;
+        transform: scale(1.5);
+    }
+}
+
+/* Crescent */
+.moon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border: 1px solid rgba(238,227,209,.18);
+    border-radius: 50%;
+    right: 13%;
+    top: 24%;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #100e0d;
+    left: 14px;
+    top: -7px;
+}
+
+/* Scroll arrow */
+.scroll-cue {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 62px;
+    cursor: pointer;
+    opacity: .9;
+}
+
+.scroll-cue::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 0;
+    height: 43px;
+    width: 1px;
+    background: rgba(238,227,209,.8);
+}
+
+.scroll-cue::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 36px;
+    width: 12px;
+    height: 12px;
+    border-right: 1.5px solid rgba(238,227,209,.9);
+    border-bottom: 1.5px solid rgba(238,227,209,.9);
+    transform: rotate(45deg);
+}
+
+/* =====================================================
+   APRIL 16 — FIRST CALL
+   ===================================================== */
+
+#beginning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 45%, rgba(113,76,53,.18), transparent 48%),
+        var(--warm);
+}
+
+.memory-scene {
+    width: min(850px, 86%);
+    margin: auto;
+}
+
+.memory-date {
+    font-family: Inter, sans-serif;
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 300;
+    letter-spacing: 10px;
+    margin-bottom: 85px;
+}
+
+.memory-story {
+    width: min(720px, 100%);
+    margin: auto;
+}
+
+.memory-line {
+    font-size: clamp(24px, 3.2vw, 35px);
+    line-height: 1.45;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.memory-line.first {
+    font-size: clamp(27px, 3.5vw, 39px);
+}
+
+.video-call {
+    margin: 60px 0 70px;
+}
+
+.call-title {
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+}
+
+.call-people {
+    margin-top: 17px;
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--cream-soft);
+}
+
+.memory-line.ending {
+    margin-top: 65px;
+    font-size: clamp(27px, 3.5vw, 39px);
+}
+
+/* Reusable scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: .15s; }
+.delay-2 { transition-delay: .30s; }
+.delay-3 { transition-delay: .15s; }
+.delay-4 { transition-delay: .30s; }
+.delay-5 { transition-delay: .45s; }
+
+/* =====================================================
+   FIRST SCREENSHOT — placeholder section
+   ===================================================== */
+
+.chat-section {
+    min-height: 115vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-layout {
+    width: min(1000px, 88%);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-text {
+    text-align: center;
+    max-width: 680px;
+    margin-bottom: 55px;
+}
+
+.chat-text p {
+    font-size: clamp(24px, 3.2vw, 36px);
+    line-height: 1.4;
+}
+
+.chat-image-wrap {
+    width: min(470px, 88vw);
+    padding: 14px;
+    background: #181412;
+    box-shadow: 0 35px 80px rgba(0,0,0,.55);
+    transform: rotate(-1.2deg);
+}
+
+.chat-image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.after-chat {
+    text-align: center;
+    max-width: 700px;
+    margin-top: 65px;
+}
+
+.after-chat p {
+    font-size: clamp(23px, 3vw, 34px);
+    line-height: 1.45;
+    margin-top: 20px;
+}
+
+/* =====================================================
+   CALL LOGS
+   ===================================================== */
+
+.calls-section {
+    min-height: 125vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calls-content {
+    width: min(900px, 86%);
+    margin: auto;
+}
+
+.calls-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 55px;
+}
+
+.calls-heading p {
+    font-size: clamp(23px, 3vw, 34px);
+    line-height: 1.4;
+    margin-top: 20px;
+}
+
+.call-list {
+    width: min(610px, 100%);
+    margin: auto;
+}
+
+.call-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 19px 22px;
+    margin: 14px 0;
+
+    border: 1px solid rgba(238,227,209,.11);
+    background: rgba(255,255,255,.035);
+    border-radius: 5px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.18);
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+.call-card:nth-child(2) {
+    transform: translateX(25px);
+}
+
+.call-card:nth-child(4) {
+    transform: translateX(18px);
+}
+
+.call-card:hover {
+    transform: translateX(0) scale(1.015);
+    background: rgba(255,255,255,.06);
+}
+
+.call-icon {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(238,227,209,.3);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+}
+
+.call-details {
+    flex: 1;
+}
+
+.call-name {
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.call-meta {
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    opacity: .65;
+}
+
+.call-duration {
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #bcae9c;
+}
+
+.calls-bottom {
+    max-width: 680px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+.calls-bottom p {
+    font-size: clamp(24px, 3vw, 35px);
+    line-height: 1.45;
+    margin-top: 22px;
+}
+
+/* =====================================================
+   ROUTINE SCREENSHOT
+   ===================================================== */
+
+.routine-section {
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.routine-content {
+    width: min(900px, 88%);
+    margin: auto;
+    text-align: center;
+}
+
+.routine-intro {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.routine-intro p {
+    font-size: clamp(25px, 3.3vw, 38px);
+    line-height: 1.4;
+}
+
+.routine-image-wrap {
+    width: min(470px, 84vw);
+    margin: auto;
+
+    padding: 13px;
+    background: #181412;
+
+    box-shadow: 0 35px 80px rgba(0,0,0,.55);
+
+    transform: rotate(1deg);
+}
+
+.routine-image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.routine-after {
+    max-width: 680px;
+    margin: 55px auto 0;
+}
+
+.routine-after p {
+    font-size: clamp(23px, 3vw, 34px);
+    line-height: 1.45;
+}
+
+/* =====================================================
+   MORE THAN YOU KNOW
+   ===================================================== */
+
+.more-section {
+    min-height: 150vh;
+
+    background:
+        radial-gradient(circle at 50% 50%, rgba(84,45,45,.16), transparent 50%);
+}
+
+.more-content {
+    width: min(820px, 86%);
+    margin: auto;
+}
+
+.eyebrow {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    opacity: .7;
+    margin-bottom: 24px;
+}
+
+.more-title {
+    font-size: clamp(55px, 10vw, 105px);
+    font-weight: 300;
+    line-height: .95;
+    letter-spacing: -2px;
+    margin-bottom: 75px;
+}
+
+.more-content p {
+    font-size: clamp(23px, 3vw, 34px);
+    line-height: 1.48;
+    font-weight: 300;
+    margin-bottom: 34px;
+}
+
+.more-content .emphasis {
+    font-size: clamp(28px, 3.8vw, 43px);
+    margin: 65px 0;
+}
+
+.more-content .final-thought {
+    margin-top: 75px;
+    font-size: clamp(28px, 3.8vw, 43px);
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .opening-title {
+        font-size: 70px;
+    }
+
+    .opening-date {
+        letter-spacing: 4px;
+    }
+
+    .moon {
+        width: 45px;
+        height: 45px;
+        right: 8%;
+        top: 17%;
+    }
+
+    .moon::after {
+        width: 42px;
+        height: 42px;
+    }
+
+    .date-large {
+        letter-spacing: 5px;
+        margin-top: 60px;
+    }
+
+    .memory-date {
+        letter-spacing: 5px;
+    }
+
+    .call-card:nth-child(2),
+    .call-card:nth-child(4) {
+        transform: none;
+    }
+
+    .chat-section,
+    .calls-section,
+    .routine-section {
+        min-height: auto;
+        padding: 130px 0;
+    }
+
+    .more-section {
+        min-height: auto;
+        padding: 140px 0;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- =====================================================
+     OPENING
+     ===================================================== -->
 
-    <!-- ==================================================
-         SHARED CINEMATIC ATMOSPHERE
-    ================================================== -->
+<section id="opening">
 
-    <div class="film-background"></div>
+    <div class="stars">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </div>
 
-    <div class="light"></div>
+    <div class="moon"></div>
 
+    <div class="opening-inner">
 
-    <!-- STARS -->
+        <div class="opening-title">
+            hiiiii babyyyy
+        </div>
 
-    <div class="star star1"></div>
-    <div class="star star2"></div>
-    <div class="star star3"></div>
-    <div class="star star4"></div>
+        <div class="opening-date">
+            27 . 09 . 2026
+        </div>
 
-
-    <!-- DUST -->
-
-    <div class="dust dust1"></div>
-    <div class="dust dust2"></div>
-    <div class="dust dust3"></div>
-    <div class="dust dust4"></div>
-    <div class="dust dust5"></div>
-
-
-    <!-- MOON -->
-
-    <div class="moon">
-
-        <svg viewBox="0 0 40 40">
-
-            <path d="
-                M29 6
-                C20 8, 14 15, 14 23
-                C14 31, 20 35, 28 34
-                C22 32, 18 27, 18 21
-                C18 14, 22 9, 29 6
-            " />
-
-        </svg>
+        <div class="opening-subtitle">
+            Happy birthday, love.
+        </div>
 
     </div>
 
+    <div
+        class="scroll-cue"
+        onclick="document.getElementById('beginning').scrollIntoView({behavior:'smooth'})">
+    </div>
 
-    <!-- CURVED LINES -->
+</section>
 
-    <div class="curve curve1">
 
-        <svg viewBox="0 0 300 150">
+<!-- =====================================================
+     APRIL 16 / FIRST CALL
+     ===================================================== -->
 
-            <path d="
-                M0 110
-                C70 35, 160 25, 300 70
-            " />
+<section id="beginning">
 
-        </svg>
+    <div class="memory-scene">
+
+        <div class="memory-date reveal">
+            16 . 04 . 2026
+        </div>
+
+        <div class="memory-story">
+
+            <p class="memory-line first reveal">
+                Thank god Nisha posted a story that day.
+            </p>
+
+            <p class="memory-line reveal delay-1">
+                Because that somehow turned into
+            </p>
+
+            <div class="video-call reveal delay-2">
+
+                <div class="call-title">
+                    a video call.
+                </div>
+
+                <div class="call-people">
+                    you . me . nisha
+                </div>
+
+            </div>
+
+            <p class="memory-line reveal delay-3">
+                You were so shy.
+            </p>
+
+            <p class="memory-line reveal delay-4">
+                And I remember finding it funny that you'd actually
+                asked her to add me just because you thought I was cute.
+            </p>
+
+            <p class="memory-line ending reveal delay-5">
+                And that's pretty much where it started.
+            </p>
+
+        </div>
 
     </div>
 
+</section>
 
-    <div class="curve curve2">
 
-        <svg viewBox="0 0 300 150">
+<!-- =====================================================
+     FIRST SCREENSHOT
+     ===================================================== -->
 
-            <path d="
-                M0 75
-                C100 20, 200 35, 300 120
-            " />
+<section class="chat-section">
 
-        </svg>
+    <div class="chat-layout">
+
+        <div class="chat-text reveal">
+            <p>
+                And apparently, you wanted me to call you too.
+            </p>
+        </div>
+
+        <div class="chat-image-wrap reveal delay-1">
+
+            <img
+                src="mere-saath-nahi.png"
+                alt="A conversation from the beginning">
+
+        </div>
+
+        <div class="after-chat">
+
+            <p class="reveal delay-2">
+                So I did.
+            </p>
+
+            <p class="reveal delay-3">
+                And then I did again.
+            </p>
+
+            <p class="reveal delay-4">
+                And somewhere along the way,
+                one call turned into many.
+            </p>
+
+        </div>
 
     </div>
 
+</section>
 
 
-    <!-- ==================================================
-         OPENING
-    ================================================== -->
+<!-- =====================================================
+     CALL LOGS
+     ===================================================== -->
 
-    <section class="opening" id="opening">
+<section class="calls-section">
 
-        <div class="opening-content">
+    <div class="calls-content">
 
+        <div class="calls-heading">
 
-            <div class="hello">
-                Hi babyyyyyy
-            </div>
-
-
-            <div class="date">
-                27 . 09 . 2026
-            </div>
-
-
-            <div class="divider"></div>
-
-
-            <div class="birthday">
-                Happy birthday, my love.
-            </div>
-
+            <p class="reveal">
+                And somehow, the calls just kept getting longer.
+            </p>
 
         </div>
 
+        <div class="call-list">
 
-        <!-- Clickable visual scroll cue -->
+            <div class="call-card reveal">
+                <div class="call-icon">↗</div>
 
-        <div
-            class="scroll-indicator"
-            onclick="
-                document
-                .getElementById('memory')
-                .scrollIntoView({
-                    behavior: 'smooth'
-                });
-            "
-        >
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
 
-            <div class="scroll-line"></div>
+                <div class="call-duration">
+                    47 min
+                </div>
+            </div>
 
-            <div class="scroll-arrow"></div>
+            <div class="call-card reveal delay-1">
+                <div class="call-icon">↗</div>
+
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
+
+                <div class="call-duration">
+                    1 hr 12 min
+                </div>
+            </div>
+
+            <div class="call-card reveal delay-2">
+                <div class="call-icon">↗</div>
+
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
+
+                <div class="call-duration">
+                    36 min
+                </div>
+            </div>
+
+            <div class="call-card reveal delay-3">
+                <div class="call-icon">↗</div>
+
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
+
+                <div class="call-duration">
+                    1 hr 04 min
+                </div>
+            </div>
+
+            <div class="call-card reveal delay-4">
+                <div class="call-icon">↗</div>
+
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
+
+                <div class="call-duration">
+                    52 min
+                </div>
+            </div>
+
+            <div class="call-card reveal delay-5">
+                <div class="call-icon">↗</div>
+
+                <div class="call-details">
+                    <div class="call-name">Tanmay</div>
+                    <div class="call-meta">Incoming call</div>
+                </div>
+
+                <div class="call-duration">
+                    1 hr 27 min
+                </div>
+            </div>
 
         </div>
 
-    </section>
+        <div class="calls-bottom">
 
+            <p class="reveal">
+                I don't remember what we talked about on most of them.
+            </p>
 
-
-    <!-- ==================================================
-         A LITTLE BEGINNING
-    ================================================== -->
-
-    <section class="memory" id="memory">
-
-        <div class="memory-inner">
-
-
-            <div class="memory-intro">
-
-                I didn't know you were going to become
-                this important to me.
-
-            </div>
-
-
-            <div class="memory-date">
-                16 . 04 . 2026
-            </div>
-
-
-
-            <!-- First call -->
-
-            <div class="first-call">
-
-                It started with a video call.
-
-                <br>
-
-                You. Me. Nisha.
-
-                <br><br>
-
-                And I had absolutely no idea
-                what that call was going to become.
-
-                <span class="quiet">
-
-                    I barely knew you then.
-
-                    <br><br>
-
-                    You told me you thought I was cute.
-
-                </span>
-
-            </div>
-
-
-
-            <!-- Screenshot -->
-
-            <div class="screenshot-intro">
-
-                Then came the part where you wanted
-                me to call you, too.
-
-            </div>
-
-
-            <div class="screenshot-frame">
-
-                <img
-                    src="mere-saath-nahi.png"
-                    alt="An early conversation between Tanmay and Kirti"
-                >
-
-            </div>
-
-
-
-            <!-- After screenshot -->
-
-            <div class="after-screenshot">
-
-                <span class="so-i-did">
-                    So I did.
-                </span>
-
-                I don't think either of us knew
-                how small that moment was.
-
-                <br><br>
-
-                Or how much it would lead to.
-
-                <br><br>
-
-                I called you again.
-
-                <br>
-
-                And again.
-
-                <br><br>
-
-                And somewhere between all those
-                ordinary calls, you stopped being
-                someone I was getting to know...
-
-                <br><br>
-
-                and became someone I started
-                looking for in my day.
-
-            </div>
-
+            <p class="reveal delay-1">
+                But I remember how easily they became a part of my day.
+            </p>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
 
-    <!-- ==================================================
-         THE CALLS
-    ================================================== -->
+<!-- =====================================================
+     "BEST PART OF MY ROUTINE" SCREENSHOT
+     ===================================================== -->
 
-    <section class="call-memory">
+<section class="routine-section">
 
-        <div class="call-memory-inner">
+    <div class="routine-content">
 
+        <div class="routine-intro">
 
-            <div class="call-title">
-
-                I don't remember what we talked about
-                on most of those calls.
-
-                <br><br>
-
-                Funny how that works.
-
-            </div>
-
-
-
-            <!-- Stylized visual memory of calls -->
-
-            <div class="calls">
-
-
-                <div class="call-card">
-
-                    <div class="call-name">
-                        Tanmay
-                    </div>
-
-                    <div class="call-status">
-                        Incoming call
-                    </div>
-
-                    <div class="call-wave">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="call-card">
-
-                    <div class="call-name">
-                        Tanmay
-                    </div>
-
-                    <div class="call-status">
-                        Incoming call
-                    </div>
-
-                    <div class="call-wave">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="call-card">
-
-                    <div class="call-name">
-                        Tanmay
-                    </div>
-
-                    <div class="call-status">
-                        Incoming call
-                    </div>
-
-                    <div class="call-wave">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="call-card">
-
-                    <div class="call-name">
-                        Tanmay
-                    </div>
-
-                    <div class="call-status">
-                        Incoming call
-                    </div>
-
-                    <div class="call-wave">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="call-card">
-
-                    <div class="call-name">
-                        Tanmay
-                    </div>
-
-                    <div class="call-status">
-                        Incoming call
-                    </div>
-
-                    <div class="call-wave">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="call-closing">
-
-                You forget the conversations.
-
-                <br>
-
-                But somehow you remember
-                the person who made you want
-                to keep having them.
-
-                <strong>
-                    And somewhere along the way,
-                    talking to you just became part
-                    of my day.
-                </strong>
-
-            </div>
-
-
-
-            <div class="routine-note">
-
-                There was something strangely easy
-                about talking to you.
-
-                <br><br>
-
-                Nothing spectacular.
-
-                <br>
-
-                Nothing that needed to be remembered.
-
-                <br><br>
-
-                Just you.
-
-                <br>
-
-                Me.
-
-                <br>
-
-                And somehow, enough.
-
-                <span>
-                    Some things become important
-                    without announcing themselves.
-                </span>
-
-            </div>
-
+            <p class="reveal">
+                At some point, talking to each other just became something we did.
+            </p>
 
         </div>
 
-    </section>
-
-
-
-    <!-- ==================================================
-         YOU
-    ================================================== -->
-
-    <section class="you-section" id="you">
-
-        <div class="you-inner">
-
-
-            <div class="you-transition">
-
-                But this isn't really a story
-                about how we met.
-
-                <br><br>
-
-                Because there is so much more
-                to you than the way you first
-                entered my life.
-
-                <span class="small">
-
-                    And I've spent the last few months
-                    noticing little things about you.
-
-                </span>
-
-            </div>
-
-
-
-            <div class="you-title">
-                YOU
-            </div>
-
-
-            <div class="you-line"></div>
-
-
-            <div class="you-intro">
-
-                The person behind all the conversations.
-                The person I keep discovering in
-                little pieces.
-
-                <br><br>
-
-                The parts of you that you probably
-                don't even realise people notice.
-
-            </div>
-
-
-
-            <!-- Travel -->
-
-            <div class="you-detail">
-
-                <div class="detail-label">
-                    the traveller
-                </div>
-
-
-                <div class="detail-text">
-
-                    You have always seemed like
-                    a traveller at heart.
-
-                    <br><br>
-
-                    You want to see places.
-                    Try things.
-                    Go somewhere new and
-                    find out what is there.
-
-                    <br><br>
-
-                    I think there is something
-                    beautiful about that part of you —
-                    the part that doesn't want
-                    life to be small.
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Carefree -->
-
-            <div class="you-detail">
-
-                <div class="detail-label">
-                    the one who acts like nothing matters
-                </div>
-
-
-                <div class="detail-text">
-
-                    You have this way of making
-                    everything look easy.
-
-                    <br><br>
-
-                    Like nothing really gets to you.
-
-                    <br><br>
-
-                    But I know that's not quite true.
-
-                </div>
-
-            </div>
-
-
-
-            <!-- What lies underneath -->
-
-            <div class="you-detail">
-
-                <div class="detail-label">
-                    underneath
-                </div>
-
-
-                <div class="detail-text">
-
-                    You care.
-
-                    <br><br>
-
-                    Probably more than you let
-                    most people see.
-
-                    <br><br>
-
-                    You carry a lot for the people
-                    you love.
-
-                    You worry about them.
-                    You think about them.
-                    You want things to be okay
-                    for them.
-
-                    <br><br>
-
-                    And sometimes I think you
-                    forget that carrying so much
-                    doesn't mean you have to
-                    carry it quietly.
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Ambition -->
-
-            <div class="you-detail">
-
-                <div class="detail-label">
-                    the part of you that wants more
-                </div>
-
-
-                <div class="detail-text">
-
-                    I know you want a lot from life.
-
-                    <br><br>
-
-                    And maybe that's also where
-                    some of your fear comes from.
-
-                    <br><br>
-
-                    What if you don't make it?
-
-                    <br>
-
-                    What if you don't become
-                    the person you imagined
-                    you would be?
-
-                    <br><br>
-
-                    I don't know if that's your
-                    biggest fear.
-
-                    <br><br>
-
-                    But I know it's one you carry.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="you-ending">
-
-                And sometimes I wish you could
-                see yourself from where I'm standing.
-
-                <br><br>
-
-                Because you are already becoming.
-
-                <br><br>
-
-                You don't have to wait until you've
-                achieved everything you want
-                before you get to be proud of yourself.
-
-                <br><br>
-
-                You're already someone worth
-                being proud of.
-
-            </div>
-
+        <div class="routine-image-wrap reveal delay-1">
+
+            <img
+                src="talking-to-you.png"
+                alt="A conversation about talking to each other being the best part of the routine">
 
         </div>
 
-    </section>
+        <div class="routine-after">
+
+            <p class="reveal delay-2">
+                A call when we had nothing particular to say.
+            </p>
+
+            <p class="reveal delay-3">
+                A conversation that somehow lasted much longer than it was supposed to.
+            </p>
+
+            <p class="reveal delay-4">
+                Just... talking.
+            </p>
+
+            <p class="reveal delay-5">
+                Until talking to you became part of the routine.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
+<!-- =====================================================
+     MORE THAN YOU KNOW
+     ===================================================== -->
 
-    <!-- ==================================================
-         ATMOSPHERE LAYERS
-    ================================================== -->
+<section class="more-section">
 
-    <div class="grain"></div>
+    <div class="more-content">
 
-    <div class="vignette"></div>
+        <div class="eyebrow reveal">
+            there is more to you
+        </div>
 
+        <h1 class="more-title reveal delay-1">
+            MORE THAN<br>
+            YOU KNOW
+        </h1>
+
+        <p class="reveal delay-2">
+            And I think that's when I started getting to know you properly.
+        </p>
+
+        <p class="reveal">
+            Because there is so much more to you
+            than the way you first entered my life.
+        </p>
+
+        <p class="emphasis reveal">
+            The more I got to know you,
+            the more I realised how many different versions of you there were.
+        </p>
+
+        <p class="reveal">
+            You have always seemed like a traveller at heart.
+        </p>
+
+        <p class="reveal">
+            You want to see places.
+            Try things.
+            Go somewhere new and find out what is there.
+        </p>
+
+        <p class="reveal">
+            I think there is something beautiful about that part of you —
+            the part that doesn't want life to be small.
+        </p>
+
+        <p class="reveal">
+            You also have this way of making everything look easy.
+            Like nothing really gets to you.
+        </p>
+
+        <p class="reveal">
+            But I know that's not quite true.
+        </p>
+
+        <p class="emphasis reveal">
+            You care.
+            <br>
+            Probably more than you let most people see.
+        </p>
+
+        <p class="reveal">
+            You carry a lot for the people you love.
+            You worry about them.
+            You think about them.
+            You want things to be okay for them.
+        </p>
+
+        <p class="reveal">
+            And sometimes I think you forget
+            that carrying so much doesn't mean
+            you have to carry it quietly.
+        </p>
+
+        <p class="reveal">
+            I know you want a lot from life.
+        </p>
+
+        <p class="reveal">
+            And maybe that's also where some of your fear comes from.
+        </p>
+
+        <p class="reveal">
+            What if you don't make it?
+            <br>
+            What if you don't become the person
+            you imagined you would be?
+        </p>
+
+        <p class="reveal">
+            I don't know if that's your biggest fear.
+            <br>
+            But I know it's one you carry.
+        </p>
+
+        <p class="final-thought reveal">
+            And sometimes I wish you could see yourself
+            from where I'm standing.
+        </p>
+
+        <p class="reveal">
+            Because you are already becoming.
+        </p>
+
+        <p class="reveal">
+            You don't have to wait until you've achieved everything you want
+            before you get to be proud of yourself.
+        </p>
+
+        <p class="emphasis reveal">
+            You're already someone worth being proud of.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+/* =====================================================
+   SCROLL REVEAL
+   ===================================================== */
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
 
 </body>
 </html>
