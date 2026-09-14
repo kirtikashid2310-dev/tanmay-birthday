@@ -9,37 +9,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   ROOT
+   BASE
 ========================================================= */
 
 :root {
   --night: #0b0807;
-  --night-2: #17100d;
-  --warm-dark: #251916;
+  --night-brown: #1d1410;
+  --brown: #302019;
 
-  --cream: #eee5d6;
   --paper: #eee7d9;
-  --paper-light: #f4eee2;
-  --paper-deep: #ded2bf;
+  --paper-light: #f5efe4;
 
   --ink: #2b241e;
   --ink-soft: #50453a;
   --ink-muted: #776b5d;
 
+  --cream: #eee5d6;
   --cream-muted: #cbbba7;
 
   --tape: rgba(190,171,139,.48);
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
   box-sizing: border-box;
@@ -59,8 +53,8 @@ body {
 }
 
 section {
-  position: relative;
   width: 100%;
+  position: relative;
   overflow: hidden;
 }
 
@@ -70,7 +64,7 @@ img {
 
 
 /* =========================================================
-   GRAIN
+   SUBTLE GRAIN
 ========================================================= */
 
 body::before {
@@ -79,7 +73,6 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-
   opacity: .035;
 
   background-image:
@@ -88,14 +81,12 @@ body::before {
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   SCROLL REVEAL
 ========================================================= */
 
 .reveal {
   opacity: 0;
-
-  transform:
-    translateY(24px);
+  transform: translateY(24px);
 
   transition:
     opacity 1s ease,
@@ -104,9 +95,7 @@ body::before {
 
 .reveal.visible {
   opacity: 1;
-
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
 
 .delay-1 {
@@ -157,14 +146,11 @@ body::before {
 }
 
 
-/* =========================================================
-   OPENING STARS
-========================================================= */
+/* stars */
 
 .stars {
   position: absolute;
   inset: 0;
-
   pointer-events: none;
 }
 
@@ -177,7 +163,6 @@ body::before {
   border-radius: 50%;
 
   background: #eadbc8;
-
   opacity: .5;
 
   animation:
@@ -192,35 +177,30 @@ body::before {
 .star:nth-child(2) {
   left: 81%;
   top: 18%;
-
   animation-delay: 1s;
 }
 
 .star:nth-child(3) {
   left: 69%;
   top: 70%;
-
   animation-delay: 2s;
 }
 
 .star:nth-child(4) {
   left: 21%;
   top: 73%;
-
   animation-delay: .5s;
 }
 
 .star:nth-child(5) {
   left: 89%;
   top: 45%;
-
   animation-delay: 1.7s;
 }
 
 .star:nth-child(6) {
   left: 8%;
   top: 52%;
-
   animation-delay: 2.5s;
 }
 
@@ -239,9 +219,7 @@ body::before {
 }
 
 
-/* =========================================================
-   ORIGINAL SIMPLE SEMICIRCLE
-========================================================= */
+/* simple semicircle — NOT a moon */
 
 .opening-arc {
   position: absolute;
@@ -289,13 +267,10 @@ body::before {
 }
 
 
-/* =========================================================
-   OPENING TEXT
-========================================================= */
+/* opening text */
 
 .opening-inner {
   position: relative;
-
   z-index: 3;
 
   display: flex;
@@ -332,8 +307,7 @@ body::before {
 
   opacity: 0;
 
-  transform:
-    scaleX(0);
+  transform: scaleX(0);
 
   animation:
     ruleFade 1s ease forwards;
@@ -346,17 +320,14 @@ body::before {
     Inter,
     sans-serif;
 
-  font-size:
-    10px;
+  font-size: 10px;
 
-  letter-spacing:
-    5px;
+  letter-spacing: 5px;
 
   color:
     var(--cream-muted);
 
-  margin-top:
-    21px;
+  margin-top: 21px;
 
   opacity: 0;
 
@@ -367,14 +338,10 @@ body::before {
 }
 
 .opening-subtitle {
-  margin-top:
-    24px;
+  margin-top: 24px;
 
   font-size:
     clamp(21px, 2.7vw, 29px);
-
-  font-weight:
-    400;
 
   opacity: 0;
 
@@ -388,16 +355,12 @@ body::before {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(16px);
+    transform: translateY(16px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
 }
@@ -406,9 +369,7 @@ body::before {
 
   to {
     opacity: 1;
-
-    transform:
-      scaleX(1);
+    transform: scaleX(1);
   }
 
 }
@@ -417,16 +378,12 @@ body::before {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(8px);
+    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
 }
@@ -435,24 +392,18 @@ body::before {
 
   from {
     opacity: 0;
-
-    transform:
-      translateY(10px);
+    transform: translateY(10px);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
 }
 
 
-/* =========================================================
-   SCROLL CUE
-========================================================= */
+/* scroll arrow */
 
 .scroll-cue {
   position: absolute;
@@ -460,8 +411,7 @@ body::before {
   bottom: 8%;
   left: 50%;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
   width: 34px;
   height: 60px;
@@ -503,8 +453,7 @@ body::before {
     1px solid
     rgba(238,226,208,.85);
 
-  transform:
-    rotate(45deg);
+  transform: rotate(45deg);
 
   animation:
     arrowFloat 2.2s infinite ease-in-out;
@@ -558,14 +507,11 @@ body::before {
 }
 
 
-/* =========================================================
-   MEMORY DUST
-========================================================= */
+/* floating dust */
 
 .memory-dust {
   position: absolute;
   inset: 0;
-
   pointer-events: none;
 }
 
@@ -596,28 +542,24 @@ body::before {
 .memory-dust span:nth-child(2) {
   left: 75%;
   top: 21%;
-
   animation-delay: 1.7s;
 }
 
 .memory-dust span:nth-child(3) {
   left: 84%;
   top: 68%;
-
   animation-delay: 3.4s;
 }
 
 .memory-dust span:nth-child(4) {
   left: 28%;
   top: 80%;
-
   animation-delay: 1s;
 }
 
 .memory-dust span:nth-child(5) {
   left: 54%;
   top: 16%;
-
   animation-delay: 4.2s;
 }
 
@@ -625,24 +567,18 @@ body::before {
 
   0%,100% {
     opacity: .15;
-
-    transform:
-      translate(0,0);
+    transform: translate(0,0);
   }
 
   50% {
     opacity: .8;
-
-    transform:
-      translate(24px,-30px);
+    transform: translate(24px,-30px);
   }
 
 }
 
 
-/* =========================================================
-   LARGE ORBIT
-========================================================= */
+/* subtle orbit */
 
 .memory-curve {
   position: absolute;
@@ -680,16 +616,13 @@ body::before {
 @keyframes slowSpin {
 
   to {
-    transform:
-      rotate(360deg);
+    transform: rotate(360deg);
   }
 
 }
 
 
-/* =========================================================
-   MEMORY CONTENT
-========================================================= */
+/* text */
 
 .memory-scene {
   width:
@@ -755,7 +688,8 @@ body::before {
 
 .call-title {
   font-family:
-    "Bodoni Moda",
+    Georgia,
+    "Times New Roman",
     serif;
 
   font-size:
@@ -846,7 +780,7 @@ body::before {
 }
 
 
-/* screenshot */
+/* screenshot frame */
 
 .chat-image-wrap {
   width:
@@ -908,7 +842,7 @@ body::before {
 }
 
 
-/* light sweep */
+/* subtle light sweep */
 
 .chat-image-wrap::after {
   content: "";
@@ -949,9 +883,7 @@ body::before {
 }
 
 
-/* =========================================================
-   AFTER FIRST SCREENSHOT
-========================================================= */
+/* after screenshot */
 
 .after-chat {
   margin-top:
@@ -1046,48 +978,39 @@ body::before {
 }
 
 .waveform span:nth-child(2) {
-  animation-delay:
-    .12s;
+  animation-delay: .12s;
 }
 
 .waveform span:nth-child(3) {
-  animation-delay:
-    .24s;
+  animation-delay: .24s;
 }
 
 .waveform span:nth-child(4) {
-  animation-delay:
-    .36s;
+  animation-delay: .36s;
 }
 
 .waveform span:nth-child(5) {
-  animation-delay:
-    .48s;
+  animation-delay: .48s;
 }
 
 .waveform span:nth-child(6) {
-  animation-delay:
-    .60s;
+  animation-delay: .60s;
 }
 
 .waveform span:nth-child(7) {
-  animation-delay:
-    .72s;
+  animation-delay: .72s;
 }
 
 .waveform span:nth-child(8) {
-  animation-delay:
-    .84s;
+  animation-delay: .84s;
 }
 
 .waveform span:nth-child(9) {
-  animation-delay:
-    .96s;
+  animation-delay: .96s;
 }
 
 .waveform span:nth-child(10) {
-  animation-delay:
-    1.08s;
+  animation-delay: 1.08s;
 }
 
 @keyframes wave {
@@ -1265,7 +1188,7 @@ body::before {
 
 
 /* =========================================================
-   ROUTINE
+   ROUTINE / SECOND SCREENSHOT
 ========================================================= */
 
 .routine-section {
@@ -1459,12 +1382,12 @@ body::before {
 
 
 /* =========================================================
-   TRANSITION INTO PAPER
+   SMOOTH TRANSITION TO PAPER
 ========================================================= */
 
 .bridge-section {
   min-height:
-    65vh;
+    70vh;
 
   display:
     flex;
@@ -1479,18 +1402,19 @@ body::before {
     linear-gradient(
       180deg,
       #201711 0%,
-      #292019 18%,
-      #40362d 37%,
-      #66594c 55%,
-      #8f8273 70%,
-      #bcb1a1 83%,
-      #ded5c7 93%,
+      #282019 14%,
+      #393028 30%,
+      #50473d 46%,
+      #70655a 61%,
+      #94897b 73%,
+      #b8aea0 84%,
+      #d6cec1 93%,
       #eee7d9 100%
     );
 }
 
 
-/* leaves */
+/* decorative leaves */
 
 .bridge-leaf {
   position:
@@ -1648,7 +1572,7 @@ body::before {
 }
 
 
-/* top softness */
+/* top fade */
 
 .more-top-fade {
   position:
@@ -1679,7 +1603,7 @@ body::before {
 
 
 /* =========================================================
-   BOTANICAL DECOR
+   BOTANICALS
 ========================================================= */
 
 .botanical {
@@ -1946,9 +1870,8 @@ body::before {
 
 
 /*
-   IMPORTANT:
-   The title is deliberately bold and high contrast.
-   This replaces the thinner Bodoni treatment.
+   Stronger, more readable title.
+   No thin Bodoni treatment.
 */
 
 .more-title {
@@ -2035,7 +1958,7 @@ body::before {
 }
 
 
-/* alternate layout */
+/* alternating photo/text */
 
 .more-row.reverse .polaroid-column {
   order:
@@ -2049,7 +1972,7 @@ body::before {
 
 
 /* =========================================================
-   COPY
+   TEXT
 ========================================================= */
 
 .copy-column {
@@ -2212,12 +2135,6 @@ body::before {
     #ddd2c2;
 }
 
-.polaroid:hover {
-  box-shadow:
-    0 28px 55px
-    rgba(72,57,43,.22);
-}
-
 
 /* individual rotations */
 
@@ -2241,6 +2158,9 @@ body::before {
     rotate(3deg);
 }
 
+
+/* hover */
+
 .row-childhood .polaroid:hover {
   transform:
     rotate(-1deg)
@@ -2263,6 +2183,12 @@ body::before {
   transform:
     rotate(1deg)
     translateY(-7px);
+}
+
+.polaroid:hover {
+  box-shadow:
+    0 28px 55px
+    rgba(72,57,43,.22);
 }
 
 
@@ -2367,7 +2293,7 @@ body::before {
 
 
 /* =========================================================
-   FINAL REFLECTION
+   FINAL AMBITION / FEAR
 ========================================================= */
 
 .more-ending {
@@ -2542,7 +2468,7 @@ body::before {
   }
 
 
-  /* screenshot */
+  /* screenshot sections */
 
   .chat-section,
   .routine-section {
@@ -2632,7 +2558,7 @@ body::before {
 
   .bridge-section {
     min-height:
-      65vh;
+      68vh;
   }
 
   .bridge-content {
@@ -2649,7 +2575,7 @@ body::before {
   }
 
 
-  /* MORE */
+  /* more */
 
   #more {
     padding-bottom:
@@ -2683,7 +2609,7 @@ body::before {
   }
 
 
-  /* rows become vertical */
+  /* stack photo/text */
 
   .more-row,
   .more-row.reverse {
@@ -2800,8 +2726,6 @@ body::before {
   </div>
 
 
-  <!-- simple semicircle — NOT a moon -->
-
   <div class="opening-arc"></div>
 
 
@@ -2834,7 +2758,7 @@ body::before {
 
 
 <!-- =====================================================
-     APRIL 16 — THE BEGINNING
+     APRIL 16
 ===================================================== -->
 
 <section id="beginning">
@@ -2848,6 +2772,7 @@ body::before {
     <span></span>
 
   </div>
+
 
   <div class="memory-curve"></div>
 
@@ -2930,9 +2855,10 @@ body::before {
     </div>
 
 
-    <div class="chat-image-wrap reveal delay-2">
+    <!-- IMPORTANT:
+         this is the exact file you said you want -->
 
-      <!-- THIS IS THE IMAGE YOU SPECIFICALLY WANT -->
+    <div class="chat-image-wrap reveal delay-2">
 
       <img
         src="mere-saath-nahi.png.jpeg"
@@ -3172,7 +3098,7 @@ body::before {
 
 
 <!-- =====================================================
-     ROUTINE / SECOND SCREENSHOT
+     ROUTINE
 ===================================================== -->
 
 <section class="routine-section">
@@ -3206,12 +3132,13 @@ body::before {
 
 
 <!-- =====================================================
-     SHORT TRANSITION
+     SHORT BRIDGE
 ===================================================== -->
 
 <section class="bridge-section">
 
   <div class="bridge-leaf one"></div>
+
   <div class="bridge-leaf two"></div>
 
 
@@ -3345,22 +3272,17 @@ body::before {
 
 
         <h3 class="reveal delay-1">
-          A whole Tanmay before I ever knew you.
+          I wonder what this little version of you was like.
         </h3>
 
 
         <p class="reveal delay-2">
-          There's something funny about seeing this version of you now.
+          Probably curious, probably up to something, and already convinced he knew what he was doing.
         </p>
 
 
         <p class="reveal delay-3">
-          Before I knew your voice, your habits, your expressions, or the person you've grown into, you were already living a completely different little life.
-        </p>
-
-
-        <p class="reveal delay-4">
-          I like knowing there was a whole you before I ever got here.
+          It makes me smile knowing that some things really do stay the same.
         </p>
 
       </div>
