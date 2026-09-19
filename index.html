@@ -3,2710 +3,1052 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For Tanmay — 27.09.2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   BASE
-========================================================= */
-
-:root {
-  --night: #0b0807;
-  --night-brown: #1d1410;
-  --brown: #302019;
-
-  --paper: #eee7d9;
-  --paper-light: #f5efe4;
-
-  --ink: #2b241e;
-  --ink-soft: #50453a;
-  --ink-muted: #776b5d;
-
-  --cream: #eee5d6;
-  --cream-muted: #cbbba7;
-
-  --tape: rgba(190,171,139,.48);
-}
-
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--night);
-  color: var(--cream);
-  font-family: "Cormorant Garamond", serif;
-  overflow-x: hidden;
+    background: #1b1714;
+    color: #eee5d8;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
 }
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 section {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-img {
-  max-width: 100%;
+.section-inner {
+    width: min(1100px, 88%);
+    margin: auto;
 }
 
-
-/* =========================================================
-   SUBTLE GRAIN
-========================================================= */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: .035;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+.small-label {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: .65;
 }
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-
-  transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-1 {
-  transition-delay: .12s;
-}
-
-.delay-2 {
-  transition-delay: .24s;
-}
-
-.delay-3 {
-  transition-delay: .36s;
-}
-
-.delay-4 {
-  transition-delay: .48s;
-}
-
-.delay-5 {
-  transition-delay: .60s;
-}
-
 
 /* =========================================================
    OPENING
 ========================================================= */
 
 #opening {
-  min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(122,83,56,.22),
-      transparent 42%
-    ),
-    linear-gradient(
-      180deg,
-      #080706 0%,
-      #0e0a09 100%
-    );
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(111,78,53,.14), transparent 38%),
+        #171311;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-/* stars */
-
-.stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.opening-content {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    animation: openingFade 2.2s ease forwards;
 }
 
-.star {
-  position: absolute;
-
-  width: 2px;
-  height: 2px;
-
-  border-radius: 50%;
-
-  background: #eadbc8;
-  opacity: .5;
-
-  animation:
-    starTwinkle 4.5s infinite ease-in-out;
+.opening-hi {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 9vw, 105px);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -3px;
+    opacity: 0;
+    animation: fadeUp 1.8s .3s ease forwards;
 }
 
-.star:nth-child(1) {
-  left: 12%;
-  top: 23%;
-}
-
-.star:nth-child(2) {
-  left: 81%;
-  top: 18%;
-  animation-delay: 1s;
-}
-
-.star:nth-child(3) {
-  left: 69%;
-  top: 70%;
-  animation-delay: 2s;
-}
-
-.star:nth-child(4) {
-  left: 21%;
-  top: 73%;
-  animation-delay: .5s;
-}
-
-.star:nth-child(5) {
-  left: 89%;
-  top: 45%;
-  animation-delay: 1.7s;
-}
-
-.star:nth-child(6) {
-  left: 8%;
-  top: 52%;
-  animation-delay: 2.5s;
-}
-
-@keyframes starTwinkle {
-
-  0%,100% {
-    opacity: .18;
-    transform: scale(.7);
-  }
-
-  50% {
-    opacity: .95;
-    transform: scale(1.5);
-  }
-
-}
-
-
-/* simple semicircle — NOT a moon */
-
-.opening-arc {
-  position: absolute;
-
-  width: 300px;
-  height: 150px;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -53%);
-
-  border:
-    1px solid
-    rgba(238,226,208,.18);
-
-  border-bottom: none;
-
-  border-radius:
-    300px 300px 0 0;
-
-  animation:
-    arcBreath 7s infinite ease-in-out;
-}
-
-@keyframes arcBreath {
-
-  0%,100% {
-    opacity: .35;
-
-    transform:
-      translate(-50%, -53%)
-      scale(1);
-  }
-
-  50% {
-    opacity: .7;
-
-    transform:
-      translate(-50%, -53%)
-      scale(1.035);
-  }
-
-}
-
-
-/* opening text */
-
-.opening-inner {
-  position: relative;
-  z-index: 3;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.opening-title {
-  font-family:
-    "Great Vibes",
-    cursive;
-
-  font-size:
-    clamp(58px, 8vw, 98px);
-
-  line-height: .9;
-
-  opacity: 0;
-
-  animation:
-    titleFade 1.5s ease forwards;
-
-  animation-delay: .3s;
-}
-
-.opening-rule {
-  width: 72px;
-  height: 1px;
-
-  margin-top: 28px;
-
-  background:
-    rgba(238,226,208,.7);
-
-  opacity: 0;
-
-  transform: scaleX(0);
-
-  animation:
-    ruleFade 1s ease forwards;
-
-  animation-delay: 1.1s;
+.opening-line {
+    width: 130px;
+    height: 1px;
+    background: rgba(238,229,216,.55);
+    margin: 20px auto 18px;
+    opacity: 0;
+    animation: fadeIn 1.5s 1s ease forwards;
 }
 
 .opening-date {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size: 10px;
-
-  letter-spacing: 5px;
-
-  color:
-    var(--cream-muted);
-
-  margin-top: 21px;
-
-  opacity: 0;
-
-  animation:
-    dateFade 1.1s ease forwards;
-
-  animation-delay: 1.45s;
-}
-
-.opening-subtitle {
-  margin-top: 24px;
-
-  font-size:
-    clamp(21px, 2.7vw, 29px);
-
-  opacity: 0;
-
-  animation:
-    subtitleFade 1.2s ease forwards;
-
-  animation-delay: 1.95s;
-}
-
-@keyframes titleFade {
-
-  from {
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 6px;
     opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+    animation: fadeUp 1.5s 1.15s ease forwards;
 }
 
-@keyframes ruleFade {
-
-  to {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-}
-
-@keyframes dateFade {
-
-  from {
+.opening-sub {
+    margin-top: 18px;
+    font-size: 20px;
+    font-style: italic;
     opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+    animation: fadeUp 1.5s 1.35s ease forwards;
 }
 
-@keyframes subtitleFade {
-
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+.semicircle {
+    position: absolute;
+    width: 280px;
+    height: 140px;
+    border: 1px solid rgba(238,229,216,.18);
+    border-bottom: none;
+    border-radius: 280px 280px 0 0;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: breathe 5s ease-in-out infinite;
 }
 
-
-/* scroll arrow */
-
-.scroll-cue {
-  position: absolute;
-
-  bottom: 8%;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: 34px;
-  height: 60px;
-
-  cursor: pointer;
+.stars span {
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 2px;
+    background: #eee5d8;
+    border-radius: 50%;
+    opacity: .5;
+    animation: twinkle 4s infinite ease-in-out;
 }
 
-.scroll-cue::before {
-  content: "";
+.star1 { top: 18%; left: 20%; }
+.star2 { top: 27%; left: 76%; animation-delay: 1s !important; }
+.star3 { top: 15%; left: 61%; animation-delay: 2s !important; }
+.star4 { top: 39%; left: 13%; animation-delay: .7s !important; }
+.star5 { top: 31%; left: 87%; animation-delay: 1.8s !important; }
+.star6 { top: 65%; left: 22%; animation-delay: 2.4s !important; }
 
-  position: absolute;
-
-  left: 16px;
-  top: 0;
-
-  width: 1px;
-  height: 42px;
-
-  background:
-    rgba(238,226,208,.75);
+.scroll-arrow {
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 45px;
+    cursor: pointer;
+    opacity: .65;
 }
 
-.scroll-cue::after {
-  content: "";
-
-  position: absolute;
-
-  left: 10px;
-  top: 35px;
-
-  width: 12px;
-  height: 12px;
-
-  border-right:
-    1px solid
-    rgba(238,226,208,.85);
-
-  border-bottom:
-    1px solid
-    rgba(238,226,208,.85);
-
-  transform: rotate(45deg);
-
-  animation:
-    arrowFloat 2.2s infinite ease-in-out;
+.scroll-arrow::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 28px;
+    background: #eee5d8;
+    left: 50%;
+    top: 0;
 }
 
-@keyframes arrowFloat {
-
-  0%,100% {
-    transform:
-      rotate(45deg)
-      translate(0,0);
-  }
-
-  50% {
-    transform:
-      rotate(45deg)
-      translate(4px,4px);
-  }
-
+.scroll-arrow::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-right: 1px solid #eee5d8;
+    border-bottom: 1px solid #eee5d8;
+    transform: rotate(45deg);
+    left: 10px;
+    top: 22px;
+    animation: arrowMove 1.8s infinite;
 }
-
 
 /* =========================================================
    APRIL 16
 ========================================================= */
 
-#beginning {
-  min-height: 120vh;
-
-  display: flex;
-  align-items: center;
-
-  background:
-    radial-gradient(
-      ellipse at 10% 25%,
-      rgba(143,99,67,.22),
-      transparent 38%
-    ),
-    radial-gradient(
-      ellipse at 90% 78%,
-      rgba(86,52,41,.20),
-      transparent 40%
-    ),
-    linear-gradient(
-      180deg,
-      #0e0a09 0%,
-      #17100d 25%,
-      #201510 75%,
-      #251916 100%
-    );
+#first-call {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(115,77,51,.17), transparent 30%),
+        #211b17;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
 }
 
-
-/* floating dust */
-
-.memory-dust {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.date-story {
+    max-width: 780px;
+    margin: auto;
+    text-align: center;
 }
 
-.memory-dust span {
-  position: absolute;
-
-  width: 3px;
-  height: 3px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(238,226,208,.65);
-
-  box-shadow:
-    0 0 9px
-    rgba(238,226,208,.3);
-
-  animation:
-    dustDrift 9s infinite ease-in-out;
+.date-story .date {
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 5px;
+    opacity: .55;
+    margin-bottom: 50px;
 }
 
-.memory-dust span:nth-child(1) {
-  left: 13%;
-  top: 26%;
+.date-story p {
+    font-size: clamp(19px, 2vw, 26px);
+    line-height: 1.65;
+    margin: 13px 0;
 }
 
-.memory-dust span:nth-child(2) {
-  left: 75%;
-  top: 21%;
-  animation-delay: 1.7s;
+.date-story .emphasis {
+    font-size: clamp(35px, 5vw, 62px);
+    font-style: italic;
+    margin: 20px 0;
 }
 
-.memory-dust span:nth-child(3) {
-  left: 84%;
-  top: 68%;
-  animation-delay: 3.4s;
+.dust {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 }
 
-.memory-dust span:nth-child(4) {
-  left: 28%;
-  top: 80%;
-  animation-delay: 1s;
+.dust span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(238,229,216,.25);
+    border-radius: 50%;
+    animation: floatDust 8s infinite ease-in-out;
 }
 
-.memory-dust span:nth-child(5) {
-  left: 54%;
-  top: 16%;
-  animation-delay: 4.2s;
-}
-
-@keyframes dustDrift {
-
-  0%,100% {
-    opacity: .15;
-    transform: translate(0,0);
-  }
-
-  50% {
-    opacity: .8;
-    transform: translate(24px,-30px);
-  }
-
-}
-
-
-/* subtle orbit */
-
-.memory-curve {
-  position: absolute;
-
-  width: 480px;
-  height: 480px;
-
-  right: -240px;
-  bottom: -200px;
-
-  border:
-    1px solid
-    rgba(221,194,165,.17);
-
-  border-radius: 50%;
-
-  animation:
-    slowSpin 32s linear infinite;
-}
-
-.memory-curve::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 48px;
-
-  border:
-    1px solid
-    rgba(221,194,165,.08);
-
-  border-radius: 50%;
-}
-
-@keyframes slowSpin {
-
-  to {
-    transform: rotate(360deg);
-  }
-
-}
-
-
-/* text */
-
-.memory-scene {
-  width:
-    min(1120px, 88%);
-
-  margin:
-    auto;
-
-  position:
-    relative;
-
-  z-index:
-    2;
-}
-
-.memory-date {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    clamp(26px, 3.7vw, 43px);
-
-  font-weight:
-    300;
-
-  letter-spacing:
-    5px;
-
-  margin-bottom:
-    68px;
-}
-
-.memory-line {
-  font-size:
-    clamp(21px, 2.65vw, 30px);
-
-  line-height:
-    1.5;
-
-  max-width:
-    940px;
-
-  margin-bottom:
-    27px;
-}
-
-.memory-line.first {
-  font-size:
-    clamp(23px, 3vw, 34px);
-
-  max-width:
-    980px;
-}
-
-.video-call {
-  text-align:
-    center;
-
-  margin:
-    58px 0 68px;
-}
-
-.call-title {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(40px, 5vw, 58px);
-
-  font-style:
-    italic;
-}
-
-.call-people {
-  margin-top:
-    17px;
-
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    clamp(15px, 1.7vw, 18px);
-
-  letter-spacing:
-    7px;
-
-  color:
-    var(--cream-muted);
-}
-
+.d1 { left: 14%; top: 30%; }
+.d2 { left: 80%; top: 22%; animation-delay: 2s; }
+.d3 { left: 70%; top: 74%; animation-delay: 4s; }
+.d4 { left: 25%; top: 78%; animation-delay: 1s; }
 
 /* =========================================================
-   FIRST SCREENSHOT
+   SCREENSHOT
 ========================================================= */
 
-.chat-section {
-  min-height:
-    125vh;
+#screenshot-one {
+    background: #171310;
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+}
 
-  display:
-    flex;
+.screenshot-wrap {
+    width: min(500px, 88vw);
+    margin: auto;
+}
 
-  align-items:
-    center;
+.screenshot-frame {
+    padding: 12px;
+    background: #e7dfd2;
+    box-shadow: 0 25px 60px rgba(0,0,0,.4);
+    transform: rotate(-1.2deg);
+    position: relative;
+    overflow: hidden;
+}
 
-  background:
-    radial-gradient(
-      ellipse at 72% 38%,
-      rgba(130,87,58,.18),
-      transparent 43%
-    ),
-    linear-gradient(
-      180deg,
-      #251916 0%,
-      #211612 45%,
-      #1b130f 100%
+.screenshot-frame img {
+    width: 100%;
+    height: 645px;
+    object-fit: cover;
+    object-position: 39% center;
+    display: block;
+}
+
+.screenshot-caption {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 19px;
+    font-style: italic;
+    opacity: .7;
+}
+
+.light-sweep {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,.08) 50%,
+        transparent 60%
     );
+    transform: translateX(-120%);
+    animation: sweep 7s infinite;
 }
-
-.chat-layout {
-  width:
-    min(1200px, 90%);
-
-  margin:
-    auto;
-
-  position:
-    relative;
-
-  z-index:
-    2;
-}
-
-.chat-text {
-  margin-bottom:
-    55px;
-
-  padding-left:
-    4%;
-}
-
-.chat-text p {
-  font-size:
-    clamp(23px, 3.1vw, 35px);
-
-  line-height:
-    1.45;
-
-  max-width:
-    980px;
-}
-
-
-/* screenshot frame */
-
-.chat-image-wrap {
-  width:
-    min(430px, 76vw);
-
-  height:
-    min(645px, 111vw);
-
-  margin-left:
-    clamp(5%, 16vw, 23%);
-
-  padding:
-    12px;
-
-  overflow:
-    hidden;
-
-  background:
-    #1b1512;
-
-  box-shadow:
-    0 30px 80px
-    rgba(0,0,0,.58);
-
-  transform:
-    rotate(-1.3deg);
-
-  position:
-    relative;
-
-  transition:
-    transform .7s ease;
-}
-
-.chat-image-wrap:hover {
-  transform:
-    rotate(-.5deg)
-    translateY(-4px);
-}
-
-.chat-image-wrap img {
-  display:
-    block;
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  object-fit:
-    cover;
-
-  object-position:
-    center 39%;
-
-  transform:
-    scale(1.015);
-}
-
-
-/* subtle light sweep */
-
-.chat-image-wrap::after {
-  content: "";
-
-  position: absolute;
-
-  top: -45%;
-  left: -100%;
-
-  width: 40%;
-  height: 190%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,240,218,.09),
-      transparent
-    );
-
-  transform:
-    rotate(12deg);
-
-  animation:
-    photoLight 9s infinite ease-in-out;
-}
-
-@keyframes photoLight {
-
-  0%,75%,100% {
-    left: -100%;
-  }
-
-  87% {
-    left: 150%;
-  }
-
-}
-
-
-/* after screenshot */
-
-.after-chat {
-  margin-top:
-    60px;
-
-  padding-left:
-    4%;
-
-  max-width:
-    900px;
-}
-
-.after-chat p {
-  font-size:
-    clamp(21px, 2.7vw, 31px);
-
-  line-height:
-    1.5;
-
-  margin-bottom:
-    21px;
-}
-
 
 /* =========================================================
    CALL LOGS
 ========================================================= */
 
-.calls-section {
-  min-height:
-    130vh;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  background:
-    linear-gradient(
-      180deg,
-      #1b130f 0%,
-      #15100e 50%,
-      #120e0d 100%
-    );
+#calls {
+    background: #1d1815;
+    padding: 130px 0;
+    display: flex;
+    align-items: center;
 }
 
-
-/* waveform */
-
-.waveform {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  top: 48%;
-
-  height: 120px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    11px;
-
-  opacity:
-    .16;
-
-  pointer-events:
-    none;
+.calls-inner {
+    width: min(700px, 88%);
+    margin: auto;
+    text-align: center;
 }
 
-.waveform span {
-  width:
-    2px;
-
-  height:
-    28px;
-
-  background:
-    rgba(235,218,193,.85);
-
-  animation:
-    wave 1.8s infinite ease-in-out;
+.calls-title {
+    font-size: clamp(42px, 6vw, 75px);
+    font-style: italic;
+    margin-bottom: 20px;
 }
 
-.waveform span:nth-child(2) {
-  animation-delay: .12s;
-}
-
-.waveform span:nth-child(3) {
-  animation-delay: .24s;
-}
-
-.waveform span:nth-child(4) {
-  animation-delay: .36s;
-}
-
-.waveform span:nth-child(5) {
-  animation-delay: .48s;
-}
-
-.waveform span:nth-child(6) {
-  animation-delay: .60s;
-}
-
-.waveform span:nth-child(7) {
-  animation-delay: .72s;
-}
-
-.waveform span:nth-child(8) {
-  animation-delay: .84s;
-}
-
-.waveform span:nth-child(9) {
-  animation-delay: .96s;
-}
-
-.waveform span:nth-child(10) {
-  animation-delay: 1.08s;
-}
-
-@keyframes wave {
-
-  0%,100% {
-    transform:
-      scaleY(.3);
-
-    opacity:
-      .35;
-  }
-
-  50% {
-    transform:
-      scaleY(1.7);
-
-    opacity:
-      .95;
-  }
-
-}
-
-
-.calls-content {
-  width:
-    min(1100px, 88%);
-
-  margin:
-    auto;
-
-  position:
-    relative;
-
-  z-index:
-    2;
-}
-
-.calls-heading {
-  margin-bottom:
-    58px;
-}
-
-.calls-heading p {
-  font-size:
-    clamp(23px, 3vw, 34px);
-
-  line-height:
-    1.45;
-
-  max-width:
-    900px;
-
-  margin-bottom:
-    15px;
+.calls-sub {
+    opacity: .65;
+    font-size: 18px;
+    margin-bottom: 65px;
 }
 
 .call-list {
-  width:
-    min(700px, 100%);
-
-  margin-left:
-    clamp(0%, 9vw, 16%);
+    display: grid;
+    gap: 15px;
 }
 
-.call-card {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    18px;
-
-  padding:
-    16px 20px;
-
-  margin:
-    12px 0;
-
-  border:
-    1px solid
-    rgba(226,205,178,.10);
-
-  background:
-    rgba(255,245,230,.025);
-
-  transition:
-    transform .5s ease,
-    background .5s ease,
-    border-color .5s ease;
+.call {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 24px;
+    border-top: 1px solid rgba(238,229,216,.14);
+    border-bottom: 1px solid rgba(238,229,216,.08);
 }
 
-.call-card:hover {
-  transform:
-    translateX(8px);
-
-  background:
-    rgba(255,245,230,.05);
-
-  border-color:
-    rgba(226,205,178,.22);
+.call span:first-child {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: .5;
 }
 
-.call-arrow {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    17px;
-
-  opacity:
-    .65;
+.call span:last-child {
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
 }
 
-.call-person {
-  flex:
-    1;
+.wave {
+    height: 45px;
+    margin: 50px auto;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
 }
 
-.call-person strong {
-  display:
-    block;
-
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    13px;
-
-  font-weight:
-    400;
-
-  letter-spacing:
-    1px;
+.wave i {
+    display: block;
+    width: 2px;
+    background: rgba(238,229,216,.4);
+    animation: wave 1.5s ease-in-out infinite;
 }
 
-.call-person span {
-  display:
-    block;
-
-  margin-top:
-    4px;
-
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    10px;
-
-  letter-spacing:
-    1.5px;
-
-  color:
-    var(--cream-muted);
-}
-
-.call-duration {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    11px;
-
-  letter-spacing:
-    1px;
-
-  color:
-    var(--cream-muted);
-}
-
+.wave i:nth-child(1) { height: 10px; }
+.wave i:nth-child(2) { height: 25px; animation-delay: .1s; }
+.wave i:nth-child(3) { height: 16px; animation-delay: .2s; }
+.wave i:nth-child(4) { height: 34px; animation-delay: .3s; }
+.wave i:nth-child(5) { height: 21px; animation-delay: .4s; }
+.wave i:nth-child(6) { height: 40px; animation-delay: .5s; }
+.wave i:nth-child(7) { height: 18px; animation-delay: .6s; }
+.wave i:nth-child(8) { height: 28px; animation-delay: .7s; }
+.wave i:nth-child(9) { height: 12px; animation-delay: .8s; }
 
 /* =========================================================
-   ROUTINE / SECOND SCREENSHOT
+   ROUTINE
 ========================================================= */
 
-.routine-section {
-  min-height:
-    125vh;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  background:
-    radial-gradient(
-      ellipse at 18% 35%,
-      rgba(126,84,57,.17),
-      transparent 42%
-    ),
-    linear-gradient(
-      180deg,
-      #120e0d 0%,
-      #17110e 50%,
-      #201711 100%
-    );
+#routine {
+    background: #211b17;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0;
 }
 
-.routine-layout {
-  width:
-    min(1100px, 88%);
-
-  margin:
-    auto;
-
-  position:
-    relative;
-
-  z-index:
-    2;
+.routine-inner {
+    width: min(760px, 88%);
+    margin: auto;
 }
 
-.routine-intro {
-  max-width:
-    900px;
-
-  margin-bottom:
-    55px;
-
-  padding-left:
-    clamp(0%, 7vw, 11%);
+.routine-inner p {
+    font-size: clamp(21px, 2.5vw, 31px);
+    line-height: 1.65;
+    margin: 18px 0;
 }
 
-.routine-intro p {
-  font-size:
-    clamp(22px, 3vw, 34px);
-
-  line-height:
-    1.45;
+.routine-inner .tiny {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: .5;
+    margin-bottom: 40px;
 }
-
-
-/* second screenshot */
-
-.talk-image-wrap {
-  width:
-    min(440px, 78vw);
-
-  margin-left:
-    clamp(5%, 17vw, 25%);
-
-  padding:
-    12px;
-
-  background:
-    #1b1512;
-
-  box-shadow:
-    0 28px 75px
-    rgba(0,0,0,.52);
-
-  transform:
-    rotate(1deg);
-
-  position:
-    relative;
-
-  transition:
-    transform .7s ease;
-}
-
-.talk-image-wrap:hover {
-  transform:
-    rotate(.5deg)
-    translateY(-4px);
-}
-
-.talk-image-wrap img {
-  display:
-    block;
-
-  width:
-    100%;
-
-  height:
-    auto;
-
-  object-fit:
-    contain;
-}
-
-
-/* tiny sparkle */
-
-.talk-spark {
-  position:
-    absolute;
-
-  right:
-    8%;
-
-  top:
-    12%;
-
-  width:
-    12px;
-
-  height:
-    12px;
-
-  opacity:
-    .6;
-
-  animation:
-    sparkleFloat 4s infinite ease-in-out;
-}
-
-.talk-spark::before,
-.talk-spark::after {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  background:
-    rgba(235,218,193,.7);
-}
-
-.talk-spark::before {
-  width:
-    1px;
-
-  height:
-    12px;
-
-  left:
-    5px;
-}
-
-.talk-spark::after {
-  width:
-    12px;
-
-  height:
-    1px;
-
-  top:
-    5px;
-}
-
-@keyframes sparkleFloat {
-
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(0deg);
-
-    opacity:
-      .3;
-  }
-
-  50% {
-    transform:
-      translateY(-8px)
-      rotate(45deg);
-
-    opacity:
-      .8;
-  }
-
-}
-
 
 /* =========================================================
-   SMOOTH TRANSITION TO PAPER
+   BRIDGE
 ========================================================= */
 
-.bridge-section {
-  min-height:
-    70vh;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  position:
-    relative;
-
-  background:
-    linear-gradient(
-      180deg,
-      #201711 0%,
-      #282019 14%,
-      #393028 30%,
-      #50473d 46%,
-      #70655a 61%,
-      #94897b 73%,
-      #b8aea0 84%,
-      #d6cec1 93%,
-      #eee7d9 100%
-    );
+#bridge {
+    background: #191512;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
-
-/* decorative leaves */
-
-.bridge-leaf {
-  position:
-    absolute;
-
-  width:
-    42px;
-
-  height:
-    18px;
-
-  border:
-    1px solid
-    rgba(238,226,208,.24);
-
-  border-radius:
-    100% 0 100% 0;
-
-  opacity:
-    .55;
-
-  animation:
-    leafDrift 7s infinite ease-in-out;
+.bridge-inner {
+    width: min(760px, 88%);
+    margin: auto;
 }
 
-.bridge-leaf.one {
-  left:
-    10%;
-
-  top:
-    28%;
-
-  transform:
-    rotate(-24deg);
+.bridge-inner p {
+    font-size: clamp(20px, 2.4vw, 29px);
+    line-height: 1.7;
+    margin: 16px 0;
 }
 
-.bridge-leaf.two {
-  right:
-    11%;
-
-  top:
-    64%;
-
-  transform:
-    rotate(38deg);
-
-  animation-delay:
-    1.8s;
+.bridge-inner .big {
+    font-size: clamp(38px, 5vw, 65px);
+    font-style: italic;
+    margin: 35px 0;
 }
 
-@keyframes leafDrift {
-
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(-24deg);
-  }
-
-  50% {
-    transform:
-      translateY(-9px)
-      rotate(-17deg);
-  }
-
+.leaf {
+    position: absolute;
+    font-size: 50px;
+    opacity: .08;
 }
 
-
-/* bridge text */
-
-.bridge-content {
-  width:
-    min(900px, 84%);
-
-  margin:
-    auto;
-
-  padding:
-    65px 0 105px;
-
-  color:
-    #f1e7d9;
-
-  position:
-    relative;
-
-  z-index:
-    2;
+.leaf.one {
+    top: 15%;
+    left: 10%;
+    transform: rotate(-25deg);
 }
 
-.bridge-content p {
-  font-size:
-    clamp(21px, 2.8vw, 31px);
-
-  line-height:
-    1.55;
-
-  margin-bottom:
-    20px;
-
-  max-width:
-    780px;
+.leaf.two {
+    right: 8%;
+    bottom: 16%;
+    transform: rotate(30deg);
 }
-
-.bridge-content p:last-child {
-  margin-bottom:
-    0;
-}
-
 
 /* =========================================================
    MORE THAN YOU KNOW
 ========================================================= */
 
 #more {
-  position:
-    relative;
-
-  background:
-    var(--paper);
-
-  color:
-    var(--ink);
-
-  padding:
-    0 0 140px;
+    background:
+        linear-gradient(rgba(239,233,221,.96), rgba(239,233,221,.96)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    color: #2b241e;
+    padding: 100px 0 130px;
+    min-height: 100vh;
 }
-
-
-/* paper texture */
-
-#more::before {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  pointer-events:
-    none;
-
-  opacity:
-    .22;
-
-  background-image:
-    radial-gradient(
-      rgba(75,58,42,.11) .7px,
-      transparent .7px
-    );
-
-  background-size:
-    8px 8px;
-}
-
-
-/* top fade */
-
-.more-top-fade {
-  position:
-    absolute;
-
-  top:
-    0;
-
-  left:
-    0;
-
-  right:
-    0;
-
-  height:
-    130px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #eee7d9 0%,
-      rgba(238,231,217,0) 100%
-    );
-
-  pointer-events:
-    none;
-}
-
-
-/* =========================================================
-   BOTANICALS
-========================================================= */
-
-.botanical {
-  position:
-    absolute;
-
-  pointer-events:
-    none;
-
-  opacity:
-    .42;
-}
-
-.botanical.left {
-  left:
-    -20px;
-
-  top:
-    17%;
-
-  width:
-    170px;
-
-  height:
-    250px;
-
-  transform:
-    rotate(-10deg);
-}
-
-.botanical.right {
-  right:
-    -35px;
-
-  top:
-    47%;
-
-  width:
-    190px;
-
-  height:
-    260px;
-
-  transform:
-    rotate(13deg);
-}
-
-.botanical::before {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  left:
-    50%;
-
-  top:
-    0;
-
-  width:
-    1px;
-
-  height:
-    100%;
-
-  background:
-    rgba(91,75,57,.45);
-
-  transform:
-    rotate(15deg);
-}
-
-.botanical span {
-  position:
-    absolute;
-
-  width:
-    46px;
-
-  height:
-    18px;
-
-  border:
-    1px solid
-    rgba(91,75,57,.45);
-
-  border-radius:
-    100% 0 100% 0;
-}
-
-.botanical span:nth-child(1) {
-  top:
-    28px;
-
-  left:
-    28px;
-
-  transform:
-    rotate(24deg);
-}
-
-.botanical span:nth-child(2) {
-  top:
-    75px;
-
-  left:
-    74px;
-
-  transform:
-    rotate(-28deg);
-}
-
-.botanical span:nth-child(3) {
-  top:
-    132px;
-
-  left:
-    19px;
-
-  transform:
-    rotate(30deg);
-}
-
-.botanical span:nth-child(4) {
-  top:
-    184px;
-
-  left:
-    72px;
-
-  transform:
-    rotate(-24deg);
-}
-
-
-/* =========================================================
-   MOUNTAIN DOODLE
-========================================================= */
-
-.mountain-doodle {
-  position:
-    absolute;
-
-  right:
-    8%;
-
-  bottom:
-    9%;
-
-  width:
-    130px;
-
-  height:
-    60px;
-
-  opacity:
-    .4;
-}
-
-.mountain-doodle::before,
-.mountain-doodle::after {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  bottom:
-    0;
-
-  border-bottom:
-    1px solid
-    rgba(78,65,51,.5);
-}
-
-.mountain-doodle::before {
-  left:
-    0;
-
-  width:
-    85px;
-
-  height:
-    45px;
-
-  border-left:
-    1px solid
-    rgba(78,65,51,.5);
-
-  transform:
-    skewX(-25deg);
-}
-
-.mountain-doodle::after {
-  right:
-    0;
-
-  width:
-    75px;
-
-  height:
-    30px;
-
-  transform:
-    skewX(28deg);
-}
-
-
-/* =========================================================
-   MORE INNER
-========================================================= */
 
 .more-inner {
-  width:
-    min(1120px, 88%);
-
-  margin:
-    auto;
-
-  position:
-    relative;
-
-  z-index:
-    2;
+    width: min(1100px, 90%);
+    margin: auto;
 }
 
-
-/* =========================================================
-   MORE HEADER
-========================================================= */
-
-.more-header {
-  padding-top:
-    115px;
-
-  margin-bottom:
-    95px;
-
-  position:
-    relative;
+.more-heading {
+    margin-bottom: 70px;
 }
-
-.more-kicker {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    10px;
-
-  text-transform:
-    uppercase;
-
-  letter-spacing:
-    4px;
-
-  color:
-    #776b5d;
-
-  margin-bottom:
-    18px;
-}
-
-
-/*
-   Stronger, more readable title.
-   No thin Bodoni treatment.
-*/
 
 .more-title {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(52px, 8.2vw, 96px);
-
-  line-height:
-    .92;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    -1.5px;
-
-  color:
-    #2b241e;
-
-  max-width:
-    900px;
-
-  text-shadow:
-    0 .2px 0 rgba(43,36,30,.25);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(52px, 8.2vw, 96px);
+    line-height: .92;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #2b241e;
+    max-width: 900px;
+    text-shadow: 0 .2px 0 rgba(43,36,30,.25);
 }
 
-.more-title span {
-  display:
-    block;
+.more-hand {
+    font-family: "Caveat", cursive;
+    font-style: italic;
+    font-size: 25px;
+    margin-top: 18px;
+    margin-left: 8px;
 }
 
-.more-subtitle {
-  margin-top:
-    25px;
-
-  font-family:
-    "Great Vibes",
-    cursive;
-
-  font-size:
-    clamp(24px, 3.2vw, 35px);
-
-  font-weight:
-    400;
-
-  color:
-    #62574b;
-
-  transform:
-    rotate(-2deg);
-
-  transform-origin:
-    left center;
+.more-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px 65px;
+    align-items: center;
 }
 
-
-/* =========================================================
-   EDITORIAL ROWS
-========================================================= */
-
-.more-row {
-  display:
-    grid;
-
-  grid-template-columns:
-    minmax(300px, 1fr)
-    minmax(320px, 1fr);
-
-  gap:
-    clamp(55px, 9vw, 120px);
-
-  align-items:
-    center;
-
-  margin-bottom:
-    130px;
-
-  position:
-    relative;
+.more-card {
+    position: relative;
 }
 
-
-/* alternating photo/text */
-
-.more-row.reverse .polaroid-column {
-  order:
-    2;
-}
-
-.more-row.reverse .copy-column {
-  order:
-    1;
-}
-
-
-/* =========================================================
-   TEXT
-========================================================= */
-
-.copy-column {
-  position:
-    relative;
-
-  z-index:
-    3;
-}
-
-.copy-label {
-  font-family:
-    Inter,
-    sans-serif;
-
-  font-size:
-    10px;
-
-  text-transform:
-    uppercase;
-
-  letter-spacing:
-    3px;
-
-  color:
-    var(--ink-muted);
-
-  margin-bottom:
-    22px;
-}
-
-.copy-column h3 {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(32px, 4vw, 48px);
-
-  line-height:
-    1.05;
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    23px;
-
-  color:
-    var(--ink);
-}
-
-.copy-column p {
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size:
-    clamp(20px, 2.2vw, 25px);
-
-  line-height:
-    1.52;
-
-  color:
-    var(--ink-soft);
-
-  max-width:
-    520px;
-
-  margin-bottom:
-    17px;
-}
-
-
-/* handwritten note */
-
-.hand-note {
-  display:
-    inline-block;
-
-  margin-top:
-    25px;
-
-  padding:
-    8px 13px;
-
-  background:
-    rgba(207,190,163,.32);
-
-  color:
-    var(--ink-soft);
-
-  font-family:
-    "Great Vibes",
-    cursive;
-
-  font-size:
-    25px;
-
-  transform:
-    rotate(-2deg);
-}
-
-
-/* =========================================================
-   POLAROIDS
-========================================================= */
-
-.polaroid-column {
-  display:
-    flex;
-
-  justify-content:
-    center;
-
-  position:
-    relative;
-
-  z-index:
-    2;
+.more-card img {
+    width: 100%;
+    display: block;
 }
 
 .polaroid {
-  width:
-    min(370px, 100%);
-
-  background:
-    #f8f4ec;
-
-  padding:
-    14px 14px 24px;
-
-  box-shadow:
-    0 22px 45px
-    rgba(72,57,43,.16);
-
-  position:
-    relative;
-
-  transition:
-    transform .8s cubic-bezier(.2,.7,.2,1),
-    box-shadow .8s ease;
+    background: #faf6ee;
+    padding: 12px 12px 15px;
+    box-shadow: 0 15px 30px rgba(53,42,30,.18);
 }
 
 .polaroid img {
-  display:
-    block;
-
-  width:
-    100%;
-
-  aspect-ratio:
-    4 / 5;
-
-  object-fit:
-    cover;
-
-  background:
-    #ddd2c2;
+    aspect-ratio: 1 / 1.08;
+    object-fit: cover;
 }
 
-
-/* individual rotations */
-
-.row-childhood .polaroid {
-  transform:
-    rotate(-3deg);
+.polaroid.childhood img {
+    object-position: center;
 }
 
-.row-explorer .polaroid {
-  transform:
-    rotate(2.5deg);
+.polaroid.sea img {
+    object-position: center;
 }
 
-.row-unserious .polaroid {
-  transform:
-    rotate(-2deg);
+.polaroid.camel img {
+    object-position: center;
 }
 
-.row-care .polaroid {
-  transform:
-    rotate(3deg);
+.polaroid.flowers img {
+    object-position: center;
 }
 
-
-/* hover */
-
-.row-childhood .polaroid:hover {
-  transform:
-    rotate(-1deg)
-    translateY(-7px);
+.more-copy h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 3.5vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 20px;
 }
 
-.row-explorer .polaroid:hover {
-  transform:
-    rotate(1deg)
-    translateY(-7px);
+.more-copy p {
+    font-size: 19px;
+    line-height: 1.65;
+    margin: 11px 0;
+    color: #44382d;
 }
 
-.row-unserious .polaroid:hover {
-  transform:
-    rotate(-.5deg)
-    translateY(-7px);
+.more-copy strong {
+    font-weight: 700;
 }
 
-.row-care .polaroid:hover {
-  transform:
-    rotate(1deg)
-    translateY(-7px);
+.more-note {
+    font-family: "Caveat", cursive;
+    font-size: 24px;
+    margin-top: 20px;
+    transform: rotate(-2deg);
 }
-
-.polaroid:hover {
-  box-shadow:
-    0 28px 55px
-    rgba(72,57,43,.22);
-}
-
-
-/* tape */
-
-.polaroid::before {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  width:
-    82px;
-
-  height:
-    24px;
-
-  top:
-    -11px;
-
-  left:
-    50%;
-
-  transform:
-    translateX(-50%)
-    rotate(-2deg);
-
-  background:
-    var(--tape);
-
-  opacity:
-    .75;
-}
-
-
-/* handwritten captions */
-
-.polaroid-caption {
-  display:
-    block;
-
-  margin-top:
-    14px;
-
-  text-align:
-    center;
-
-  font-family:
-    "Great Vibes",
-    cursive;
-
-  font-size:
-    24px;
-
-  line-height:
-    1;
-
-  color:
-    var(--ink-soft);
-}
-
-
-/* =========================================================
-   CHILDHOOD
-========================================================= */
-
-.row-childhood {
-  margin-bottom:
-    150px;
-}
-
-
-/* =========================================================
-   EXPLORER
-========================================================= */
-
-.row-explorer {
-  margin-bottom:
-    150px;
-}
-
-
-/* =========================================================
-   UNSERIOUS
-========================================================= */
-
-.row-unserious {
-  margin-bottom:
-    150px;
-}
-
-
-/* =========================================================
-   CARE
-========================================================= */
-
-.row-care {
-  margin-bottom:
-    155px;
-}
-
-
-/* =========================================================
-   FINAL AMBITION / FEAR
-========================================================= */
 
 .more-ending {
-  position:
-    relative;
-
-  max-width:
-    880px;
-
-  margin:
-    40px auto 0;
-
-  padding:
-    90px 0 40px;
-
-  text-align:
-    center;
-}
-
-.more-ending::before {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  top:
-    0;
-
-  left:
-    50%;
-
-  width:
-    70px;
-
-  height:
-    1px;
-
-  transform:
-    translateX(-50%);
-
-  background:
-    rgba(72,59,46,.35);
-}
-
-.ending-kicker {
-  font-family:
-    "Great Vibes",
-    cursive;
-
-  font-size:
-    clamp(28px, 4vw, 40px);
-
-  color:
-    var(--ink-muted);
-
-  margin-bottom:
-    24px;
-}
-
-.more-ending h3 {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(34px, 5vw, 56px);
-
-  line-height:
-    1.1;
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    30px;
-
-  color:
-    var(--ink);
+    margin-top: 100px;
+    max-width: 780px;
 }
 
 .more-ending p {
-  font-size:
-    clamp(21px, 2.6vw, 29px);
-
-  line-height:
-    1.55;
-
-  color:
-    var(--ink-soft);
-
-  margin-bottom:
-    18px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 13px 0;
 }
 
-.more-ending .final-proud {
-  margin-top:
-    28px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(25px, 3vw, 34px);
-
-  color:
-    var(--ink);
-
-  font-style:
-    italic;
-
-  font-weight:
-    600;
+.more-ending .large {
+    font-family: Georgia, serif;
+    font-size: clamp(34px, 5vw, 60px);
+    font-weight: 700;
+    margin: 25px 0;
 }
 
+.more-ending .final-line {
+    font-size: clamp(28px, 4vw, 46px);
+    font-style: italic;
+    margin-top: 40px;
+}
 
 /* =========================================================
-   MOBILE
+   100 REASONS
 ========================================================= */
 
-@media (max-width: 760px) {
-
-  /* opening */
-
-  .opening-arc {
-    width:
-      245px;
-
-    height:
-      123px;
-  }
-
-  .opening-title {
-    font-size:
-      clamp(55px, 17vw, 78px);
-  }
-
-  .opening-rule {
-    margin-top:
-      24px;
-  }
-
-  .opening-date {
-    letter-spacing:
-      3px;
-  }
-
-
-  /* beginning */
-
-  #beginning {
-    min-height:
-      125vh;
-  }
-
-  .memory-scene {
-    width:
-      84%;
-  }
-
-  .memory-date {
-    margin-bottom:
-      48px;
-  }
-
-  .video-call {
-    margin:
-      48px 0;
-  }
-
-
-  /* screenshot sections */
-
-  .chat-section,
-  .routine-section {
-    min-height:
-      auto;
-
-    padding:
-      105px 0 125px;
-  }
-
-  .chat-layout,
-  .routine-layout {
-    width:
-      84%;
-  }
-
-  .chat-text,
-  .routine-intro {
-    padding-left:
-      0;
-
-    margin-bottom:
-      45px;
-  }
-
-  .chat-image-wrap,
-  .talk-image-wrap {
-    width:
-      100%;
-
-    max-width:
-      430px;
-
-    margin-left:
-      auto;
-
-    margin-right:
-      auto;
-  }
-
-  .chat-image-wrap {
-    height:
-      min(645px, 145vw);
-  }
-
-  .after-chat {
-    padding-left:
-      0;
-  }
-
-
-  /* calls */
-
-  .calls-section {
-    min-height:
-      auto;
-
-    padding:
-      110px 0 130px;
-  }
-
-  .waveform {
-    top:
-      45%;
-  }
-
-  .call-list {
-    margin-left:
-      0;
-  }
-
-  .call-card {
-    gap:
-      12px;
-
-    padding:
-      14px 13px;
-  }
-
-  .call-duration {
-    font-size:
-      9px;
-  }
-
-
-  /* bridge */
-
-  .bridge-section {
-    min-height:
-      68vh;
-  }
-
-  .bridge-content {
-    width:
-      82%;
-
-    padding:
-      70px 0 100px;
-  }
-
-  .bridge-content p {
-    font-size:
-      clamp(21px, 6vw, 27px);
-  }
-
-
-  /* more */
-
-  #more {
-    padding-bottom:
-      100px;
-  }
-
-  .more-inner {
-    width:
-      84%;
-  }
-
-  .more-header {
-    padding-top:
-      90px;
-
-    margin-bottom:
-      75px;
-  }
-
-  .more-title {
-    font-size:
-      clamp(48px, 14vw, 78px);
-
-    letter-spacing:
-      -1px;
-  }
-
-  .more-subtitle {
-    font-size:
-      clamp(24px, 7vw, 32px);
-  }
-
-
-  /* stack photo/text */
-
-  .more-row,
-  .more-row.reverse {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      48px;
-
-    margin-bottom:
-      100px;
-  }
-
-  .more-row.reverse .polaroid-column,
-  .more-row.reverse .copy-column {
-    order:
-      initial;
-  }
-
-  .polaroid {
-    width:
-      min(340px, 100%);
-  }
-
-  .copy-column h3 {
-    font-size:
-      clamp(31px, 9vw, 43px);
-  }
-
-  .copy-column p {
-    font-size:
-      clamp(20px, 5.8vw, 24px);
-  }
-
-
-  /* decorations */
-
-  .botanical.left {
-    opacity:
-      .24;
-
-    left:
-      -60px;
-  }
-
-  .botanical.right {
-    opacity:
-      .24;
-
-    right:
-      -70px;
-  }
-
-  .mountain-doodle {
-    right:
-      4%;
-
-    bottom:
-      5%;
-
-    transform:
-      scale(.75);
-  }
-
+#reasons {
+    background:
+        linear-gradient(rgba(225,216,202,.97), rgba(225,216,202,.97)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    color: #2d2722;
+    padding: 110px 0 140px;
+    min-height: 100vh;
 }
 
+.reasons-inner {
+    width: min(1200px, 91%);
+    margin: auto;
+}
+
+.reasons-heading {
+    max-width: 780px;
+    margin-bottom: 65px;
+}
+
+.reasons-heading h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(55px, 8vw, 95px);
+    line-height: .95;
+    margin-bottom: 25px;
+}
+
+.reasons-heading p {
+    font-size: 19px;
+    line-height: 1.7;
+    margin: 11px 0;
+    max-width: 720px;
+}
+
+.reasons-heading strong {
+    font-weight: 700;
+}
+
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.reason-paper {
+    min-height: 120px;
+    padding: 25px 20px;
+    background: #f7f0e4;
+    box-shadow: 0 9px 18px rgba(51,40,29,.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    position: relative;
+}
+
+.reason-paper:nth-child(3n) {
+    transform: rotate(1.5deg);
+}
+
+.reason-paper:nth-child(3n+1) {
+    transform: rotate(-1.2deg);
+}
+
+.reason-paper:nth-child(5n) {
+    transform: rotate(.6deg);
+}
+
+.reason-paper:hover {
+    transform: translateY(-8px) rotate(0deg) scale(1.03);
+    box-shadow: 0 18px 30px rgba(51,40,29,.2);
+}
+
+.reason-number {
+    font-family: "Special Elite", "Courier New", monospace;
+    font-size: 20px;
+    color: #4b4036;
+}
+
+.reason-opened {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #817263;
+    top: 9px;
+    right: 10px;
+    opacity: 0;
+}
+
+.reason-paper.opened .reason-opened {
+    opacity: .7;
+}
 
 /* =========================================================
-   REDUCED MOTION
+   REASON MODAL
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.reason-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(19,15,12,.72);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+}
 
-  *,
-  *::before,
-  *::after {
-    animation-duration:
-      .001ms !important;
+.reason-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    animation-iteration-count:
-      1 !important;
+.reason-note {
+    position: relative;
+    width: min(620px, 92vw);
+    min-height: 330px;
+    background:
+        linear-gradient(rgba(249,243,233,.97), rgba(249,243,233,.97)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    padding: 65px 55px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    transform: rotate(-1deg) scale(.94);
+    transition: transform .4s ease;
+}
 
-    scroll-behavior:
-      auto !important;
+.reason-modal.active .reason-note {
+    transform: rotate(-1deg) scale(1);
+}
 
-    transition-duration:
-      .001ms !important;
-  }
+.reason-note-number {
+    font-family: "Special Elite", "Courier New", monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    opacity: .55;
+    margin-bottom: 30px;
+}
+
+.reason-note-text {
+    font-family: "Special Elite", "Courier New", monospace;
+    font-size: clamp(19px, 2.4vw, 25px);
+    line-height: 1.7;
+    color: #302a25;
+}
+
+.reason-close {
+    position: absolute;
+    right: 20px;
+    top: 17px;
+    border: none;
+    background: none;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    cursor: pointer;
+    color: #4b4036;
+    opacity: .65;
+}
+
+.reason-close:hover {
+    opacity: 1;
+}
+
+.reason-progress {
+    margin-top: 50px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: .55;
+}
+
+.reason-101 {
+    max-width: 600px;
+    margin: 90px auto 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .8s ease;
+    pointer-events: none;
+}
+
+.reason-101.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.reason-101 .tiny {
+    font-family: "Special Elite", monospace;
+    font-size: 13px;
+    opacity: .55;
+    margin-bottom: 20px;
+}
+
+.reason-101 p {
+    font-family: "Special Elite", monospace;
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+#letter {
+    background: #1b1714;
+    min-height: 100vh;
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+}
+
+.letter-paper {
+    width: min(760px, 88%);
+    margin: auto;
+    background: #eee5d8;
+    color: #302821;
+    padding: clamp(45px, 7vw, 80px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+}
+
+.letter-paper .date {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: .5;
+    margin-bottom: 50px;
+}
+
+.letter-paper h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 5vw, 58px);
+    margin-bottom: 35px;
+}
+
+.letter-paper p {
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 17px 0;
+}
+
+.letter-sign {
+    margin-top: 50px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-style: italic;
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+#video {
+    background: #151210;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.video-inner {
+    width: min(800px, 90%);
+    margin: auto;
+}
+
+.video-inner h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 6vw, 75px);
+    margin-bottom: 20px;
+}
+
+.video-inner p {
+    font-size: 18px;
+    opacity: .6;
+    margin-bottom: 45px;
+}
+
+.video-placeholder {
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(238,229,216,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e1916;
+    color: rgba(238,229,216,.45);
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   END
+========================================================= */
+
+#ending {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(101,68,47,.18), transparent 45%),
+        #171311;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.ending-inner {
+    width: min(760px, 88%);
+}
+
+.ending-inner h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.ending-inner p {
+    font-size: 21px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.ending-love {
+    margin-top: 55px !important;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px !important;
+    font-style: italic;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes breathe {
+    0%,100% {
+        transform: translateX(-50%) scale(1);
+        opacity: .5;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.04);
+        opacity: .8;
+    }
+}
+
+@keyframes twinkle {
+    0%,100% { opacity: .2; transform: scale(.8); }
+    50% { opacity: .8; transform: scale(1.5); }
+}
+
+@keyframes arrowMove {
+    0%,100% { transform: rotate(45deg) translate(0,0); }
+    50% { transform: rotate(45deg) translate(3px,3px); }
+}
+
+@keyframes floatDust {
+    0%,100% {
+        transform: translate(0,0);
+        opacity: .15;
+    }
+    50% {
+        transform: translate(20px,-30px);
+        opacity: .5;
+    }
+}
+
+@keyframes sweep {
+    0% { transform: translateX(-120%); }
+    25%,100% { transform: translateX(120%); }
+}
+
+@keyframes wave {
+    0%,100% { transform: scaleY(.7); }
+    50% { transform: scaleY(1.3); }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .more-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .reason-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .reason-paper {
+        min-height: 95px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .opening-hi {
+        letter-spacing: -2px;
+    }
+
+    .semicircle {
+        width: 210px;
+        height: 105px;
+    }
+
+    .date-story p {
+        font-size: 19px;
+    }
+
+    .screenshot-frame img {
+        height: 570px;
+    }
+
+    .reason-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 13px;
+    }
+
+    .reason-paper {
+        min-height: 90px;
+        padding: 18px 12px;
+    }
+
+    .reason-number {
+        font-size: 17px;
+    }
+
+    .reason-note {
+        padding: 55px 35px;
+    }
+
+    .reason-note-text {
+        font-size: 18px;
+    }
+
+    .letter-paper {
+        padding: 40px 28px;
+    }
 
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      OPENING
@@ -2714,460 +1056,277 @@ body::before {
 
 <section id="opening">
 
-  <div class="stars">
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-  </div>
-
-
-  <div class="opening-arc"></div>
-
-
-  <div class="opening-inner">
-
-    <div class="opening-title">
-      hiiiii babyyyy
+    <div class="stars">
+        <span class="star1"></span>
+        <span class="star2"></span>
+        <span class="star3"></span>
+        <span class="star4"></span>
+        <span class="star5"></span>
+        <span class="star6"></span>
     </div>
 
-    <div class="opening-rule"></div>
+    <div class="semicircle"></div>
 
-    <div class="opening-date">
-      27 . 09 . 2026
+    <div class="opening-content">
+        <div class="opening-hi">hiiiii babyyyy</div>
+
+        <div class="opening-line"></div>
+
+        <div class="opening-date">
+            27 . 09 . 2026
+        </div>
+
+        <div class="opening-sub">
+            Happy birthday, love.
+        </div>
     </div>
 
-    <div class="opening-subtitle">
-      Happy birthday, love.
-    </div>
-
-  </div>
-
-
-  <div
-    class="scroll-cue"
-    onclick="document.getElementById('beginning').scrollIntoView({behavior:'smooth'})">
-  </div>
+    <a href="#first-call" class="scroll-arrow"></a>
 
 </section>
-
 
 
 <!-- =====================================================
      APRIL 16
 ===================================================== -->
 
-<section id="beginning">
+<section id="first-call">
 
-  <div class="memory-dust">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </div>
-
-
-  <div class="memory-curve"></div>
-
-
-  <div class="memory-scene">
-
-    <div class="memory-date reveal">
-      16 . 04 . 2026
+    <div class="dust">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
     </div>
 
+    <div class="date-story">
 
-    <p class="memory-line first reveal delay-1">
-      Thank god Nisha posted a story that day.
-    </p>
+        <div class="date">
+            16 . 04 . 2026
+        </div>
 
+        <p>
+            Thank god Nisha posted a story that day.
+        </p>
 
-    <p class="memory-line reveal delay-2">
-      Because that somehow turned into
-    </p>
+        <p>
+            Because that somehow turned into
+        </p>
 
+        <div class="emphasis">
+            a video call.
+        </div>
 
-    <div class="video-call reveal delay-2">
+        <p>
+            you . me . nisha
+        </p>
 
-      <div class="call-title">
-        a video call.
-      </div>
+        <p>
+            You were so shy.
+        </p>
 
-      <div class="call-people">
-        you . me . nisha
-      </div>
+        <p>
+            And I remember finding it funny that you'd actually asked her to add me just because you thought I was cute.
+        </p>
+
+        <p>
+            I think neither of us really knew what to do with that first conversation.
+        </p>
+
+        <p>
+            It was just a new person, a new voice, a little bit of awkwardness.
+        </p>
+
+        <p>
+            But somehow, it didn't end there.
+        </p>
+
+        <br>
+
+        <p>
+            Apparently, you wanted me to call you too.
+        </p>
 
     </div>
-
-
-    <p class="memory-line reveal delay-3">
-      You were so shy.
-    </p>
-
-
-    <p class="memory-line reveal delay-3">
-      And I remember finding it funny that you'd actually asked her to add me just because you thought I was cute.
-    </p>
-
-
-    <p class="memory-line reveal delay-4">
-      I think neither of us really knew what to do with that first conversation.
-    </p>
-
-
-    <p class="memory-line reveal delay-4">
-      It was just a new person, a new voice, a little bit of awkwardness.
-    </p>
-
-
-    <p class="memory-line reveal delay-5">
-      But somehow, it didn't end there.
-    </p>
-
-  </div>
 
 </section>
-
 
 
 <!-- =====================================================
      FIRST SCREENSHOT
 ===================================================== -->
 
-<section class="chat-section">
+<section id="screenshot-one">
 
-  <div class="chat-layout">
+    <div class="screenshot-wrap">
 
+        <div class="screenshot-frame">
 
-    <div class="chat-text">
+            <img src="mere-saath-nahi.png.jpeg" alt="Our first conversation">
 
-      <p class="reveal">
-        Apparently, you wanted me to call you too.
-      </p>
+            <div class="light-sweep"></div>
 
-    </div>
+        </div>
 
-
-    <!-- IMPORTANT:
-         this is the exact file you said you want -->
-
-    <div class="chat-image-wrap reveal delay-2">
-
-      <img
-        src="mere-saath-nahi.png.jpeg"
-        alt="A conversation from the beginning">
+        <p class="screenshot-caption">
+            So I did.
+        </p>
 
     </div>
-
-
-    <div class="after-chat">
-
-      <p class="reveal">
-        So I did.
-      </p>
-
-      <p class="reveal delay-1">
-        At first, it was just another call.
-      </p>
-
-      <p class="reveal delay-2">
-        Then another.
-      </p>
-
-      <p class="reveal delay-3">
-        And then, without either of us really deciding it, talking to each other became a thing.
-      </p>
-
-      <p class="reveal delay-4">
-        And somehow, the calls just kept getting longer.
-      </p>
-
-    </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     CALL LOGS
+     AFTER FIRST CALL
 ===================================================== -->
 
-<section class="calls-section">
+<section id="calls">
 
+    <div class="calls-inner">
 
-  <div class="waveform">
+        <h1 class="calls-title">
+            At first, it was just another call.
+        </h1>
 
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+        <p class="calls-sub">
+            Then another. And then another.
+        </p>
 
-  </div>
+        <div class="call-list">
 
+            <div class="call">
+                <span>CALL 01</span>
+                <span>47 min</span>
+            </div>
 
-  <div class="calls-content">
+            <div class="call">
+                <span>CALL 02</span>
+                <span>1 hr 12 min</span>
+            </div>
 
+            <div class="call">
+                <span>CALL 03</span>
+                <span>36 min</span>
+            </div>
 
-    <div class="calls-heading">
+            <div class="call">
+                <span>CALL 04</span>
+                <span>1 hr 04 min</span>
+            </div>
 
-      <p class="reveal">
-        I don't remember what we talked about on most of them.
-      </p>
+            <div class="call">
+                <span>CALL 05</span>
+                <span>52 min</span>
+            </div>
 
-      <p class="reveal delay-1">
-        But I remember how easily they became a part of my day.
-      </p>
+            <div class="call">
+                <span>CALL 06</span>
+                <span>1 hr 27 min</span>
+            </div>
+
+        </div>
+
+        <div class="wave">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i>
+        </div>
+
+        <p style="font-size:19px;line-height:1.7;opacity:.7;">
+            I don't remember what we talked about on most of them.
+            <br>
+            But I remember how easily they became a part of my day.
+        </p>
 
     </div>
-
-
-    <div class="call-list">
-
-
-      <div class="call-card reveal">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          47 min
-        </div>
-
-      </div>
-
-
-      <div class="call-card reveal delay-1">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          1 hr 12 min
-        </div>
-
-      </div>
-
-
-      <div class="call-card reveal delay-2">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          36 min
-        </div>
-
-      </div>
-
-
-      <div class="call-card reveal delay-3">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          1 hr 04 min
-        </div>
-
-      </div>
-
-
-      <div class="call-card reveal delay-4">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          52 min
-        </div>
-
-      </div>
-
-
-      <div class="call-card reveal delay-5">
-
-        <div class="call-arrow">
-          ↗
-        </div>
-
-        <div class="call-person">
-
-          <strong>
-            Tanmay
-          </strong>
-
-          <span>
-            Incoming call
-          </span>
-
-        </div>
-
-        <div class="call-duration">
-          1 hr 27 min
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     ROUTINE
+     SECOND SCREENSHOT / ROUTINE
 ===================================================== -->
 
-<section class="routine-section">
+<section id="routine">
 
-  <div class="routine-layout">
+    <div class="routine-inner">
 
+        <div class="tiny">
+            somewhere along the way
+        </div>
 
-    <div class="routine-intro">
+        <p>
+            At some point, talking to each other just became something we did.
+        </p>
 
-      <p class="reveal">
-        At some point, talking to each other just became something we did.
-      </p>
+        <div style="height:30px;"></div>
+
+        <div style="
+            width:min(470px,100%);
+            margin:0 auto 60px;
+            background:#e7dfd2;
+            padding:12px;
+            box-shadow:0 20px 50px rgba(0,0,0,.25);
+            transform:rotate(1deg);
+        ">
+            <img
+                src="talking-to-you.png"
+                alt="Our conversation"
+                style="
+                    width:100%;
+                    height:520px;
+                    object-fit:cover;
+                    object-position:center;
+                    display:block;
+                "
+            >
+        </div>
+
+        <p>
+            A call when we had nothing particular to say.
+        </p>
+
+        <p>
+            A conversation that somehow lasted much longer than it was supposed to.
+        </p>
+
+        <p>
+            Just... talking.
+        </p>
 
     </div>
-
-
-    <div class="talk-image-wrap reveal delay-2">
-
-      <img
-        src="talking-to-you.png"
-        alt="A conversation about talking to each other">
-
-      <div class="talk-spark"></div>
-
-    </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     SHORT BRIDGE
+     GETTING TO KNOW HIM
 ===================================================== -->
 
-<section class="bridge-section">
+<section id="bridge">
 
-  <div class="bridge-leaf one"></div>
+    <div class="leaf one">⌁</div>
+    <div class="leaf two">⌁</div>
 
-  <div class="bridge-leaf two"></div>
+    <div class="bridge-inner">
 
+        <p>
+            And somewhere in all of that, I started remembering the little things.
+        </p>
 
-  <div class="bridge-content">
+        <p>
+            The things you cared about.
+            The things you got excited about.
+            The things you worried about but didn't always say out loud.
+        </p>
 
-    <p class="reveal">
-      A call when we had nothing particular to say.
-    </p>
+        <div class="big">
+            More than you know.
+        </div>
 
-    <p class="reveal delay-1">
-      A conversation that somehow lasted much longer than it was supposed to.
-    </p>
-
-    <p class="reveal delay-2">
-      Just... talking.
-    </p>
-
-    <p class="reveal delay-3">
-      And somewhere in all of that, I started remembering the little things.
-    </p>
-
-    <p class="reveal delay-4">
-      The things you cared about. The things you got excited about. The things you worried about but didn't always say out loud.
-    </p>
-
-  </div>
+    </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -3176,416 +1335,710 @@ body::before {
 
 <section id="more">
 
+    <div class="more-inner">
 
-  <div class="more-top-fade"></div>
+        <div class="more-heading">
 
+            <div class="small-label">
+                the person behind everything else
+            </div>
 
-  <!-- botanical decoration -->
+            <h1 class="more-title">
+                MORE THAN<br>
+                YOU KNOW
+            </h1>
 
-  <div class="botanical left">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </div>
-
-
-  <div class="botanical right">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </div>
-
-
-  <div class="mountain-doodle"></div>
-
-
-  <div class="more-inner">
-
-
-    <!-- =================================================
-         HEADER
-    ================================================= -->
-
-    <header class="more-header">
-
-      <div class="more-kicker reveal">
-        there is more to you
-      </div>
-
-
-      <h2 class="more-title reveal delay-1">
-
-        <span>
-          MORE THAN
-        </span>
-
-        <span>
-          YOU KNOW
-        </span>
-
-      </h2>
-
-
-      <div class="more-subtitle reveal delay-2">
-        there's so much about you that i admire...
-      </div>
-
-    </header>
-
-
-
-    <!-- =================================================
-         CHILDHOOD
-    ================================================= -->
-
-    <div class="more-row row-childhood">
-
-
-      <div class="polaroid-column">
-
-        <div class="polaroid reveal">
-
-          <img
-            src="tanmay-childhood.jpg"
-            alt="Tanmay as a child">
-
-          <span class="polaroid-caption">
-            before i knew you
-          </span>
+            <div class="more-hand">
+                little things I've noticed about you
+            </div>
 
         </div>
 
-      </div>
+
+        <div class="more-grid">
+
+            <!-- CHILDHOOD -->
+
+            <div class="more-card polaroid childhood">
+                <img src="tanmay-childhood.jpg" alt="Tanmay as a child">
+            </div>
+
+            <div class="more-copy">
+
+                <h2>
+                    I wonder what this little version of you was like.
+                </h2>
+
+                <p>
+                    Probably curious, probably up to something,
+                    and already convinced he knew what he was doing.
+                </p>
+
+                <p>
+                    It makes me smile knowing that some things really do stay the same.
+                </p>
+
+            </div>
 
 
-      <div class="copy-column">
+            <!-- SEA -->
 
-        <div class="copy-label reveal">
-          then
+            <div class="more-copy">
+
+                <h2>
+                    Explorer at heart.
+                </h2>
+
+                <p>
+                    You want to see places.
+                    Try things.
+                    Go somewhere new and find out what's there.
+                </p>
+
+                <p>
+                    I love that you don't seem to want life to stay too small —
+                    not in where you go, and not in what you imagine for yourself.
+                </p>
+
+                <p>
+                    There's a curiosity in you that makes everything more interesting.
+                </p>
+
+            </div>
+
+            <div class="more-card polaroid sea">
+                <img src="tanmay-sea.jpg" alt="Tanmay by the sea">
+            </div>
+
+
+            <!-- CAMEL -->
+
+            <div class="more-card polaroid camel">
+                <img src="tanmay-camel.jpg" alt="Tanmay with a camel">
+            </div>
+
+            <div class="more-copy">
+
+                <h2>
+                    And then there is this version of you.
+                </h2>
+
+                <p>
+                    The completely unserious one.
+                </p>
+
+                <p>
+                    The one who can make absolutely no sense
+                    and somehow make everything more fun.
+                </p>
+
+                <p>
+                    You can be completely random, completely ridiculous,
+                    and then suddenly say something that reminds me
+                    how deeply you think.
+                </p>
+
+            </div>
+
+
+            <!-- FLOWERS -->
+
+            <div class="more-copy">
+
+                <h2>
+                    You care deeply.
+                </h2>
+
+                <p>
+                    Probably more than you let most people see.
+                </p>
+
+                <p>
+                    You notice things.
+                    You check in.
+                    You show up.
+                </p>
+
+                <p>
+                    You think about the people you love,
+                    even when nobody asks you to.
+                </p>
+
+                <p>
+                    And sometimes I think you forget that you don't have
+                    to have everything figured out just because you care
+                    so much about where you're going.
+                </p>
+
+            </div>
+
+            <div class="more-card polaroid flowers">
+                <img src="tanmay-flowers.jpg" alt="Tanmay with flowers">
+            </div>
+
         </div>
 
 
-        <h3 class="reveal delay-1">
-          I wonder what this little version of you was like.
-        </h3>
+        <!-- ENDING -->
 
+        <div class="more-ending">
 
-        <p class="reveal delay-2">
-          Probably curious, probably up to something, and already convinced he knew what he was doing.
-        </p>
+            <p>
+                and then there's the part i hope you remember
+            </p>
 
+            <div class="large">
+                You want a lot from life.
+            </div>
 
-        <p class="reveal delay-3">
-          It makes me smile knowing that some things really do stay the same.
-        </p>
+            <p>
+                And maybe that's also where some of the fear comes from.
+            </p>
 
-      </div>
+            <p>
+                What if you don't make it?
+            </p>
+
+            <p>
+                What if you don't become the person you imagined you would be?
+            </p>
+
+            <p>
+                I don't know if that's your biggest fear.
+                But I know it's one you carry.
+            </p>
+
+            <p>
+                Sometimes I wish you could see yourself from where I'm standing.
+            </p>
+
+            <p>
+                You don't have to wait until you've achieved everything
+                you want before you get to be proud of yourself.
+            </p>
+
+            <div class="final-line">
+                You're already someone worth being proud of.
+            </div>
+
+        </div>
 
     </div>
-
-
-
-    <!-- =================================================
-         EXPLORER
-    ================================================= -->
-
-    <div class="more-row reverse row-explorer">
-
-
-      <div class="copy-column">
-
-        <div class="copy-label reveal">
-          curious
-        </div>
-
-
-        <h3 class="reveal delay-1">
-          Explorer at heart.
-        </h3>
-
-
-        <p class="reveal delay-2">
-          You want to see places. Try things. Go somewhere new and find out what's there.
-        </p>
-
-
-        <p class="reveal delay-3">
-          I love that you don't seem to want life to stay too small — not in where you go, and not in what you imagine for yourself.
-        </p>
-
-
-        <p class="reveal delay-4">
-          There's a curiosity in you that makes everything more interesting.
-        </p>
-
-
-        <div class="hand-note reveal delay-5">
-          always looking somewhere new
-        </div>
-
-      </div>
-
-
-      <div class="polaroid-column">
-
-        <div class="polaroid reveal delay-1">
-
-          <img
-            src="tanmay-sea.jpg"
-            alt="Tanmay by the sea">
-
-          <span class="polaroid-caption">
-            somewhere new
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =================================================
-         UNSERIOUS
-    ================================================= -->
-
-    <div class="more-row row-unserious">
-
-
-      <div class="polaroid-column">
-
-        <div class="polaroid reveal">
-
-          <img
-            src="tanmay-camel.jpg"
-            alt="Tanmay with a camel">
-
-          <span class="polaroid-caption">
-            completely unserious
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="copy-column">
-
-        <div class="copy-label reveal">
-          obviously
-        </div>
-
-
-        <h3 class="reveal delay-1">
-          And then there is this version of you.
-        </h3>
-
-
-        <p class="reveal delay-2">
-          The completely unserious one.
-        </p>
-
-
-        <p class="reveal delay-3">
-          The one who can make absolutely no sense and somehow make everything more fun.
-        </p>
-
-
-        <p class="reveal delay-4">
-          You can be completely random, completely ridiculous, and then suddenly say something that reminds me how deeply you think.
-        </p>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =================================================
-         CARE
-    ================================================= -->
-
-    <div class="more-row reverse row-care">
-
-
-      <div class="copy-column">
-
-        <div class="copy-label reveal">
-          the quieter part
-        </div>
-
-
-        <h3 class="reveal delay-1">
-          You care deeply.
-        </h3>
-
-
-        <p class="reveal delay-2">
-          Probably more than you let most people see.
-        </p>
-
-
-        <p class="reveal delay-3">
-          You notice things. You check in. You show up.
-        </p>
-
-
-        <p class="reveal delay-4">
-          You think about the people you love, even when nobody asks you to.
-        </p>
-
-
-        <p class="reveal delay-5">
-          And sometimes I think you forget that you don't have to have everything figured out just because you care so much about where you're going.
-        </p>
-
-      </div>
-
-
-      <div class="polaroid-column">
-
-        <div class="polaroid reveal delay-1">
-
-          <img
-            src="tanmay-flowers.jpg"
-            alt="Tanmay holding flowers">
-
-          <span class="polaroid-caption">
-            you care more than you say
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =================================================
-         AMBITION / FEAR
-    ================================================= -->
-
-    <div class="more-ending">
-
-
-      <div class="ending-kicker reveal">
-        and then there's the part i hope you remember
-      </div>
-
-
-      <h3 class="reveal delay-1">
-        You want a lot from life.
-      </h3>
-
-
-      <p class="reveal delay-2">
-        And maybe that's also where some of the fear comes from.
-      </p>
-
-
-      <p class="reveal delay-3">
-        What if you don't make it?
-      </p>
-
-
-      <p class="reveal delay-3">
-        What if you don't become the person you imagined you would be?
-      </p>
-
-
-      <p class="reveal delay-4">
-        I don't know if that's your biggest fear. But I know it's one you carry.
-      </p>
-
-
-      <p class="reveal delay-5">
-        Sometimes I wish you could see yourself from where I'm standing.
-      </p>
-
-
-      <p class="reveal delay-5">
-        You don't have to wait until you've achieved everything you want before you get to be proud of yourself.
-      </p>
-
-
-      <div class="final-proud reveal delay-5">
-        You're already someone worth being proud of.
-      </div>
-
-    </div>
-
-
-  </div>
 
 </section>
 
+
+<!-- =====================================================
+     100 LITTLE REASONS
+===================================================== -->
+
+<section id="reasons">
+
+    <div class="reasons-inner">
+
+        <div class="reasons-heading">
+
+            <div class="small-label">
+                100 little things
+            </div>
+
+            <h1>
+                100 little<br>
+                reasons.
+            </h1>
+
+            <p>
+                Tanmay, you know what I realised?
+            </p>
+
+            <p>
+                I don't just love you for the way you love me.
+                I think that would be a little selfish of me.
+            </p>
+
+            <p>
+                Somewhere along the way, I started seeing
+                <strong>you beyond “my Tanmay”</strong> —
+                beyond the person who loves me.
+            </p>
+
+            <p>
+                I see you as a whole person.
+                The way you are with your family, your friends,
+                the things you care about, the things you want from life,
+                and all the little things that make you <em>you</em>.
+            </p>
+
+            <p>
+                And I realised I have so many reasons to love
+                <strong>the person you are</strong>,
+                not just the way you love me.
+            </p>
+
+            <p>
+                <strong>So, these are 100 of them.</strong>
+            </p>
+
+        </div>
+
+
+        <div class="reason-grid" id="reasonGrid">
+            <!-- JS creates the 100 notes -->
+        </div>
+
+
+        <div class="reason-progress">
+            <span id="openedCount">0</span> / 100 opened
+        </div>
+
+
+        <div class="reason-101" id="reason101">
+
+            <div class="tiny">
+                #101
+            </div>
+
+            <p>
+                because somehow, after 100 reasons,
+                I still feel like I missed a few.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REASON MODAL
+===================================================== -->
+
+<div class="reason-modal" id="reasonModal">
+
+    <div class="reason-note">
+
+        <button class="reason-close" id="closeReason">
+            CLOSE ×
+        </button>
+
+        <div class="reason-note-number" id="reasonNumber">
+            REASON 01
+        </div>
+
+        <div class="reason-note-text" id="reasonText">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+
+<section id="letter">
+
+    <div class="letter-paper">
+
+        <div class="date">
+            27 . 09 . 2026
+        </div>
+
+        <h1>
+            Happy birthday, Tanmay.
+        </h1>
+
+        <p>
+            I hope you know how loved you are.
+        </p>
+
+        <p>
+            And I hope you see yourself the way I see you.
+        </p>
+
+        <p>
+            There is so much I could say about you,
+            and somehow I still don't think I'd ever get all of it right.
+        </p>
+
+        <p>
+            So I'll just say this —
+            I hope this year gives you more of the things
+            you've been working towards, more places to see,
+            more reasons to laugh, and more moments where you realise
+            you're doing better than you think.
+        </p>
+
+        <p>
+            Keep being you.
+        </p>
+
+        <div class="letter-sign">
+            Love,<br>
+            Kiki
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
+
+<section id="video">
+
+    <div class="video-inner">
+
+        <h1>
+            One more thing.
+        </h1>
+
+        <p>
+            This one is just me talking to you.
+        </p>
+
+        <div class="video-placeholder">
+            YOUR VIDEO WILL GO HERE
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ENDING
+===================================================== -->
+
+<section id="ending">
+
+    <div class="ending-inner">
+
+        <h1>
+            Happy birthday, Tanmay.
+        </h1>
+
+        <p>
+            I hope you know how loved you are.
+        </p>
+
+        <p>
+            And I hope you see yourself the way I see you.
+        </p>
+
+        <p class="ending-love">
+            Love,<br>
+            Kiki
+        </p>
+
+    </div>
+
+</section>
 
 
 <script>
 
 /* =========================================================
-   SCROLL REVEALS
+   100 REASONS
+   EDIT THESE DIRECTLY IF YOU WANT
 ========================================================= */
 
-const revealItems =
-  document.querySelectorAll(".reveal");
+const reasons = [
+
+"I love the way you say “hiii babyyyy” at the beginning of every call.",
+
+"I love that you can be completely ridiculous without ever worrying about how stupid you look.",
+
+"I love how certain you sound when you talk about our future.",
+
+"I love your laugh. I genuinely think it's one of the cutest things about you.",
+
+"I love the way your brain works and how you somehow see things from angles I never would have thought of.",
+
+"I love that you can talk to almost anyone without needing time to warm up to them.",
+
+"I love the way you call me jaan.I don't think you know how much i love hearing it.",
+
+"I love that when the Doraemon theme started playing at karaoke the night we met, your first instinct was to stand there and sing it without a second thought.",
+
+"I love that you don't seem to believe that where you start has to determine where you end up.",
+
+"I love how you can somehow tell when I'm being impossible even before I admit it myself.",
+
+"I love that your mind is always working; there is always something you're questioning, planning or figuring out.",
+
+"I love that you can keep a conversation alive even when there is absolutely nothing to talk about.",
+
+"I love that you don't make permanent decisions based on temporary anger like me.",
+
+"I love how deeply your family matters to you.",
+
+"I love your completely unfiltered sense of humour.",
+
+"I love the paragraphs you write for me without ever needing to be asked.",
+
+"I love that you can go from the stupidest joke to a genuinely deep conversation in seconds.",
+
+"I love how naturally you look for ways to improve yourself.",
+
+"I love that your determination has made me question some of the limits I've put on myself.",
+
+"I love how obvious your excitement becomes when you're talking about something you genuinely care about.",
+
+"I love that you know exactly what will annoy me and sometimes choose to do it anyway just because you find my reaction funny.",
+
+"I love that after five months of talking to you, I've somehow picked up your Bangalore way of speaking English.",
+
+"I love the softness you have for the people you genuinely care about.",
+
+"I love that you don't need a crowd to have fun; give you the right people and you can turn into the most unserious person in the room.",
+
+"I love that you can be completely ridiculous with your friends without ever losing the part of you that takes the people you love seriously.",
+
+"I love that you're always thinking about what you should do next instead of getting too comfortable where you are.",
+
+"I love that when I tell you how I want to be loved, you actually listen instead of deciding for yourself what should be enough.",
+
+"I love that you can make me laugh when I am absolutely determined not to.",
+
+"I love that your belief in God is something you've chosen to hold onto because it genuinely means something to you.",
+
+"I love that being the eldest and only son has made you take your family's responsibilities seriously.",
+
+"I love that you deliberately choose ambitious people to keep around you.",
+
+"I love the contrast between the person you let the world see and the ridiculously soft person you become when you're completely comfortable.",
+
+"I love how you remember tiny things I sometimes don't even remember telling you.",
+
+"I love how much you love Seedhe Maut. So much so that i am jealous of them.",
+
+"I love that when we met you were more worried about me catching the bus than i was.",
+
+"I love how you can make a completely ordinary conversation feel like the only thing worth paying attention to.",
+
+"I love your stubbornness, even though I will absolutely deny saying that if you ever use it against me.",
+
+"I love how protective you are of the people who matter to you.",
+
+"I love that you notice the little things about people without making a show of noticing them. This is an observation from the night we met.",
+
+"I love that you can be indecisive about the smallest things and incredibly certain about the things that truly matter to you.",
+
+"I love that you don't seem embarrassed by caring deeply about someone.",
+
+"I love that responsibility seems to come naturally to you.",
+
+"I love how much you want from life.",
+
+"I love that your idea of a good life seems to involve actually experiencing it, not just getting through it.",
+
+"I love that you can say something so stupid that I genuinely wonder how you arrived at that thought.",
+
+"I love that even when you need time after a fight, you eventually come back to me.",
+
+"I love that when I told you, “okay, we're done,” you called me five minutes later and basically refused to accept it.",
+
+"I love how you can be incredibly serious about something and then completely ruin the seriousness yourself with one stupid comment.",
+
+"I love that you've taught me to communicate things instead of expecting people to understand what I haven't said.",
+
+"I love that you've been willing to work on your own communication too.",
+
+"I love that your dreams matter enough to you that failing to achieve them genuinely scares you.",
+
+"I love that fear hasn't made you stop wanting those things.",
+
+"I love that around you I don't always feel like I have to be the responsible, put-together one.",
+
+"I love that you somehow make it feel completely acceptable for me to let my childish side out too.",
+
+"I love how you can make the most ordinary situation unexpectedly funny.",
+
+"I love that you notice when something is off even when i don't explicitly tell you.",
+
+"I love that you want people around you who make you think bigger.",
+
+"I love how completely yourself you become once you stop worrying about how you're being perceived.",
+
+"I love that beneath all the jokes and confidence, there is a very feeling person.",
+
+"I love how horny you are for me 24/7.",
+
+"I love that seeing your father's struggles made you want to take some of that responsibility off him rather than simply accepting it.",
+
+"I love that growing up with that much responsibility didn't make you lose your sense of humour.",
+
+"I love that you don't just want to achieve things; you want to be proud of what you achieve.",
+
+"I love that you can make yourself comfortable in almost any social situation.",
+
+"I love that watching you constantly push yourself has made me want to push myself too.",
+
+"I love that you are genuinely curious about people who are different from you.",
+
+"I love that you've learned to tell me what you're doing rather than leaving everything unsaid.",
+
+"I love that after five months of knowing you through a screen, being physically close to you felt completely natural.",
+
+"I love that when we finally met, you didn't suddenly become some polished “first-date” version of yourself; you were still just the same goofy Tanmay I'd already known.",
+
+"I love that our first evening together felt comfortable almost immediately instead of feeling like two strangers trying to figure each other out.",
+
+"I love that when we finally met, being in your arms was as natural as breathing.",
+
+"I love the way you were instinctivelylooking out for me constantly .",
+
+"I love that affection seems to come naturally to you rather than feeling like something you have to consciously perform.",
+
+"I love that you have this instinct to take care of the people you love without making them feel indebted to you for it.",
+
+"I love that after five months of distance, finally being beside you didn't feel like learning a completely new person.",
+
+"I love that on the evening we finally met, I could actually switch my brain off for a while.",
+
+"I love that being with you that evening made everything else I had been worrying about feel very far away.",
+
+"I love that the chaos in me doesnt change the calm in you.",
+
+"I love that you make being looked after feel comforting rather than suffocating.",
+
+"I love that you can make me feel protected without ever making me feel small.",
+
+"I love that you couldn't stop looking at me when we first met while I was too nervous to properly look back at you.",
+
+"I love that apparently five months of distance did absolutely nothing to reduce how attracted we are to each other.",
+
+"I love our mutual inability to behave normally around each other.",
+
+"I love how easily the softest version of you comes out when you're with me.",
+
+"I love that underneath the tough-guy, slightly spoiled-brat exterior is someone who can be ridiculously baby jaan.",
+
+"I love that you don't try to hide the things you're passionate about just because someone else might find them uncool.",
+
+"I love that you can carry serious responsibilities and still be the person who will randomly start singing .",
+
+"I love that you know I'm stubborn and rude and occasionally impossible, and somehow you still find me worth the trouble.",
+
+"I love that you choose to be with me everyday despite having multiple reasons not to.",
+
+"I love that underneath your confidence is someone who genuinely wonders whether he'll become the person he wants to be.",
+
+"I love that when you talk about marriage, it sounds like something you actually want to build rather than just something nice to imagine.",
+
+"I love that when you talk about our future, you sound like someone who has already decided he wants to try.",
+
+"I love that even after five months, you can still surprise me.",
+
+"I love that there are still parts of you I haven't figured out yet.",
+
+"I love that the distance never stopped you from letting me see the real you.",
+
+"I love that after months of hearing your voice through a phone, finally having you beside me somehow felt familiar.",
+
+"I love that I can be completely myself around you, including the versions of myself that aren't particularly easy to deal with.",
+
+"I love that you make me want to grow without ever making me feel like I need to become someone else.",
+
+"I love that somewhere along the way, I stopped loving you only for the way you love me and started loving the person you are outside of that too.",
+
+"I love that after everything I've learned about you so far, I still feel like there is so much more of you left for me to know."
+
+];
 
 
-const observer =
-  new IntersectionObserver(
-    entries => {
+/* =========================================================
+   CREATE REASON PAPERS
+========================================================= */
 
-      entries.forEach(entry => {
+const reasonGrid = document.getElementById("reasonGrid");
+const modal = document.getElementById("reasonModal");
+const reasonNumber = document.getElementById("reasonNumber");
+const reasonText = document.getElementById("reasonText");
+const closeReason = document.getElementById("closeReason");
+const openedCount = document.getElementById("openedCount");
+const reason101 = document.getElementById("reason101");
 
-        if (entry.isIntersecting) {
+let opened = new Set();
 
-          entry.target.classList.add("visible");
+reasons.forEach((reason, index) => {
+
+    const paper = document.createElement("div");
+
+    paper.className = "reason-paper";
+
+    paper.innerHTML = `
+        <span class="reason-number">
+            ${String(index + 1).padStart(2, "0")}
+        </span>
+
+        <span class="reason-opened"></span>
+    `;
+
+    paper.addEventListener("click", () => {
+
+        const number = index + 1;
+
+        reasonNumber.textContent =
+            "REASON " + String(number).padStart(2, "0");
+
+        reasonText.textContent = reason;
+
+        modal.classList.add("active");
+
+        if (!opened.has(number)) {
+
+            opened.add(number);
+
+            paper.classList.add("opened");
+
+            openedCount.textContent = opened.size;
+
+            if (opened.size === 100) {
+                setTimeout(() => {
+                    reason101.classList.add("show");
+                }, 900);
+            }
 
         }
 
-      });
+    });
 
-    },
-    {
-      threshold: .12
-    }
-  );
-
-
-revealItems.forEach(item => {
-
-  observer.observe(item);
+    reasonGrid.appendChild(paper);
 
 });
 
 
 /* =========================================================
-   OPENING
+   CLOSE MODAL
 ========================================================= */
 
-window.addEventListener("load", () => {
+closeReason.addEventListener("click", () => {
+    modal.classList.remove("active");
+});
 
-  const openingItems =
-    document.querySelectorAll("#opening .reveal");
+modal.addEventListener("click", (e) => {
 
-  openingItems.forEach(item => {
+    if (e.target === modal) {
+        modal.classList.remove("active");
+    }
 
-    item.classList.add("visible");
+});
 
-  });
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+        modal.classList.remove("active");
+    }
 
 });
 
 </script>
-
 
 </body>
 </html>
