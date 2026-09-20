@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Tanmay — 27.09.2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Special+Elite&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -22,34 +28,25 @@ html {
 }
 
 body {
-    background: #1b1714;
+    background: #171310;
     color: #eee5d8;
     font-family: Georgia, "Times New Roman", serif;
     overflow-x: hidden;
 }
 
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 section {
     position: relative;
-    min-height: 100vh;
     overflow: hidden;
 }
 
-.section-inner {
-    width: min(1100px, 88%);
-    margin: auto;
+img {
+    max-width: 100%;
 }
 
-.small-label {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: .65;
+a {
+    color: inherit;
 }
+
 
 /* =========================================================
    OPENING
@@ -57,409 +54,797 @@ section {
 
 #opening {
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at 50% 40%, rgba(111,78,53,.14), transparent 38%),
-        #171311;
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(104, 71, 48, .14),
+            transparent 38%
+        ),
+        #171310;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
+/* -------------------------
+   MOON
+------------------------- */
+
+.moon {
+    position: absolute;
+
+    width: 118px;
+    height: 118px;
+
+    left: 50%;
+    top: 17%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 34% 31%,
+            rgba(255,255,255,.16) 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 67% 28%,
+            rgba(255,255,255,.12) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 57% 66%,
+            rgba(255,255,255,.13) 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 29% 70%,
+            rgba(255,255,255,.10) 0 6px,
+            transparent 7px
+        ),
+        #d7c7ad;
+
+    box-shadow:
+        0 0 28px rgba(215,199,173,.14),
+        0 0 65px rgba(215,199,173,.07);
+
+    opacity: .9;
+}
+
+
+/* Simple fine lines around the moon */
+
+.moon-line {
+    position: absolute;
+
+    left: 50%;
+    top: 17%;
+
+    transform: translateX(-50%);
+
+    width: 175px;
+    height: 145px;
+
+    border-top: 1px solid rgba(238,229,216,.17);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.moon-line.two {
+    width: 150px;
+    height: 128px;
+
+    top: calc(17% + 7px);
+
+    border-top: none;
+    border-bottom: 1px solid rgba(238,229,216,.12);
+
+    transform:
+        translateX(-50%)
+        rotate(-8deg);
+}
+
+
+/* -------------------------
+   OPENING TEXT
+------------------------- */
+
 .opening-content {
-    text-align: center;
     position: relative;
     z-index: 5;
-    animation: openingFade 2.2s ease forwards;
+
+    text-align: center;
+
+    margin-top: 105px;
 }
 
 .opening-hi {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(55px, 9vw, 105px);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(58px, 9vw, 105px);
+
     font-style: italic;
+
     font-weight: 500;
+
     letter-spacing: -3px;
+
     opacity: 0;
-    animation: fadeUp 1.8s .3s ease forwards;
+
+    animation:
+        openingFade 1.8s .2s ease forwards;
 }
 
 .opening-line {
-    width: 130px;
+    width: 135px;
     height: 1px;
-    background: rgba(238,229,216,.55);
+
+    background:
+        rgba(238,229,216,.55);
+
     margin: 20px auto 18px;
+
     opacity: 0;
-    animation: fadeIn 1.5s 1s ease forwards;
+
+    animation:
+        fadeIn 1.3s .9s ease forwards;
 }
 
 .opening-date {
-    font-family: "DM Mono", monospace;
-    font-size: 13px;
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 12px;
+
     letter-spacing: 6px;
+
     opacity: 0;
-    animation: fadeUp 1.5s 1.15s ease forwards;
+
+    animation:
+        fadeUp 1.4s 1.05s ease forwards;
 }
 
 .opening-sub {
     margin-top: 18px;
+
     font-size: 20px;
+
     font-style: italic;
+
     opacity: 0;
-    animation: fadeUp 1.5s 1.35s ease forwards;
+
+    animation:
+        fadeUp 1.4s 1.25s ease forwards;
 }
 
-.semicircle {
-    position: absolute;
-    width: 280px;
-    height: 140px;
-    border: 1px solid rgba(238,229,216,.18);
-    border-bottom: none;
-    border-radius: 280px 280px 0 0;
-    bottom: 12%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: breathe 5s ease-in-out infinite;
-}
+
+/* -------------------------
+   STARS
+------------------------- */
 
 .stars span {
     position: absolute;
-    display: block;
+
     width: 2px;
     height: 2px;
-    background: #eee5d8;
+
     border-radius: 50%;
-    opacity: .5;
-    animation: twinkle 4s infinite ease-in-out;
+
+    background: #eee5d8;
+
+    opacity: .4;
+
+    animation:
+        twinkle 4s infinite ease-in-out;
 }
 
-.star1 { top: 18%; left: 20%; }
-.star2 { top: 27%; left: 76%; animation-delay: 1s !important; }
-.star3 { top: 15%; left: 61%; animation-delay: 2s !important; }
-.star4 { top: 39%; left: 13%; animation-delay: .7s !important; }
-.star5 { top: 31%; left: 87%; animation-delay: 1.8s !important; }
-.star6 { top: 65%; left: 22%; animation-delay: 2.4s !important; }
+.star1 {
+    top: 18%;
+    left: 20%;
+}
+
+.star2 {
+    top: 27%;
+    left: 76%;
+
+    animation-delay: 1s !important;
+}
+
+.star3 {
+    top: 15%;
+    left: 61%;
+
+    animation-delay: 2s !important;
+}
+
+.star4 {
+    top: 39%;
+    left: 13%;
+
+    animation-delay: .7s !important;
+}
+
+.star5 {
+    top: 31%;
+    left: 87%;
+
+    animation-delay: 1.8s !important;
+}
+
+.star6 {
+    top: 65%;
+    left: 22%;
+
+    animation-delay: 2.4s !important;
+}
+
+
+/* -------------------------
+   SCROLL ARROW
+------------------------- */
 
 .scroll-arrow {
     position: absolute;
-    bottom: 34px;
+
     left: 50%;
-    transform: translateX(-50%);
+    bottom: 34px;
+
     width: 30px;
     height: 45px;
+
+    transform: translateX(-50%);
+
     cursor: pointer;
+
     opacity: .65;
 }
 
 .scroll-arrow::before {
     content: "";
+
     position: absolute;
-    width: 1px;
-    height: 28px;
-    background: #eee5d8;
+
     left: 50%;
     top: 0;
+
+    width: 1px;
+    height: 28px;
+
+    background: #eee5d8;
 }
 
 .scroll-arrow::after {
     content: "";
+
     position: absolute;
-    width: 9px;
-    height: 9px;
-    border-right: 1px solid #eee5d8;
-    border-bottom: 1px solid #eee5d8;
-    transform: rotate(45deg);
+
     left: 10px;
     top: 22px;
-    animation: arrowMove 1.8s infinite;
+
+    width: 9px;
+    height: 9px;
+
+    border-right: 1px solid #eee5d8;
+    border-bottom: 1px solid #eee5d8;
+
+    transform: rotate(45deg);
+
+    animation:
+        arrowMove 1.8s infinite;
 }
+
 
 /* =========================================================
    APRIL 16
 ========================================================= */
 
 #first-call {
+    min-height: 100vh;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(115,77,51,.17), transparent 30%),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(115,77,51,.17),
+            transparent 30%
+        ),
         #211b17;
+
     display: flex;
     align-items: center;
-    padding: 100px 0;
+
+    padding: 110px 0;
 }
 
 .date-story {
-    max-width: 780px;
+    width: min(780px, 88%);
     margin: auto;
+
     text-align: center;
 }
 
 .date-story .date {
-    font-family: "DM Mono", monospace;
-    font-size: 13px;
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 12px;
+
     letter-spacing: 5px;
-    opacity: .55;
-    margin-bottom: 50px;
+
+    opacity: .5;
+
+    margin-bottom: 48px;
 }
 
 .date-story p {
     font-size: clamp(19px, 2vw, 26px);
+
     line-height: 1.65;
+
     margin: 13px 0;
 }
 
 .date-story .emphasis {
-    font-size: clamp(35px, 5vw, 62px);
+    font-size: clamp(36px, 5vw, 63px);
+
     font-style: italic;
+
     margin: 20px 0;
 }
 
+
+/* DUST */
+
 .dust {
     position: absolute;
+
     inset: 0;
+
     pointer-events: none;
 }
 
 .dust span {
     position: absolute;
+
     width: 3px;
     height: 3px;
-    background: rgba(238,229,216,.25);
+
     border-radius: 50%;
-    animation: floatDust 8s infinite ease-in-out;
+
+    background:
+        rgba(238,229,216,.25);
+
+    animation:
+        floatDust 8s infinite ease-in-out;
 }
 
-.d1 { left: 14%; top: 30%; }
-.d2 { left: 80%; top: 22%; animation-delay: 2s; }
-.d3 { left: 70%; top: 74%; animation-delay: 4s; }
-.d4 { left: 25%; top: 78%; animation-delay: 1s; }
+.d1 {
+    left: 14%;
+    top: 30%;
+}
+
+.d2 {
+    left: 80%;
+    top: 22%;
+
+    animation-delay: 2s;
+}
+
+.d3 {
+    left: 70%;
+    top: 74%;
+
+    animation-delay: 4s;
+}
+
+.d4 {
+    left: 25%;
+    top: 78%;
+
+    animation-delay: 1s;
+}
+
 
 /* =========================================================
-   SCREENSHOT
+   FIRST SCREENSHOT
 ========================================================= */
 
 #screenshot-one {
+    min-height: 100vh;
+
     background: #171310;
-    padding: 120px 0;
+
     display: flex;
     align-items: center;
+
+    padding: 120px 0;
 }
 
 .screenshot-wrap {
     width: min(500px, 88vw);
+
     margin: auto;
+
+    text-align: center;
 }
 
 .screenshot-frame {
-    padding: 12px;
-    background: #e7dfd2;
-    box-shadow: 0 25px 60px rgba(0,0,0,.4);
-    transform: rotate(-1.2deg);
     position: relative;
+
+    padding: 12px;
+
+    background: #e7dfd2;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.4);
+
+    transform: rotate(-1.2deg);
+
     overflow: hidden;
 }
 
 .screenshot-frame img {
     width: 100%;
+
     height: 645px;
+
     object-fit: cover;
+
     object-position: 39% center;
+
     display: block;
 }
 
 .screenshot-caption {
-    text-align: center;
     margin-top: 30px;
+
     font-size: 19px;
+
     font-style: italic;
+
     opacity: .7;
 }
 
 .light-sweep {
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(255,255,255,.08) 50%,
-        transparent 60%
-    );
+
+    background:
+        linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(255,255,255,.08) 50%,
+            transparent 60%
+        );
+
     transform: translateX(-120%);
-    animation: sweep 7s infinite;
+
+    animation:
+        sweep 7s infinite;
 }
+
 
 /* =========================================================
    CALL LOGS
 ========================================================= */
 
 #calls {
+    min-height: 100vh;
+
     background: #1d1815;
-    padding: 130px 0;
+
     display: flex;
     align-items: center;
+
+    padding: 120px 0;
 }
 
 .calls-inner {
     width: min(700px, 88%);
+
     margin: auto;
+
     text-align: center;
 }
 
 .calls-title {
     font-size: clamp(42px, 6vw, 75px);
+
     font-style: italic;
+
     margin-bottom: 20px;
 }
 
 .calls-sub {
-    opacity: .65;
     font-size: 18px;
+
+    opacity: .6;
+
     margin-bottom: 65px;
 }
 
 .call-list {
     display: grid;
+
     gap: 15px;
 }
 
 .call {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+    justify-content: space-between;
+
     padding: 19px 24px;
-    border-top: 1px solid rgba(238,229,216,.14);
-    border-bottom: 1px solid rgba(238,229,216,.08);
+
+    border-top:
+        1px solid rgba(238,229,216,.14);
+
+    border-bottom:
+        1px solid rgba(238,229,216,.07);
 }
 
 .call span:first-child {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
     letter-spacing: 2px;
+
     opacity: .5;
 }
 
 .call span:last-child {
-    font-family: "DM Mono", monospace;
-    font-size: 13px;
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 12px;
 }
 
+
+/* WAVE */
+
 .wave {
-    height: 45px;
-    margin: 50px auto;
     width: 240px;
+    height: 45px;
+
+    margin: 50px auto;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 3px;
 }
 
 .wave i {
     display: block;
+
     width: 2px;
-    background: rgba(238,229,216,.4);
-    animation: wave 1.5s ease-in-out infinite;
+
+    background:
+        rgba(238,229,216,.4);
+
+    animation:
+        wave 1.5s ease-in-out infinite;
 }
 
-.wave i:nth-child(1) { height: 10px; }
-.wave i:nth-child(2) { height: 25px; animation-delay: .1s; }
-.wave i:nth-child(3) { height: 16px; animation-delay: .2s; }
-.wave i:nth-child(4) { height: 34px; animation-delay: .3s; }
-.wave i:nth-child(5) { height: 21px; animation-delay: .4s; }
-.wave i:nth-child(6) { height: 40px; animation-delay: .5s; }
-.wave i:nth-child(7) { height: 18px; animation-delay: .6s; }
-.wave i:nth-child(8) { height: 28px; animation-delay: .7s; }
-.wave i:nth-child(9) { height: 12px; animation-delay: .8s; }
+.wave i:nth-child(1) {
+    height: 10px;
+}
+
+.wave i:nth-child(2) {
+    height: 25px;
+    animation-delay: .1s;
+}
+
+.wave i:nth-child(3) {
+    height: 16px;
+    animation-delay: .2s;
+}
+
+.wave i:nth-child(4) {
+    height: 34px;
+    animation-delay: .3s;
+}
+
+.wave i:nth-child(5) {
+    height: 21px;
+    animation-delay: .4s;
+}
+
+.wave i:nth-child(6) {
+    height: 40px;
+    animation-delay: .5s;
+}
+
+.wave i:nth-child(7) {
+    height: 18px;
+    animation-delay: .6s;
+}
+
+.wave i:nth-child(8) {
+    height: 28px;
+    animation-delay: .7s;
+}
+
+.wave i:nth-child(9) {
+    height: 12px;
+    animation-delay: .8s;
+}
+
 
 /* =========================================================
    ROUTINE
 ========================================================= */
 
 #routine {
+    min-height: 100vh;
+
     background: #211b17;
-    min-height: 85vh;
+
     display: flex;
     align-items: center;
+
     padding: 120px 0;
 }
 
 .routine-inner {
     width: min(760px, 88%);
+
     margin: auto;
 }
 
-.routine-inner p {
+.routine-inner .tiny {
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: .5;
+
+    margin-bottom: 40px;
+}
+
+.routine-inner > p {
     font-size: clamp(21px, 2.5vw, 31px);
+
     line-height: 1.65;
+
     margin: 18px 0;
 }
 
-.routine-inner .tiny {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    opacity: .5;
-    margin-bottom: 40px;
+
+/* SECOND SCREENSHOT */
+
+.second-shot {
+    width: min(470px, 100%);
+
+    margin: 45px auto 60px;
+
+    padding: 12px;
+
+    background: #e7dfd2;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+
+    transform: rotate(1deg);
 }
+
+.second-shot img {
+    width: 100%;
+
+    height: 520px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+}
+
 
 /* =========================================================
    BRIDGE
 ========================================================= */
 
 #bridge {
-    background: #191512;
     min-height: 80vh;
+
+    background: #191512;
+
     display: flex;
     align-items: center;
+
     text-align: center;
 }
 
 .bridge-inner {
     width: min(760px, 88%);
+
     margin: auto;
 }
 
 .bridge-inner p {
     font-size: clamp(20px, 2.4vw, 29px);
+
     line-height: 1.7;
+
     margin: 16px 0;
 }
 
 .bridge-inner .big {
     font-size: clamp(38px, 5vw, 65px);
+
     font-style: italic;
+
     margin: 35px 0;
 }
 
 .leaf {
     position: absolute;
+
     font-size: 50px;
-    opacity: .08;
+
+    opacity: .07;
 }
 
 .leaf.one {
     top: 15%;
     left: 10%;
+
     transform: rotate(-25deg);
 }
 
 .leaf.two {
     right: 8%;
     bottom: 16%;
+
     transform: rotate(30deg);
 }
+
 
 /* =========================================================
    MORE THAN YOU KNOW
 ========================================================= */
 
 #more {
-    background:
-        linear-gradient(rgba(239,233,221,.96), rgba(239,233,221,.96)),
-        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-    color: #2b241e;
-    padding: 100px 0 130px;
     min-height: 100vh;
+
+    padding: 105px 0 130px;
+
+    background:
+        linear-gradient(
+            rgba(239,233,221,.97),
+            rgba(239,233,221,.97)
+        ),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+    color: #2b241e;
 }
 
 .more-inner {
     width: min(1100px, 90%);
+
     margin: auto;
 }
 
@@ -468,28 +853,50 @@ section {
 }
 
 .more-title {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: clamp(52px, 8.2vw, 96px);
+
     line-height: .92;
+
     font-weight: 700;
+
     letter-spacing: -1.5px;
+
     color: #2b241e;
+
     max-width: 900px;
-    text-shadow: 0 .2px 0 rgba(43,36,30,.25);
+
+    text-shadow:
+        0 .2px 0 rgba(43,36,30,.25);
 }
 
 .more-hand {
-    font-family: "Caveat", cursive;
-    font-style: italic;
+    font-family:
+        "Caveat",
+        cursive;
+
     font-size: 25px;
+
     margin-top: 18px;
     margin-left: 8px;
+
+    transform: rotate(-2deg);
 }
+
+
+/* EDITORIAL GRID */
 
 .more-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 80px 65px;
+
+    gap: 78px 65px;
+
     align-items: center;
 }
 
@@ -497,399 +904,646 @@ section {
     position: relative;
 }
 
-.more-card img {
-    width: 100%;
-    display: block;
-}
-
-.polaroid {
-    background: #faf6ee;
-    padding: 12px 12px 15px;
-    box-shadow: 0 15px 30px rgba(53,42,30,.18);
-}
-
-.polaroid img {
-    aspect-ratio: 1 / 1.08;
-    object-fit: cover;
-}
-
-.polaroid.childhood img {
-    object-position: center;
-}
-
-.polaroid.sea img {
-    object-position: center;
-}
-
-.polaroid.camel img {
-    object-position: center;
-}
-
-.polaroid.flowers img {
-    object-position: center;
-}
-
 .more-copy h2 {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: clamp(30px, 3.5vw, 48px);
+
     line-height: 1.05;
+
     margin-bottom: 20px;
 }
 
 .more-copy p {
     font-size: 19px;
+
     line-height: 1.65;
+
     margin: 11px 0;
+
     color: #44382d;
 }
 
-.more-copy strong {
-    font-weight: 700;
+
+/* PLAIN POLAROIDS */
+
+.polaroid {
+    background: #faf6ee;
+
+    padding: 12px 12px 15px;
+
+    box-shadow:
+        0 15px 30px rgba(53,42,30,.18);
 }
 
-.more-note {
-    font-family: "Caveat", cursive;
-    font-size: 24px;
-    margin-top: 20px;
+.polaroid img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1.08;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.childhood {
     transform: rotate(-2deg);
 }
 
-.more-ending {
-    margin-top: 100px;
-    max-width: 780px;
+.sea {
+    transform: rotate(1.5deg);
 }
 
-.more-ending p {
+.camel {
+    transform: rotate(2deg);
+}
+
+.flowers {
+    transform: rotate(-1.5deg);
+}
+
+
+/* MORE ENDING */
+
+.more-ending {
+    max-width: 780px;
+
+    margin-top: 105px;
+}
+
+.more-ending > p {
     font-size: 20px;
+
     line-height: 1.7;
+
     margin: 13px 0;
 }
 
 .more-ending .large {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: clamp(34px, 5vw, 60px);
+
     font-weight: 700;
-    margin: 25px 0;
+
+    line-height: 1.05;
+
+    margin: 27px 0;
 }
 
 .more-ending .final-line {
     font-size: clamp(28px, 4vw, 46px);
+
     font-style: italic;
-    margin-top: 40px;
+
+    margin-top: 42px;
 }
 
+
 /* =========================================================
-   100 REASONS
+   100 LITTLE REASONS
 ========================================================= */
 
 #reasons {
-    background:
-        linear-gradient(rgba(225,216,202,.97), rgba(225,216,202,.97)),
-        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-    color: #2d2722;
-    padding: 110px 0 140px;
     min-height: 100vh;
+
+    padding: 115px 0 140px;
+
+    background:
+        linear-gradient(
+            rgba(225,216,202,.97),
+            rgba(225,216,202,.97)
+        ),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+    color: #2d2722;
 }
 
 .reasons-inner {
-    width: min(1200px, 91%);
+    width: min(1150px, 91%);
+
     margin: auto;
 }
 
 .reasons-heading {
-    max-width: 780px;
+    max-width: 760px;
+
     margin-bottom: 65px;
 }
 
-.reasons-heading h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(55px, 8vw, 95px);
-    line-height: .95;
+.reasons-heading .eyebrow {
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: .55;
+
     margin-bottom: 25px;
 }
 
+.reasons-heading h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(55px, 8vw, 92px);
+
+    line-height: .92;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 35px;
+}
+
 .reasons-heading p {
-    font-size: 19px;
-    line-height: 1.7;
-    margin: 11px 0;
-    max-width: 720px;
+    max-width: 700px;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    margin: 12px 0;
+
+    color: #443a31;
 }
 
 .reasons-heading strong {
     font-weight: 700;
 }
 
+
+/* PAPER GRID */
+
 .reason-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 22px;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 20px;
+
     align-items: start;
 }
 
 .reason-paper {
-    min-height: 120px;
-    padding: 25px 20px;
-    background: #f7f0e4;
-    box-shadow: 0 9px 18px rgba(51,40,29,.14);
+    position: relative;
+
+    min-height: 115px;
+
+    padding: 24px 18px;
+
+    background: #f7f0e5;
+
+    box-shadow:
+        0 8px 15px rgba(47,37,27,.12),
+        0 1px 2px rgba(47,37,27,.08);
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
+
     transition:
         transform .3s ease,
         box-shadow .3s ease;
-    position: relative;
 }
 
-.reason-paper:nth-child(3n) {
-    transform: rotate(1.5deg);
-}
-
-.reason-paper:nth-child(3n+1) {
+.reason-paper:nth-child(4n+1) {
     transform: rotate(-1.2deg);
 }
 
-.reason-paper:nth-child(5n) {
-    transform: rotate(.6deg);
+.reason-paper:nth-child(4n+2) {
+    transform: rotate(.8deg);
+}
+
+.reason-paper:nth-child(4n+3) {
+    transform: rotate(-.5deg);
+}
+
+.reason-paper:nth-child(4n) {
+    transform: rotate(1.1deg);
 }
 
 .reason-paper:hover {
-    transform: translateY(-8px) rotate(0deg) scale(1.03);
-    box-shadow: 0 18px 30px rgba(51,40,29,.2);
+    transform:
+        translateY(-7px)
+        rotate(0deg);
+
+    box-shadow:
+        0 16px 25px rgba(47,37,27,.17);
 }
 
 .reason-number {
-    font-family: "Special Elite", "Courier New", monospace;
+    font-family:
+        "Special Elite",
+        "Courier New",
+        monospace;
+
     font-size: 20px;
-    color: #4b4036;
+
+    color: #4a4037;
 }
 
-.reason-opened {
+.reason-paper.opened::after {
+    content: "";
+
     position: absolute;
+
     width: 5px;
     height: 5px;
+
     border-radius: 50%;
-    background: #817263;
+
+    background: #76685a;
+
     top: 9px;
     right: 10px;
-    opacity: 0;
+
+    opacity: .55;
 }
 
-.reason-paper.opened .reason-opened {
-    opacity: .7;
+.reason-progress {
+    margin-top: 42px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: .5;
 }
+
 
 /* =========================================================
-   REASON MODAL
+   REASON POP-UP
 ========================================================= */
 
 .reason-modal {
     position: fixed;
+
     inset: 0;
-    background: rgba(19,15,12,.72);
-    backdrop-filter: blur(5px);
-    z-index: 100;
+
+    z-index: 1000;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     padding: 25px;
+
+    background:
+        rgba(24,19,16,.72);
+
+    backdrop-filter: blur(5px);
+
     opacity: 0;
+
     pointer-events: none;
-    transition: opacity .35s ease;
+
+    transition:
+        opacity .3s ease;
 }
 
 .reason-modal.active {
     opacity: 1;
+
     pointer-events: auto;
 }
 
 .reason-note {
     position: relative;
+
     width: min(620px, 92vw);
+
     min-height: 330px;
-    background:
-        linear-gradient(rgba(249,243,233,.97), rgba(249,243,233,.97)),
-        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
     padding: 65px 55px;
-    box-shadow: 0 30px 80px rgba(0,0,0,.35);
-    transform: rotate(-1deg) scale(.94);
-    transition: transform .4s ease;
+
+    background:
+        linear-gradient(
+            rgba(249,243,233,.98),
+            rgba(249,243,233,.98)
+        ),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+
+    transform:
+        rotate(-1deg)
+        scale(.94);
+
+    transition:
+        transform .35s ease;
 }
 
 .reason-modal.active .reason-note {
-    transform: rotate(-1deg) scale(1);
+    transform:
+        rotate(-1deg)
+        scale(1);
 }
 
+
+/* TYPEWRITER */
+
 .reason-note-number {
-    font-family: "Special Elite", "Courier New", monospace;
-    font-size: 13px;
+    font-family:
+        "Special Elite",
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
     letter-spacing: 2px;
-    opacity: .55;
+
+    opacity: .5;
+
     margin-bottom: 30px;
 }
 
 .reason-note-text {
-    font-family: "Special Elite", "Courier New", monospace;
-    font-size: clamp(19px, 2.4vw, 25px);
-    line-height: 1.7;
+    font-family:
+        "Special Elite",
+        "Courier New",
+        monospace;
+
+    font-size: clamp(18px, 2.3vw, 24px);
+
+    line-height: 1.75;
+
     color: #302a25;
 }
 
 .reason-close {
     position: absolute;
+
+    top: 18px;
     right: 20px;
-    top: 17px;
+
     border: none;
+
     background: none;
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #40362e;
+
+    opacity: .55;
+
     cursor: pointer;
-    color: #4b4036;
-    opacity: .65;
 }
 
 .reason-close:hover {
     opacity: 1;
 }
 
-.reason-progress {
-    margin-top: 50px;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    opacity: .55;
-}
+
+/* #101 */
 
 .reason-101 {
     max-width: 600px;
+
     margin: 90px auto 0;
+
     text-align: center;
+
     opacity: 0;
-    transform: translateY(20px);
-    transition: .8s ease;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
     pointer-events: none;
 }
 
 .reason-101.show {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
+
     pointer-events: auto;
 }
 
-.reason-101 .tiny {
-    font-family: "Special Elite", monospace;
-    font-size: 13px;
-    opacity: .55;
+.reason-101-label {
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 12px;
+
+    opacity: .5;
+
     margin-bottom: 20px;
 }
 
 .reason-101 p {
-    font-family: "Special Elite", monospace;
-    font-size: 22px;
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 21px;
+
     line-height: 1.7;
 }
+
 
 /* =========================================================
    LETTER
 ========================================================= */
 
 #letter {
-    background: #1b1714;
     min-height: 100vh;
+
     padding: 120px 0;
+
+    background: #1b1714;
+
     display: flex;
+
     align-items: center;
 }
 
 .letter-paper {
     width: min(760px, 88%);
+
     margin: auto;
+
+    padding:
+        clamp(45px, 7vw, 80px);
+
     background: #eee5d8;
+
     color: #302821;
-    padding: clamp(45px, 7vw, 80px);
-    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.3);
 }
 
 .letter-paper .date {
-    font-family: "DM Mono", monospace;
+    font-family:
+        "DM Mono",
+        monospace;
+
     font-size: 11px;
+
     letter-spacing: 3px;
+
     opacity: .5;
+
     margin-bottom: 50px;
 }
 
 .letter-paper h1 {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: clamp(35px, 5vw, 58px);
+
     margin-bottom: 35px;
 }
 
 .letter-paper p {
     font-size: 19px;
+
     line-height: 1.8;
+
     margin: 17px 0;
 }
 
 .letter-sign {
     margin-top: 50px;
-    font-family: "Cormorant Garamond", serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     font-size: 32px;
+
     font-style: italic;
 }
+
 
 /* =========================================================
    VIDEO
 ========================================================= */
 
 #video {
-    background: #151210;
+    min-height: 100vh;
+
     padding: 120px 0;
+
+    background: #151210;
+
     text-align: center;
+
+    display: flex;
+
+    align-items: center;
 }
 
 .video-inner {
     width: min(800px, 90%);
+
     margin: auto;
 }
 
 .video-inner h1 {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: clamp(45px, 6vw, 75px);
+
     margin-bottom: 20px;
 }
 
 .video-inner p {
     font-size: 18px;
+
     opacity: .6;
+
     margin-bottom: 45px;
 }
 
 .video-placeholder {
     aspect-ratio: 16 / 9;
-    border: 1px solid rgba(238,229,216,.15);
+
+    border:
+        1px solid rgba(238,229,216,.15);
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background: #1e1916;
-    color: rgba(238,229,216,.45);
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
+
+    color:
+        rgba(238,229,216,.45);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
     letter-spacing: 2px;
 }
 
+
 /* =========================================================
-   END
+   ENDING
 ========================================================= */
 
 #ending {
+    min-height: 100vh;
+
+    padding: 100px 0;
+
     background:
-        radial-gradient(circle at 50% 50%, rgba(101,68,47,.18), transparent 45%),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(101,68,47,.18),
+            transparent 45%
+        ),
         #171311;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    padding: 100px 0;
 }
 
 .ending-inner {
@@ -898,84 +1552,159 @@ section {
 
 .ending-inner h1 {
     font-size: clamp(40px, 6vw, 72px);
+
     font-weight: 500;
+
     margin-bottom: 40px;
 }
 
 .ending-inner p {
     font-size: 21px;
+
     line-height: 1.7;
+
     margin: 12px 0;
 }
 
 .ending-love {
     margin-top: 55px !important;
-    font-family: "Cormorant Garamond", serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     font-size: 32px !important;
+
     font-style: italic;
 }
+
 
 /* =========================================================
    ANIMATIONS
 ========================================================= */
 
 @keyframes fadeUp {
+
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform:
+            translateY(18px);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
+
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
 }
 
-@keyframes breathe {
-    0%,100% {
-        transform: translateX(-50%) scale(1);
-        opacity: .5;
+@keyframes openingFade {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px);
     }
-    50% {
-        transform: translateX(-50%) scale(1.04);
-        opacity: .8;
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
     }
+
 }
 
 @keyframes twinkle {
-    0%,100% { opacity: .2; transform: scale(.8); }
-    50% { opacity: .8; transform: scale(1.5); }
+
+    0%, 100% {
+        opacity: .2;
+        transform:
+            scale(.8);
+    }
+
+    50% {
+        opacity: .8;
+        transform:
+            scale(1.5);
+    }
+
 }
 
 @keyframes arrowMove {
-    0%,100% { transform: rotate(45deg) translate(0,0); }
-    50% { transform: rotate(45deg) translate(3px,3px); }
+
+    0%, 100% {
+        transform:
+            rotate(45deg)
+            translate(0,0);
+    }
+
+    50% {
+        transform:
+            rotate(45deg)
+            translate(3px,3px);
+    }
+
 }
 
 @keyframes floatDust {
-    0%,100% {
-        transform: translate(0,0);
+
+    0%, 100% {
+        transform:
+            translate(0,0);
+
         opacity: .15;
     }
+
     50% {
-        transform: translate(20px,-30px);
+        transform:
+            translate(20px,-30px);
+
         opacity: .5;
     }
+
 }
 
 @keyframes sweep {
-    0% { transform: translateX(-120%); }
-    25%,100% { transform: translateX(120%); }
+
+    0% {
+        transform:
+            translateX(-120%);
+    }
+
+    25%, 100% {
+        transform:
+            translateX(120%);
+    }
+
 }
 
 @keyframes wave {
-    0%,100% { transform: scaleY(.7); }
-    50% { transform: scaleY(1.3); }
+
+    0%, 100% {
+        transform:
+            scaleY(.7);
+    }
+
+    50% {
+        transform:
+            scaleY(1.3);
+    }
+
 }
+
 
 /* =========================================================
    RESPONSIVE
@@ -985,17 +1714,30 @@ section {
 
     .more-grid {
         grid-template-columns: 1fr;
+
         gap: 55px;
     }
 
     .reason-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+            repeat(3, 1fr);
+
         gap: 15px;
     }
 
-    .reason-paper {
-        min-height: 95px;
+    .moon {
+        width: 100px;
+        height: 100px;
     }
+
+    .moon-line {
+        width: 150px;
+    }
+
+    .moon-line.two {
+        width: 130px;
+    }
+
 }
 
 @media (max-width: 560px) {
@@ -1004,9 +1746,29 @@ section {
         letter-spacing: -2px;
     }
 
-    .semicircle {
-        width: 210px;
+    .moon {
+        width: 82px;
+        height: 82px;
+
+        top: 15%;
+    }
+
+    .moon-line {
+        top: 15%;
+
+        width: 125px;
         height: 105px;
+    }
+
+    .moon-line.two {
+        top: calc(15% + 5px);
+
+        width: 110px;
+        height: 95px;
+    }
+
+    .opening-content {
+        margin-top: 70px;
     }
 
     .date-story p {
@@ -1017,13 +1779,20 @@ section {
         height: 570px;
     }
 
+    .second-shot img {
+        height: 470px;
+    }
+
     .reason-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
+
         gap: 13px;
     }
 
     .reason-paper {
         min-height: 90px;
+
         padding: 18px 12px;
     }
 
@@ -1032,7 +1801,7 @@ section {
     }
 
     .reason-note {
-        padding: 55px 35px;
+        padding: 55px 32px;
     }
 
     .reason-note-text {
@@ -1048,7 +1817,9 @@ section {
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      OPENING
@@ -1057,18 +1828,31 @@ section {
 <section id="opening">
 
     <div class="stars">
+
         <span class="star1"></span>
         <span class="star2"></span>
         <span class="star3"></span>
         <span class="star4"></span>
         <span class="star5"></span>
         <span class="star6"></span>
+
     </div>
 
-    <div class="semicircle"></div>
+
+    <!-- SIMPLE STATIC MOON -->
+
+    <div class="moon"></div>
+
+    <div class="moon-line"></div>
+
+    <div class="moon-line two"></div>
+
 
     <div class="opening-content">
-        <div class="opening-hi">hiiiii babyyyy</div>
+
+        <div class="opening-hi">
+            Hiiiii Babyyyy
+        </div>
 
         <div class="opening-line"></div>
 
@@ -1077,11 +1861,17 @@ section {
         </div>
 
         <div class="opening-sub">
-            Happy birthday, love.
+            Happy Birthday, Love.
         </div>
+
     </div>
 
-    <a href="#first-call" class="scroll-arrow"></a>
+
+    <a
+        href="#first-call"
+        class="scroll-arrow"
+        aria-label="Continue"
+    ></a>
 
 </section>
 
@@ -1093,11 +1883,14 @@ section {
 <section id="first-call">
 
     <div class="dust">
+
         <span class="d1"></span>
         <span class="d2"></span>
         <span class="d3"></span>
         <span class="d4"></span>
+
     </div>
+
 
     <div class="date-story">
 
@@ -1126,15 +1919,18 @@ section {
         </p>
 
         <p>
-            And I remember finding it funny that you'd actually asked her to add me just because you thought I was cute.
+            And I remember finding it funny that you'd actually
+            asked her to add me just because you thought I was cute.
         </p>
 
         <p>
-            I think neither of us really knew what to do with that first conversation.
+            I think neither of us really knew what to do
+            with that first conversation.
         </p>
 
         <p>
-            It was just a new person, a new voice, a little bit of awkwardness.
+            It was just a new person, a new voice,
+            a little bit of awkwardness.
         </p>
 
         <p>
@@ -1162,7 +1958,10 @@ section {
 
         <div class="screenshot-frame">
 
-            <img src="mere-saath-nahi.png.jpeg" alt="Our first conversation">
+            <img
+                src="mere-saath-nahi.png.jpeg"
+                alt="Our first conversation"
+            >
 
             <div class="light-sweep"></div>
 
@@ -1178,7 +1977,7 @@ section {
 
 
 <!-- =====================================================
-     AFTER FIRST CALL
+     CALLS
 ===================================================== -->
 
 <section id="calls">
@@ -1192,6 +1991,7 @@ section {
         <p class="calls-sub">
             Then another. And then another.
         </p>
+
 
         <div class="call-list">
 
@@ -1227,12 +2027,29 @@ section {
 
         </div>
 
+
         <div class="wave">
-            <i></i><i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
         </div>
 
-        <p style="font-size:19px;line-height:1.7;opacity:.7;">
+
+        <p
+            style="
+                font-size:19px;
+                line-height:1.7;
+                opacity:.7;
+            "
+        >
             I don't remember what we talked about on most of them.
             <br>
             But I remember how easily they became a part of my day.
@@ -1244,7 +2061,7 @@ section {
 
 
 <!-- =====================================================
-     SECOND SCREENSHOT / ROUTINE
+     ROUTINE
 ===================================================== -->
 
 <section id="routine">
@@ -1259,35 +2076,24 @@ section {
             At some point, talking to each other just became something we did.
         </p>
 
-        <div style="height:30px;"></div>
 
-        <div style="
-            width:min(470px,100%);
-            margin:0 auto 60px;
-            background:#e7dfd2;
-            padding:12px;
-            box-shadow:0 20px 50px rgba(0,0,0,.25);
-            transform:rotate(1deg);
-        ">
+        <div class="second-shot">
+
             <img
                 src="talking-to-you.png"
                 alt="Our conversation"
-                style="
-                    width:100%;
-                    height:520px;
-                    object-fit:cover;
-                    object-position:center;
-                    display:block;
-                "
             >
+
         </div>
+
 
         <p>
             A call when we had nothing particular to say.
         </p>
 
         <p>
-            A conversation that somehow lasted much longer than it was supposed to.
+            A conversation that somehow lasted much longer
+            than it was supposed to.
         </p>
 
         <p>
@@ -1300,18 +2106,25 @@ section {
 
 
 <!-- =====================================================
-     GETTING TO KNOW HIM
+     BRIDGE
 ===================================================== -->
 
 <section id="bridge">
 
-    <div class="leaf one">⌁</div>
-    <div class="leaf two">⌁</div>
+    <div class="leaf one">
+        ⌁
+    </div>
+
+    <div class="leaf two">
+        ⌁
+    </div>
+
 
     <div class="bridge-inner">
 
         <p>
-            And somewhere in all of that, I started remembering the little things.
+            And somewhere in all of that,
+            I started remembering the little things.
         </p>
 
         <p>
@@ -1337,9 +2150,19 @@ section {
 
     <div class="more-inner">
 
+
         <div class="more-heading">
 
-            <div class="small-label">
+            <div
+                style="
+                    font-family:'DM Mono',monospace;
+                    font-size:10px;
+                    letter-spacing:3px;
+                    text-transform:uppercase;
+                    opacity:.5;
+                    margin-bottom:25px;
+                "
+            >
                 the person behind everything else
             </div>
 
@@ -1357,11 +2180,18 @@ section {
 
         <div class="more-grid">
 
+
             <!-- CHILDHOOD -->
 
             <div class="more-card polaroid childhood">
-                <img src="tanmay-childhood.jpg" alt="Tanmay as a child">
+
+                <img
+                    src="tanmay-childhood.jpg"
+                    alt="Tanmay as a child"
+                >
+
             </div>
+
 
             <div class="more-copy">
 
@@ -1375,7 +2205,8 @@ section {
                 </p>
 
                 <p>
-                    It makes me smile knowing that some things really do stay the same.
+                    It makes me smile knowing that some things
+                    really do stay the same.
                 </p>
 
             </div>
@@ -1396,26 +2227,41 @@ section {
                 </p>
 
                 <p>
-                    I love that you don't seem to want life to stay too small —
-                    not in where you go, and not in what you imagine for yourself.
+                    I love that you don't seem to want life
+                    to stay too small —
+                    not in where you go,
+                    and not in what you imagine for yourself.
                 </p>
 
                 <p>
-                    There's a curiosity in you that makes everything more interesting.
+                    There's a curiosity in you
+                    that makes everything more interesting.
                 </p>
 
             </div>
 
+
             <div class="more-card polaroid sea">
-                <img src="tanmay-sea.jpg" alt="Tanmay by the sea">
+
+                <img
+                    src="tanmay-sea.jpg"
+                    alt="Tanmay by the sea"
+                >
+
             </div>
 
 
             <!-- CAMEL -->
 
             <div class="more-card polaroid camel">
-                <img src="tanmay-camel.jpg" alt="Tanmay with a camel">
+
+                <img
+                    src="tanmay-camel.jpg"
+                    alt="Tanmay with a camel"
+                >
+
             </div>
+
 
             <div class="more-copy">
 
@@ -1433,9 +2279,10 @@ section {
                 </p>
 
                 <p>
-                    You can be completely random, completely ridiculous,
-                    and then suddenly say something that reminds me
-                    how deeply you think.
+                    You can be completely random,
+                    completely ridiculous,
+                    and then suddenly say something
+                    that reminds me how deeply you think.
                 </p>
 
             </div>
@@ -1465,21 +2312,25 @@ section {
                 </p>
 
                 <p>
-                    And sometimes I think you forget that you don't have
-                    to have everything figured out just because you care
-                    so much about where you're going.
+                    And sometimes I think you forget
+                    that you don't have to have everything figured out
+                    just because you care so much about where you're going.
                 </p>
 
             </div>
 
+
             <div class="more-card polaroid flowers">
-                <img src="tanmay-flowers.jpg" alt="Tanmay with flowers">
+
+                <img
+                    src="tanmay-flowers.jpg"
+                    alt="Tanmay with flowers"
+                >
+
             </div>
 
         </div>
 
-
-        <!-- ENDING -->
 
         <div class="more-ending">
 
@@ -1500,7 +2351,8 @@ section {
             </p>
 
             <p>
-                What if you don't become the person you imagined you would be?
+                What if you don't become the person
+                you imagined you would be?
             </p>
 
             <p>
@@ -1509,12 +2361,13 @@ section {
             </p>
 
             <p>
-                Sometimes I wish you could see yourself from where I'm standing.
+                Sometimes I wish you could see yourself
+                from where I'm standing.
             </p>
 
             <p>
-                You don't have to wait until you've achieved everything
-                you want before you get to be proud of yourself.
+                You don't have to wait until you've achieved
+                everything you want before you get to be proud of yourself.
             </p>
 
             <div class="final-line">
@@ -1536,9 +2389,10 @@ section {
 
     <div class="reasons-inner">
 
+
         <div class="reasons-heading">
 
-            <div class="small-label">
+            <div class="eyebrow">
                 100 little things
             </div>
 
@@ -1557,21 +2411,23 @@ section {
             </p>
 
             <p>
-                Somewhere along the way, I started seeing
+                Somewhere along the way,
+                I started seeing
                 <strong>you beyond “my Tanmay”</strong> —
                 beyond the person who loves me.
             </p>
 
             <p>
                 I see you as a whole person.
-                The way you are with your family, your friends,
-                the things you care about, the things you want from life,
+                The way you are with your family,
+                your friends, the things you care about,
+                the things you want from life,
                 and all the little things that make you <em>you</em>.
             </p>
 
             <p>
-                And I realised I have so many reasons to love
-                <strong>the person you are</strong>,
+                And I realised I have so many reasons
+                to love <strong>the person you are</strong>,
                 not just the way you love me.
             </p>
 
@@ -1582,19 +2438,29 @@ section {
         </div>
 
 
-        <div class="reason-grid" id="reasonGrid">
-            <!-- JS creates the 100 notes -->
-        </div>
+        <div
+            class="reason-grid"
+            id="reasonGrid"
+        ></div>
 
 
         <div class="reason-progress">
-            <span id="openedCount">0</span> / 100 opened
+
+            <span id="openedCount">
+                0
+            </span>
+
+            / 100 opened
+
         </div>
 
 
-        <div class="reason-101" id="reason101">
+        <div
+            class="reason-101"
+            id="reason101"
+        >
 
-            <div class="tiny">
+            <div class="reason-101-label">
                 #101
             </div>
 
@@ -1611,23 +2477,34 @@ section {
 
 
 <!-- =====================================================
-     REASON MODAL
+     REASON POP-UP
 ===================================================== -->
 
-<div class="reason-modal" id="reasonModal">
+<div
+    class="reason-modal"
+    id="reasonModal"
+>
 
     <div class="reason-note">
 
-        <button class="reason-close" id="closeReason">
+        <button
+            class="reason-close"
+            id="closeReason"
+        >
             CLOSE ×
         </button>
 
-        <div class="reason-note-number" id="reasonNumber">
+        <div
+            class="reason-note-number"
+            id="reasonNumber"
+        >
             REASON 01
         </div>
 
-        <div class="reason-note-text" id="reasonText">
-        </div>
+        <div
+            class="reason-note-text"
+            id="reasonText"
+        ></div>
 
     </div>
 
@@ -1666,8 +2543,10 @@ section {
         <p>
             So I'll just say this —
             I hope this year gives you more of the things
-            you've been working towards, more places to see,
-            more reasons to laugh, and more moments where you realise
+            you've been working towards,
+            more places to see,
+            more reasons to laugh,
+            and more moments where you realise
             you're doing better than you think.
         </p>
 
@@ -1711,7 +2590,7 @@ section {
 
 
 <!-- =====================================================
-     ENDING
+     FINAL ENDING
 ===================================================== -->
 
 <section id="ending">
@@ -1744,7 +2623,7 @@ section {
 
 /* =========================================================
    100 REASONS
-   EDIT THESE DIRECTLY IF YOU WANT
+   EDIT THESE WORDS DIRECTLY WHENEVER YOU WANT
 ========================================================= */
 
 const reasons = [
@@ -1761,7 +2640,7 @@ const reasons = [
 
 "I love that you can talk to almost anyone without needing time to warm up to them.",
 
-"I love the way you call me jaan.I don't think you know how much i love hearing it.",
+"I love the way you call me jaan.",
 
 "I love that when the Doraemon theme started playing at karaoke the night we met, your first instinct was to stand there and sing it without a second thought.",
 
@@ -1773,7 +2652,7 @@ const reasons = [
 
 "I love that you can keep a conversation alive even when there is absolutely nothing to talk about.",
 
-"I love that you don't make permanent decisions based on temporary anger like me.",
+"I love that you don't make permanent decisions based on temporary anger.",
 
 "I love how deeply your family matters to you.",
 
@@ -1815,9 +2694,9 @@ const reasons = [
 
 "I love how you remember tiny things I sometimes don't even remember telling you.",
 
-"I love how much you love Seedhe Maut. So much so that i am jealous of them.",
+"I love how deeply you connect with Seedhe Maut's music.",
 
-"I love that when we met you were more worried about me catching the bus than i was.",
+"I love that their story means something to you because they followed their passion, started with very little, and built something of their own — and I know that's the kind of courage you admire.",
 
 "I love how you can make a completely ordinary conversation feel like the only thing worth paying attention to.",
 
@@ -1825,7 +2704,7 @@ const reasons = [
 
 "I love how protective you are of the people who matter to you.",
 
-"I love that you notice the little things about people without making a show of noticing them. This is an observation from the night we met.",
+"I love that you notice the little things about people without making a show of noticing them.",
 
 "I love that you can be indecisive about the smallest things and incredibly certain about the things that truly matter to you.",
 
@@ -1839,7 +2718,7 @@ const reasons = [
 
 "I love that you can say something so stupid that I genuinely wonder how you arrived at that thought.",
 
-"I love that even when you need time after a fight, you eventually come back to me.",
+"I love that even when you need time after a fight, you eventually come back to the conversation.",
 
 "I love that when I told you, “okay, we're done,” you called me five minutes later and basically refused to accept it.",
 
@@ -1859,7 +2738,7 @@ const reasons = [
 
 "I love how you can make the most ordinary situation unexpectedly funny.",
 
-"I love that you notice when something is off even when i don't explicitly tell you.",
+"I love that you notice when something is off even when nobody has explicitly told you.",
 
 "I love that you want people around you who make you think bigger.",
 
@@ -1867,7 +2746,7 @@ const reasons = [
 
 "I love that beneath all the jokes and confidence, there is a very feeling person.",
 
-"I love how horny you are for me 24/7.",
+"I love how genuinely concerned you are about your parents' health.",
 
 "I love that seeing your father's struggles made you want to take some of that responsibility off him rather than simply accepting it.",
 
@@ -1881,7 +2760,7 @@ const reasons = [
 
 "I love that you are genuinely curious about people who are different from you.",
 
-"I love that you've learned to tell me what you're doing rather than leaving everything unsaid.",
+"I love that you've learned to tell me what you're feeling rather than leaving everything unsaid.",
 
 "I love that after five months of knowing you through a screen, being physically close to you felt completely natural.",
 
@@ -1889,9 +2768,9 @@ const reasons = [
 
 "I love that our first evening together felt comfortable almost immediately instead of feeling like two strangers trying to figure each other out.",
 
-"I love that when we finally met, being in your arms was as natural as breathing.",
+"I love that when we finally met, you were somehow exactly the same person I'd spent five months getting to know through a screen — goofy, comfortable and completely yourself.",
 
-"I love the way you were instinctivelylooking out for me constantly .",
+"I love the way you instinctively look out for the people you're with, even in something as small as noticing where they're walking.",
 
 "I love that affection seems to come naturally to you rather than feeling like something you have to consciously perform.",
 
@@ -1903,7 +2782,7 @@ const reasons = [
 
 "I love that being with you that evening made everything else I had been worrying about feel very far away.",
 
-"I love that the chaos in me doesnt change the calm in you.",
+"I love that the first time I was actually in your arms, it felt familiar instead of strange.",
 
 "I love that you make being looked after feel comforting rather than suffocating.",
 
@@ -1921,11 +2800,11 @@ const reasons = [
 
 "I love that you don't try to hide the things you're passionate about just because someone else might find them uncool.",
 
-"I love that you can carry serious responsibilities and still be the person who will randomly start singing .",
+"I love that you can carry serious responsibilities and still be the person who will randomly start singing the Doraemon theme in public.",
 
 "I love that you know I'm stubborn and rude and occasionally impossible, and somehow you still find me worth the trouble.",
 
-"I love that you choose to be with me everyday despite having multiple reasons not to.",
+"I love that you don't seem to need a perfect version of someone before you can genuinely care about them.",
 
 "I love that underneath your confidence is someone who genuinely wonders whether he'll become the person he wants to be.",
 
@@ -1953,61 +2832,90 @@ const reasons = [
 
 
 /* =========================================================
-   CREATE REASON PAPERS
+   CREATE 100 REASON PAPERS
 ========================================================= */
 
-const reasonGrid = document.getElementById("reasonGrid");
-const modal = document.getElementById("reasonModal");
-const reasonNumber = document.getElementById("reasonNumber");
-const reasonText = document.getElementById("reasonText");
-const closeReason = document.getElementById("closeReason");
-const openedCount = document.getElementById("openedCount");
-const reason101 = document.getElementById("reason101");
+const reasonGrid =
+    document.getElementById("reasonGrid");
 
-let opened = new Set();
+const reasonModal =
+    document.getElementById("reasonModal");
+
+const reasonNumber =
+    document.getElementById("reasonNumber");
+
+const reasonText =
+    document.getElementById("reasonText");
+
+const closeReason =
+    document.getElementById("closeReason");
+
+const openedCount =
+    document.getElementById("openedCount");
+
+const reason101 =
+    document.getElementById("reason101");
+
+const openedReasons =
+    new Set();
+
 
 reasons.forEach((reason, index) => {
 
-    const paper = document.createElement("div");
+    const paper =
+        document.createElement("div");
 
-    paper.className = "reason-paper";
+    paper.className =
+        "reason-paper";
+
 
     paper.innerHTML = `
+
         <span class="reason-number">
             ${String(index + 1).padStart(2, "0")}
         </span>
 
-        <span class="reason-opened"></span>
     `;
+
 
     paper.addEventListener("click", () => {
 
-        const number = index + 1;
-
         reasonNumber.textContent =
-            "REASON " + String(number).padStart(2, "0");
+            "REASON " +
+            String(index + 1).padStart(2, "0");
 
-        reasonText.textContent = reason;
 
-        modal.classList.add("active");
+        reasonText.textContent =
+            reason;
 
-        if (!opened.has(number)) {
 
-            opened.add(number);
+        reasonModal.classList.add("active");
+
+
+        if (!openedReasons.has(index)) {
+
+            openedReasons.add(index);
 
             paper.classList.add("opened");
 
-            openedCount.textContent = opened.size;
+            openedCount.textContent =
+                openedReasons.size;
 
-            if (opened.size === 100) {
+
+            if (openedReasons.size === 100) {
+
                 setTimeout(() => {
+
                     reason101.classList.add("show");
-                }, 900);
+
+                }, 800);
+
             }
 
         }
 
     });
+
 
     reasonGrid.appendChild(paper);
 
@@ -2015,25 +2923,33 @@ reasons.forEach((reason, index) => {
 
 
 /* =========================================================
-   CLOSE MODAL
+   CLOSE REASON
 ========================================================= */
 
 closeReason.addEventListener("click", () => {
-    modal.classList.remove("active");
+
+    reasonModal.classList.remove("active");
+
 });
 
-modal.addEventListener("click", (e) => {
 
-    if (e.target === modal) {
-        modal.classList.remove("active");
+reasonModal.addEventListener("click", (event) => {
+
+    if (event.target === reasonModal) {
+
+        reasonModal.classList.remove("active");
+
     }
 
 });
 
-document.addEventListener("keydown", (e) => {
 
-    if (e.key === "Escape") {
-        modal.classList.remove("active");
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        reasonModal.classList.remove("active");
+
     }
 
 });
