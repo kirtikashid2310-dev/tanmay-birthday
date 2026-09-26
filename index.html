@@ -7936,6 +7936,315 @@ body::before {
 </style>
 
 
+
+<style>
+
+/* =========================================================
+
+   100 NOTES -> 101 REASON
+
+========================================================= */
+
+.reason-grid.completed .reason-note {
+
+  animation: reasonNoteFadeAway .9s cubic-bezier(.4,0,.2,1) forwards;
+
+  animation-delay: var(--delay);
+
+  pointer-events: none;
+
+}
+
+
+@keyframes reasonNoteFadeAway {
+
+  0% { opacity: 1; transform: rotate(var(--r)) translateY(0) scale(1); }
+
+  100% { opacity: 0; transform: rotate(var(--r)) translateY(-24px) scale(.92); }
+
+}
+
+
+.reason-final {
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+
+  transition: opacity .9s ease, visibility 0s linear .9s !important;
+
+}
+
+
+.reason-final.show {
+
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  z-index: 10000 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  padding: 28px !important;
+
+  background: rgba(24,16,12,.94) !important;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  pointer-events: auto !important;
+
+  transition: opacity .9s ease !important;
+
+}
+
+
+.reason-final.show .reason-final-paper {
+
+  width: min(720px, 90vw) !important;
+
+  min-height: 330px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  justify-content: center !important;
+
+  align-items: center !important;
+
+  text-align: center !important;
+
+  padding: 65px 55px !important;
+
+  background: #f4ecdf !important;
+
+  color: #2f261f !important;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,.4) !important;
+
+  transform: translateY(12px) scale(.97);
+
+  animation: reason101In .9s cubic-bezier(.2,.8,.2,1) forwards;
+
+}
+
+
+.reason-final.show h3 {
+
+  color: #2f261f !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+
+  font-size: clamp(34px, 5vw, 58px) !important;
+
+  line-height: 1.05 !important;
+
+  margin: 0 0 24px !important;
+
+}
+
+
+.reason-final.show p {
+
+  color: #5d5045 !important;
+
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+
+  font-size: clamp(20px, 2.4vw, 27px) !important;
+
+  margin: 0 !important;
+
+}
+
+
+.reason-final.show .reason-final-small {
+
+  color: #7a695b !important;
+
+  font-family: "Caveat", cursive !important;
+
+  font-size: 21px !important;
+
+  margin-top: 38px !important;
+
+}
+
+
+@keyframes reason101In {
+
+  to { opacity: 1; transform: translateY(0) scale(1); }
+
+}
+
+
+/* =========================================================
+
+   HANDWRITTEN LETTER
+
+========================================================= */
+
+#letter-section {
+
+  background: #2b1d15 !important;
+
+  padding: 100px 0 120px !important;
+
+  color: #302720 !important;
+
+}
+
+
+.letter-page-wrap {
+
+  width: min(900px, 90vw) !important;
+
+  margin: 0 auto !important;
+
+}
+
+
+.letter-page {
+
+  position: relative !important;
+
+  background:
+
+    radial-gradient(circle at 15% 20%, rgba(80,60,40,.025) 0 1px, transparent 1.5px),
+
+    radial-gradient(circle at 75% 65%, rgba(80,60,40,.022) 0 1px, transparent 1.5px),
+
+    #f3ecdf !important;
+
+  background-size: 9px 9px, 12px 12px, auto !important;
+
+  padding: clamp(45px, 6vw, 75px) clamp(38px, 7vw, 85px) !important;
+
+  box-shadow: 0 25px 65px rgba(0,0,0,.25) !important;
+
+  transform: rotate(-.25deg) !important;
+
+}
+
+
+.letter-handwritten {
+
+  font-family: "Caveat", cursive !important;
+
+  color: #302720 !important;
+
+  font-size: clamp(32px, 4vw, 46px) !important;
+
+  margin-bottom: 35px !important;
+
+}
+
+
+.letter-body p {
+
+  color: #40362e !important;
+
+  font-family: "Caveat", cursive !important;
+
+  font-size: clamp(21px, 2.25vw, 28px) !important;
+
+  line-height: 1.45 !important;
+
+  margin: 0 0 19px !important;
+
+  text-align: justify !important;
+
+  text-justify: inter-word !important;
+
+}
+
+
+.letter-body .letter-emphasis {
+
+  font-size: clamp(25px, 2.7vw, 33px) !important;
+
+  color: #2f2721 !important;
+
+}
+
+
+.letter-body strong {
+
+  color: #2f2721 !important;
+
+  font-weight: 700 !important;
+
+}
+
+
+.letter-body em {
+
+  color: #4b3e34 !important;
+
+}
+
+
+.letter-signoff {
+
+  margin-top: 40px !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  color: #40362e !important;
+
+  font-family: "Caveat", cursive !important;
+
+  font-size: clamp(23px, 2.5vw, 31px) !important;
+
+}
+
+
+.letter-signature {
+
+  font-size: clamp(34px, 4vw, 48px) !important;
+
+  margin-top: 4px !important;
+
+}
+
+
+@media (max-width: 760px) {
+
+  #letter-section { padding: 65px 0 80px !important; }
+
+  .letter-page-wrap { width: 92vw !important; }
+
+  .letter-page { padding: 38px 25px 48px !important; }
+
+  .letter-body p {
+
+    font-size: 22px !important;
+
+    line-height: 1.42 !important;
+
+  }
+
+  .letter-body .letter-emphasis { font-size: 25px !important; }
+
+}
+
+</style>
+
+
 </head>
 
 
@@ -9260,6 +9569,210 @@ body::before {
 </section>
 
 
+
+<!-- =========================================================
+
+     THE LETTER
+
+========================================================= -->
+
+<section id="letter-section">
+
+  <div class="letter-page-wrap">
+
+    <article class="letter-page">
+
+      <div class="letter-handwritten">Dear Tanmay,</div>
+
+
+      <div class="letter-body">
+
+        <p>I don't really know how to start this without making it sound like something I've already said a hundred times.</p>
+
+        <p>So I'll just start with this.</p>
+
+        <p class="letter-emphasis">Happy birthday, baby.</p>
+
+
+        <p>I know you don't really like making a big deal out of your birthday. But I hope, at least for today, you let yourself be celebrated a little.</p>
+
+        <p>Because you are someone worth celebrating.</p>
+
+
+        <p>Not just because you're my boyfriend. Not because of the way you love me. And not because of everything you've done for me.</p>
+
+        <p>Just because you're <strong>you.</strong></p>
+
+
+        <p>Somewhere along the way, I started getting to know the person behind all the jokes, the confidence, the random nonsense, the stubbornness, and the arguments that somehow turn into courtroom proceedings.</p>
+
+        <p>And I realised there is so much more to you than what people see at first.</p>
+
+
+        <p>You're ambitious. You're curious. You're ridiculously unserious sometimes. You care about your family more than you probably say out loud. You think about your future a lot. You want to experience things, see places, become someone you're proud of.</p>
+
+
+        <p>And I know you worry sometimes about whether you'll actually get there.</p>
+
+        <p>I wish you could borrow my eyes for a little while and see yourself the way I see you.</p>
+
+
+        <p>Because sometimes I think you are so busy becoming the person you want to be that you forget to notice the person you've already become.</p>
+
+        <p>And baby, <strong>I am so proud of that person.</strong></p>
+
+
+        <p>You don't have to have your whole life figured out. You don't have to have achieved everything yet. You don't have to become some perfect future version of yourself before you deserve to be proud.</p>
+
+        <p>You are allowed to be twenty-one and still figuring things out.</p>
+
+        <p>You are allowed to be scared.</p>
+
+        <p>You are allowed to change your mind.</p>
+
+        <p>You are allowed to take your time.</p>
+
+        <p>And you are allowed to be loved in the middle of all of it.</p>
+
+        <p>I hope you never forget that.</p>
+
+
+        <p>There are so many things I want for you.</p>
+
+        <p>I want you to see places you've never seen before. I want you to chase things that scare you a little. I want you to hear music that makes you stop whatever you're doing just to listen. I want you to build something that makes you look back one day and think, <em>I really did that.</em></p>
+
+
+        <p>But more than any achievement, I want you to have a life that feels like yours.</p>
+
+        <p>A life that doesn't just look good from the outside.</p>
+
+        <p>A life that feels good when you're alone with yourself.</p>
+
+
+        <p>And when you eventually get there — wherever <em>there</em> turns out to be — I hope you remember the version of yourself who was sitting here at twenty-one, still figuring it all out, still dreaming, still trying.</p>
+
+        <p>Because I'll always have a soft spot for him.</p>
+
+
+        <p>The boy I met through a screen.</p>
+
+        <p>The boy I eventually met in person.</p>
+
+        <p>The boy who somehow felt familiar before I had even properly known what it felt like to have him beside me.</p>
+
+
+        <p>And maybe that's the strangest, loveliest thing about you.</p>
+
+        <p class="letter-emphasis">You never really felt like someone I had just met.</p>
+
+        <p>You felt like someone I had been slowly finding.</p>
+
+
+        <p>And I know distance has been a part of us.</p>
+
+        <p>But somehow, even from far away, you've managed to leave pieces of yourself in my everyday life.</p>
+
+        <p>In songs. In words. In places I want to take you. In random things I see and immediately think, <em>Tanmay would like this.</em></p>
+
+        <p>In the stupid little phrases I've started saying because of you.</p>
+
+        <p>In the quiet moments when I realise I have something I want to tell you.</p>
+
+        <p>You've become part of the way I experience my days.</p>
+
+        <p>And I don't think you know how much that means to me.</p>
+
+
+        <p>So, on your birthday, I don't just want to say <em>I love you.</em></p>
+
+        <p>I want to say:</p>
+
+        <p class="letter-emphasis">Thank you for letting me know you.</p>
+
+
+        <p>For letting me see the parts of you that are loud and ridiculous, and the parts that are quiet and scared.</p>
+
+        <p>For trusting me with the softer pieces.</p>
+
+        <p>For letting me be there while you're still becoming yourself.</p>
+
+        <p>And thank you for choosing me through all the ordinary days too — not just the beautiful ones.</p>
+
+
+        <p>Because I think that's where love actually lives.</p>
+
+        <p>Not only in the big promises.</p>
+
+        <p>But in the <em>“hiii babyyyy”</em> at the beginning of a call.</p>
+
+        <p>In staying a little longer when neither of us has anything left to say.</p>
+
+        <p>In remembering something tiny.</p>
+
+        <p>In coming back after a difficult day.</p>
+
+        <p>In making room for another person inside a life that was already moving before they arrived.</p>
+
+
+        <p>And somehow, you made room for me.</p>
+
+        <p>I hope I always make you feel like you can come home to me too.</p>
+
+
+        <p>Not because I expect you to have everything together.</p>
+
+        <p>Not because I need you to be anything other than yourself.</p>
+
+        <p>Just because <strong>you are you.</strong></p>
+
+
+        <p>And somehow, that has been enough to make me love you more than I know how to put into one letter.</p>
+
+
+        <p class="letter-emphasis">And I want you to know something else — I'm not going anywhere.</p>
+
+        <p>I can't promise to fix every problem or take every difficult thing away, but I can promise you won't have to face them alone.</p>
+
+
+        <p>So here's to twenty-one.</p>
+
+        <p>To the person you are.</p>
+
+        <p>To the person you're becoming.</p>
+
+        <p>To every place you haven't seen yet, every dream you haven't reached yet, every version of yourself you haven't met yet.</p>
+
+
+        <p>I hope life is gentle with you.</p>
+
+        <p>And when it isn't, I hope you remember that you don't have to carry everything alone.</p>
+
+
+        <p class="letter-emphasis">Happy birthday, my baby.</p>
+
+
+        <p>I hope one day you look back at this version of yourself and realise just how much there was to love here.</p>
+
+        <p>And I hope, whenever you doubt yourself, you remember that somewhere in Mumbai there is a girl who looks at you and thinks, <em>How lucky am I that I got to know this person?</em></p>
+
+      </div>
+
+
+      <div class="letter-signoff">
+
+        <span>Love,</span>
+
+        <span class="letter-signature">Kiki ♡</span>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
 <div class="reason-modal" id="reason-modal" aria-hidden="true">
 
   <div class="reason-paper">
@@ -9293,9 +9806,10 @@ const reasonClose = document.getElementById('reason-close');
 
 const reasonFinal = document.getElementById('reason-final');
 
-const reasonKey = 'tanmay-100-reasons-opened';
 
-let opened = new Set(JSON.parse(localStorage.getItem(reasonKey) || '[]'));
+/* Progress intentionally resets on every refresh. */
+
+let opened = new Set();
 
 
 reasons.forEach((reason, index) => {
@@ -9304,9 +9818,11 @@ reasons.forEach((reason, index) => {
 
   const note = document.createElement('button');
 
-  note.className = 'reason-note' + (opened.has(n) ? ' opened' : '');
+  note.className = 'reason-note';
 
   note.style.setProperty('--r', `${[-1.2,.7,-.5,1.1,-.8,.4][index % 6]}deg`);
+
+  note.style.setProperty('--delay', `${(index % 10) * 0.035}s`);
 
   note.setAttribute('aria-label', `Open reason ${n}`);
 
@@ -9325,18 +9841,17 @@ function updateReasonCount(){
 
   reasonCount.textContent = `${count} / 100 opened`;
 
-  if(count === 100) reasonFinal.classList.add('show');
-
 }
 
 
 function openReason(n, reason, note){
 
+  if (reasonGrid.classList.contains('completed')) return;
+
+
   opened.add(n);
 
   note.classList.add('opened');
-
-  localStorage.setItem(reasonKey, JSON.stringify([...opened].sort((a,b)=>a-b)));
 
   reasonPaperNumber.textContent = String(n).padStart(2,'0') + ' / 100';
 
@@ -9348,6 +9863,29 @@ function openReason(n, reason, note){
 
   updateReasonCount();
 
+
+  if (opened.size === 100) {
+
+    setTimeout(() => {
+
+      closeReason();
+
+      setTimeout(() => {
+
+        reasonGrid.classList.add('completed');
+
+        setTimeout(() => {
+
+          reasonFinal.classList.add('show');
+
+        }, 1050);
+
+      }, 220);
+
+    }, 650);
+
+  }
+
 }
 
 
@@ -9358,6 +9896,7 @@ function closeReason(){
   reasonModal.setAttribute('aria-hidden','true');
 
 }
+
 
 reasonClose.addEventListener('click', closeReason);
 
