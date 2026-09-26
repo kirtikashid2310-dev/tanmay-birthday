@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nothing+You+Could+Do&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 
 <style>
@@ -8245,6 +8245,457 @@ body::before {
 </style>
 
 
+
+<style>
+
+/* =========================================================
+
+   FINAL LETTER + CLEAN SECTION BACKGROUNDS
+
+   No gradients in any major section.
+
+========================================================= */
+
+
+/* Solid section changes — deliberately abrupt, editorial transitions. */
+
+#opening {
+
+  background: #090807 !important;
+
+  background-image: none !important;
+
+}
+
+
+#beginning {
+
+  background: #17100d !important;
+
+  background-image: none !important;
+
+}
+
+
+.chat-section {
+
+  background: #211612 !important;
+
+  background-image: none !important;
+
+}
+
+
+.calls-section {
+
+  background: #17110e !important;
+
+  background-image: none !important;
+
+}
+
+
+.routine-section {
+
+  background: #211711 !important;
+
+  background-image: none !important;
+
+}
+
+
+.bridge-section {
+
+  background: #2b2019 !important;
+
+  background-image: none !important;
+
+}
+
+
+#more {
+
+  background: #eee7d9 !important;
+
+  background-image: none !important;
+
+}
+
+
+#more::before,
+
+.more-top-fade {
+
+  background-image: none !important;
+
+  display: none !important;
+
+}
+
+
+#reasons {
+
+  background: #2d1d14 !important;
+
+  background-image: none !important;
+
+}
+
+
+.reasons-table {
+
+  background: #2d1d14 !important;
+
+  background-image: none !important;
+
+}
+
+
+.reasons-table::before {
+
+  background-image: none !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   LETTER: wider physical page + richer paper texture
+
+--------------------------------------------------------- */
+
+
+#letter-section {
+
+  background: #2b1d15 !important;
+
+  background-image: none !important;
+
+  padding: clamp(70px, 8vw, 115px) 0 clamp(90px, 10vw, 140px) !important;
+
+}
+
+
+.letter-page-wrap {
+
+  width: min(1120px, 94vw) !important;
+
+  max-width: 1120px !important;
+
+  margin: 0 auto !important;
+
+}
+
+
+.letter-page {
+
+  position: relative !important;
+
+  width: 100% !important;
+
+  min-height: 1100px !important;
+
+  overflow: hidden !important;
+
+  background-color: #f1e9db !important;
+
+  background-image:
+
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='.16'/%3E%3C/svg%3E") !important;
+
+  background-size: 240px 240px !important;
+
+  padding: clamp(70px, 7vw, 100px) clamp(70px, 9vw, 125px) !important;
+
+  box-shadow:
+
+    0 30px 75px rgba(0,0,0,.30),
+
+    0 2px 0 rgba(255,255,255,.35) inset !important;
+
+  border: 1px solid rgba(105,82,60,.10) !important;
+
+  transform: rotate(-.18deg) !important;
+
+}
+
+
+/* subtle physical paper variation without gradients */
+
+.letter-page::before {
+
+  content: "" !important;
+
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  pointer-events: none !important;
+
+  opacity: .16 !important;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='fibers'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fibers)' opacity='.32'/%3E%3C/svg%3E") !important;
+
+  background-size: 160px 160px !important;
+
+}
+
+
+.letter-page > * {
+
+  position: relative !important;
+
+  z-index: 2 !important;
+
+}
+
+
+.letter-handwritten,
+
+.letter-body p,
+
+.letter-signoff,
+
+.letter-signature {
+
+  font-family: "Caveat", "Nothing You Could Do", "Segoe Print", cursive !important;
+
+  font-weight: 500 !important;
+
+  letter-spacing: .15px !important;
+
+}
+
+
+/* Closer to the user's thin, slanted handwritten rhythm. */
+
+.letter-handwritten {
+
+  font-size: clamp(38px, 4.2vw, 52px) !important;
+
+  line-height: 1 !important;
+
+  margin-bottom: 42px !important;
+
+  transform: rotate(-1deg) !important;
+
+}
+
+
+.letter-body {
+
+  max-width: 100% !important;
+
+}
+
+
+.letter-body p {
+
+  color: #40362e !important;
+
+  font-size: clamp(22px, 2.25vw, 29px) !important;
+
+  line-height: 1.48 !important;
+
+  margin: 0 0 22px !important;
+
+  text-align: justify !important;
+
+  text-justify: inter-word !important;
+
+  hyphens: none !important;
+
+}
+
+
+.letter-body .letter-emphasis {
+
+  color: #2f2721 !important;
+
+  font-size: clamp(26px, 2.65vw, 35px) !important;
+
+  line-height: 1.35 !important;
+
+}
+
+
+.letter-body strong {
+
+  color: #2f2721 !important;
+
+  font-weight: 600 !important;
+
+}
+
+
+.letter-body em {
+
+  color: #40362e !important;
+
+}
+
+
+/* One real photograph inside the physical letter. */
+
+.letter-photo {
+
+  width: min(390px, 54vw) !important;
+
+  margin: 38px auto 44px !important;
+
+  padding: 13px 13px 17px !important;
+
+  background: #f8f2e7 !important;
+
+  box-shadow: 0 15px 28px rgba(48,38,29,.16) !important;
+
+  transform: rotate(-1.3deg) !important;
+
+}
+
+
+.letter-photo img {
+
+  display: block !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+
+  max-height: 430px !important;
+
+  object-fit: cover !important;
+
+}
+
+
+.letter-signoff {
+
+  margin-top: 50px !important;
+
+  align-items: flex-start !important;
+
+  font-size: clamp(25px, 2.6vw, 34px) !important;
+
+  color: #40362e !important;
+
+}
+
+
+.letter-signature {
+
+  font-size: clamp(38px, 4.2vw, 52px) !important;
+
+  margin-top: 3px !important;
+
+  transform: rotate(-3deg) !important;
+
+}
+
+
+/* Mobile: keep the paper wide but readable. */
+
+@media (max-width: 760px) {
+
+  #letter-section {
+
+    padding: 55px 0 75px !important;
+
+  }
+
+
+  .letter-page-wrap {
+
+    width: 94vw !important;
+
+  }
+
+
+  .letter-page {
+
+    min-height: 0 !important;
+
+    padding: 45px 27px 58px !important;
+
+  }
+
+
+  .letter-handwritten {
+
+    font-size: 39px !important;
+
+    margin-bottom: 34px !important;
+
+  }
+
+
+  .letter-body p {
+
+    font-size: 22px !important;
+
+    line-height: 1.46 !important;
+
+    margin-bottom: 19px !important;
+
+  }
+
+
+  .letter-body .letter-emphasis {
+
+    font-size: 26px !important;
+
+  }
+
+
+  .letter-photo {
+
+    width: min(320px, 78vw) !important;
+
+    margin: 30px auto 36px !important;
+
+  }
+
+}
+
+</style>
+
+
+
+<style>
+
+/* Letter photo: user's own Polaroid */
+
+.letter-photo {
+
+  width: min(360px, 70vw) !important;
+
+  margin: 42px auto !important;
+
+  padding: 12px 12px 28px !important;
+
+  background: #f4eee2 !important;
+
+  box-shadow: 0 18px 35px rgba(38,25,18,.18) !important;
+
+  transform: rotate(-2deg) !important;
+
+}
+
+.letter-photo img {
+
+  display: block !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+
+  object-fit: cover !important;
+
+}
+
+</style>
+
+
 </head>
 
 
@@ -9688,6 +10139,13 @@ body::before {
         <p>I want to say:</p>
 
         <p class="letter-emphasis">Thank you for letting me know you.</p>
+
+        <figure class="letter-photo">
+
+          <img src="b2beb6ac-d733-40cf-b8c4-148e1717ac78.jpg" alt="Our Polaroid">
+
+        </figure>
+
 
 
         <p>For letting me see the parts of you that are loud and ridiculous, and the parts that are quiet and scared.</p>
