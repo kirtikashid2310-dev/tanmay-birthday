@@ -6613,6 +6613,451 @@ body::before {
 }
 
 
+
+/* =========================================================
+
+   OPENING TYPOGRAPHY
+
+========================================================= */
+
+
+.opening-title {
+
+  font-size: clamp(30px, 4.2vw, 50px) !important;
+
+  line-height: 1.05 !important;
+
+  letter-spacing: .02em !important;
+
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+
+  font-weight: 500 !important;
+
+}
+
+
+.opening-subtitle {
+
+  font-size: clamp(48px, 7vw, 82px) !important;
+
+  line-height: .98 !important;
+
+  font-family: "Great Vibes", "Cormorant Garamond", cursive !important;
+
+  font-weight: 400 !important;
+
+  margin-top: 18px !important;
+
+}
+
+
+.type-title {
+
+  display: inline-block;
+
+  min-height: 1.1em;
+
+  white-space: nowrap;
+
+}
+
+
+.type-title .type-char {
+
+  display: inline-block;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  animation: openingLetterIn .42s cubic-bezier(.2,.8,.2,1) forwards;
+
+}
+
+
+@keyframes openingLetterIn {
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .opening-title {
+
+    font-size: clamp(25px, 7vw, 37px) !important;
+
+  }
+
+
+  .opening-subtitle {
+
+    font-size: clamp(43px, 12vw, 64px) !important;
+
+    margin-top: 14px !important;
+
+  }
+
+}
+
+
+
+/* =========================================================
+
+   MEMORY / 16.04 — CENTRED
+
+========================================================= */
+
+
+#beginning .memory-scene,
+
+#beginning .memory-content,
+
+#beginning .memory-text {
+
+  text-align: center !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+#beginning .memory-date,
+
+#beginning .memory-line,
+
+#beginning .video-call {
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+#beginning .memory-date {
+
+  text-align: center !important;
+
+}
+
+
+#beginning .memory-line {
+
+  text-align: justify !important;
+
+  max-width: 720px !important;
+
+}
+
+
+#beginning .memory-line.first,
+
+#beginning .memory-line:first-of-type {
+
+  text-align: center !important;
+
+}
+
+
+#beginning .video-call {
+
+  text-align: center !important;
+
+}
+
+
+
+/* =========================================================
+
+   DARK SEQUENCE — ONE CONTINUOUS GRADIENT
+
+========================================================= */
+
+
+.calls-section,
+
+.routine-section,
+
+.bridge-section {
+
+  position: relative !important;
+
+  background:
+
+    linear-gradient(
+
+      180deg,
+
+      #100b09 0%,
+
+      #130d0a 15%,
+
+      #19110d 32%,
+
+      #211711 50%,
+
+      #2b1d16 66%,
+
+      #39291f 80%,
+
+      #55453a 91%,
+
+      #eee7d9 100%
+
+    ) !important;
+
+  border: 0 !important;
+
+}
+
+
+.calls-section::after,
+
+.routine-section::after,
+
+.bridge-section::after {
+
+  display: none !important;
+
+}
+
+
+.bridge-section {
+
+  min-height: 55vh !important;
+
+  margin-top: 0 !important;
+
+}
+
+
+.bridge-content {
+
+  width: min(900px, 86%) !important;
+
+  margin: 0 auto !important;
+
+  padding: 70px 0 85px !important;
+
+  text-align: center !important;
+
+}
+
+
+.bridge-content p {
+
+  color: #f4eadb !important;
+
+  text-align: justify !important;
+
+  text-shadow: 0 1px 9px rgba(0,0,0,.42) !important;
+
+  max-width: 820px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  line-height: 1.5 !important;
+
+}
+
+
+.after-chat p,
+
+.routine-intro p,
+
+.chat-text p {
+
+  color: #f0e5d7 !important;
+
+  text-shadow: 0 1px 8px rgba(0,0,0,.3) !important;
+
+}
+
+
+.after-chat,
+
+.routine-intro,
+
+.chat-text {
+
+  text-align: center !important;
+
+}
+
+
+.after-chat p,
+
+.routine-intro p,
+
+.chat-text p {
+
+  text-align: justify !important;
+
+  max-width: 780px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+/* The handoff from dark story to paper is gradual rather than a band. */
+
+#more {
+
+  position: relative !important;
+
+  margin-top: -1px !important;
+
+}
+
+
+
+/* =========================================================
+
+   OPENING STARS — ACTUAL STAR GLYPHS
+
+========================================================= */
+
+
+.stars .star {
+
+  width: 18px !important;
+
+  height: 18px !important;
+
+  border-radius: 0 !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+
+}
+
+
+.stars .star::before {
+
+  content: "✦";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  color: #eadbc8;
+
+  font-family: Georgia, serif;
+
+  font-size: 16px;
+
+  line-height: 18px;
+
+  text-align: center;
+
+  text-shadow: 0 0 10px rgba(234,219,200,.35);
+
+}
+
+
+.stars .star:nth-child(2)::before,
+
+.stars .star:nth-child(5)::before {
+
+  content: "✧";
+
+  font-size: 13px;
+
+}
+
+
+.stars .star:nth-child(3)::before {
+
+  content: "✦";
+
+  font-size: 19px;
+
+}
+
+
+.stars .star:nth-child(4)::before,
+
+.stars .star:nth-child(6)::before {
+
+  content: "✧";
+
+  font-size: 11px;
+
+}
+
+
+
+/* =========================================================
+
+   MORE THAN YOU KNOW — SIMPLE POLAROIDS, DIFFERENT FONTS
+
+========================================================= */
+
+
+#more .more-title {
+
+  font-family: Georgia, "Times New Roman", serif !important;
+
+  color: #2d251f !important;
+
+}
+
+
+#more .more-subtitle {
+
+  font-family: "Great Vibes", "Caveat", cursive !important;
+
+}
+
+
+#more .copy-label {
+
+  font-family: Inter, sans-serif !important;
+
+  letter-spacing: 5px !important;
+
+}
+
+
+#more .copy-column h3 {
+
+  font-family: Georgia, "Times New Roman", serif !important;
+
+}
+
+
+#more .copy-column p {
+
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+
+}
+
+
+#more .hand-note {
+
+  font-family: "Caveat", cursive !important;
+
+}
+
+
 </style>
 
 </head>
@@ -6656,11 +7101,7 @@ body::before {
   <div class="opening-inner">
 
 
-    <div class="opening-title">
-
-      Hiiiii Babyyyy
-
-    </div>
+    <div class="opening-title"><span class="type-title" data-text="Hiiiii Babyyyy"></span></div>
 
 
     <div class="opening-rule"></div>
@@ -6673,11 +7114,7 @@ body::before {
     </div>
 
 
-    <div class="opening-subtitle">
-
-      Happy Birthday, Love.
-
-    </div>
+    <div class="opening-subtitle">Happy Birthday, Love.</div>
 
 
   </div>
@@ -7514,7 +7951,7 @@ body::before {
 
         <p class="reveal delay-2">
 
-          You've been becoming yourself for a long time.
+          I wonder what this little version of you was like.
 
         </p>
 
@@ -7522,7 +7959,7 @@ body::before {
 
         <p class="reveal delay-3">
 
-          The more I got to know you, the more I realised how many different versions of you there are. You've been figuring yourself out, growing into yourself, and becoming the person you are now for much longer than I've known you. And I think that's really beautiful to think about.
+          You've been becoming yourself for a long time. The more I got to know you, the more I realised how many different versions of you there are. You've been figuring yourself out, growing into yourself, and becoming the person you are now for much longer than I've known you. And I think that's really beautiful to think about.
 
         </p>
 
@@ -8146,6 +8583,40 @@ window.addEventListener("load", () => {
 
 </script>
 
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const el = document.querySelector(".type-title");
+
+  if (!el) return;
+
+
+  const text = el.dataset.text || el.textContent.trim();
+
+  el.textContent = "";
+
+
+  [...text].forEach((char, index) => {
+
+    const span = document.createElement("span");
+
+    span.className = "type-char";
+
+    span.textContent = char === " " ? "\u00A0" : char;
+
+    span.style.animationDelay = (0.08 + index * 0.075) + "s";
+
+    el.appendChild(span);
+
+  });
+
+});
+
+</script>
 
 
 </body>
