@@ -7479,6 +7479,463 @@ body::before {
 
 </style>
 
+
+<style>
+
+/* =========================================================
+
+   FINAL LAYOUT FIX — NO GRADIENTS
+
+========================================================= */
+
+
+/* Separate sections cleanly. No gradient anywhere in this sequence. */
+
+.chat-section {
+
+  background: #211612 !important;
+
+  background-image: none !important;
+
+}
+
+
+.calls-section {
+
+  background: #17110e !important;
+
+  background-image: none !important;
+
+}
+
+
+.routine-section {
+
+  background: #211711 !important;
+
+  background-image: none !important;
+
+}
+
+
+.bridge-section {
+
+  background: #2b2019 !important;
+
+  background-image: none !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   CHAT / FIRST SCREENSHOT
+
+   Everything is centred; text gets the full usable width.
+
+--------------------------------------------------------- */
+
+
+.chat-layout {
+
+  width: min(1120px, 90vw) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: center !important;
+
+}
+
+
+.chat-text {
+
+  width: min(1050px, 100%) !important;
+
+  padding-left: 0 !important;
+
+  padding-right: 0 !important;
+
+  margin: 0 auto 55px !important;
+
+  text-align: center !important;
+
+}
+
+
+.chat-text p {
+
+  width: 100% !important;
+
+  max-width: 1050px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+  text-align-last: center !important;
+
+  line-height: 1.5 !important;
+
+}
+
+
+.chat-text p:first-child {
+
+  text-align: center !important;
+
+}
+
+
+.chat-image-wrap {
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  align-self: center !important;
+
+}
+
+
+/* Text after the screenshot */
+
+.after-chat {
+
+  width: min(1050px, 100%) !important;
+
+  margin: 48px auto 0 !important;
+
+  padding-left: 0 !important;
+
+  padding-right: 0 !important;
+
+  text-align: center !important;
+
+}
+
+
+.after-chat p {
+
+  max-width: 1050px !important;
+
+  width: 100% !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+  text-align-last: center !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   CALL LOGS
+
+   Whole block and every card centred.
+
+--------------------------------------------------------- */
+
+
+.calls-section {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+}
+
+
+.calls-content {
+
+  width: min(920px, 88vw) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+.calls-heading {
+
+  width: 100% !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: center !important;
+
+}
+
+
+.calls-heading p {
+
+  width: 100% !important;
+
+  max-width: 920px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+  text-align-last: center !important;
+
+}
+
+
+.calls-heading p:first-child {
+
+  text-align: center !important;
+
+}
+
+
+.call-list {
+
+  width: min(760px, 100%) !important;
+
+  margin: 52px auto 0 !important;
+
+  padding: 0 !important;
+
+}
+
+
+.call-card {
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 12px auto !important;
+
+  transform: none !important;
+
+}
+
+
+.call-card:hover {
+
+  transform: translateY(-2px) !important;
+
+}
+
+
+.call-person {
+
+  text-align: left !important;
+
+}
+
+
+.call-duration {
+
+  margin-left: auto !important;
+
+  text-align: right !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   ROUTINE / SECOND SCREENSHOT
+
+--------------------------------------------------------- */
+
+
+.routine-layout {
+
+  width: min(1050px, 90vw) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: center !important;
+
+}
+
+
+.routine-intro {
+
+  width: min(1000px, 100%) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  padding-left: 0 !important;
+
+  padding-right: 0 !important;
+
+  text-align: center !important;
+
+}
+
+
+.routine-intro p {
+
+  width: 100% !important;
+
+  max-width: 1000px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+  text-align-last: center !important;
+
+}
+
+
+.talk-image-wrap {
+
+  width: min(450px, 78vw) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  align-self: center !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   BRIDGE
+
+--------------------------------------------------------- */
+
+
+.bridge-content {
+
+  width: min(1000px, 88vw) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  padding-left: 0 !important;
+
+  padding-right: 0 !important;
+
+  text-align: center !important;
+
+}
+
+
+.bridge-content p {
+
+  width: 100% !important;
+
+  max-width: 1000px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  color: #f3e8d9 !important;
+
+  text-align: justify !important;
+
+  text-align-last: center !important;
+
+}
+
+
+/* ---------------------------------------------------------
+
+   MOBILE
+
+--------------------------------------------------------- */
+
+
+@media (max-width: 760px) {
+
+  .chat-layout,
+
+  .routine-layout,
+
+  .calls-content,
+
+  .bridge-content {
+
+    width: 88vw !important;
+
+  }
+
+
+  .chat-text p,
+
+  .after-chat p,
+
+  .calls-heading p,
+
+  .routine-intro p,
+
+  .bridge-content p {
+
+    text-align: justify !important;
+
+    text-align-last: center !important;
+
+  }
+
+
+  .call-list {
+
+    width: 100% !important;
+
+    margin-top: 38px !important;
+
+  }
+
+
+  .call-card {
+
+    width: 100% !important;
+
+  }
+
+
+  .chat-image-wrap,
+
+  .talk-image-wrap {
+
+    max-width: 88vw !important;
+
+  }
+
+}
+
+</style>
+
+
 </head>
 
 
