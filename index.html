@@ -133,8 +133,16 @@ body::before {
   text-align: center;
 
   background:
-    transparent,
-    transparent;
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(122,83,56,.22),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #080706 0%,
+      #0e0a09 100%
+    );
 }
 
 
@@ -481,9 +489,23 @@ body::before {
   align-items: center;
 
   background:
-    transparent,
-    transparent,
-    transparent;
+    radial-gradient(
+      ellipse at 10% 25%,
+      rgba(143,99,67,.22),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 90% 78%,
+      rgba(86,52,41,.20),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #0e0a09 0%,
+      #17100d 25%,
+      #201510 75%,
+      #251916 100%
+    );
 }
 
 
@@ -714,8 +736,17 @@ body::before {
     center;
 
   background:
-    transparent,
-    transparent;
+    radial-gradient(
+      ellipse at 72% 38%,
+      rgba(130,87,58,.18),
+      transparent 43%
+    ),
+    linear-gradient(
+      180deg,
+      #251916 0%,
+      #211612 45%,
+      #1b130f 100%
+    );
 }
 
 .chat-layout {
@@ -828,7 +859,12 @@ body::before {
   height: 190%;
 
   background:
-    transparent;
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,240,218,.09),
+      transparent
+    );
 
   transform:
     rotate(12deg);
@@ -891,7 +927,12 @@ body::before {
     center;
 
   background:
-    transparent;
+    linear-gradient(
+      180deg,
+      #1b130f 0%,
+      #15100e 50%,
+      #120e0d 100%
+    );
 }
 
 
@@ -1166,8 +1207,17 @@ body::before {
     center;
 
   background:
-    transparent,
-    transparent;
+    radial-gradient(
+      ellipse at 18% 35%,
+      rgba(126,84,57,.17),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #120e0d 0%,
+      #17110e 50%,
+      #201711 100%
+    );
 }
 
 .routine-layout {
@@ -1354,7 +1404,18 @@ body::before {
     relative;
 
   background:
-    transparent;
+    linear-gradient(
+      180deg,
+      #201711 0%,
+      #282019 14%,
+      #393028 30%,
+      #50473d 46%,
+      #70655a 61%,
+      #94897b 73%,
+      #b8aea0 84%,
+      #d6cec1 93%,
+      #eee7d9 100%
+    );
 }
 
 
@@ -1508,7 +1569,10 @@ body::before {
     .22;
 
   background-image:
-    transparent;
+    radial-gradient(
+      rgba(75,58,42,.11) .7px,
+      transparent .7px
+    );
 
   background-size:
     8px 8px;
@@ -1534,7 +1598,11 @@ body::before {
     130px;
 
   background:
-    transparent;
+    linear-gradient(
+      180deg,
+      #eee7d9 0%,
+      rgba(238,231,217,0) 100%
+    );
 
   pointer-events:
     none;
@@ -2694,7 +2762,16 @@ body::before {
 /* The bridge is darkening toward the paper transition, so its text stays readable. */
 .bridge-section {
   background:
-    transparent;
+    linear-gradient(
+      180deg,
+      #201711 0%,
+      #29201a 18%,
+      #40372f 38%,
+      #645b51 57%,
+      #8f8579 73%,
+      #bcb2a4 87%,
+      #eee7d9 100%
+    );
 }
 
 .bridge-content { color: #f1e7d9; }
@@ -2721,10 +2798,10 @@ body::before {
   height: 110px;
   pointer-events: none;
   z-index: 0;
-  background: transparent;
+  background: linear-gradient(180deg, transparent, rgba(238,231,217,.16));
 }
 
-#more { background: transparent; }
+#more { background: linear-gradient(180deg, #eee7d9 0%, #eee7d9 78%, #e7ded0 100%); }
 
 /* Blank Polaroids: no caption text inside the frames. */
 .polaroid-caption { display:none !important; }
@@ -2753,7 +2830,7 @@ body::before {
   min-height: 100vh;
   padding: 0;
   overflow: hidden;
-  background: transparent;
+  background: linear-gradient(180deg, #e7ded0 0%, #c9b9a7 7%, #4b3324 20%, #2d1d14 100%);
   color: #f4ecdf;
 }
 
@@ -2799,9 +2876,9 @@ body::before {
   position: relative;
   padding: 80px 5vw 120px;
   background:
-    transparent,
-    transparent,
-    transparent,
+    radial-gradient(circle at 15% 10%, rgba(255,238,210,.05), transparent 25%),
+    radial-gradient(circle at 82% 70%, rgba(0,0,0,.18), transparent 30%),
+    linear-gradient(90deg, rgba(255,255,255,.025), transparent 30%, rgba(0,0,0,.04) 75%, transparent),
     #2d1d14;
 }
 
@@ -2811,7 +2888,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   opacity: .16;
-  background-image: transparent;
+  background-image: repeating-linear-gradient(5deg, transparent 0 7px, rgba(255,255,255,.035) 8px, transparent 9px 18px);
 }
 
 .reasons-meta {
@@ -2970,7 +3047,7 @@ body::before {
   display: grid;
   place-items: center;
   padding: 90px 7vw;
-  background: transparent;
+  background: linear-gradient(180deg, #2d1d14, #21150f);
   opacity: 0;
   visibility: hidden;
   transition: opacity 1.2s ease, visibility 1.2s ease;
@@ -3029,130 +3106,161 @@ body::before {
   .reason-paper { min-height: 460px; }
 }
 
-</style>
 
-<style id="locked-final-patches">
-/* FINAL PATCHES — existing source above is intentionally preserved */
 
-/* No gradients anywhere: solid replacements only. */
-#opening, #beginning, .chat-section, .calls-section, .routine-section,
-.bridge-section, #more, #reasons, .reasons-table, .reason-final,
-.video-section, .final-photo-section, .letter-section {
-  background-image: none !important;
-}
-#opening { background:#080706 !important; }
-#beginning { background:#17100d !important; }
-.chat-section { background:#211612 !important; }
-.calls-section { background:#17110e !important; }
-.routine-section { background:#211711 !important; }
-.bridge-section { background:#2b2019 !important; }
-#more { background:#eee7d9 !important; }
-#reasons, .reasons-table { background:#2d1d14 !important; }
-.reason-final { background:#21150f !important; }
-.video-section { background:#2b1d16 !important; }
-.final-photo-section { background:#0f0b09 !important; }
-.letter-section { background:#6b4b35 !important; }
+/* =========================================================
+   FINAL SURGICAL OVERRIDES
+   These are intentionally at the end so the original source
+   remains intact while the requested final visual changes win.
+========================================================= */
 
-/* Opening locked appearance */
+/* Opening */
+#opening { background: #080706 !important; }
 .opening-arc { display:none !important; }
+.opening-rule, .opening-date { display:none !important; }
+.opening-inner { gap:0 !important; }
 .opening-title {
-  font-family:"Cormorant Garamond",Georgia,serif !important;
-  font-size:clamp(30px,4.2vw,50px) !important;
-  line-height:1.05 !important;
-  font-weight:500 !important;
+  font-size: clamp(30px, 4.2vw, 50px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: .02em !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500 !important;
+  opacity:1 !important;
+  animation:none !important;
 }
 .opening-subtitle {
-  font-family:"Great Vibes","Cormorant Garamond",cursive !important;
-  font-size:clamp(48px,7vw,82px) !important;
+  font-size: clamp(48px, 7vw, 82px) !important;
   line-height:.98 !important;
+  font-family:"Great Vibes", "Cormorant Garamond", cursive !important;
+  font-weight:400 !important;
   margin-top:18px !important;
+  opacity:1 !important;
+  animation:none !important;
+}
+.type-title { display:inline-block !important; min-height:1.1em; white-space:nowrap; }
+.type-title .type-char { display:inline-block; opacity:0; transform:translateY(8px); animation:openingLetterIn .42s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes openingLetterIn { to { opacity:1; transform:translateY(0); } }
+.scroll-cue { bottom: 8% !important; opacity:.9 !important; }
+.scroll-cue::before { height:44px !important; }
+.scroll-cue::after { width:10px !important; height:10px !important; }
+
+/* Actual star shapes, not dots */
+.star {
+  width:14px !important;
+  height:14px !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  clip-path:polygon(50% 0%,61% 37%,100% 50%,61% 63%,50% 100%,39% 63%,0% 50%,39% 37%) !important;
+  background-color:#eadbc8 !important;
+  box-shadow:0 0 10px rgba(234,219,200,.35) !important;
 }
 
-/* Real star shapes */
-.star { width:10px !important;height:10px !important;border-radius:0 !important;background:transparent !important; }
-.star::before,.star::after { content:"";position:absolute;left:50%;top:50%;background:#eadbc8;transform:translate(-50%,-50%); }
-.star::before { width:2px;height:10px; }
-.star::after { width:10px;height:2px; }
-.star:nth-child(2)::before,.star:nth-child(2)::after,
-.star:nth-child(5)::before,.star:nth-child(5)::after { transform:translate(-50%,-50%) rotate(45deg); }
+/* No section gradients: deliberate, abrupt visual changes. */
+.chat-section,
+.calls-section,
+.routine-section,
+.bridge-section,
+#more,
+#reasons { background-image:none !important; }
+.chat-section { background:#120d0b !important; }
+.calls-section { background:#0d0a09 !important; }
+.routine-section { background:#17110e !important; }
+.bridge-section { background:#2b211a !important; }
+#more { background:#eee7d9 !important; }
+#reasons { background:#2d1d14 !important; }
+.chat-section::after,
+.calls-section::after,
+.routine-section::after,
+.bridge-section::after { display:none !important; }
 
-/* Story alignment */
-.memory-scene,.chat-layout,.calls-content,.routine-layout,.bridge-content {
-  width:min(1120px,92vw) !important;
-  margin-left:auto !important;margin-right:auto !important;
-}
-.memory-date { text-align:center !important; }
-.memory-line { margin-left:auto !important;margin-right:auto !important; }
-.chat-text,.after-chat,.routine-intro { padding-left:0 !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important; }
-.chat-text p,.after-chat p,.bridge-content p { margin-left:auto !important;margin-right:auto !important; }
-.chat-text p,.after-chat p,.bridge-content p { text-align:justify !important;text-align-last:center !important; }
-.chat-text p:first-child,.after-chat p:first-child { text-align:center !important; }
-.chat-image-wrap,.talk-image-wrap { margin-left:auto !important;margin-right:auto !important; }
-.call-list { margin-left:auto !important;margin-right:auto !important; }
+/* Centered scene composition + justified longer writing */
+.memory-scene,
+.chat-layout,
+.calls-content,
+.routine-layout,
+.bridge-content,
+.more-inner { margin-left:auto !important; margin-right:auto !important; }
+.memory-scene { text-align:center !important; }
+.memory-line:not(.first),
+.after-chat p,
+.routine-intro p,
+.bridge-content p,
+.copy-column p,
+.more-ending p { text-align:justify !important; text-justify:inter-word; }
+.chat-text,
+.after-chat,
+.routine-intro,
+.bridge-content,
+.calls-heading { text-align:center !important; }
+.chat-image-wrap { margin-left:auto !important; margin-right:auto !important; }
+.call-list { margin-left:auto !important; margin-right:auto !important; }
+.call-card { margin-left:auto !important; margin-right:auto !important; }
 
-/* More Than You Know — simple Polaroids, no old doodles */
-.more-top-fade,.botanical,.mountain-doodle,.ending-kicker { display:none !important; }
-#more::before { background-image:none !important; }
-.more-row,.more-row.reverse { gap:clamp(50px,8vw,110px) !important; }
+/* More Than You Know: simple editorial paper, no doodles/captions. */
+.botanical,
+.mountain-doodle,
+.more-top-fade,
+.hand-note { display:none !important; }
 .polaroid-caption { display:none !important; }
+#more { min-height:auto !important; }
+.more-inner { width:min(1180px,92%) !important; }
+.more-header { text-align:center !important; }
+.more-title { font-family:Georgia,"Times New Roman",serif !important; }
+.more-subtitle { font-family:"Great Vibes",cursive !important; }
+.more-row { align-items:center !important; }
+.polaroid { background:#f7f1e7 !important; box-shadow:0 24px 45px rgba(64,48,35,.16) !important; }
+.copy-column h3 { text-align:center !important; }
 
-/* Wide letter with right-side flowing Polaroid */
+/* Letter */
+#letter-section { background:#6b4b34 !important; padding:clamp(55px,8vw,100px) 0 !important; }
+.letter-paper-wrap { width:min(1180px,94%); margin:0 auto; }
 .letter-paper {
-  width:min(1180px,95vw) !important;
-  margin:0 auto !important;
-  background:#f2e8d7 !important;
-  color:#34291f !important;
-  position:relative !important;
-  box-shadow:0 28px 70px rgba(28,18,12,.28) !important;
-  overflow:hidden !important;
+  width:100%;
+  background:#c9a980;
+  color:#302318;
+  padding:clamp(36px,6vw,80px) clamp(28px,7vw,90px);
+  box-shadow:0 30px 70px rgba(24,14,8,.32);
+  font-family:"Caveat","Segoe Print",cursive;
+  font-size:clamp(21px,2.15vw,29px);
+  line-height:1.58;
+  position:relative;
+  overflow:hidden;
 }
 .letter-paper::before {
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:.20;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='.32'/%3E%3C/svg%3E") !important;
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.12;
+  background-image:radial-gradient(rgba(70,42,20,.55) .55px, transparent .7px);
+  background-size:5px 5px;
 }
-.letter-content {
-  width:100% !important;
-  padding:clamp(60px,7vw,100px) clamp(48px,7.5vw,115px) !important;
-  position:relative !important;
-  z-index:1 !important;
-}
-.letter-copy {
-  font-family:"Caveat","Segoe Print",cursive !important;
-  font-size:clamp(20px,1.65vw,25px) !important;
-  line-height:1.62 !important;
-  letter-spacing:.12px !important;
-}
-.letter-copy p { margin:0 0 1.15em !important;text-align:left !important; }
-.letter-photo-right {
-  float:right !important;
-  width:min(315px,32%) !important;
-  margin:15px 0 25px 50px !important;
-  padding:12px 12px 34px !important;
-  background:#f8f3e9 !important;
-  box-shadow:0 18px 35px rgba(38,25,18,.18) !important;
-  transform:rotate(2deg) !important;
-  position:relative !important;
-  z-index:2 !important;
-}
-.letter-photo-right img { display:block !important;width:100% !important;height:auto !important; }
+.letter-paper > * { position:relative; z-index:1; }
+.letter-paper p { margin:0 0 18px; text-align:justify; text-justify:inter-word; }
+.letter-heading { font-size:clamp(31px,3.5vw,48px); margin-bottom:26px; }
+.letter-photo { float:right; width:min(270px,34%); margin:8px 0 24px 42px; padding:13px 13px 38px; background:#f7f1e7; box-shadow:0 18px 32px rgba(39,25,14,.25); transform:rotate(2deg); }
+.letter-photo img { display:block; width:100%; height:auto; }
+.letter-signoff { margin-top:30px; font-size:clamp(28px,3.5vw,46px); line-height:1.12; }
 
 /* Video */
-.video-section { padding:11vh 4vw 12vh !important; }
-.video-inner { width:min(1050px,92vw);margin:auto;text-align:center; }
-.video-kicker { font-size:clamp(22px,2.4vw,31px);line-height:1.35;margin-bottom:42px;color:#eadcca; }
-.video-frame { width:100%;background:#120d0a;padding:12px;border:1px solid rgba(234,220,202,.13);box-shadow:0 28px 70px rgba(0,0,0,.38);border-radius:18px; }
-.video-frame video { display:block;width:100%;max-height:72vh;border-radius:10px;background:#000; }
+#video-section { background:#17110e !important; padding:clamp(60px,9vw,110px) 0 !important; }
+.video-section-inner { width:min(1120px,92%); margin:auto; text-align:center; }
+.video-kicker { font-family:"Great Vibes",cursive; font-size:clamp(30px,4vw,48px); color:#eee5d6; margin-bottom:34px; }
+.birthday-video-frame { width:100%; border-radius:24px; overflow:hidden; background:#0a0807; box-shadow:0 30px 75px rgba(0,0,0,.45); }
+.birthday-video-frame video { display:block; width:100%; max-height:78vh; background:#0a0807; }
 
-/* Last supplied photo — after everything else */
-.final-photo-section { padding:10vh 5vw 12vh !important; }
-.final-photo { width:min(430px,78vw);margin:0 auto;padding:12px 12px 34px;background:#f7f2e8;box-shadow:0 22px 45px rgba(0,0,0,.25);transform:rotate(-2deg); }
-.final-photo img { display:block;width:100%;height:auto;object-fit:cover; }
+/* Final ending + final visual */
+#final-ending { background:#eee7d9 !important; color:#2b241e; padding:clamp(75px,10vw,120px) 0 0 !important; text-align:center; }
+.final-ending-inner { width:min(900px,90%); margin:auto; font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(25px,3vw,39px); line-height:1.3; }
+.final-ending-inner p { margin-bottom:12px; }
+.final-love { margin-top:24px; font-family:"Great Vibes",cursive; font-size:clamp(40px,5vw,64px); line-height:1; }
+.final-photo-wrap { width:min(900px,88%); margin:70px auto 0; }
+.final-photo-wrap img { display:block; width:100%; height:auto; }
 
-/* 100 reasons: refresh always starts at zero; 101 fades in after all 100. */
-.reason-final { opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 1.2s ease; }
-.reason-final.show { opacity:1;visibility:visible; }
+@media (max-width:700px) {
+  .letter-photo { float:none; width:min(300px,80%); margin:25px auto 30px; }
+  .letter-paper p { text-align:left; }
+  .opening-subtitle { margin-top:14px !important; }
+  .opening-title { white-space:normal !important; }
+}
+
 </style>
-
 </head>
 
 
@@ -3182,14 +3290,8 @@ body::before {
 
   <div class="opening-inner">
 
-    <div class="opening-title">
+    <div class="opening-title type-title" data-text="Hiiiii Babyyyy">
       Hiiiii Babyyyy
-    </div>
-
-    <div class="opening-rule"></div>
-
-    <div class="opening-date">
-      
     </div>
 
     <div class="opening-subtitle">
@@ -3728,12 +3830,12 @@ body::before {
 
 
         <p class="reveal delay-2">
-          Probably curious, probably up to something, and already convinced he knew what he was doing.
+          You've been becoming yourself for a long time.
         </p>
 
 
         <p class="reveal delay-3">
-          It makes me smile knowing that some things really do stay the same.
+          The more I got to know you, the more I realised how many different versions of you there are. You've been figuring yourself out, growing into yourself, and becoming the person you are now for much longer than I've known you. And I think that's really beautiful to think about.
         </p>
 
       </div>
@@ -3927,11 +4029,6 @@ body::before {
     <div class="more-ending">
 
 
-      <div class="ending-kicker reveal">
-        and then there's the part i hope you remember
-      </div>
-
-
       <h3 class="reveal delay-1">
         You want a lot from life.
       </h3>
@@ -3984,166 +4081,6 @@ body::before {
 <!-- =====================================================
      100 LITTLE REASONS
 ===================================================== -->
-
-<section id="letter" class="letter-section">
-  <div class="letter-paper">
-    <div class="letter-content">
-      <div class="letter-copy">
-
-        <p><strong>Dear Tanmay,</strong></p>
-
-        <p>I don't think you realise how quietly you became important to me.</p>
-
-        <p>There wasn't one particular moment where I woke up and thought, <em>this is someone I want to keep.</em><br>
-        It happened slowly.</p>
-
-        <p>In conversations that were supposed to last ten minutes and somehow lasted hours.<br>
-        In hearing your voice become part of my everyday life.<br>
-        In learning the little things about you that you probably don't even realise you've told me.<br>
-        In missing you before I even had the chance to properly get used to having you.</p>
-
-        <p>And somewhere in between all of that, you became home to me in a way I never expected another person could.</p>
-
-        <p>I think that's what still amazes me about us.</p>
-
-        <p>You were once just a name on a screen.<br>
-        And now there are so many versions of you that exist in my head — the boy who makes the stupidest jokes, the one who talks about his future like he's already halfway there, the one who gets impossibly stubborn when he thinks he's right, the one who worries more than he admits, the one who loves his family deeply, the one who gets excited about the smallest things, and the soft version of you that you don't let everyone see.</p>
-
-        <p>I have loved getting to know every one of them.</p>
-
-        <p>And maybe that's what I want you to know most today.</p>
-
-        <p><strong>I don't love you only for the way you love me.</strong><br>
-        I love you for the person you are when nobody is asking anything from you.<br>
-        For the way your mind works.<br>
-        For the things you care about.<br>
-        For the life you want for yourself.<br>
-        For the parts of you that are still unfinished.<br>
-        For the dreams you are scared might remain dreams.<br>
-        For the stubborn little part of you that keeps believing that things can become better if you just keep trying.</p>
-
-        <p>I wish you could see yourself from where I stand.</p>
-
-        <p>Because sometimes I think you are so busy becoming the person you want to be that you forget to notice the person you've already become.</p>
-
-        <p>And baby, <strong>I am so proud of that person.</strong></p>
-
-        <p>You don't have to have your whole life figured out.<br>
-        You don't have to have achieved everything yet.<br>
-        You don't have to become some perfect future version of yourself before you deserve to be proud.<br>
-        You are allowed to be twenty-one and still figuring things out.<br>
-        You are allowed to be scared.<br>
-        You are allowed to change your mind.<br>
-        You are allowed to take your time.<br>
-        And you are allowed to be loved in the middle of all of it.</p>
-
-        <p>I hope you never forget that.</p>
-
-        <figure class="letter-photo-right">
-          <img src="b2beb6ac-d733-40cf-b8c4-148e1717ac78.jpg" alt="Our polaroid">
-        </figure>
-
-        <p>There are so many things I want for you.<br>
-        I want you to see places you've never seen before.<br>
-        I want you to chase things that scare you a little.<br>
-        I want you to hear music that makes you stop whatever you're doing just to listen.<br>
-        I want you to build something that makes you look back one day and think, <em>I really did that.</em></p>
-
-        <p>But more than any achievement, I want you to have a life that feels like yours.<br>
-        A life that doesn't just look good from the outside.<br>
-        A life that feels good when you're alone with yourself.</p>
-
-        <p>And when you eventually get there — wherever <em>there</em> turns out to be — I hope you remember the version of yourself who was sitting here at twenty-one, still figuring it all out, still dreaming, still trying.</p>
-
-        <p>Because I'll always have a soft spot for him.</p>
-
-        <p>The boy I met through a screen.<br>
-        The boy I eventually met in person.<br>
-        The boy who somehow felt familiar before I had even properly known what it felt like to have him beside me.</p>
-
-        <p>And maybe that's the strangest, loveliest thing about you.<br>
-        <strong>You never really felt like someone I had just met.</strong></p>
-
-        <p>You felt like someone I had been slowly finding.</p>
-
-        <p>And I know distance has been a part of us.<br>
-        But somehow, even from far away, you've managed to leave pieces of yourself in my everyday life.</p>
-
-        <p>In songs.<br>
-        In words.<br>
-        In places I want to take you.<br>
-        In random things I see and immediately think, <em>Tanmay would like this.</em><br>
-        In the stupid little phrases I've started saying because of you.<br>
-        In the quiet moments when I realise I have something I want to tell you.</p>
-
-        <p>You've become part of the way I experience my days.</p>
-
-        <p>And I don't think you know how much that means to me.</p>
-
-        <p>So, on your birthday, I don't just want to say <em>I love you.</em><br>
-        I want to say:</p>
-
-        <p><strong>Thank you for letting me know you.</strong><br>
-        For letting me see the parts of you that are loud and ridiculous, and the parts that are quiet and scared.<br>
-        For trusting me with the softer pieces.<br>
-        For letting me be there while you're still becoming yourself.<br>
-        And thank you for choosing me through all the ordinary days too — not just the beautiful ones.</p>
-
-        <p>Because I think that's where love actually lives.<br>
-        Not only in the big promises.<br>
-        But in the <em>“hiii babyyyy”</em> at the beginning of a call.<br>
-        In staying a little longer when neither of us has anything left to say.<br>
-        In remembering something tiny.<br>
-        In coming back after a difficult day.<br>
-        In making room for another person inside a life that was already moving before they arrived.</p>
-
-        <p>And somehow, you made room for me.</p>
-
-        <p><strong>I'm not going anywhere.</strong></p>
-
-        <p>I hope I always make you feel like you can come home to me too.<br>
-        Not because I expect you to have everything together.<br>
-        Not because I need you to be anything other than yourself.<br>
-        Just because <strong>you are you.</strong></p>
-
-        <p>And somehow, that has been enough to make me love you more than I know how to put into one letter.</p>
-
-        <p>So here's to twenty-one.<br>
-        To the person you are.<br>
-        To the person you're becoming.<br>
-        To every place you haven't seen yet, every dream you haven't reached yet, every version of yourself you haven't met yet.</p>
-
-        <p>I hope life is gentle with you.<br>
-        And when it isn't, I hope you remember that you don't have to carry everything alone.</p>
-
-        <p><strong>Happy birthday, my baby.</strong></p>
-
-        <p>I hope one day you look back at this version of yourself and realise just how much there was to love here.</p>
-
-        <p>And I hope, whenever you doubt yourself, you remember that somewhere in Mumbai there is a girl who looks at you and thinks,<br>
-        <em>How lucky am I that I got to know this person?</em></p>
-
-        <p><strong>Love,</strong><br>
-        <strong>Kiki ♡</strong></p>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="birthday-video" class="video-section">
-  <div class="video-inner">
-    <p class="video-kicker">And there's one more thing I wanted you to hear from me.</p>
-    <div class="video-frame">
-      <video controls playsinline preload="metadata">
-        <source src="VN20260926_215341.mp4" type="video/mp4">
-        Your browser does not support this video.
-      </video>
-    </div>
-  </div>
-</section>
-
 <section id="reasons">
   <div class="reasons-transition">
     <div class="reasons-intro">
@@ -4180,6 +4117,155 @@ body::before {
   </div>
 </div>
 
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+<section id="letter-section">
+  <div class="letter-paper-wrap">
+    <article class="letter-paper">
+      <div class="letter-heading">Dear Tanmay,</div>
+
+      <p>I don't think you realise how quietly you became important to me.</p>
+      <p>There wasn't one particular moment where I woke up and thought, <em>this is someone I want to keep.</em></p>
+      <p>It happened slowly.</p>
+      <p>In conversations that were supposed to last ten minutes and somehow lasted hours.</p>
+      <p>In hearing your voice become part of my everyday life.</p>
+      <p>In learning the little things about you that you probably don't even realise you've told me.</p>
+      <p>In missing you before I even had the chance to properly get used to having you.</p>
+      <p>And somewhere in between all of that, you became home to me in a way I never expected another person could.</p>
+
+      <p>I think that's what still amazes me about us.</p>
+      <p>You were once just a name on a screen.</p>
+      <p>And now there are so many versions of you that exist in my head — the boy who makes the stupidest jokes, the one who talks about his future like he's already halfway there, the one who gets impossibly stubborn when he thinks he's right, the one who worries more than he admits, the one who loves his family deeply, the one who gets excited about the smallest things, and the soft version of you that you don't let everyone see.</p>
+      <p>I have loved getting to know every one of them.</p>
+
+      <p>And maybe that's what I want you to know most today.</p>
+      <p><strong>I don't love you only for the way you love me.</strong></p>
+      <p>I love you for the person you are when nobody is asking anything from you.</p>
+      <p>For the way your mind works.</p>
+      <p>For the things you care about.</p>
+      <p>For the life you want for yourself.</p>
+      <p>For the parts of you that are still unfinished.</p>
+      <p>For the dreams you are scared might remain dreams.</p>
+      <p>For the stubborn little part of you that keeps believing that things can become better if you just keep trying.</p>
+
+      <p>I wish you could see yourself from where I stand.</p>
+      <p>Because sometimes I think you are so busy becoming the person you want to be that you forget to notice the person you've already become.</p>
+      <p>And baby, <strong>I am so proud of that person.</strong></p>
+      <p>You don't have to have your whole life figured out.</p>
+      <p>You don't have to have achieved everything yet.</p>
+      <p>You don't have to become some perfect future version of yourself before you deserve to be proud.</p>
+      <p>You are allowed to be twenty-one and still figuring things out.</p>
+      <p>You are allowed to be scared.</p>
+      <p>You are allowed to change your mind.</p>
+      <p>You are allowed to take your time.</p>
+      <p>And you are allowed to be loved in the middle of all of it.</p>
+      <p>I hope you never forget that.</p>
+
+      <p>There are so many things I want for you.</p>
+      <p>I want you to see places you've never seen before.</p>
+      <p>I want you to chase things that scare you a little.</p>
+      <p>I want you to hear music that makes you stop whatever you're doing just to listen.</p>
+      <p>I want you to build something that makes you look back one day and think, <em>I really did that.</em></p>
+      <p>But more than any achievement, I want you to have a life that feels like yours.</p>
+      <p>A life that doesn't just look good from the outside.</p>
+      <p>A life that feels good when you're alone with yourself.</p>
+      <p>And when you eventually get there — wherever <em>there</em> turns out to be — I hope you remember the version of yourself who was sitting here at twenty-one, still figuring it all out, still dreaming, still trying.</p>
+      <p>Because I'll always have a soft spot for him.</p>
+
+      <p>The boy I met through a screen.</p>
+      <p>The boy I eventually met in person.</p>
+      <p>The boy who somehow felt familiar before I had even properly known what it felt like to have him beside me.</p>
+      <p>And maybe that's the strangest, loveliest thing about you.</p>
+      <p><strong>You never really felt like someone I had just met.</strong></p>
+      <p>You felt like someone I had been slowly finding.</p>
+
+      <p>I know distance has been a part of us.</p>
+      <p>But somehow, even from far away, you've managed to leave pieces of yourself in my everyday life.</p>
+      <p>In songs.</p>
+      <p>In words.</p>
+      <p>In places I want to take you.</p>
+      <p>In random things I see and immediately think, <em>Tanmay would like this.</em></p>
+      <p>In the stupid little phrases I've started saying because of you.</p>
+      <p>In the quiet moments when I realise I have something I want to tell you.</p>
+      <p>You've become part of the way I experience my days.</p>
+      <p>And I don't think you know how much that means to me.</p>
+
+      <p>So, on your birthday, I don't just want to say <em>I love you.</em></p>
+      <p>I want to say:</p>
+      <p><strong>Thank you for letting me know you.</strong></p>
+
+      <figure class="letter-photo">
+        <img src="b2beb6ac-d733-40cf-b8c4-148e1717ac78.jpg" alt="Our polaroid">
+      </figure>
+
+      <p>For letting me see the parts of you that are loud and ridiculous, and the parts that are quiet and scared.</p>
+      <p>For trusting me with the softer pieces.</p>
+      <p>For letting me be there while you're still becoming yourself.</p>
+      <p>And thank you for choosing me through all the ordinary days too — not just the beautiful ones.</p>
+      <p>Because I think that's where love actually lives.</p>
+      <p>Not only in the big promises.</p>
+      <p>But in the <em>“hiii babyyyy”</em> at the beginning of a call.</p>
+      <p>In staying a little longer when neither of us has anything left to say.</p>
+      <p>In remembering something tiny.</p>
+      <p>In coming back after a difficult day.</p>
+      <p>In making room for another person inside a life that was already moving before they arrived.</p>
+      <p>And somehow, you made room for me.</p>
+      <p><strong>I'm not going anywhere.</strong></p>
+      <p>I hope I always make you feel like you can come home to me too.</p>
+      <p>Not because I expect you to have everything together.</p>
+      <p>Not because I need you to be anything other than yourself.</p>
+      <p>Just because <strong>you are you.</strong></p>
+      <p>And somehow, that has been enough to make me love you more than I know how to put into one letter.</p>
+
+      <p>So here's to twenty-one.</p>
+      <p>To the person you are.</p>
+      <p>To the person you're becoming.</p>
+      <p>To every place you haven't seen yet, every dream you haven't reached yet, every version of yourself you haven't met yet.</p>
+      <p>I hope life is gentle with you.</p>
+      <p>And when it isn't, I hope you remember that you don't have to carry everything alone.</p>
+      <p><strong>Happy birthday, my baby.</strong></p>
+      <p>I hope one day you look back at this version of yourself and realise just how much there was to love here.</p>
+      <p>And I hope, whenever you doubt yourself, you remember that somewhere in Mumbai there is a girl who looks at you and thinks,</p>
+      <p><em>How lucky am I that I got to know this person?</em></p>
+
+      <div class="letter-signoff"><strong>Love,</strong><br><strong>Kiki ♡</strong></div>
+    </article>
+  </div>
+</section>
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
+<section id="video-section">
+  <div class="video-section-inner">
+    <p class="video-kicker">And there's one more thing I wanted you to hear from me.</p>
+    <div class="birthday-video-frame">
+      <video controls playsinline preload="metadata">
+        <source src="VN20260926_215341.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FINAL ENDING
+===================================================== -->
+<section id="final-ending">
+  <div class="final-ending-inner">
+    <p>Happy birthday, Tanmay.</p>
+    <p>I hope you know how loved you are.</p>
+    <p>And I hope you see yourself the way I see you.</p>
+    <div class="final-love">Love,<br>Kiki</div>
+  </div>
+  <div class="final-photo-wrap">
+    <img src="IMG-20260905-WA0139.jpg" alt="Tanmay">
+  </div>
+</section>
+
 <script>
 const reasons = ["The way you say “hiii babyyyy” at the beginning of every call. Somehow, that never gets old.", "You can be completely ridiculous without ever worrying about looking stupid.", "You talk about our future with so much certainty. I don't think you know how much I appreciate that.", "Your laugh. Genuinely one of the cutest things about you.", "Your brain works in ways mine simply doesn't. You notice things I would never have thought of.", "You can talk to almost anyone without needing ten minutes to warm up first. It just amazes me.", "I have a very soft spot for the way you call me jaan. You say it like it's very natural for you to call me that.", "You have a very unserious side that somehow coexists perfectly with how seriously you take the things that matter.", "You don't seem to believe that where you start has to decide where you end up.", "Somehow, you can tell I'm being impossible before I even admit it myself.", "Okay ik this might sound cheesy but you inspire me. The way you always keep pushing yourself has somewhere started rubbing off on me as well.", "Give us absolutely nothing to talk about and somehow you'll still find a conversation.", "You don't let temporary anger make permanent decisions for you. Unlike me.", "Your family isn't just important to you. It's part of the way you think about your life.", "Your sense of humour is wonderfully unfiltered. A little too unfiltered if you ask me but that's okay.", "Then there are those ridiculously long paragraphs you write for me. And the best part about receiving them is I don't have to ask.", "You can go from the stupidest possible joke to a genuinely deep conversation in about three seconds.", "You keep trying to become a better version of yourself, even when nobody is asking you to. And that genuinely makes me want to become better too.", "There is something very admirable about how seriously you take the life you're trying to create for yourself.", "I can practically hear the excitement in your voice when you're talking about Seedhe Maut. SO MUCH SO THAT I'M ACTUALLY JEALOUS.", "You know exactly what will annoy me, and occasionally choose to do it anyway because my reaction entertains you. It's cute. Sometimes.", "After talking to you for this long, I've somehow started picking up your Bangalore way of speaking English. I blame you but i secretly love it.", "It takes a lot for me to open up. I love how easy that feels with you.", "I love how you can mix well with anybody. I can't even imagine doing that.", "You have this very natural confidence about you — not the kind that needs attention, just the kind that lets you be yourself.", "You rarely seem satisfied with simply staying where you are. There's almost always a what next? and that is very inspiring.", "When something genuinely matters to you, you don't just skim the surface. You want to understand it properly.", "You have an irritating talent for making me laugh precisely when I've decided I absolutely will not.", "You have faith in God even in this generation and I find that very admirable.", "Being the eldest and only son seems to have given you a very real sense of responsibility toward your family. Its very endearing to see.", "You deliberately surround yourself with ambitious people. You seem to want the people around you to make you think bigger.", "There are basically two versions of you: the one everyone gets to see, and the ridiculously soft one that appears when you're completely comfortable.", "You remember tiny things. I don't have examples to give rn but its one of the things i love about you.", "The way you connect with Seedhe Maut's music says a lot about the kind of stories and ambition that speaks to you.", "You are more sentimental than you like to admit.", "You have this ability to make an ordinary conversation feel like the most interesting thing happening at that moment.", "Your stubbornness. Unfortunately, it is occasionally very endearing.", "I like that you don't say sorry just because it's the easiest way to end a fight. You wait until you actually mean it.", "Your jealous side even if you say it in the wya of a joke. It's cute.", "Tiny decisions can make you ridiculously indecisive, but when something genuinely matters, you're surprisingly certain.", "You have a very particular way of telling stories that somehow makes even the most ordinary thing sound interesting.", "Responsibility comes pretty naturally to you.", "You want a lot from life. I actually think that's one of the most YOU things about you.", "Your idea of a good life seems to involve actually experiencing it, not simply getting through it.", "Sometimes you say something so stupid that I genuinely wonder how your brain arrived there.", "Even when you need time after a fight, you eventually come back to me.", "You can be incredibly serious about something and then completely destroy the seriousness yourself with one stupid comment.", "I love the fact that you didn't expect just me to change, you've changed a lot too.", "And you've been willing to work on the parts of your communication that didn't come naturally to you.", "Your dreams matter enough to you that the possibility of not achieving them genuinely scares you.", "I feel for the very first time somebody is able to love me the way i want to be loved, idk if that makes sense.", "There is a softness in you that I don't think everyone gets to see. And I'm so grateful that i get to see it everyday.", "Once you're comfortable, your concern about looking composed disappears quickly.", "Affection comes naturally to you. I could see it in the way you handled me the day we met.", "You can tell when something is off without necessarily being told. Sometimes it's just your overthinking but sometimes your instinct is right.", "You want people around you who challenge you rather than simply agree with you.", "You have a way of making even your complaints sound entertaining.", "Underneath all the jokes, confidence and occasional nonsense is someone who feels things very deeply.", "You have this habit of getting completely absorbed in whatever you're interested in at the moment. Sometimes it is annoying because you seem to forget I exist but it's cute.", "Seeing your father's struggles didn't just make you feel bad for him. It made you want to take some of that responsibility onto yourself. Like you probably don't even remember saying it but this one conversation has stuck with me.", "You don't just listen to music in the background. When a song actually means something to you, you know the lyrics, the story behind it and why it matters.", "You don't just want to achieve things. You want to be able to look at what you've achieved and feel proud of it.", "You can walk into a room without knowing many people and somehow leave having spoken to half of them.", "You're genuinely curious about people who are different from you.", "You've taught me to say what I'm feeling instead of expecting you to figure it out.", "When we finally met, you were still completely, unmistakably you.", "Your height. I think this reason doesn't need an explanation.", "Even while you were nervous about meeting me, your goofy side somehow survived. &#x9;", "You have this instinct to look after the person you're with — even something as simple as pointing out where to step when the ground is wet. Like ik you probably don't even remember this but I do.", "I find it difficult to let somebody be there for me. But you have somehow managed to do that without even meeting me.", "The way you ran to catch me before I boarded the bus even when I asked you not to.", "I'm so used to handling everything myself, but with you, I can actually let myself be taken care of sometimes.", "I love the way you make my brain go silent. Be it on call or in person. And i don't think you know how much it means to me. ", "Apparently, when we finally met, you couldn't stop looking at me. Meanwhile I was too nervous to properly look at you. Love the confidence baby.", "Five months of distance somehow did absolutely nothing to reduce the ridiculous amount of attraction between us.", "Our mutual inability to behave normally around each other is honestly impressive.", "In such a short span of time without really meeting each other until recently, you have made me feel safe enough that i can complain, cry, rant or do whatever I want with you.", "Beneath the tough-guy, slightly spoiled-brat exterior is a very soft baby jaan version of you that I'm glad only i get to see. Hopefully.", "You can defend the most questionable opinion with the confidence of someone presenting a PhD thesis.", "I love how you keep the conversation going by the saying the most random shit when I don't have anything to say.", "You know I'm stubborn and occasionally impossible, and somehow you still find me worth the trouble.", "The fact that you choose to handle me everyday rather than taking the easy way out. The fact that you choose this relationship everyday.", "Beneath your confidence is someone who sometimes genuinely wonders whether he'll become the person he imagines himself becoming. But trust me baby I know you will.", "I love when you use \"WE\". Like I love when you make plans for us be it something as simple as places you wanna show me or as serious wanting to get married. ", "When you talk about your future, there's always that underlying feeling of I'm going to try. I notice it and I love it. It makes me wanna work just as hard to make this work out.", "That sweatshirt. OMG. And the fact that you thought it's probably stupid when it is literally the most priced possession I own rn.", "There are still parts of you I haven't figured out yet, and I actually like that.", "Distance never stopped you from letting me see the real version of you. I was scared that the Tanmay i finally meet could be an entirely different version but nope. Ig I fell in love with you all over again the day we met.", "After months of knowing your voice through a phone, having you beside me somehow felt strangely familiar. Not one second of awkwardness.", "Being in your arms gave me a sense of peace i cannot put into words. ", "Since you already know I'm not very big on physical affection the fact that you made me want to be very touchy feely is crazy.", "The way you are always hard for me. Ik it is a very mommy thing to say and idk if you say it just to make me feel good but I love it.", "You can rage-bait me with the straightest face and then look far too pleased with yourself when it works.", "Idk if my assumption is right but i love that you feel safe enough to put your tough guy exterior down in front of me.", "There's this stubborn little part of you that believes things can get better if you keep trying.", "You can be ambitious about the future without completely forgetting to enjoy what's happening right now.", "How you somehow manage to turn a tiny disagreement into a full courtroom argument because you need your side to be properly heard.", "The fact that you can be completely exhausted and still somehow find the energy to continue a conversation that should have ended an hour ago.", "You're still becoming yourself. And honestly, I think that's one of the nicest things about you.", "Because I don't think I fell in love with one particular thing about you. I fell in love with the whole, complicated, ridiculous, wonderful person that you are — and somehow, even after knowing you this much, I still want to know you more......"];
 const reasonGrid = document.getElementById('reason-grid');
@@ -4190,7 +4276,7 @@ const reasonPaperText = document.getElementById('reason-paper-text');
 const reasonClose = document.getElementById('reason-close');
 const reasonFinal = document.getElementById('reason-final');
 const reasonKey = 'tanmay-100-reasons-opened';
-let opened = new Set();
+let opened = new Set(JSON.parse(localStorage.getItem(reasonKey) || '[]'));
 
 reasons.forEach((reason, index) => {
   const n = index + 1;
@@ -4206,10 +4292,7 @@ reasons.forEach((reason, index) => {
 function updateReasonCount(){
   const count = opened.size;
   reasonCount.textContent = `${count} / 100 opened`;
-  if(count === 100) {
-  reasonGrid.classList.add('all-opened');
-  setTimeout(() => reasonFinal.classList.add('show'), 1150);
-}
+  if(count === 100) reasonFinal.classList.add('show');
 }
 
 function openReason(n, reason, note){
@@ -4292,35 +4375,23 @@ window.addEventListener("load", () => {
 
 
 
-<section id="final-photo" class="final-photo-section">
-  <figure class="final-photo">
-    <img src="IMG-20260905-WA0139.jpg" alt="">
-  </figure>
-</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const el = document.querySelector(".type-title");
+  if (!el) return;
 
+  const text = el.dataset.text || el.textContent.trim();
+  el.textContent = "";
 
-<script id="opening-typewriter-final">
-document.addEventListener("DOMContentLoaded", function(){
-  const el=document.querySelector("#opening .opening-title");
-  if(!el || el.dataset.typewriterDone) return;
-  const text=el.textContent.trim();
-  el.textContent="";
-  el.dataset.typewriterDone="1";
-  [...text].forEach((ch,i)=>{
-    const span=document.createElement("span");
-    span.style.display="inline-block";
-    span.style.opacity="0";
-    span.style.transform="translateY(8px)";
-    span.style.animation="openingLetterIn .42s cubic-bezier(.2,.8,.2,1) forwards";
-    span.style.animationDelay=(.08+i*.075)+"s";
-    span.textContent=ch===" " ? "\u00a0" : ch;
+  [...text].forEach((char, index) => {
+    const span = document.createElement("span");
+    span.className = "type-char";
+    span.textContent = char === " " ? "\u00A0" : char;
+    span.style.animationDelay = (0.08 + index * 0.075) + "s";
     el.appendChild(span);
   });
 });
 </script>
-<style>
-@keyframes openingLetterIn { to { opacity:1;transform:translateY(0); } }
-</style>
 
 </body>
 </html>
