@@ -7058,6 +7058,425 @@ body::before {
 }
 
 
+
+/* =========================================================
+
+   FINAL SPACING / ALIGNMENT / CONTRAST PASS
+
+========================================================= */
+
+
+/* Use the width of the screen instead of leaving huge empty
+
+   side margins. Headings stay centred; paragraphs are justified. */
+
+.calls-content,
+
+.routine-layout,
+
+.bridge-content,
+
+.more-inner,
+
+.reasons-intro {
+
+  width: min(92vw, 1320px) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+/* CALL LOG TEXT — centred */
+
+.calls-heading {
+
+  width: min(90vw, 1100px) !important;
+
+  margin: 0 auto 55px !important;
+
+  text-align: center !important;
+
+}
+
+
+.calls-heading p {
+
+  text-align: center !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  max-width: 1050px !important;
+
+}
+
+
+/* Routine line */
+
+.routine-intro {
+
+  width: min(90vw, 1100px) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: center !important;
+
+}
+
+
+.routine-intro p {
+
+  text-align: center !important;
+
+  max-width: 1050px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+/* Bridge: centered composition, but paragraph lines are justified */
+
+.bridge-content {
+
+  width: min(90vw, 1200px) !important;
+
+  text-align: center !important;
+
+}
+
+
+.bridge-content p {
+
+  max-width: 1050px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+}
+
+
+/* After-chat paragraphs: use the screen, justify the lines */
+
+.after-chat {
+
+  width: min(90vw, 1200px) !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+.after-chat p {
+
+  max-width: 1050px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+}
+
+
+/* =========================================================
+
+   MORE THAN YOU KNOW — more screen, less empty space
+
+========================================================= */
+
+
+#more .more-inner {
+
+  width: min(94vw, 1320px) !important;
+
+}
+
+
+#more .more-header {
+
+  margin-bottom: 75px !important;
+
+}
+
+
+#more .more-row,
+
+#more .more-row.reverse {
+
+  width: 100% !important;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+
+  gap: clamp(40px, 6vw, 95px) !important;
+
+  min-height: 480px !important;
+
+}
+
+
+#more .copy-column {
+
+  width: min(590px, 100%) !important;
+
+}
+
+
+#more .copy-column p {
+
+  max-width: 590px !important;
+
+  text-align: justify !important;
+
+}
+
+
+/* =========================================================
+
+   100 REASONS INTRO — DARK ENOUGH TO READ
+
+========================================================= */
+
+
+#reasons {
+
+  background: #2b1d15 !important;
+
+  color: #f4ecdf !important;
+
+}
+
+
+.reasons-transition {
+
+  min-height: auto !important;
+
+  padding: clamp(75px, 9vw, 125px) 5vw clamp(80px, 9vw, 120px) !important;
+
+  background:
+
+    linear-gradient(
+
+      180deg,
+
+      #4a3426 0%,
+
+      #3b291f 42%,
+
+      #2f2018 100%
+
+    ) !important;
+
+  color: #f5ecdf !important;
+
+}
+
+
+.reasons-intro {
+
+  width: min(90vw, 1180px) !important;
+
+  color: #f5ecdf !important;
+
+}
+
+
+.reasons-intro .eyebrow {
+
+  color: #d9c9b6 !important;
+
+}
+
+
+.reasons-intro h2 {
+
+  color: #f7efe4 !important;
+
+  text-shadow: 0 2px 14px rgba(0,0,0,.25) !important;
+
+  max-width: 1050px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+}
+
+
+.reasons-intro p {
+
+  color: #f1e6d8 !important;
+
+  max-width: 1080px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+  text-justify: inter-word !important;
+
+  line-height: 1.6 !important;
+
+}
+
+
+.reasons-intro strong,
+
+.reasons-intro em {
+
+  color: #fff7ec !important;
+
+}
+
+
+.reasons-table {
+
+  background:
+
+    radial-gradient(circle at 15% 10%, rgba(255,238,210,.05), transparent 25%),
+
+    radial-gradient(circle at 82% 70%, rgba(0,0,0,.18), transparent 30%),
+
+    #2d1d14 !important;
+
+}
+
+
+/* =========================================================
+
+   REMOVE THE UNNECESSARY CURSIVE LINE
+
+========================================================= */
+
+
+.more-ending .ending-kicker {
+
+  display: none !important;
+
+}
+
+
+.more-ending {
+
+  padding-top: 70px !important;
+
+}
+
+
+.more-ending h3,
+
+.more-ending p,
+
+.more-ending .final-proud {
+
+  text-align: center !important;
+
+}
+
+
+.more-ending p {
+
+  max-width: 900px !important;
+
+  margin-left: auto !important;
+
+  margin-right: auto !important;
+
+  text-align: justify !important;
+
+}
+
+
+/* Remove accidental tab/control entity from reason 68 */
+
+
+
+@media (max-width: 760px) {
+
+  .calls-content,
+
+  .routine-layout,
+
+  .bridge-content,
+
+  .more-inner,
+
+  .reasons-intro {
+
+    width: 90vw !important;
+
+  }
+
+
+  .calls-heading,
+
+  .routine-intro {
+
+    width: 90vw !important;
+
+  }
+
+
+  .calls-heading p,
+
+  .routine-intro p {
+
+    text-align: center !important;
+
+  }
+
+
+  .bridge-content p,
+
+  .after-chat p,
+
+  #more .copy-column p,
+
+  .reasons-intro p,
+
+  .more-ending p {
+
+    text-align: justify !important;
+
+  }
+
+
+  #more .more-row,
+
+  #more .more-row.reverse {
+
+    width: 100% !important;
+
+  }
+
+
+  .reasons-transition {
+
+    padding-left: 5vw !important;
+
+    padding-right: 5vw !important;
+
+  }
+
+}
+
+
 </style>
 
 </head>
